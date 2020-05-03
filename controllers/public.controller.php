@@ -19,6 +19,31 @@ class PublicController{
     public function home(){
         echo '<h1>El HOME está en construcción</h1>';
     }
+
+    public function showPlayer() {
+        //pido los jugadores al modelo
+        $jugadores = $this->modelJugadores->getAll();
+
+        //actualizo la vista
+        $this->view->showPlayers($jugadores);
+    }
+    
+    public function viewPlayer($idJugador) {
+        $jugador = $this->modelJugadores->get($idJugador);
+
+        if(!empty($jugador))
+            $this->view->showPlayer($jugador);
+        //else
+          //  $this->view->showError("La tarea no existe");
+    }
+
+    public function showDivision() {
+        //pido las divisiones al modelo
+        $divisiones = $this->modelDivisiones->getAll();
+
+        //actualizo la vista
+        $this->view->showDivisions($divisiones);
+    }
     
     public function mostrarError($msg,$img){
         //Le digo a la VISTA que me muestre el error en pantalla
