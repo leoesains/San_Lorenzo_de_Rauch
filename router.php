@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 require_once 'controllers/public.controller.php';
 
@@ -43,4 +43,4 @@ switch($parametros[0]){
         $controller->showError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");
     }    
 }
-    
+        

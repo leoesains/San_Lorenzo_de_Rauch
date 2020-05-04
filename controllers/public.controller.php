@@ -20,6 +20,31 @@ class PublicController{
         $divisiones = $this->modelDivisiones->getAll();
         $this->view->showHome($divisiones);
     }
+
+    public function showPlayer() {
+        //pido los jugadores al modelo
+        $jugadores = $this->modelJugadores->getAll();
+
+        //actualizo la vista
+        $this->view->showPlayers($jugadores);
+    }
+    
+    public function viewPlayer($idJugador) {
+        $jugador = $this->modelJugadores->get($idJugador);
+
+        if(!empty($jugador))
+            $this->view->showPlayer($jugador);
+        //else
+          //  $this->view->showError("La tarea no existe");
+    }
+
+    public function showDivision() {
+        //pido las divisiones al modelo
+        $divisiones = $this->modelDivisiones->getAll();
+
+        //actualizo la vista
+        $this->view->showDivisions($divisiones);
+    }
     
     public function showPlayersByDivision($division){
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
