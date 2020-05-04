@@ -13,28 +13,34 @@ $accion = $_GET['action'];
 $parametros = explode('/', $accion);
 
 switch($parametros[0]){
-    case 'home':
+    case 'home': {
         $controller = new PublicController();     
         $controller->home();
     break;
-    case 'listarJugadores':
+    }
+    case 'listarJugadores': {
         $controller = new PublicController();     
-        $controller->mostrarJugadores();
+        $controller->showPlayer();
     break;
-    case 'verJugador':
+    }
+    case 'verJugador': {
         $controller = new PublicController();     
-        $controller->verJugador();
+        $controller->viewPlayer($parametros[1]);
     break;
-    case 'listarDivisiones':
+    }
+    case 'listarDivisiones': {
         $controller = new PublicController();     
-        $controller->mostrarDivisiones();
+        $controller->showDivision();
     break;
-    case 'divisiones_jugadores':
+    }
+    case 'divisiones_jugadores': {
         $controller = new PublicController();     
-        $controller->mostrarJugadoresXDivision();
+        $controller->showPlayersByDivision($parametros[1]);
     break;
-    default:
+    }
+    default: {
         $controller = new PublicController();     
-        $controller->mostrarError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");
+        $controller->showError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");
+    }    
 }
     
