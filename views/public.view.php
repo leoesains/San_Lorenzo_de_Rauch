@@ -1,7 +1,7 @@
 ﻿<?php
 
 class PublicView{
-    //<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
             
     private function encabezado(){
         echo '
@@ -13,8 +13,9 @@ class PublicView{
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>San Lorenzo de Rauch</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <link rel="stylesheet" href="css/estilos.css">
-        </ head>
+            </ head>
         <body>
         ';
     }
@@ -26,11 +27,16 @@ class PublicView{
         ';
     }
     
-    public function showHome($divisiones){
+    public function showHome(){
         $this->encabezado();
         echo '
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIALSAN LORENZO DE RAUCH</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+            <img class="imagenNav"src="images/Escudo transparente.png">
+            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,213 +44,307 @@ class PublicView{
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="home">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="listarJugadores">Jugadores</a>
+                        <a class="nav-link" href="listarJugadores">JUGADORES</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="listarDivisiones">Divisiones</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Jugadores por División
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">';
-                            foreach($divisiones as $division){
-                                $idDivision = $division->id_division; //Para agregar a la accion del href el id que quiero borrar o mofificar
-                                $nombreDivision = $division->nombre_div;
-                                echo '<a class="dropdown-item" href="divisiones_jugadores/' .$idDivision. '">' .$nombreDivision. '</a>';
-                            }
-                echo '  </div>
+                        <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
                     </li>
                 </ul>
             </div>
         </nav>
+        
+        <div class="contenedorFrase">
+            <h1>Institución dedicada a la Enseñanza del Deporte y la Formación Humana de niños, jóvenes y adultos</h1>
+            <p class="frase">"Todos tenemos sueños, pero para que se vuelvan realidad se necesita una gran determinación, dedicación, autodisciplina y esfuerzo."</P>
+            
+        </div>
         ';
-        echo '<div>';
-        echo "</div>";
+                
         $this->pie();
     }
 
-
-    public function printError($msg,$img) {
+    public function printError($msg) {
         $this->encabezado();
+
         echo '
-        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Tareas</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+            <img class="imagenNav"src="images/Escudo transparente.png">            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="listar">Home<span class="sr-only">(current)</span></a>
-                </li>
-            </div>
-        </nav>
-        ';
 
-        echo "<div class='text-center'>
-                <h2>Error</h2>
-                <h5>$msg</h5>
-                <img src=" .$img. "> 
-              </div>";
-
-        echo '<div class="text-center"><a class="" href="'.BASE_URL . 'home">Volver</a></div>';
-
-        $this->pie();
-    }
-
-    /* 
-    
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Club Atlético y Social San Lorenzo de Rauch</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarText">
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="home">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="listarJugadores">Jugadores<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="listarJugadores">JUGADORES</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="listarDivisiones">Divisiones<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="divisiones_jugadores">Jugadores por División<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
                     </li>
                 </ul>
             </div>
-        </nav>
-    
-    */
+        </nav>        
+                
+        <div class="text-center">
+            <p>Error</p>
+            <h2>' .$msg. '</h2>
+            <img src="images/errores/error_icon.png"> 
+        </div>';
 
+        $this->pie();
+    }
 
     public function showPlayers($jugadores) {
+        $this->encabezado();    
+        echo '
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+        <img class="imagenNav"src="images/Escudo transparente.png">            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        echo '
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <base href="' . BASE_URL . '">
-                <title>Lista de Jugadores</title>
-                <link rel="stylesheet" href="css/estilos.css">
-            </head>
-            <body>
-        ';
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarJugadores">JUGADORES</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>    
+        <div class="contenedorTablaJugadores">
+            <table class="table">
+                <caption>LISTA DE JUGADORES TEMPORADA 2020</caption>
+                <thead>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>DNI</th>
+                        <th>PERFIL</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    foreach($jugadores as $jugador) {
+                        $idJugador = $jugador->id_jugador;
+                        echo '<tr>';
+                            echo '<td>';
+                            echo '<b>' . $jugador->nombre . '</b>';
+                            echo '</td>';
+                            echo '<td>';
+                            echo $idJugador;
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<a href="verJugador/'.$idJugador.'">Ver</a>';    
+                            echo '</td>';
+                        echo '</tr>';
+                    }   
+                echo '
+                </tbody>
+            </table>
+        </div>';
     
-        echo '<h1> Lista de Jugadores</h1>';
-        //armamos la lista de jugadores
-        echo "<ul>";
-        foreach($jugadores as $jugador) {
-            $idJugador = $jugador->id_jugador;
-            echo '<li>';
-            //echo ' <b>' . $jugador->nombre . "</b> - ";
-            echo '<a href="verJugador/'.$idJugador.'">' .$jugador->nombre. '</a>';
-        }
-        echo "</ul>";
-    
-        echo '
-            </body>
-            </html>
-        ';
+        $this->pie();
     }
 
     public function showPlayer($jugador) {
-
+        $this->encabezado();
         echo '
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <base href="' . BASE_URL . '">
-                <title>Jugador</title>
-                <link rel="stylesheet" href="css/estilos.css">
-            </head>
-            <body>
-        ';
-    
-        echo '<h1>Jugador</h1>';
-        //armamos la lista de jugadores
-        echo "<ul>";
-            echo '<li>';
-            echo ' <b>' . $jugador->nombre . "</b> - ";
-            echo $jugador->edad . "---";
-            echo $jugador->fecha_nac . "---";
-            //echo $jugador->#carnet . "---";
-            echo $jugador->puesto . "---";
-            echo $jugador->club_origen . "---";
-            echo $jugador->telefono . "---";
-            echo $jugador->id_division . "---";
-            echo '<img src=' .$jugador->imagen. '>';
-            echo '</li>';
-        echo "</ul>";
-    
-        echo '
-            </body>
-            </html>
-        ';
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+        <img class="imagenNav"src="images/Escudo transparente.png">            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarJugadores">JUGADORES</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>    
+        <div class="contenedorPerfil">
+            <div>
+                <img src=' .$jugador->imagen. '>
+            </div>
+            <div class="datosJugador">
+                <h3><b>PERFIL DEL JUGADOR</b></h3>
+                <p>' .$jugador->nombre. '</p>
+                <h4><b>EDAD</b></h4>
+                <h3>' .$jugador->edad. ' años</h3>
+                <h4><b>FECHA DE NACIMIENTO</b></h4>
+                <h3>' .$jugador->fecha_nac. '</h3>
+                <h4><b>CARNET</b></h4>
+                <h3>' .$jugador->carnet. '</h3>
+                <h4><b>PUESTO</b></h4>
+                <h3>' .$jugador->puesto. '</h3>
+                <h4><b>CLUB AL QUE PERTENECE EL PASE</b></h4>
+                <h3>' .$jugador->club_origen. '</h3>
+                <h4><b>TELÉFONO DE CONTACTO</b></h4>
+                <h3>' .$jugador->telefono. '</h3>
+            </div>
+        </div>
+        ';
+        $this->pie();
     }
 
     public function showDivisions($divisiones) {
-
+        $this->encabezado();
         echo '
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <base href="' . BASE_URL . '">
-                <title>Lista de Categorias del Club</title>
-                <link rel="stylesheet" href="css/estilos.css">
-            </head>
-            <body>
-        ';
-    
-        echo '<h1>Categorias del club del club</h1>';
-        //armamos la lista de divisiones
-        echo "<ul>";
-        foreach($divisiones as $division) {
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+            <img class="imagenNav"src="images/Escudo transparente.png">
+            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            echo '<li>';
-            echo ' <b>' . $division->nombre_div . "</b> - ";
-            echo $division->edad_limite . "---";
-            echo $division->limite_jugadores_LBF . "---";
-            echo $division->excepciones . "---";
-            echo '</li>';
-        }
-        echo "</ul>";
-    
-        echo '
-            </body>
-            </html>
-        ';
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    }
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarJugadores">JUGADORES</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>            
+        <div class="contenedorTablaDivisiones">
+            <table class="table">
+                <caption>LISTA DE DIVISIONES TEMPORADA 2020</caption>
+                <thead>
+                    <tr>
+                        <th class="thDivision">NOMBRE</th>
+                        <th class="thDivision">EDAD LIMITE</th>
+                        <th class="thDivision">CANTIDAD JUGADORES</th>
+                        <th class="thDivision">ALGUNAS OBSERVACIONES</th>
+                        <th class="thDivision">JUGADORES</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    foreach($divisiones as $division) {
+                        $idDivision = $division->id_division;
+                        echo '<tr>';
+                            echo '<td>';
+                            echo '<b>' . $division->nombre_div . '</b>';
+                            echo '</td>';
+                            echo '<td>';
+                            echo $division->edad_limite;
+                            echo '</td>';
+                            echo '<td>';
+                            echo $division->limite_jugadores_LBF;
+                            echo '</td>';
+                            echo '<td>';
+                            echo $division->excepciones;
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<a href="divisiones_jugadores/'.$idDivision.'">Ver</a>';    
+                            echo '</td>';
+                        echo '</tr>';
+                    }   
+                echo '
+                </tbody>
+            </table>
+        </div>';
+
+        $this->pie();
+}    
 
     public function printPlayersByDivision($jugadoresXdivisiones) {
-
         $this->encabezado();
-        echo "<ul>";
-            foreach($jugadoresXdivisiones as $jugXdiv){
-                echo '<li>';
-                    echo ' <b>' . $jugXdiv->nombre . "</b> - ";
-                    echo $jugXdiv->nombre_div . "---";
-                echo '</li>';
-            }
-        echo "</ul>";
-    
+
+        echo '
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+            <img class="imagenNav"src="images/Escudo transparente.png">
+            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarJugadores">JUGADORES</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>            
+        <div class="contenedorTablaJugadores">
+            <table class="table">
+                <caption>JUGADORES POR DIVISION TEMPORADA 2020</caption>
+                <thead>
+                    <tr>
+                        <th>JUGADOR</th>
+                        <th>DIVISION</th>
+                        <th>PERFIL</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    foreach($jugadoresXdivisiones as $jugXdiv){
+                        $idJugador = $jugXdiv->id_jugador;
+                        echo '<tr>';
+                            echo '<td>';
+                            echo '<b>' . $jugXdiv->nombre . '</b>';
+                            echo '</td>';
+                            echo '<td>';
+                            echo $jugXdiv->nombre_div;
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<a href="verJugador/'.$idJugador.'">Ver</a>';    
+                            echo '</td>';
+                        echo '</tr>';
+                    }   
+                echo '
+                </tbody>
+            </table>
+        </div>';
+     
         $this->pie();
 
     }
-
-
 }

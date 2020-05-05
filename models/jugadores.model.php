@@ -1,15 +1,13 @@
-﻿<?php
+<?php
 
 class JugadoresModel{
 
-    //crea la coneccion a la BBDD
+    //Crea la conexión a la DDBB
     private function createConexion() {
-        
         $host = 'localhost';
         $userName = "root";
         $password = '';
         $dataBase = 'db_san_lorenzo_rauch';
-
         try {
             $pdo = new PDO("mysql:host=$host;dbname=$dataBase;charset=utf8", $userName, $password);
         } catch (Exception  $e){
@@ -18,47 +16,42 @@ class JugadoresModel{
         return $pdo;
     }
 
-    //devuelve todos los jugadores
+    //Obtengo todos los jugadores
     public function getAll() {
-
-        // abro la conexion con mysql
+        //Abro la conexion con mysql
         $db = $this->createConexion();
-
-        // enviamos la consulta
-        $sentencia = $db->prepare("SELECT * FROM jugadores");    //preparo la sentencia
-        $sentencia->execute();        //la ejecuto
-        $jugadores = $sentencia->fetchAll(PDO::FETCH_OBJ);    //Oobtenemos la lista de tareas y la guardamos en el arreglo $tareas
-
+        //Enviamos la consulta
+        $sql = "SELECT * FROM jugadores";
+        $query = $db->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
+        $query->execute();        //La ejecuto
+        $jugadores = $query->fetchAll(PDO::FETCH_OBJ);    //Obtenemos la lista de jugadores y la guardamos en el arreglo $jugadores
         return $jugadores;
     }
 
-    //devuelve un jugador
+    //Devuelve un jugador
     public function get($idJugador) {
-        // 1) abro la conexion con mysql
+        //Abro la conexion con mysql
         $db = $this->createConexion();
-
-        // 2)enviamos la consulta
-        $sentencia = $db->prepare("SELECT * FROM jugadores WHERE id_jugador = ?");    //preparo la sentencia
-        $sentencia->execute([$idJugador]);        //la ejecuto
-        $jugador = $sentencia->fetch(PDO::FETCH_OBJ);    
-
+        //Enviamos la consulta
+        $sql = "SELECT * FROM jugadores WHERE id_jugador = ?";
+        $query = $db->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
+        $query->execute([$idJugador]);        //La ejecuto
+        $jugador = $query->fetch(PDO::FETCH_OBJ);    
         return $jugador;
     }
+
+    //Devuelve los jugadores de una division dada
     public function getPlayerDivisions($idDivision){
         //1. Abro la conexion con MySQL
         $db = $this->createConexion();
         //2. Enviamos la consulta (Se preapra, se envía o ejecuta y se obtiene la respuesta)
-        $sql = "SELECT J.nombre, D.nombre_div 
+        $sql = "SELECT J.id_jugador, J.nombre, D.nombre_div 
                 FROM jugadores J
                 INNER JOIN divisiones D ON J.id_division = D.id_division
                 WHERE J.id_division = $idDivision"; //Consulta que quiero realizar en la Base de Datos
         $query = $db->prepare($sql); //Preparo para hacer la consulta
         $query->execute(); //Envío o ejecuto la consulta
-        $jugadorXdivision = $query->fetchAll(PDO::FETCH_OBJ); //obtengo la respuesta. Copiamos el arreglo de tareas en $tareas
+        $jugadorXdivision = $query->fetchAll(PDO::FETCH_OBJ); //Obtengo la respuesta a mi consulta. 
         return $jugadorXdivision;
-
     }
-
-
-
 }

@@ -2,14 +2,12 @@
 
 class DivisionesModel{
 
-    //crea la coneccion a la BBDD
+    //Crea la conexión a la DDBB
     private function createConexion() {
-        
         $host = 'localhost';
         $userName = "root";
         $password = '';
         $dataBase = 'db_san_lorenzo_rauch';
-
         try {
             $pdo = new PDO("mysql:host=$host;dbname=$dataBase;charset=utf8", $userName, $password);
         } catch (Exception  $e){
@@ -18,18 +16,15 @@ class DivisionesModel{
         return $pdo;
     }
 
-    //devuelve todas las divisiones
+    //Obtengo todas las divisiones
     public function getAll() {
-
-        // abro la conexion con mysql
+        //Me conecto con la DDBB
         $db = $this->createConexion();
-
-        // enviamos la consulta
-        $sentencia = $db->prepare("SELECT * FROM divisiones");    //preparo la sentencia
-        $sentencia->execute();        //la ejecuto
-        $divisiones = $sentencia->fetchAll(PDO::FETCH_OBJ);    //Oobtenemos la lista de divisiones y la guardamos en el arreglo $divisiones
-
+        //Hacemos la consulta
+        $sql = "SELECT * FROM divisiones";
+        $query = $db->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
+        $query->execute();        //la ejecuto
+        $divisiones = $query->fetchAll(PDO::FETCH_OBJ);    //Guardo todas las divisiones en $divisiones (arreglo)
         return $divisiones;
     }
-
 }
