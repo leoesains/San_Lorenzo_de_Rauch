@@ -32,7 +32,7 @@ class PublicView{
         echo '
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
             <img class="imagenNav"src="images/Escudo transparente.png">
-            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <a class="navbar-brand" href="#"><b>SAN LORENZO DE RAUCH</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -53,6 +53,14 @@ class PublicView{
                         <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
                     </li>
                 </ul>
+            </div>
+            <div class="login-container">
+                <form class="form_log" action="log_admin" method="POST">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="text" placeholder="Password" name="psw">
+                    <button type="submit">Login</button>
+                </form>
+                <a class="nav-link" href="registrarse">REGISTRARSE</a
             </div>
         </nav>
         
@@ -71,7 +79,8 @@ class PublicView{
 
         echo '
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-            <img class="imagenNav"src="images/Escudo transparente.png">            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <img class="imagenNav"src="images/Escudo transparente.png">  
+            <a class="navbar-brand" href="#"><b>SAN LORENZO DE RAUCH</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -93,6 +102,14 @@ class PublicView{
                     </li>
                 </ul>
             </div>
+            <div class="login-container">
+                <form class="form_log" action="log_admin" method="POST">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="text" placeholder="Password" name="psw">
+                    <button type="submit">Login</button>
+                </form>
+                <a class="nav-link" href="registrarse">REGISTRARSE</a
+            </div>
         </nav>        
                 
         <div class="text-center">
@@ -108,7 +125,8 @@ class PublicView{
         $this->encabezado();    
         echo '
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-        <img class="imagenNav"src="images/Escudo transparente.png">            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <img class="imagenNav"src="images/Escudo transparente.png">
+            <a class="navbar-brand" href="#"><b>SAN LORENZO DE RAUCH</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -129,6 +147,14 @@ class PublicView{
                         <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
                     </li>
                 </ul>
+            </div>
+            <div class="login-container">
+                <form class="form_log" action="log_admin" method="POST">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="text" placeholder="Password" name="psw">
+                    <button type="submit">Login</button>
+                </form>
+                <a class="nav-link" href="registrarse">REGISTRARSE</a
             </div>
         </nav>    
         <div class="contenedorTablaJugadores">
@@ -168,7 +194,8 @@ class PublicView{
         $this->encabezado();
         echo '
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-        <img class="imagenNav"src="images/Escudo transparente.png">            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <img class="imagenNav"src="images/Escudo transparente.png">
+            <a class="navbar-brand" href="#"><b>SAN LORENZO DE RAUCH</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -189,6 +216,14 @@ class PublicView{
                         <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
                     </li>
                 </ul>
+            </div>
+            <div class="login-container">
+                <form class="form_log" action="log_admin" method="POST">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="text" placeholder="Password" name="psw">
+                    <button type="submit">Login</button>
+                </form>
+                <a class="nav-link" href="registrarse">REGISTRARSE</a
             </div>
         </nav>    
         <div class="contenedorPerfil">
@@ -221,7 +256,7 @@ class PublicView{
         echo '
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
             <img class="imagenNav"src="images/Escudo transparente.png">
-            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <a class="navbar-brand" href="#"><b>SAN LORENZO DE RAUCH</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -242,6 +277,14 @@ class PublicView{
                         <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
                     </li>
                 </ul>
+            </div>
+            <div class="login-container">
+                <form class="form_log" action="log_admin" method="POST">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="text" placeholder="Password" name="psw">
+                    <button type="submit">Login</button>
+                </form>
+                <a class="nav-link" href="registrarse">REGISTRARSE</a
             </div>
         </nav>            
         <div class="contenedorTablaDivisiones">
@@ -291,7 +334,7 @@ class PublicView{
         echo '
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
             <img class="imagenNav"src="images/Escudo transparente.png">
-            <a class="navbar-brand" href="#">CLUB ATLÉTICO Y SOCIAL SAN LORENZO DE RAUCH</a>
+            <a class="navbar-brand" href="#"><b>SAN LORENZO DE RAUCH</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -312,6 +355,14 @@ class PublicView{
                         <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
                     </li>
                 </ul>
+            </div>
+            <div class="login-container">
+                <form class="form_log" action="log_admin" method="POST">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="text" placeholder="Password" name="psw">
+                    <button type="submit">Login</button>
+                </form>
+                <a class="nav-link" href="registrarse">REGISTRARSE</a
             </div>
         </nav>            
         <div class="contenedorTablaJugadores">

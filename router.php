@@ -1,6 +1,7 @@
 <?php
 
 require_once 'controllers/public.controller.php';
+require_once 'controllers/admin.controller.php';
 
 // definimos la base url de forma dinamica
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -10,9 +11,13 @@ if(empty($_GET['action'])){
     $_GET['action'] = 'home';
 }
 $accion = $_GET['action'];
+
 $parametros = explode('/', $accion);
 
 switch($parametros[0]){
+
+    // -- Acciones del public.controller
+
     case 'home': {
         $controller = new PublicController();     
         $controller->home();
@@ -38,6 +43,21 @@ switch($parametros[0]){
         $controller->showPlayersByDivision($parametros[1]);
     break;
     }
+
+    // -- Acciones del admin.controller
+    
+    case 'log_admin': {
+        $controller = new AdminController();  
+        $controller->loginAdmin();
+    break;
+    }
+
+    case 'registrarse': {
+        $controller = new AdminController();  
+        $controller->regAdmin();
+    break;
+    }
+
     default: {
         $controller = new PublicController();     
         $controller->showError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");
