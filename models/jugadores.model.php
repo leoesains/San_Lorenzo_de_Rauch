@@ -10,21 +10,7 @@ class JugadoresModel{
         $this->modelConection = new dbConectionModel();
     }
 
-    //Crea la conexión a la DDBB
-    /*
-    private function createConexion() {
-        $host = 'localhost';
-        $userName = "root";
-        $password = '';
-        $dataBase = 'db_san_lorenzo_rauch';
-        try {
-            $pdo = new PDO("mysql:host=$host;dbname=$dataBase;charset=utf8", $userName, $password);
-        } catch (Exception  $e){
-            var_dump($e);
-        }
-        return $pdo;
-    }
-*/
+    
     //Obtengo todos los jugadores
     public function getAll() {
         //Abro la conexion con mysql
@@ -62,5 +48,15 @@ class JugadoresModel{
         $query->execute(); //Envío o ejecuto la consulta
         $jugadorXdivision = $query->fetchAll(PDO::FETCH_OBJ); //Obtengo la respuesta a mi consulta. 
         return $jugadorXdivision;
+    }
+
+    //ingresa un nuevo jugador a la BBDD
+    function insert($dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria) {
+        // 1) abro la conexion con mysql
+        $db = $this->modelConection->createConexion();
+        // 2)enviamos la consulta
+        $sentencia = $db->prepare("INSERT INTO jugadores(id_jugador, nombre, edad, fecha_nac, carnet, puesto, club_origen, telefono, id_division, imagen) 
+                                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");  
+        $sentencia->execute([$dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria]);        
     }
 }

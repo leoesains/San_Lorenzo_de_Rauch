@@ -10,20 +10,7 @@ class DivisionesModel{
         $this->modelConection = new dbConectionModel();
     }
 
-    //Crea la conexión a la DDBB
-    /*private function createConexion() {
-        $host = 'localhost';
-        $userName = "root";
-        $password = '';
-        $dataBase = 'db_san_lorenzo_rauch';
-        try {
-            $pdo = new PDO("mysql:host=$host;dbname=$dataBase;charset=utf8", $userName, $password);
-        } catch (Exception  $e){
-            var_dump($e);
-        }
-        return $pdo;
-    }
-*/
+    
     //Obtengo todas las divisiones
     public function getAll() {
         //Me conecto con la DDBB
@@ -37,25 +24,24 @@ class DivisionesModel{
         return $divisiones;
     }
 
-    
-    /*
-    public function getAllAdmin() {
-        //Me conecto con la DDBB
+    //obtengo una division pasada por parametro
+    public function get($idDivision) {
+        //Abro la conexion con mysql
         $db = $this->modelConection->createConexion();
-        //Hacemos la consulta
-        $sql = "SELECT * FROM administradores";
+        //Enviamos la consulta
+        $sql = "SELECT * FROM divisiones WHERE id_division = ?";
         $query = $db->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
-        $query->execute();        //la ejecuto
-        $administradores = $query->fetchAll(PDO::FETCH_OBJ);    
-        return $administradores;
+        $query->execute([$idDivision]);        //La ejecuto
+        $division = $query->fetch(PDO::FETCH_OBJ);    
+        return $division;
     }
 
-    function insert($nombre, $usurname, $password) {
+    //ingresa una nueva division a la BBDD
+    function insert($numeroDivision, $nombreDivision, $edadLimite, $limiteJugadores, $excepciones) {
         // 1) abro la conexion con mysql
         $db = $this->modelConection->createConexion();
         // 2)enviamos la consulta
-        $sentencia = $db->prepare("INSERT INTO administradores(nombre, nombre_usuario, contraseña) VALUES (?, ?, ?) ");  //los ? son para verificar que el usuario no ingrese codigo malisioso
-        $sentencia->execute([$nombre, $usurname, $password]);        //la ejecuto
+        $sentencia = $db->prepare("INSERT INTO divisiones(id_division, nombre_div, edad_limite, limite_jugadores_LBF, excepciones) VALUES (?, ?, ?, ?, ?)");  
+        $sentencia->execute([$numeroDivision, $nombreDivision, $edadLimite, $limiteJugadores, $excepciones]);        
     }
-    */
 }

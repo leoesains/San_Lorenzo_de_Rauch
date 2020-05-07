@@ -10,6 +10,7 @@ class AdminModel{
         $this->modelConection = new dbConectionModel();
     }
 
+    //devuelve todos los administradores de la tabla administradores
     public function getAllAdmin() {
         //Me conecto con la DDBB
         $db = $this->modelConection->createConexion();
@@ -21,6 +22,7 @@ class AdminModel{
         return $administradores;
     }
 
+    //ingresa un administrador en la BBDD
     function insert($nombre, $usurname, $password) {
         // 1) abro la conexion con mysql
         $db = $this->modelConection->createConexion();

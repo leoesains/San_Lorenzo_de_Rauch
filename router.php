@@ -47,14 +47,38 @@ switch($parametros[0]){
     //**************************************************************************** */
 
     case 'jugadores': {
-        $controller = new PublicController();  
+        $controller = new AdminController();  
         $controller->crudPlayers();
     break;
     }
 
     case 'categorias': {
-        $controller = new PublicController();  
+        $controller = new AdminController();  
         $controller->crudDivisions();
+    break;
+    }
+
+    case 'agregarJugador': {
+        $controller = new AdminController();  
+        $controller->formPlayer();
+    break;
+    }
+
+    case 'guardarJugador': {
+        $controller = new AdminController();  
+        $controller->addPlayer();
+    break;
+    }
+    
+    case 'agregarDivision': {
+        $controller = new AdminController();  
+        $controller->formDivision();
+    break;
+    }
+
+    case 'guardarDivision': {
+        $controller = new AdminController();  
+        $controller->addDivision();
     break;
     }
 

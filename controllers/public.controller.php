@@ -19,14 +19,16 @@ class PublicController{
     public function home(){
         $this->view->showHome();
     }
-    
+
+    //muestra todos los jugadores que hay cargados en la BBDD
     public function showPlayer() {
         //Pido los jugadores al modelo
         $jugadores = $this->modelJugadores->getAll();
         //Actualizo la vista
         $this->view->showPlayers($jugadores);
     }
-    
+
+    //muestra un jugador
     public function viewPlayer($idJugador) {
         $jugador = $this->modelJugadores->get($idJugador);
         if(!empty($jugador))
@@ -35,32 +37,19 @@ class PublicController{
             $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos");
     }
 
+    //muestra todas las divisiones cargadas en la BBDD
     public function showDivision() {
         //pido las divisiones al modelo
         $divisiones = $this->modelDivisiones->getAll();
         //actualizo la vista
         $this->view->showDivisions($divisiones);
     }
- 
+
+    //muestra los jugadores de una division especifica
     public function showPlayersByDivision($division){
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
         $this->view->printPlayersByDivision($jugadoresXdivisiones);
     }
-
-    public function crudPlayers() {
-        //Pido los jugadores al modelo
-        $jugadores = $this->modelJugadores->getAll();
-        //Actualizo la vista
-        $this->view->showPlayersCrud($jugadores);
-    }
-
-    public function crudDivisions() {
-        //pido las divisiones al modelo
-        $divisiones = $this->modelDivisiones->getAll();
-        //actualizo la vista
-        $this->view->showDivisionsCrud($divisiones);
-    }
- 
 
     public function showError($msg){
         //Le digo a la VISTA que me muestre el error en pantalla
