@@ -44,6 +44,20 @@ switch($parametros[0]){
     break;
     }
 
+    //**************************************************************************** */
+
+    case 'jugadores': {
+        $controller = new PublicController();  
+        $controller->crudPlayers();
+    break;
+    }
+
+    case 'categorias': {
+        $controller = new PublicController();  
+        $controller->crudDivisions();
+    break;
+    }
+
     // -- Acciones del admin.controller
     
     case 'log_admin': {
@@ -54,19 +68,19 @@ switch($parametros[0]){
 
     case 'registrarse': {
         $controller = new AdminController();  
-        $controller->regAdmin();
+        $controller->viewKeyWord();
     break;
     }
-    case 'registro': {
+    case 'formulario': {
         $controller = new AdminController();  
         $controller->showForm();
-        //echo "ssss";
+        
     break;
     }
     case 'enviarFormulario': {
         $controller = new AdminController();  
         $controller->loadData();
-        //echo "ssss";
+        
     break;
     }
     default: {

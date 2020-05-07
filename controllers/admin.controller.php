@@ -1,6 +1,7 @@
 <?php
 require_once 'models/divisiones.model.php';
 require_once 'models/jugadores.model.php';
+require_once 'models/admin.model.php';
 require_once 'views/public.view.php';
 require_once 'views/admin.view.php';
 
@@ -10,12 +11,16 @@ class AdminController{
     //Variables globales del controlador
     private $modelDivisiones;
     private $modelJugadores;
+    private $modelAdmin;
     private $view;
+    private $viewPublic;
 
-    public function __construct(){ //Constructor de la clase
+    public function __construct() { //Constructor de la clase
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
+        $this->modelAdmin = new AdminModel();
         $this->view = new AdminView();
+        $this->viewPublic = new PublicView();
     }
 
     public function loginAdmin(){
@@ -24,14 +29,15 @@ class AdminController{
         } else {
             $username = $_POST['username'];
             $password = $_POST['psw'];
-            $administradores = $this->modelDivisiones->getAllAdmin();
+            $administradores = $this->modelAdmin->getAllAdmin();
             //print_r($administradores);
             
             //foreach($administradores as $administrador) {
             $longitud = count($administradores);
             for($i = 0; $i < $longitud; $i ++) {
                 if($administradores[$i]->nombre_usuario == $username && $administradores[$i]->contraseña == $password) {
-                    echo "logueado correctamente";
+                    //echo "logueado correctamente";
+                    $this->viewPublic->chooseTask();
                     die();
                 }
             }
@@ -39,14 +45,11 @@ class AdminController{
                 echo "los datos ingresados son incorrectos"; 
             }
         }
-
     }
 
-    public function regAdmin(){
+    public function viewKeyWord(){
         //var_dump("MOSTRAR UN FORMULARIO PARA INSERTAR UN USUARIO ADMINISTRADOR A LA TABLA ADMINISTRADORES");
         $this->view->keyWord();
-        
-        
     }
 
     public function showForm() {
@@ -66,7 +69,7 @@ class AdminController{
         if(empty($_POST['name']) || empty($_POST['username']) || empty($_POST['password'])) {           //hacer algo mas lindo de vista
             echo "debe ingresar los 3 datos solicitados";
         } else {
-            $this->modelDivisiones->insert($_POST['name'], $_POST['username'], $_POST['password']);
+            $this->modelAdmin->insert($_POST['name'], $_POST['username'], $_POST['password']);
             echo "datos guardados correctamente";
         }
     }

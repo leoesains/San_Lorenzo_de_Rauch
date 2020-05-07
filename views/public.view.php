@@ -105,7 +105,7 @@ class PublicView{
             <div class="login-container">
                 <form class="form_log" action="log_admin" method="POST">
                     <input type="text" placeholder="Username" name="username">
-                    <input type="text" placeholder="Password" name="psw">
+                    <input type="password" placeholder="Password" name="psw">
                     <button type="submit">Login</button>
                 </form>
                 <a class="nav-link" href="registrarse">REGISTRARSE</a
@@ -151,7 +151,7 @@ class PublicView{
             <div class="login-container">
                 <form class="form_log" action="log_admin" method="POST">
                     <input type="text" placeholder="Username" name="username">
-                    <input type="text" placeholder="Password" name="psw">
+                    <input type="password" placeholder="Password" name="psw">
                     <button type="submit">Login</button>
                 </form>
                 <a class="nav-link" href="registrarse">REGISTRARSE</a
@@ -220,7 +220,7 @@ class PublicView{
             <div class="login-container">
                 <form class="form_log" action="log_admin" method="POST">
                     <input type="text" placeholder="Username" name="username">
-                    <input type="text" placeholder="Password" name="psw">
+                    <input type="password" placeholder="Password" name="psw">
                     <button type="submit">Login</button>
                 </form>
                 <a class="nav-link" href="registrarse">REGISTRARSE</a
@@ -281,7 +281,7 @@ class PublicView{
             <div class="login-container">
                 <form class="form_log" action="log_admin" method="POST">
                     <input type="text" placeholder="Username" name="username">
-                    <input type="text" placeholder="Password" name="psw">
+                    <input type="password" placeholder="Password" name="psw">
                     <button type="submit">Login</button>
                 </form>
                 <a class="nav-link" href="registrarse">REGISTRARSE</a
@@ -359,7 +359,7 @@ class PublicView{
             <div class="login-container">
                 <form class="form_log" action="log_admin" method="POST">
                     <input type="text" placeholder="Username" name="username">
-                    <input type="text" placeholder="Password" name="psw">
+                    <input type="password" placeholder="Password" name="psw">
                     <button type="submit">Login</button>
                 </form>
                 <a class="nav-link" href="registrarse">REGISTRARSE</a
@@ -398,6 +398,204 @@ class PublicView{
         $this->pie();
 
     }
+
+    //***************************************************************************************************************************** */
+
+    public function chooseTask() {
+
+        echo '
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <base href="' . BASE_URL . '">
+                <title>Modificaciones</title>
+                <link rel="stylesheet" href="css/estilos.css">
+            </head>
+            <body>
+        
+                <form action="jugadores" method="POST">
+                    <label>Modificar Jugadores</label>
+                    <button type="submit">Ver</button>
+                </form>
+
+                <form action="categorias" method="POST">
+                    <label>Modificar Categorias</label>
+                    <button type="submit">Ver</button>
+                </form>
+        ';
+
+        echo '
+            </body>
+            </html>
+        ';
+    }
+
+    public function showPlayersCrud($jugadores) {
+        $this->encabezado();    
+        echo '
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+            <img class="imagenNav"src="images/Escudo transparente.png">
+            <a class="navbar-brand" href="#"><b>SAN LORENZO DE RAUCH</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarJugadores">JUGADORES</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="login-container">
+                <form class="form_log" action="log_admin" method="POST">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="password" placeholder="Password" name="psw">
+                    <button type="submit">Login</button>
+                </form>
+                <a class="nav-link" href="registrarse">REGISTRARSE</a
+            </div>
+        </nav>
+        <form action="agregarJugador" method="POST">
+            <label>Agregar Jugador</label>
+            <button type="submit">Agregar</button>
+        </form>
+
+        <div class="contenedorTablaJugadores">
+            <table class="table">
+                <caption>LISTA DE JUGADORES TEMPORADA 2020</caption>
+                <thead>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>DNI</th>
+                        <th>EDITAR</th>
+                        <th>ELIMINAR</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    foreach($jugadores as $jugador) {
+                        $idJugador = $jugador->id_jugador;
+                        echo '<tr>';
+                            echo '<td>';
+                            echo '<b>' . $jugador->nombre . '</b>';
+                            echo '</td>';
+                            echo '<td>';
+                            echo $idJugador;
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<a href="editarJugador/'.$idJugador.'">Editar</a>';    
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<a href="eliminarJugador/'.$idJugador.'">Eliminar</a>';    
+                            echo '</td>';
+                        echo '</tr>';
+                    }   
+                echo '
+                </tbody>
+            </table>
+        </div>';
+    
+        $this->pie();
+    }
+
+    public function showDivisionsCrud($divisiones) {
+        $this->encabezado();
+        echo '
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+            <img class="imagenNav"src="images/Escudo transparente.png">
+            <a class="navbar-brand" href="#"><b>SAN LORENZO DE RAUCH</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarJugadores">JUGADORES</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="login-container">
+                <form class="form_log" action="log_admin" method="POST">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="password" placeholder="Password" name="psw">
+                    <button type="submit">Login</button>
+                </form>
+                <a class="nav-link" href="registrarse">REGISTRARSE</a
+            </div>
+        </nav>    
+        <form action="agregarDivision" method="POST">
+            <label>Agregar Division</label>
+            <button type="submit">Agregar</button>
+        </form>      
+
+        <div class="contenedorTablaDivisiones">
+            <table class="table">
+                <caption>LISTA DE DIVISIONES TEMPORADA 2020</caption>
+                <thead>
+                    <tr>
+                        <th class="thDivision">NOMBRE</th>
+                        <th class="thDivision">EDAD LIMITE</th>
+                        <th class="thDivision">CANTIDAD JUGADORES</th>
+                        <th class="thDivision">ALGUNAS OBSERVACIONES</th>
+                        <th class="thDivision">EDITAR</th>
+                        <th class="thDivision">ELIMINAR</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    foreach($divisiones as $division) {
+                        $idDivision = $division->id_division;
+                        echo '<tr>';
+                            echo '<td>';
+                            echo '<b>' . $division->nombre_div . '</b>';
+                            echo '</td>';
+                            echo '<td>';
+                            echo $division->edad_limite;
+                            echo '</td>';
+                            echo '<td>';
+                            echo $division->limite_jugadores_LBF;
+                            echo '</td>';
+                            echo '<td>';
+                            echo $division->excepciones;
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<a href="editarDivision/'.$idDivision.'">Editar</a>';    
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<a href="EliminarDivision/'.$idDivision.'">Eliminar</a>';    
+                            echo '</td>';
+                        echo '</tr>';
+                    }   
+                echo '
+                </tbody>
+            </table>
+        </div>';
+
+        $this->pie();
+}    
+
 
     
 }

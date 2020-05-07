@@ -18,7 +18,7 @@ class AdminView{
             </head>
             <body>
         
-                <form action="registro" method="POST">
+                <form action="formulario" method="POST">
                     <label>Ingrese la palabra clave</label>
                     <input type="text" name="palabraClave">
                     <button type="submit">Ingresar</button>

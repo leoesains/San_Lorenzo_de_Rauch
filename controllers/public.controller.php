@@ -46,6 +46,20 @@ class PublicController{
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
         $this->view->printPlayersByDivision($jugadoresXdivisiones);
     }
+
+    public function crudPlayers() {
+        //Pido los jugadores al modelo
+        $jugadores = $this->modelJugadores->getAll();
+        //Actualizo la vista
+        $this->view->showPlayersCrud($jugadores);
+    }
+
+    public function crudDivisions() {
+        //pido las divisiones al modelo
+        $divisiones = $this->modelDivisiones->getAll();
+        //actualizo la vista
+        $this->view->showDivisionsCrud($divisiones);
+    }
  
 
     public function showError($msg){

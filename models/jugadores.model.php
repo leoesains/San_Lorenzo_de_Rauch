@@ -1,8 +1,17 @@
 <?php
 
+require_once 'models/db.conection.model.php';
+
 class JugadoresModel{
 
+    private $modelConection;
+
+    public function __construct(){
+        $this->modelConection = new dbConectionModel();
+    }
+
     //Crea la conexión a la DDBB
+    /*
     private function createConexion() {
         $host = 'localhost';
         $userName = "root";
@@ -15,11 +24,11 @@ class JugadoresModel{
         }
         return $pdo;
     }
-
+*/
     //Obtengo todos los jugadores
     public function getAll() {
         //Abro la conexion con mysql
-        $db = $this->createConexion();
+        $db = $this->modelConection->createConexion();
         //Enviamos la consulta
         $sql = "SELECT * FROM jugadores";
         $query = $db->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
@@ -31,7 +40,7 @@ class JugadoresModel{
     //Devuelve un jugador
     public function get($idJugador) {
         //Abro la conexion con mysql
-        $db = $this->createConexion();
+        $db = $this->modelConection->createConexion();
         //Enviamos la consulta
         $sql = "SELECT * FROM jugadores WHERE id_jugador = ?";
         $query = $db->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
@@ -43,7 +52,7 @@ class JugadoresModel{
     //Devuelve los jugadores de una division dada
     public function getPlayerDivisions($idDivision){
         //1. Abro la conexion con MySQL
-        $db = $this->createConexion();
+        $db = $this->modelConection->createConexion();
         //2. Enviamos la consulta (Se preapra, se envía o ejecuta y se obtiene la respuesta)
         $sql = "SELECT J.id_jugador, J.nombre, D.nombre_div 
                 FROM jugadores J
