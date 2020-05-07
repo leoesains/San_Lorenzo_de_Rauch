@@ -57,7 +57,7 @@ class PublicView{
             <div class="login-container">
                 <form class="form_log" action="log_admin" method="POST">
                     <input type="text" placeholder="Username" name="username">
-                    <input type="text" placeholder="Password" name="psw">
+                    <input type="password" placeholder="Password" name="psw">
                     <button type="submit">Login</button>
                 </form>
                 <a class="nav-link" href="registrarse">REGISTRARSE</a
@@ -398,4 +398,6 @@ class PublicView{
         $this->pie();
 
     }
+
+    
 }

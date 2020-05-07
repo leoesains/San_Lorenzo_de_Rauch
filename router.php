@@ -57,7 +57,18 @@ switch($parametros[0]){
         $controller->regAdmin();
     break;
     }
-
+    case 'registro': {
+        $controller = new AdminController();  
+        $controller->showForm();
+        //echo "ssss";
+    break;
+    }
+    case 'enviarFormulario': {
+        $controller = new AdminController();  
+        $controller->loadData();
+        //echo "ssss";
+    break;
+    }
     default: {
         $controller = new PublicController();     
         $controller->showError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");
