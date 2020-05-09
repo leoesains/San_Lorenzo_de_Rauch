@@ -44,7 +44,7 @@ switch($parametros[0]){
     break;
     }
 
-    //**************************************************************************** */
+    // -- Acciones del admin.controller
 
     case 'jugadores': {
         $controller = new AdminController();  
@@ -82,8 +82,6 @@ switch($parametros[0]){
     break;
     }
 
-    // -- Acciones del admin.controller
-    
     case 'log_admin': {
         $controller = new AdminController();  
         $controller->loginAdmin();
