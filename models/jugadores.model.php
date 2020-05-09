@@ -51,12 +51,33 @@ class JugadoresModel{
     }
 
     //ingresa un nuevo jugador a la BBDD
-    function insert($dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria) {
+    public function insert($dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria) {
         // 1) abro la conexion con mysql
         $db = $this->modelConection->createConexion();
         // 2)enviamos la consulta
-        $sentencia = $db->prepare("INSERT INTO jugadores(id_jugador, nombre, edad, fecha_nac, carnet, puesto, club_origen, telefono, id_division, imagen) 
-                                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");  
-        $sentencia->execute([$dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria]);        
+        $sql = "INSERT INTO jugadores(id_jugador, nombre, edad, fecha_nac, carnet, puesto, club_origen, telefono, id_division, imagen) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+        $query = $db->prepare($sql);  
+        $query->execute([$dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria]);        
+    }
+
+//actualiza los datos de un jugador  
+    public function update($dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria) {
+        // 1) abro la conexion con mysql
+        $db = $this->modelConection->createConexion();
+        // 2)enviamos la consulta
+        $sql = "UPDATE jugadores SET nombre = ?, edad = ?, fecha_nac = ?, carnet = ?, puesto = ?, club_origen = ?, telefono = ?, id_division = ?, imagen = ? WHERE id_jugador = $dni";
+        $query = $db->prepare($sql);  
+        $query->execute([$nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria]);        
+    }
+
+    public function delete($dni){
+       // 1) abro la conexion con mysql
+       $db = $this->modelConection->createConexion();
+       // 2)enviamos la consulta
+       $sql = "DELETE FROM jugadores WHERE id_jugador = ?";
+       $query = $db->prepare($sql);  
+       $query->execute([$dni]);        
+
     }
 }

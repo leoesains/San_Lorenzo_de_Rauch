@@ -96,15 +96,44 @@ switch($parametros[0]){
     case 'formulario': {
         $controller = new AdminController();  
         $controller->showForm();
-        
     break;
     }
     case 'enviarFormulario': {
         $controller = new AdminController();  
         $controller->loadData();
-        
     break;
     }
+    case 'editarJugador': {
+        $controller = new AdminController();  
+        $controller->editDataPlayer();
+    break;
+    }
+    case 'guardarEdicionJugador': {
+        $controller = new AdminController();  
+        $controller->modifyDataPlayer();
+    break;
+    }
+    case 'eliminarJugador': {
+        $controller = new AdminController();  
+        $controller->removePlayer();
+    break;
+    }
+    case 'editarDivision': {
+        $controller = new AdminController();  
+        $controller->editDataDivision($parametros[1]);
+    break;
+    }
+    case 'guardarEdicionDivision': {
+        $controller = new AdminController();  
+        $controller->modifyDataDivision();
+    break;
+    }
+    case 'eliminarDivision': {
+        $controller = new AdminController();  
+        $controller->removeDivision($parametros[1]);
+    break;
+    }
+    
     default: {
         $controller = new PublicController();     
         $controller->showError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");

@@ -13,6 +13,7 @@ class AdminController{
     private $modelJugadores;
     private $modelAdmin;
     private $view;
+    private $viewPublic;
     
     
     public function __construct() { //Constructor de la clase
@@ -20,10 +21,11 @@ class AdminController{
         $this->modelJugadores = new JugadoresModel();
         $this->modelAdmin = new AdminModel();
         $this->view = new AdminView();
+        $this->viewPublic = new PublicView();
         
     }
 
-    //crea el usuario y contraseña y guarda los datos en la BBDD
+    //Controla que el usuario ingresado sea correcto
     public function loginAdmin(){
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
             echo "No ingreso todos los datos requeridos";
@@ -36,13 +38,14 @@ class AdminController{
             $longitud = count($administradores);
             for($i = 0; $i < $longitud; $i ++) {
                 if($administradores[$i]->nombre_usuario == $username && $administradores[$i]->contraseña == $password) {
-                    //echo "logueado correctamente";
                     $this->view->chooseTask();
+                    echo "Bienvenido " .$administradores[$i]->nombre;
+                    
                     die();
                 }
             }
             if($i == $longitud) {
-                echo "los datos ingresados son incorrectos";
+                echo "Usuario Desconocido";
             }
         }
     }
@@ -66,7 +69,7 @@ class AdminController{
         }
     }
 
-    //guarda los datos del usuario en la BBDD
+    //guarda En la BBDD al usuario Administrador que se está registrando. 
     public function loadData() {
         if(empty($_POST['name']) || empty($_POST['username']) || empty($_POST['password'])) {           //hacer algo mas lindo de vista
             echo "Debe ingresar los tres datos solicitados";
@@ -135,6 +138,61 @@ class AdminController{
             }
         }
     }
+
+    //muestra formulario para Editar el jugador con id = dni
+    public function editDataPlayer(){
+        $dni = $_POST['dni'];
+        $jugador = $this->modelJugadores->get($dni);
+        $this->view->showFormEdition($jugador);
+
+    }
+
+    //modifica datos de jugador en DDBB
+    public function modifyDataPlayer(){
+       if(empty($_POST['nombre']) || empty($_POST['edad'])|| 
+          empty($_POST['fechaNacimiento']) || empty($_POST['numeroCarnet']) || 
+          empty($_POST['puesto']) || empty($_POST['clubOrigen']) || 
+          empty($_POST['telefono']) || empty($_POST['foto']) || 
+          empty($_POST['division'])) {
+            $this->viewPublic->printError("No se permiten campos vacíos");
+            die;
+        } 
+        $this->modelJugadores->update($_POST['dni'],$_POST['nombre'], $_POST['edad'], 
+                                      $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'], $_POST['clubOrigen'], 
+                                      $_POST['telefono'], $_POST['division'],
+                                      $_POST['foto']);
+    }
+
+    public function removePlayer(){
+
+        $this->modelJugadores->delete($_POST['dni']);
+    }
+
+    //muestra formulario para Editar una Division
+        public function editDataDivision($id_division){
+        $division = $this->modelDivisiones->get($id_division);
+        $this->view->showFormEditionDivision($division);
+
+    }
+
+    public function modifyDataDivision(){
+        if(empty($_POST['nombre_div']) || empty($_POST['edad_limite'])|| 
+           empty($_POST['limite_jugadores_LBF']) || empty($_POST['excepciones'])) {
+             $this->viewPublic->printError("No se permiten campos vacíos");
+             die;
+         } 
+         $this->modelDivisiones->update($_POST['id_division'],$_POST['nombre_div'], 
+                                        $_POST['edad_limite'], 
+                                        $_POST['limite_jugadores_LBF'], 
+                                        $_POST['excepciones']);
+    }
+
+    public function removeDivision($id_div){
+        $this->modelDivisiones->delete($id_div);
+    }
+
+
+
 
     public function showError($msg){
         //Le digo a la VISTA que me muestre el error en pantalla

@@ -24,7 +24,7 @@
                             <a href="editarDivision/{$division->id_division}">Editar</a>    
                         </td>
                         <td>
-                        <a href="EliminarDivision/{$division->id_division}">Eliminar</a>    
+                        <a href="eliminarDivision/{$division->id_division}">Eliminar</a>    
                         </td>
                     </tr>
                 {/foreach}   

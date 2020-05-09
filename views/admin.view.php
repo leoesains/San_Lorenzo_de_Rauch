@@ -39,7 +39,6 @@ class AdminView{
         $smarty->display('templates/formDivisionAdd.tpl');
     }
 
-    
     public function keyWord() {
         $smarty = new Smarty();
 
@@ -51,6 +50,17 @@ class AdminView{
 
         $smarty->display('templates/adminForm.tpl');
     }
+    public function showFormEditionPlayer($jug){
+        $smarty = new Smarty();
+        $smarty->assign('jugador', $jug);
+        $smarty->display('templates/showFormEditionPlayer.tpl');
 
+    }
+    public function showFormEditionDivision($div){
+        $smarty = new Smarty();
+        $smarty->assign('division', $div);
+        $smarty->display('templates/showFormEditionDivision.tpl');
+
+    }
 
 }

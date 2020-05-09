@@ -4,35 +4,16 @@
         <button type="submit">Agregar</button>
     </form>
 
-    <div class="contenedorTablaJugadores">
-        <table class="table">
-            <caption>LISTA DE JUGADORES TEMPORADA 2020</caption>
-            <thead>
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>DNI</th>
-                    <th>EDITAR</th>
-                    <th>ELIMINAR</th>
-                </tr>
-            </thead>
-            <tbody>
-                {foreach from=$listaJugadores item=jugador}
-                    <tr>
-                        <td>
-                            <b>{$jugador->nombre}</b>
-                        </td>
-                        <td>
-                            {$jugador->id_jugador}
-                        </td>
-                        <td>
-                            <a href="editarJugador/{$jugador->id_jugador}">Editar</a>    
-                        </td>
-                        <td>
-                        <a href="eliminarJugador/{$jugador->id_jugador}">Eliminar</a>    
-                        </td>
-                    </tr>
-                {/foreach}   
-            </tbody>
-        </table>
-    </div>
+    <form action="editarJugador" method="POST">
+        <label>Ingrese DNI del jugador</label>
+        <input type="text" name="dni">
+        <button type="submit">Editar</button>
+    </form>
+
+    <form action="eliminarJugador" method="POST">
+        <label>Ingrese DNI del jugador</label>
+        <input type="text" name="dni">
+        <button type="submit">Eliminar</button>
+    </form>
+    
 {include 'templates/footer.tpl'}
