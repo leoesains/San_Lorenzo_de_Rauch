@@ -143,7 +143,7 @@ class AdminController{
     public function editDataPlayer(){
         $dni = $_POST['dni'];
         $jugador = $this->modelJugadores->get($dni);
-        $this->view->showFormEdition($jugador);
+        $this->view->showFormEditionPlayer($jugador);
 
     }
 
