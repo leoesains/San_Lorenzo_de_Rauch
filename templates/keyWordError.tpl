@@ -7,4 +7,5 @@
         <input type="text" name="palabraClave">
         <button type="submit"><b>Ingresar</b></button>
     </form>
+    <b class="navbar-brand">PALABRA CLAVE INCORRECTA. Intente nuevamente.</b>
 {include 'templates/footer.tpl'}

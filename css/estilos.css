@@ -4,6 +4,8 @@ body{
     background-attachment: fixed; /*para que la imagen quede fija en el scroll*/
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 10px;
+    width: 100%;
+    
 }
 
 .imagenNav{
@@ -14,28 +16,13 @@ body{
     margin-top: 12px;
 }
 
-.scroll-tabla{
-    overflow:scroll;
-    height:550px;
-    }
-
 .contenedorTablaJugadores {
     margin: 0 auto;
     margin-top: 20px;
-    width: 60%;
+    width: 30%;
     font-family: sans-serif;
     font-size: 1.2em;
 }
-
-.contenedorTablaJugadoresScroll{
-margin: 0 auto;
-
-width: 60%;
-font-family: sans-serif;
-font-size: 1.2em;
-}
-
-
 
 h5{
     font-weight: bold;
@@ -46,7 +33,7 @@ td {
     text-align: left;
     vertical-align: top;
     padding: 0.3em;
-    background: rgba(243, 240, 240, 0.7);;
+    background: rgba(243, 240, 240, 0.7);
 }
 
 th {
@@ -70,6 +57,14 @@ th {
     font-size: 1.2em;
 }
 
+.contenedorTablaDivisionesCrud {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 50%;
+    font-family: sans-serif;
+    font-size: 1.2em;
+}
+
 caption {
     background: rgba(117, 114, 114, 0.5);
     color: rgb(255, 255, 255);
@@ -77,9 +72,8 @@ caption {
     font-weight: bold;
     box-sizing: border-box;
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.5em;
     margin-bottom: 5px;
-    
 }
 
 .contenedorPerfil{
@@ -110,7 +104,6 @@ img{
     width: 90%;
     margin: auto;
     margin-top: 40px;
-    
 }
 
 .contenedorFrase img{
@@ -126,6 +119,29 @@ h1{
     font-weight: bolder;
     font-size: 3em;   
     font-family: Aharoni;
-    
 }
+
+.table-fixed tbody{
+    height: 530px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed td,
+.table-fixed th{
+    display: block;
+}
+
+.table-fixed tbody td,
+.table-fixed thead > tr > th{
+    float: left;
+    border-bottom-width: 0;
+}
+
+#nombre{
+    width: 103%;
+}
+
 

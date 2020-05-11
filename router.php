@@ -87,6 +87,11 @@ switch($parametros[0]){
         $controller->loginAdmin();
     break;
     }
+    case 'elegir_tarea': {
+        $controller = new AdminController();  
+        $controller->showOptionAdm();
+    break;
+    }
 
     case 'registrarse': {
         $controller = new AdminController();  

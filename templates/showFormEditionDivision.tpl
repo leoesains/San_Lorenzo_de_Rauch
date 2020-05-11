@@ -1,4 +1,4 @@
-{include 'templates/header.tpl'}
+{include 'templates/header.admin.tpl'}
     <h1>MODIFIQUE LOS DATOS QUE DESEA CAMBIAR</H1>
     <form action="guardarEdicionDivision" method="POST">
         <input type="hidden" name="id_division" value="{$division->id_division}">
@@ -12,4 +12,5 @@
         <input type="text" name="excepciones" value="{$division->excepciones}">
         <button type="submit">Modificar datos</button>
     </form>
+    <a class="nav-link" href="categorias"><b>Volver sin Confirmar Cambios</b></a>;
 {include 'templates/footer.tpl'}

@@ -1,4 +1,4 @@
-{include 'templates/header.tpl'}
+{include 'templates/header.admin.tpl'}
     <form action="guardarDivision" method="POST">
         <label>Ingrese la categoria con numeros</label>
         <input type="text" name="numeroCategoria">
@@ -12,4 +12,5 @@
         <input type="text" name="excepciones">
         <button type="submit">Enviar</button>
     </form>
+    <a class="nav-link" href="categorias"><b>Volver sin Confirmar Cambios</b></a>;
 {include 'templates/footer.tpl'}

@@ -1,29 +1,63 @@
-{include 'templates/header.tpl'}
-    <form action="guardarJugador" method="POST">
-        <label>Ingrese dni</label>
-        <input type="text" name="dni">
-        <label>Ingrese nombre completo</label>
-        <input type="text" name="name">
-        <label>Ingrese edad</label>
-        <input type="text" name="edad">
-        <label>Ingrese fecha de nacimiento</label>
-        <input type="text" name="fechaNacimiento">
-        <label>Ingrese numero de carnet</label>
-        <input type="text" name="numeroCarnet">
-        <label>Ingrese puesto en la cancha</label>
-        <input type="text" name="puesto">
-        <label>Ingrese club de origen</label>
-        <input type="text" name="clubOrigen">
-        <label>Ingrese numero de telefono</label>
-        <input type="text" name="telefono">
-        <label>Ingrese una foto</label>
-        <input type="text" name="foto">
-        <label>elija la categoria a la que pertenece</label>
-        <select name="categoria">
-            {foreach from=$listaDivisiones item=division} 
-                <option>{$division->id_division}</option>
-            {/foreach}
-        </select>
-        <button type="submit">Enviar</button>
+{include 'templates/header.admin.tpl'}
+    <div>
+        <b class="navbar-brand">Completar TODOS LOS CAMPOS</b>
+    </div>
+    <form class="form-row form-group col-md-6" action="guardarJugador" method="POST">
+        <div>
+            <label><b>DNI</b></label>
+            <input type="text" name="dni">
+        </div>
+        <div>
+            <label><b>NOMBRE Y APELLIDO</b></label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label><b>EDAD</b></label>
+            <input type="text" name="edad">
+        </div>
+        <div>
+            <label><b>FECHA DE NACIMIENTO</b></label>
+            <input type="text" name="fechaNacimiento">
+        </div>
+        <div>
+            <label><b>N° DE CARNET</b></label>
+            <input type="text" name="numeroCarnet">
+        </div>
+        <div>
+            <label><b>PUESTO</b></label>
+            <select name="puesto">
+                <option>ARQUERO</option>
+                <option>DEFENSOR</option>
+                <option>VOLANTE</option>
+                <option>DELANTERO</option>
+            </select>
+        </div>
+        <div>
+            <label><b>CLUB DUEÑO DEL PASE</b></label>
+            <select name="clubOrigen">
+                <option>SAN LORENZO DE RAUCH</option>
+                <option>BOTAFOGO</option>
+                <option>JUVENTUD AGRARIA</option>
+                <option>DEPORTIVO RAUCH</option>
+            </select>
+        </div>
+        <div>
+            <label><b>TELEFONO</b></label>
+            <input type="text" name="telefono">
+        </div>
+        <div>
+            <label><b>DIVISION</b></label>
+            <select name="categoria">
+                {foreach from=$listaDivisiones item=division} 
+                    <option>{$division->id_division}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div>
+            <label><b>FOTOGRAFIA</b></label>
+            <input type="text" name="foto">
+        </div>
+        <button type="submit"><b>Enviar</b></button>
     </form>
+    <a class="nav-link" href="jugadores"><b>Volver sin Confirmar Cambios</b></a>;
 {include 'templates/footer.tpl'}

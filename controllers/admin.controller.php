@@ -38,8 +38,8 @@ class AdminController{
             $longitud = count($administradores);
             for($i = 0; $i < $longitud; $i ++) {
                 if($administradores[$i]->nombre_usuario == $username && $administradores[$i]->contraseña == $password) {
-                    $this->view->chooseTask();
-                    echo "Bienvenido " .$administradores[$i]->nombre;
+                    $this->view->welcome($administradores[$i]->nombre);
+                    //echo "Bienvenido " .$administradores[$i]->nombre;
                     
                     die();
                 }
@@ -48,6 +48,10 @@ class AdminController{
                 echo "Usuario Desconocido";
             }
         }
+    }
+
+    public function showOptionAdm(){
+        $this->view->chooseTask();
     }
 
     //muestra un formulario para ingresar una palabra clave para poder loguearse en la pagina
@@ -62,7 +66,7 @@ class AdminController{
             echo "No ingreso la palabra clave";
         } else {
             if($_POST['palabraClave'] != $palabraClave) {
-                echo "La palabra clave ingresada es incorrecta!";
+                $this->view->keyWordError();
             } else {
                 $this->view->adminForm();
             }
@@ -72,11 +76,10 @@ class AdminController{
     //guarda En la BBDD al usuario Administrador que se está registrando. 
     public function loadData() {
         if(empty($_POST['name']) || empty($_POST['username']) || empty($_POST['password'])) {           //hacer algo mas lindo de vista
-            echo "Debe ingresar los tres datos solicitados";
+            $this->view->adminFormError();
         } else {
             $this->modelAdmin->insert($_POST['name'], $_POST['username'], $_POST['password']);
-
-            echo "datos guardados correctamente";
+            header('location: ' . BASE_URL . 'home'); //Me posiciona nuevamente en "home"        
         }
     }
 
@@ -141,10 +144,16 @@ class AdminController{
 
     //muestra formulario para Editar el jugador con id = dni
     public function editDataPlayer(){
-        $dni = $_POST['dni'];
-        $jugador = $this->modelJugadores->get($dni);
-        $this->view->showFormEditionPlayer($jugador);
-
+        if(!empty($_POST['dni'])){
+            $dni = $_POST['dni'];
+            $jugador = $this->modelJugadores->get($dni);
+            $this->view->showFormEditionPlayer($jugador);
+        }
+        else{
+            echo "DEBE INGRESAR UN DNI";
+            //<a class="nav-link" href="jugadores">Volver</a>;
+            //header('location: ' . BASE_URL . 'listar');
+        }
     }
 
     //modifica datos de jugador en DDBB

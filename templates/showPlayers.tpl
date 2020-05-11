@@ -1,27 +1,15 @@
 {include 'templates/header.tpl'}
     <div class="contenedorTablaJugadores">
-        <table class="table">
+        <table class="table table-fixed">
             <caption>LISTA DE JUGADORES TEMPORADA 2020</caption>
-            <thead>
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>DNI</th>
-                    <th>PERFIL</th>
-                </tr>
-            </thead>
+            
             <tbody>
                 {foreach from=$listaJugadores item=jugador}
                     <tr>
-                        <td>
-                            <b>{$jugador->nombre}</b>
+                        <td id="nombre">
+                            <b><a href="verJugador/{$jugador->id_jugador}">{$jugador->nombre|upper}</a></b>
                         </td>
-                        <td>
-                            {$jugador->id_jugador}
-                        </td>
-                        <td>
-                            <a href="verJugador/{$jugador->id_jugador}">Ver</a>    
-                        </td>
-                </tr>
+                    </tr>
                 {/foreach}   
             </tbody>
         </table>

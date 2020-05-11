@@ -24,22 +24,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="listarJugadores">JUGADORES</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
+                            
                         </li>
                     </ul>
                 </div>
-                <div class="login-container">
-                    <form class="form_log" action="log_admin" method="POST">
-                        <input type="text" placeholder="Username" name="username">
-                        <input type="password" placeholder="Password" name="psw">
-                        <button type="submit">Login</button>
-                    </form>
-                    <a class="nav-link" href="registrarse">REGISTRARSE</a>
+                <div>
+                    <a class="navbar-brand" href="logout_admin"><b>Cerrar Sección</b></a>
                 </div>
             </nav>
