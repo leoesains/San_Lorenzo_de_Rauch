@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-05-2020 a las 05:08:50
+-- Tiempo de generación: 11-05-2020 a las 14:53:36
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.5
 
@@ -30,9 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `administradores` (
   `id_administrador` int(2) NOT NULL,
   `nombre` varchar(30) NOT NULL,
-  `nombre_usuario` varchar(10) NOT NULL,
-  `contraseña` varchar(8) NOT NULL
+  `nombre_usuario` varchar(100) NOT NULL,
+  `contraseña` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `administradores`
+--
+
+INSERT INTO `administradores` (`id_administrador`, `nombre`, `nombre_usuario`, `contraseña`) VALUES
+(1, 'Leo Esains', 'LeoCuervoRauch', '12344321'),
+(2, 'Tomas Esains', 'TomasCuervoEsains', '12344321'),
+(3, 'Paz Freccero', 'Paz', '12344321');
 
 -- --------------------------------------------------------
 
@@ -55,7 +64,7 @@ CREATE TABLE `divisiones` (
 INSERT INTO `divisiones` (`id_division`, `nombre_div`, `edad_limite`, `limite_jugadores_LBF`, `excepciones`) VALUES
 (1, 'PRIMERA', 99, 40, 'En primera divisi?n es libre, no hace falta excepciones.'),
 (5, 'QUINTA', 20, 40, 'Se pueden incorporar 2 jugadores de 18 a?os y 2 de 19 a?os. El arquero es libre.'),
-(6, 'SEXTA', 16, 40, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.'),
+(6, 'SEXTA', 14, 50, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.'),
 (7, 'SEPTIMA', 14, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.'),
 (8, 'OCTAVA', 12, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.'),
 (9, 'NOVENA', 11, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.'),
@@ -85,6 +94,7 @@ CREATE TABLE `jugadores` (
 --
 
 INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, `puesto`, `club_origen`, `telefono`, `id_division`, `imagen`) VALUES
+(23322505, 'Leonardo Esains', 47, '30/07/1973', '12345', 'Defensor', 'San Lorenzo', '249 154 559796', 1, 'images/jugadores/45036455.jpg'),
 (27830858, 'OSCAR ALFREDO ECHENIQUE', 40, '05/01/1980', 'SL-047', 'DEFENSOR', 'AGRARIA', '(249) 154 504532', 1, 'images/jugadores/27830858.jpg'),
 (29885727, 'BARRAGAN PASCUAL', 17, '03/01/2003', 'SL-045', 'ARQUERO', 'SAN LORENZO', '(249) 154 017548', 1, 'images/jugadores/29885727.jpg'),
 (32312811, 'FACUNDO LIPPO', 34, '11/04/1986', 'SL-030', 'DEFENSOR', 'SAN LORENZO', '(11) 1526 484453', 1, 'images/jugadores/32312811.jpg'),
@@ -92,9 +102,8 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 (32378592, 'MAXIMILIANO ROLDAN', 34, '23/06/1986', 'SL-025', 'DEFENSOR', 'SAN LORENZO', '(249) 154 311712', 1, 'images/jugadores/32378592.jpg'),
 (32815032, 'JONATAN ORELLANO', 33, '16/01/1987', 'SL-090', 'DEFENSOR', 'SAN LORENZO', '(249) 154 022005', 1, 'images/jugadores/32815032.jpg'),
 (32815188, 'VICTORIANO CANO KELLY', 33, '26/08/1987', 'SL-146', 'DELANTERO', 'SAN LORENZO', '(249) 154 279512', 1, 'images/jugadores/32815188.jpg'),
-(33292157, 'LUCIANO MARTIN DINAMARCA', 33, '10/07/1987', 'SL-031', 'DELANTERO', 'SAN LORENZO', '(221) 154 181054', 1, 'images/jugadores/33292157.jpg'),
+(33292157, 'LUCIANO DINAMARCA', 33, '10/07/1987', 'SL-031', 'DELANTERO', 'SAN LORENZO', '(221) 154 181054', 1, 'images/jugadores/33292157.jpg'),
 (33328427, 'CARLOS SAINZ', 32, '14/02/1988', 'SL-044', 'DELANTERO', 'SAN LORENZO', '(249) 154 561764', 1, 'images/jugadores/33328427.jpg'),
-(33917949, 'RATTIGUEN LEONARDO GABRIEL', 32, '31/03/1988', 'SL-116', 'ARQUERO', 'BOTAFOGO', '(249) 154 662133', 1, 'images/jugadores/33917949.jpg'),
 (33917962, 'MARTIN GABRIEL VELA', 32, '04/11/1988', 'SL-098', 'VOLANTE', 'SAN LORENZO', '(249) 154 279512', 1, 'images/jugadores/33917962.jpg'),
 (33917970, 'JUAN OCTAVIO MARTINEZ', 31, '15/01/1989', 'SL-028', 'VOLANTE', 'SAN LORENZO', '(249) 154 557145', 1, 'images/jugadores/33917970.jpg'),
 (34961205, 'MATIAS VALDEZ', 31, '21/09/1989', 'SL-040', 'DELANTERO', 'SAN LORENZO', '(249) 154 550406', 1, 'images/jugadores/34961205.jpg'),
@@ -102,9 +111,8 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 (35334734, 'ARIAS JOSE HECTOR ', 30, '03/08/1990', 'SL-033', 'VOLANTE', 'AGRARIA', '(249) 154 541147', 1, 'images/jugadores/35334734.jpg'),
 (35334774, 'BERNATENE JONATHAN', 29, '25/09/1991', 'SL-102', 'VOLANTE', 'SAN LORENZO', '(249) 154 356205', 1, 'images/jugadores/35334774.jpg'),
 (35797712, 'RAFAEL CABALLERO', 30, '09/11/1990', 'SL-117', 'DEFENSOR', 'AGRARIA', '(249) 154 539254', 1, 'images/jugadores/35797712.jpg'),
-(35797756, 'ENZO FACUNDO CROCCI', 29, '22/12/1990', 'SL-096', 'ARQUERO', 'SAN LORENZO', '(249) 154 666501', 1, 'images/jugadores/35797756.jpg'),
 (35797761, 'JOS? GARRALDA ', 17, '02/01/2003', 'SL-079', 'DEFENSOR', 'SAN LORENZO', '(249) 154 552318', 1, 'images/jugadores/35797761.jpg'),
-(36484415, 'ALEXIS JESUS MARTIN GUTI?RREZ', 28, '18/12/1991', 'SL-038', 'DEFENSOR', 'SAN LORENZO', '(249) 154 347755', 1, 'images/jugadores/36484415.jpg'),
+(36484415, 'ALEXIS  GUTI?RREZ', 28, '18/12/1991', 'SL-038', 'DEFENSOR', 'SAN LORENZO', '(249) 154 347755', 1, 'images/jugadores/36484415.jpg'),
 (36933055, 'DAMIAN LOURTAU ', 28, '31/05/1992', 'SL-144', 'DELANTERO', 'SAN LORENZO', '(249) 154 002830', 1, 'images/jugadores/36933055.jpg'),
 (36933116, 'MARCELO DANIEL ACU?A', 28, '02/09/1992', 'SL-149', 'DEFENSOR', 'SAN LORENZO', '(249) 154 279512', 1, 'images/jugadores/36933116.jpg'),
 (36933194, 'JOAQUIN ALCIDES ACOSTA', 27, '26/11/1992', 'SL-043', 'VOLANTE', 'SAN LORENZO', '(249) 154 553852', 1, 'images/jugadores/36933194.jpg'),
@@ -145,7 +153,6 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 (44649560, 'ULISES HERRERIA ', 17, '21/03/2003', 'SL-067', 'DEFENSOR', 'SAN LORENZO', '(249) 154 534234', 5, 'images/jugadores/44649560.jpg'),
 (45036419, 'VALENTIN MI?OLA', 17, '16/04/2003', 'SL-119', 'ARQUERO', 'SAN LORENZO', '(249) 154 694461', 5, 'images/jugadores/45036419.jpg'),
 (45036447, 'ALEJANDRO CROCCI', 17, '03/06/2003', 'SL-068', 'ARQUERO', 'SAN LORENZO', '(249) 154 665099', 5, 'images/jugadores/45036447.jpg'),
-(45036455, 'TOMAS ESAINS', 17, '14/06/2003', 'SL-021', 'DEFENSOR', 'SAN LORENZO', '(249) 154 594923', 5, 'images/jugadores/45036455.jpg'),
 (45223755, 'TOMAS ALONSO', 17, '18/08/2003', 'SL-065', 'VOLANTE', 'SAN LORENZO', '(249) 154 356350', 1, 'images/jugadores/45223755.jpg'),
 (45223769, 'FELIPE BENAVIDEZ', 17, '04/09/2003', 'SL-103', 'DELANTERO', 'SAN LORENZO', '(249) 154 348229', 5, 'images/jugadores/45223769.jpg'),
 (45223775, 'IAN DIAZ', 17, '21/08/2003', 'SL-113', 'DELANTERO', 'BOTAFOGO', '(249) 154 325519', 5, 'images/jugadores/45223775.jpg'),
@@ -216,7 +223,7 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 (48651465, 'BAUTISTA JOAQUIN FALABELLA', 11, '25/03/2009', 'SL-059', 'DEFENSOR', 'SAN LORENZO', '(249) 154 215029', 10, 'images/jugadores/48651465.jpg'),
 (48651468, 'YAGO POFFER', 11, '19/03/2009', 'SL-095', 'VOLANTE', 'SAN LORENZO', '(249) 154 022219', 10, 'images/jugadores/48651468.jpg'),
 (48651493, 'MARTINIANO VALDEZ ', 11, '07/05/2009', 'SL-139', 'VOLANTE', 'SAN LORENZO', '(249) 154 016327', 10, 'images/jugadores/48651493.jpg'),
-(48674626, 'FRANCO VASCONSELLO DUBLAND', 11, '07/07/2009', 'SL-003', 'ARQUERO', 'BOTAFOGO', '(249) 154 034913', 9, 'images/jugadores/48674626.jpg'),
+(48674626, 'FRANCO DUBLAND', 11, '07/07/2009', 'SL-003', 'ARQUERO', 'BOTAFOGO', '(249) 154 034913', 9, 'images/jugadores/48674626.jpg'),
 (48886203, 'SELLES CIFARELLI JOAQUIN', 11, '28/11/2008', 'SL-080', 'DELANTERO', 'SAN LORENZO', '(249) 154 638080', 9, 'images/jugadores/48886203.jpg'),
 (49603008, 'JUAN CRUZ SALDUBEHERE ', 11, '21/05/2009', 'SL-133', 'DEFENSOR', 'SAN LORENZO', '(249) 154 279512', 10, 'images/jugadores/49603008.jpg'),
 (49603024, 'AUGUSTO MINOLI', 11, '20/06/2009', 'SL-130', 'DEFENSOR', 'SAN LORENZO', '(249) 154 349875', 10, 'images/jugadores/49603024.jpg'),
@@ -256,7 +263,7 @@ ALTER TABLE `jugadores`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id_administrador` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_administrador` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
