@@ -75,11 +75,15 @@ class AdminController{
 
     //guarda En la BBDD al usuario Administrador que se está registrando. 
     public function loadData() {
-        if(empty($_POST['name']) || empty($_POST['username']) || empty($_POST['password'])) {           //hacer algo mas lindo de vista
+        if(empty($_POST['name']) || empty($_POST['username']) || empty($_POST['password']) || empty($_POST['confirmPassword'])) {           
             $this->view->adminFormError();
         } else {
-            $this->modelAdmin->insert($_POST['name'], $_POST['username'], $_POST['password']);
-            header('location: ' . BASE_URL . 'home'); //Me posiciona nuevamente en "home"        
+            if($_POST['password'] != $_POST['confirmPassword']) {
+                echo "las contraseñas no coinciden, intentelo nuevamente"; 
+            } else {
+                $this->modelAdmin->insert($_POST['name'], $_POST['username'], $_POST['password']);
+                header('location: ' . BASE_URL . 'home'); //Me posiciona nuevamente en "home"  
+            }
         }
     }
 

@@ -29,6 +29,6 @@
                     </ul>
                 </div>
                 <div>
-                    <a class="navbar-brand" href="logout_admin"><b>Cerrar Sección</b></a>
+                    <a class="navbar-brand" href="cerrar_sesion"><b>Cerrar Sección</b></a>
                 </div>
             </nav>

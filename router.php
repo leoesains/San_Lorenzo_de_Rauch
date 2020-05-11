@@ -138,6 +138,11 @@ switch($parametros[0]){
         $controller->removeDivision($parametros[1]);
     break;
     }
+    case 'cerrar_sesion': {
+        $controller = new PublicController();     
+        $controller->home();
+    break;
+    }
     
     default: {
         $controller = new PublicController();     
