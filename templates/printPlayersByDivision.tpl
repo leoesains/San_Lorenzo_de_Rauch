@@ -19,7 +19,7 @@
                             {$jugXdiv->nombre_div}
                         </td>
                         <td>
-                            <a href="verJugador/{$jugXdiv->id_jugador}">Ver</a>    
+                            <a href="ver_jugador/{$jugXdiv->id_jugador}">Ver</a>    
                         </td>
                     </tr>
                 {/foreach}   

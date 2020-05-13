@@ -7,7 +7,7 @@
                 {foreach from=$listaJugadores item=jugador}
                     <tr>
                         <td id="nombre">
-                            <b><a href="verJugador/{$jugador->id_jugador}">{$jugador->nombre|upper}</a></b>
+                            <b><a href="ver_jugador/{$jugador->id_jugador}">{$jugador->nombre|upper}</a></b>
                         </td>
                     </tr>
                 {/foreach}   

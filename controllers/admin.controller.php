@@ -54,39 +54,6 @@ class AdminController{
         $this->view->chooseTask();
     }
 
-    //muestra un formulario para ingresar una palabra clave para poder loguearse en la pagina
-    public function viewKeyWord(){
-        $this->view->keyWord();
-    }
-
-    //comprueba si la palabra clave ingresada es correcta, si es correcta muestra un formulario para loguearse
-    public function showForm() {
-        $palabraClave = "sanlorenzo";
-        if(empty($_POST['palabraClave'])) {
-            echo "No ingreso la palabra clave";
-        } else {
-            if($_POST['palabraClave'] != $palabraClave) {
-                $this->view->keyWordError();
-            } else {
-                $this->view->adminForm();
-            }
-        }
-    }
-
-    //guarda En la BBDD al usuario Administrador que se está registrando. 
-    public function loadData() {
-        if(empty($_POST['name']) || empty($_POST['username']) || empty($_POST['password']) || empty($_POST['confirmPassword'])) {           
-            $this->view->adminFormError();
-        } else {
-            if($_POST['password'] != $_POST['confirmPassword']) {
-                echo "las contraseñas no coinciden, intentelo nuevamente"; 
-            } else {
-                $this->modelAdmin->insert($_POST['name'], $_POST['username'], $_POST['password']);
-                header('location: ' . BASE_URL . 'home'); //Me posiciona nuevamente en "home"  
-            }
-        }
-    }
-
     //muestra los jugadores para poder eliminar, actualizar o agregar un jugador nuevo
     public function crudPlayers() {
         //Pido los jugadores al modelo

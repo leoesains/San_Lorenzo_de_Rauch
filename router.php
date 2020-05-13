@@ -23,17 +23,17 @@ switch($parametros[0]){
         $controller->home();
     break;
     }
-    case 'listarJugadores': {
+    case 'listar_jugadores': {
         $controller = new PublicController();     
         $controller->showPlayer();
     break;
     }
-    case 'verJugador': {
+    case 'ver_jugador': {
         $controller = new PublicController();     
         $controller->viewPlayer($parametros[1]);
     break;
     }
-    case 'listarDivisiones': {
+    case 'listar_divisiones': {
         $controller = new PublicController();     
         $controller->showDivision();
     break;
@@ -58,31 +58,31 @@ switch($parametros[0]){
     break;
     }
 
-    case 'agregarJugador': {
+    case 'agregar_jugador': {
         $controller = new AdminController();  
         $controller->formPlayer();
     break;
     }
 
-    case 'guardarJugador': {
+    case 'guardar_jugador': {
         $controller = new AdminController();  
         $controller->addPlayer();
     break;
     }
     
-    case 'agregarDivision': {
+    case 'agregar_division': {
         $controller = new AdminController();  
         $controller->formDivision();
     break;
     }
 
-    case 'guardarDivision': {
+    case 'guardar_division': {
         $controller = new AdminController();  
         $controller->addDivision();
     break;
     }
 
-    case 'log_admin': {
+    case 'loguearse': {
         $controller = new AdminController();  
         $controller->loginAdmin();
     break;
@@ -93,47 +93,32 @@ switch($parametros[0]){
     break;
     }
 
-    case 'registrarse': {
-        $controller = new AdminController();  
-        $controller->viewKeyWord();
-    break;
-    }
-    case 'formulario': {
-        $controller = new AdminController();  
-        $controller->showForm();
-    break;
-    }
-    case 'enviarFormulario': {
-        $controller = new AdminController();  
-        $controller->loadData();
-    break;
-    }
-    case 'editarJugador': {
+    case 'editar_jugador': {
         $controller = new AdminController();  
         $controller->editDataPlayer();
     break;
     }
-    case 'guardarEdicionJugador': {
+    case 'guardar_edicion_jugador': {
         $controller = new AdminController();  
         $controller->modifyDataPlayer();
     break;
     }
-    case 'eliminarJugador': {
+    case 'eliminar_jugador': {
         $controller = new AdminController();  
         $controller->removePlayer();
     break;
     }
-    case 'editarDivision': {
+    case 'editar_division': {
         $controller = new AdminController();  
         $controller->editDataDivision($parametros[1]);
     break;
     }
-    case 'guardarEdicionDivision': {
+    case 'guardar_edicion_division': {
         $controller = new AdminController();  
         $controller->modifyDataDivision();
     break;
     }
-    case 'eliminarDivision': {
+    case 'eliminar_division': {
         $controller = new AdminController();  
         $controller->removeDivision($parametros[1]);
     break;

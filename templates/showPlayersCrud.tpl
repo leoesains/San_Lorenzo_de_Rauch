@@ -5,18 +5,18 @@
         <b class="navbar-brand">Seleccione una OPCIÓN.</b>
     </div>
     <div>
-        <form action="agregarJugador" method="POST">
+        <form action="agregar_jugador" method="POST">
             <label><b>Dar Alta a un Jugador</b></label>
             <button type="submit"><b>Alta</b></button>
         </form>
         <b class="navbar-brand">Para Editar o dar Baja a un Jugador deberá conocer su DNI</b>
-        <form action="editarJugador" method="POST">
+        <form action="editar_jugador" method="POST">
             <label><b>Ingrese DNI del jugador que desea EDITAR</b></label>
             <input type="text" name="dni">
             <button type="submit"><b>Editar</b></button>
         </form>
 
-        <form action="eliminarJugador" method="POST">
+        <form action="eliminar_jugador" method="POST">
             <label><b>Ingrese DNI del jugador que desea dar de BAJA</b></label>
             <input type="text" name="dni">
             <button type="submit"><b>Baja</b></button>

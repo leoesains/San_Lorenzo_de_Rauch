@@ -27,19 +27,19 @@
                             <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="listarJugadores">JUGADORES</a>
+                            <a class="nav-link" href="listar_jugadores">JUGADORES</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="listarDivisiones">DIVISIONES</a>
+                            <a class="nav-link" href="listar_divisiones">DIVISIONES</a>
                         </li>
                     </ul>
                 </div>
                 <div class="login-container">
-                    <form class="form_log" action="log_admin" method="POST">
+                    <form class="form_log" action="loguearse" method="POST">
                         <input type="text" placeholder="Username" name="username">
                         <input type="password" placeholder="Password" name="psw">
                         <button type="submit">Login</button>
                     </form>
-                    <a class="nav-link" href="registrarse">REGISTRARSE</a>
+                    
                 </div>
             </nav>

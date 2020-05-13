@@ -1,5 +1,5 @@
 {include 'templates/header.admin.tpl'}
-    <form action="guardarDivision" method="POST">
+    <form action="guardar_division" method="POST">
         <label>Ingrese la categoria con numeros</label>
         <input type="text" name="numeroCategoria">
         <label>Ingrese la categoria con letras</label>

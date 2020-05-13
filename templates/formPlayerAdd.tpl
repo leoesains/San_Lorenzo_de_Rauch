@@ -2,7 +2,7 @@
     <div>
         <b class="navbar-brand">Completar TODOS LOS CAMPOS</b>
     </div>
-    <form class="form-row form-group col-md-6" action="guardarJugador" method="POST">
+    <form class="form-row form-group col-md-6" action="guardar_jugador" method="POST">
         <div>
             <label><b>DNI</b></label>
             <input type="text" name="dni">

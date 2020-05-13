@@ -4,6 +4,8 @@ require_once 'libs/Smarty.class.php';
 
 class AdminView{
 
+    
+
     //muestra un formulario para elegir si quiere modificar jugadores o divisiones
     public function welcome($admin) {
         $smarty = new Smarty();
@@ -44,29 +46,6 @@ class AdminView{
         $smarty = new Smarty();
 
         $smarty->display('templates/formDivisionAdd.tpl');
-    }
-
-    public function keyWord() {
-        $smarty = new Smarty();
-
-        $smarty->display('templates/keyWord.tpl');
-    }
-
-    public function keyWordError() {
-        $smarty = new Smarty();
-
-        $smarty->display('templates/keyWordError.tpl');
-    }
-
-    public function adminForm() {
-        $smarty = new Smarty();
-
-        $smarty->display('templates/adminForm.tpl');
-    }
-    public function adminFormError() {
-        $smarty = new Smarty();
-
-        $smarty->display('templates/adminFormError.tpl');
     }
 
     public function showFormEditionPlayer($jug){

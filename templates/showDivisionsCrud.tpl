@@ -4,7 +4,7 @@
         <b class="navbar-brand">En esta sección usted podrá hacer ALTAS, BAJAS y MODIFICACIONES de Divisiones.</b><br>
         <b class="navbar-brand">Seleccione una OPCIÓN.</b>
     </div>
-    <form action="agregarDivision" method="POST">
+    <form action="agregar_division" method="POST">
         <label><b>Dar de Alta a una Division</b></label>
         <button type="submit"><b>Alta</b></button>
     </form>      
@@ -26,10 +26,10 @@
                             <b>{$division->nombre_div}</b>
                         </td>
                         <td>
-                            <a href="editarDivision/{$division->id_division}">Editar</a>    
+                            <a href="editar_division/{$division->id_division}">Editar</a>    
                         </td>
                         <td>
-                        <a href="eliminarDivision/{$division->id_division}">Eliminar</a>    
+                        <a href="eliminar_division/{$division->id_division}">Eliminar</a>    
                         </td>
                     </tr>
                 {/foreach}   

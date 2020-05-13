@@ -22,17 +22,4 @@ class AdminModel{
         return $administradores;
     }
 
-    //ingresa un administrador en la BBDD
-    function insert($nombre, $usurname, $password) {
-        // 1) abro la conexion con mysql
-        $db = $this->modelConection->createConexion();
-        // 2)enviamos la consulta
-        $sentencia = $db->prepare("INSERT INTO administradores(nombre, nombre_usuario, contraseña) VALUES (?, ?, ?) ");  //los ? son para verificar que el usuario no ingrese codigo malisioso
-        $sentencia->execute([$nombre, $usurname, $password]);        //la ejecuto
-    }
-
-
-
-
-
 }

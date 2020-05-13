@@ -1,6 +1,6 @@
 {include 'templates/header.admin.tpl'}
     <h1>MODIFIQUE LOS DATOS QUE DESEA CAMBIAR</H1>
-    <form action="guardarEdicionJugador" method="POST">
+    <form action="guardar_edicion_jugador" method="POST">
         <input type="hidden" name="dni" value="{$jugador->id_jugador}">
         <label>nombre completo</label>
         <input type="text" name="nombre" value="{$jugador->nombre}">
