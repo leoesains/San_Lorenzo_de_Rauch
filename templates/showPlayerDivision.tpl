@@ -1,6 +1,38 @@
 {include 'templates/header.tpl'}
     <div class="titulo_mostrar_jugadores ancho">
-        <p><b>PERFILES JUGADORES</b> TEMPORADA <b> 2020</b></p>
+        <p> PERFILES 
+            {if {$datosJug->id_division} == 1}
+                <b>PRIMERA</b> 
+            {/if}
+            {if {$datosJug->id_division} == 2}
+                <b>SEGUNDA</b> 
+            {/if}
+            {if {$datosJug->id_division} == 3}
+                <b>TERCERA</b> 
+            {/if}
+            {if {$datosJug->id_division} == 4}
+                <b>CUARTA</b> 
+            {/if}
+            {if {$datosJug->id_division} == 5}
+                <b>QUINTA</b> 
+            {/if}
+            {if {$datosJug->id_division} == 6}
+                <b>SEXTA</b> 
+            {/if}
+            {if {$datosJug->id_division} == 7}
+                <b>SÉPTIMA</b> 
+            {/if}
+            {if {$datosJug->id_division} == 8}
+                <b>OCTAVA</b> 
+            {/if}
+            {if {$datosJug->id_division} == 9}
+                <b>NOVENA</b> 
+            {/if}
+            {if {$datosJug->id_division} == 10}
+                <b>DÉCIMA</b> 
+            {/if}
+            DIVISIÓN TEMPORADA 2020
+        </p>
     </div>
     <div class="contenedorPerfil">
         <div>
@@ -52,16 +84,16 @@
                                 <td id="nombre">
                                     <div class="col-sm">
                                         {if $jugador->puesto == "ARQUERO"}
-                                            <h6><a  class="fila" href="ver_jugador/{$jugador->id_jugador}">ARQ | {$jugador->nombre}</a></h6>
+                                            <h6><a  class="fila" href="ver_jugador_division/{$jugador->id_jugador}/{$jugador->id_division}">ARQ | {$jugador->nombre}</a></h6>
                                         {/if}
                                         {if $jugador->puesto == "DEFENSOR"}
-                                            <h6><a class="fila" href="ver_jugador/{$jugador->id_jugador}">DEF | {$jugador->nombre}</a></h6>
+                                            <h6><a class="fila" href="ver_jugador_division/{$jugador->id_jugador}/{$jugador->id_division}">DEF | {$jugador->nombre}</a></h6>
                                         {/if}
                                         {if $jugador->puesto == "VOLANTE"}
-                                            <h6><a  class="fila" href="ver_jugador/{$jugador->id_jugador}">VOL | {$jugador->nombre}</a></h6>
+                                            <h6><a  class="fila" href="ver_jugador_division/{$jugador->id_jugador}/{$jugador->id_division}">VOL | {$jugador->nombre}</a></h6>
                                         {/if}
                                         {if $jugador->puesto == "DELANTERO"}
-                                            <h6><a  class="fila" href="ver_jugador/{$jugador->id_jugador}">DEL | {$jugador->nombre}</a></h6>
+                                            <h6><a  class="fila" href="ver_jugador_division/{$jugador->id_jugador}/{$jugador->id_division}}">DEL | {$jugador->nombre}</a></h6>
                                         {/if}
                                     </div>
                                 </td>

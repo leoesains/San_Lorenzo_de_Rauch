@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-16 14:10:02
+/* Smarty version 3.1.34-dev-7, created on 2020-05-16 20:59:40
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\showPlayers.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ebfd81ab59887_30499382',
+  'unifunc' => 'content_5ec0381c872539_25487592',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd05bafbb728904ff7bcae246ab3a0d45b7535067' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\showPlayers.tpl',
-      1 => 1589630998,
+      1 => 1589655575,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ebfd81ab59887_30499382 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec0381c872539_25487592 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+    <div class="titulo_mostrar_jugadores">
+        <p><b>JUGADORES</b> DEL CLUB PARA LA <b>TEMPORADA 2020</b></p>
+    </div>
     <div class="conteiner contenedor">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listaJugadores']->value, 'jugador');

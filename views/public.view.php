@@ -30,6 +30,11 @@ class PublicView{
         $this->smarty->display('templates/showPlayer.tpl');
     }
 
+    public function showPlayerDivision($jugador, $jugadores) {
+        $this->smarty->assign('datosJug', $jugador);
+        $this->smarty->assign('listaJugadores', $jugadores);
+        $this->smarty->display('templates/showPlayerDivision.tpl');
+    }
     public function showDivisions($divisiones) {
         $this->smarty->assign('listaDivisiones', $divisiones);
         $this->smarty->display('templates/showDivisions.tpl');

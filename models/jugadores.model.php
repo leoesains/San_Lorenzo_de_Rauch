@@ -40,10 +40,11 @@ class JugadoresModel{
         //1. Abro la conexion con MySQL
         $db = $this->modelConection->createConexion();
         //2. Enviamos la consulta (Se preapra, se envía o ejecuta y se obtiene la respuesta)
-        $sql = "SELECT J.id_jugador, J.nombre, D.nombre_div 
+        $sql = "SELECT J.id_jugador, J.nombre, J.imagen, J.puesto, J.id_division
                 FROM jugadores J
                 INNER JOIN divisiones D ON J.id_division = D.id_division
-                WHERE J.id_division = $idDivision"; //Consulta que quiero realizar en la Base de Datos
+                WHERE J.id_division = $idDivision
+                ORDER BY puesto"; //Consulta que quiero realizar en la Base de Datos
         $query = $db->prepare($sql); //Preparo para hacer la consulta
         $query->execute(); //Envío o ejecuto la consulta
         $jugadorXdivision = $query->fetchAll(PDO::FETCH_OBJ); //Obtengo la respuesta a mi consulta. 

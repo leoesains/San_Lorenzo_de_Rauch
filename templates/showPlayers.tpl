@@ -1,4 +1,7 @@
 {include 'templates/header.tpl'}
+    <div class="titulo_mostrar_jugadores">
+        <p><b>JUGADORES</b> DEL CLUB PARA LA <b>TEMPORADA 2020</b></p>
+    </div>
     <div class="conteiner contenedor">
         {foreach from=$listaJugadores item=jugador}
             <div class="contenedor_show_player">

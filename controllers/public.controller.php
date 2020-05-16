@@ -38,6 +38,15 @@ class PublicController{
             $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos");
     }
 
+    public function viewPlayerDivision($idJugador, $division) {
+        $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
+        $jugador = $this->modelJugadores->get($idJugador);
+        if(!empty($jugador))
+            $this->view->showPlayerDivision($jugador, $jugadoresXdivisiones);
+        else
+            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos");
+    }
+
     //muestra todas las divisiones cargadas en la BBDD
     public function showDivision() {
         //pido las divisiones al modelo

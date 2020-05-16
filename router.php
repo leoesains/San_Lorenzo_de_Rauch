@@ -128,7 +128,11 @@ switch($parametros[0]){
         $controller->home();
     break;
     }
-    
+    case 'ver_jugador_division': {
+        $controller = new PublicController();     
+        $controller->viewPlayerDivision($parametros[1],$parametros[2]);
+    break;
+    }
     default: {
         $controller = new PublicController();     
         $controller->showError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");

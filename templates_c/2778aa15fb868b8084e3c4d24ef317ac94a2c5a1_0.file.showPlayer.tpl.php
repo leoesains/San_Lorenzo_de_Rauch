@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-15 23:26:16
+/* Smarty version 3.1.34-dev-7, created on 2020-05-16 20:54:49
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\showPlayer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ebf08f8a98927_74570305',
+  'unifunc' => 'content_5ec036f9816060_00367731',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2778aa15fb868b8084e3c4d24ef317ac94a2c5a1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\showPlayer.tpl',
-      1 => 1589577973,
+      1 => 1589655287,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ebf08f8a98927_74570305 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec036f9816060_00367731 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+    <div class="titulo_mostrar_jugadores ancho">
+        <p><b>PERFILES JUGADORES</b> TEMPORADA <b> 2020</b></p>
+    </div>
     <div class="contenedorPerfil">
         <div>
             <img class="imagen_perfil"src="<?php echo $_smarty_tpl->tpl_vars['datosJug']->value->imagen;?>
@@ -36,7 +39,7 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
 </p>
             <h1><?php echo $_smarty_tpl->tpl_vars['datosJug']->value->puesto;?>
 </h1>
-            <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 3) {?>
+            <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 1) {?>
                 <h3><b>PRIMERA DIVISIÓN</b></h3>
             <?php }?>
             <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 5) {?>
@@ -54,7 +57,7 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
             <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 9) {?>
                 <h3><b>NOVENA DIVISIÓN</b></h3>
             <?php }?>
-            <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 30) {?>
+            <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 10) {?>
                 <h3><b>DÉCIMA DIVISIÓN</b></h3>
             <?php }?>
             <br><h4><b>EDAD</b></h4>

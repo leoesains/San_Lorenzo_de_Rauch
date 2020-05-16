@@ -67,7 +67,7 @@ caption {
 
 .datosJugador{
     width: 600px;
-    max-height: 700px;
+    height: 650px;
     margin-left: 40px;
     background-color: rgb(250, 247, 235, 0.4);
     padding: 10px;
@@ -200,16 +200,39 @@ h1{
 }
 
 .contenedor_divisiones{
-/*    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap:1em;
-    margin: 20px;*/ 
-    background-color: tomato;
+    margin: 15px;
+
 }
+
 .contenedor_show_division{
-    /*width: 200px;
+    width: 295px;
     padding-bottom: 15px;
-    background-color: rgb(213, 241, 213, 0.2);
-    border-radius: 15px;*/
-    background-color: yellow;
+    background-color: rgb(213, 241, 213, 0.4);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.alto_excepciones{
+    height: 120px;
+    display: flex;
+    text-align: justify;
+}
+
+.titulo_mostrar_jugadores{
+    font-size: 1.7em;
+    text-align: center;
+    background-color: rgba(38, 37, 41, 0.5);
+    color: whitesmoke;
+    font-weight: bold;
+    margin-top: 15px;
+
+}
+
+.ancho{
+    width: max-content;
+    padding-left: 15px;
+    padding-right: 15px;
 }
