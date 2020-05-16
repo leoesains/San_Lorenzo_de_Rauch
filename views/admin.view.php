@@ -4,61 +4,49 @@ require_once 'libs/Smarty.class.php';
 
 class AdminView{
 
+    private $smarty;
     
+    public function __construct(){
+        $this->smarty = new Smarty();
+    }
 
     //muestra un formulario para elegir si quiere modificar jugadores o divisiones
     public function welcome($admin) {
-        $smarty = new Smarty();
-        $smarty->assign('nombre_admin', $admin);
-        $smarty->display('templates/welcome.tpl');
+        $this->smarty->assign('nombre_admin', $admin);
+        $this->smarty->display('templates/welcome.tpl');
     }
 
     //muestra un formulario para elegir si quiere modificar jugadores o divisiones
     public function chooseTask() {
-        $smarty = new Smarty();
-        
-        $smarty->display('templates/chooseTask.tpl');
+        $this->smarty->display('templates/chooseTask.tpl');
     }
 
     //
     public function showPlayersCrud($jugadores) {
-        $smarty = new Smarty();
-        $smarty->assign('listaJugadores', $jugadores);
-        
-        $smarty->display('templates/showPlayersCrud.tpl');
+        $this->smarty->assign('listaJugadores', $jugadores);
+        $this->smarty->display('templates/showPlayersCrud.tpl');
     }
 
     public function showDivisionsCrud($divisiones) {
-        $smarty = new Smarty();
-        $smarty->assign('listaDivisiones', $divisiones);
-
-        $smarty->display('templates/showDivisionsCrud.tpl');
+        $this->smarty->assign('listaDivisiones', $divisiones);
+        $this->smarty->display('templates/showDivisionsCrud.tpl');
     }    
 
     public function formPlayerAdd($divisiones) {
-        $smarty = new Smarty();
-        $smarty->assign('listaDivisiones', $divisiones);
-
-        $smarty->display('templates/formPlayerAdd.tpl');
+        $this->smarty->assign('listaDivisiones', $divisiones);
+        $this->smarty->display('templates/formPlayerAdd.tpl');
     }
 
     public function formDivisionAdd() {
-        $smarty = new Smarty();
-
-        $smarty->display('templates/formDivisionAdd.tpl');
+        $this->smarty->display('templates/formDivisionAdd.tpl');
     }
 
     public function showFormEditionPlayer($jug){
-        $smarty = new Smarty();
-        $smarty->assign('jugador', $jug);
-        $smarty->display('templates/showFormEditionPlayer.tpl');
-
+        $this->smarty->assign('jugador', $jug);
+        $this->smarty->display('templates/showFormEditionPlayer.tpl');
     }
     public function showFormEditionDivision($div){
-        $smarty = new Smarty();
-        $smarty->assign('division', $div);
-        $smarty->display('templates/showFormEditionDivision.tpl');
-
+        $this->smarty->assign('division', $div);
+        $this->smarty->display('templates/showFormEditionDivision.tpl');
     }
-
 }

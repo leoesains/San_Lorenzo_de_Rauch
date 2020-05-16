@@ -16,7 +16,7 @@ class JugadoresModel{
         //Abro la conexion con mysql
         $db = $this->modelConection->createConexion();
         //Enviamos la consulta
-        $sql = "SELECT * FROM jugadores";
+        $sql = "SELECT * FROM jugadores ORDER BY puesto";
         $query = $db->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
         $query->execute();        //La ejecuto
         $jugadores = $query->fetchAll(PDO::FETCH_OBJ);    //Obtenemos la lista de jugadores y la guardamos en el arreglo $jugadores

@@ -17,23 +17,17 @@ body{
 }
 
 .contenedorTablaJugadores {
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 30%;
+    margin-left: 15px;
+    width: 250px;
     font-family: sans-serif;
     font-size: 1.2em;
-}
-
-h5{
-    font-weight: bold;
-    color: white;
 }
 
 td {
     text-align: left;
     vertical-align: top;
     padding: 0.3em;
-    background: rgba(243, 240, 240, 0.7);
+    
 }
 
 th {
@@ -42,20 +36,6 @@ th {
     font-size: 1.3em;
 }
 
-.thDivision {
-    background: rgba(192, 186, 186, 0.3);
-    color: rgb(255, 255, 255);
-    font-size: 0.9em;
-    text-align-last: auto;
-}
-
-.contenedorTablaDivisiones {
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 85%;
-    font-family: sans-serif;
-    font-size: 1.2em;
-}
 
 .contenedorTablaDivisionesCrud {
     margin: 0 auto;
@@ -77,27 +57,37 @@ caption {
 }
 
 .contenedorPerfil{
+    
     display:flex;
 	flex-flow:row wrap;
     margin-top: 40px;
     margin-left: 40px;
+    height: auto;
 }
 
 .datosJugador{
+    width: 600px;
+    max-height: 700px;
     margin-left: 40px;
     background-color: rgb(250, 247, 235, 0.4);
     padding: 10px;
     border-radius: 15px;
 }
 
-p{
-    font-size: 70px;
-    font-weight: 700;
+
+.imagen_perfil{
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
 }
 
-img{
-    width: 170px;
-    border-radius: 15px;
+#nombre_jugador_perfil{
+    font-size: 3em;
+    font-weight: bolder;
+    background-color: rgba(131, 125, 126, 0.5);   
+    color: aliceblue; 
+    
+    padding-left: 5px;
 }
 
 .contenedorFrase {
@@ -122,9 +112,9 @@ h1{
 }
 
 .table-fixed tbody{
-    height: 530px;
+    height: 600px;
     overflow-y: auto;
-    width: 100%;
+    width: 330px;
 }
 
 .table-fixed thead,
@@ -140,8 +130,86 @@ h1{
     border-bottom-width: 0;
 }
 
-#nombre{
-    width: 103%;
+.centrar{
+    display:block;
+    margin:auto;
+    text-align: center;
+}
+.imagen_show_player{
+    display:block;
+    margin:auto;
+    width: 110px;
+    height: 150px;
+    border-radius: 15px;
+    margin-bottom: 10px;
 }
 
+.puesto{
+    color: blue;
+    
+}
 
+.margen{
+    margin-top: 5px;
+}
+
+.alto{
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor_show_player{
+    width: 150px;
+    padding-bottom: 15px;
+    background-color: rgb(213, 241, 213, 0.2);
+    border-radius: 15px;
+}
+
+.fuente_nombre{
+    font-family: aharoni;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.contenedor{
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap:1em;
+    margin: 20px;
+}
+
+.fila{
+    background-color: rgb(250, 245, 227, 0.5);
+    font-weight: bold;
+    width: 150px;
+}
+
+.otros_perfiles{
+    width: 350px;
+    padding-top: 4px;
+    background-color: rgb(250, 247, 235, 0.4);
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.titulo_otros_perfiles{
+    font-size: 1.5em;
+    text-align: center;    
+}
+
+.contenedor_divisiones{
+/*    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap:1em;
+    margin: 20px;*/ 
+    background-color: tomato;
+}
+.contenedor_show_division{
+    /*width: 200px;
+    padding-bottom: 15px;
+    background-color: rgb(213, 241, 213, 0.2);
+    border-radius: 15px;*/
+    background-color: yellow;
+}

@@ -35,9 +35,9 @@
         <div>
             <label><b>CLUB DUEÑO DEL PASE</b></label>
             <select name="clubOrigen">
-                <option>SAN LORENZO DE RAUCH</option>
+                <option>SAN LORENZO</option>
                 <option>BOTAFOGO</option>
-                <option>JUVENTUD AGRARIA</option>
+                <option>AGRARIA</option>
                 <option>DEPORTIVO RAUCH</option>
             </select>
         </div>

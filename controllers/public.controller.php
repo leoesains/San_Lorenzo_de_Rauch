@@ -30,9 +30,10 @@ class PublicController{
 
     //muestra un jugador
     public function viewPlayer($idJugador) {
+        $jugadores = $this->modelJugadores->getAll();
         $jugador = $this->modelJugadores->get($idJugador);
         if(!empty($jugador))
-            $this->view->showPlayer($jugador);
+            $this->view->showPlayer($jugador, $jugadores);
         else
             $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos");
     }
