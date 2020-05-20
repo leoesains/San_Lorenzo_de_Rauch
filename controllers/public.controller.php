@@ -9,6 +9,8 @@ class PublicController{
     private $modelDivisiones;
     private $modelJugadores;
     private $view;
+    private $isAdmin = false; //Si el usuario es o no administrador
+
 
     public function __construct(){ //Constructor de la clase
         $this->modelDivisiones = new DivisionesModel();
@@ -24,16 +26,18 @@ class PublicController{
     public function showPlayer() {
         //Pido los jugadores al modelo
         $jugadores = $this->modelJugadores->getAll();
+        
         //Actualizo la vista
-        $this->view->showPlayers($jugadores);
+        $this->view->showPlayers($jugadores, $this->isAdmin);
     }
 
     //muestra un jugador
     public function viewPlayer($idJugador) {
         $jugadores = $this->modelJugadores->getAll();
         $jugador = $this->modelJugadores->get($idJugador);
+        
         if(!empty($jugador))
-            $this->view->showPlayer($jugador, $jugadores);
+            $this->view->showPlayer($jugador, $jugadores, $this->isAdmin);
         else
             $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos");
     }
@@ -51,8 +55,9 @@ class PublicController{
     public function showDivision() {
         //pido las divisiones al modelo
         $divisiones = $this->modelDivisiones->getAll();
+        
         //actualizo la vista
-        $this->view->showDivisions($divisiones);
+        $this->view->showDivisions($divisiones, $this->isAdmin);
     }
 
     //muestra los jugadores de una division especifica

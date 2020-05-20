@@ -1,17 +1,30 @@
-{include 'templates/header.tpl'}
+{include 'header.tpl'}
     <div class="titulo_mostrar_jugadores ancho">
         <p><b>PERFILES JUGADORES</b> TEMPORADA <b> 2020</b></p>
     </div>
     <div class="contenedorPerfil">
         <div>
             <img class="imagen_perfil"src="{$datosJug->imagen}">
+            {if {$isAdmin}} {* SI ES ADMINISTRADOR*}
+                <h4><a class="btn btn-danger centrar btn_alta" href="editar_jugador/{$datosJug->id_jugador}"><b>Editar Jugador</b></a></h4>
+                <h4><a class="btn btn-danger centrar btn_alta" href="eliminar_jugador/{$datosJug->id_jugador}"><b>Baja del Jugador</b></a></h4>
+                <h4><a class="btn btn-danger centrar btn_alta" href="listar_jugadores"><b>Volver</b></a>;
+            {/if}
         </div>
         <div class="datosJugador">
-            <h3><b>PERFIL DEL JUGADOR</b></h3>
             <p id="nombre_jugador_perfil">{$datosJug->nombre}</p>
             <h1>{$datosJug->puesto}</h1>
             {if $datosJug->id_division == 1}
                 <h3><b>PRIMERA DIVISIÓN</b></h3>
+            {/if}
+            {if $datosJug->id_division == 2}
+                <h3><b>SEGUNDA DIVISIÓN</b></h3>
+            {/if}
+            {if $datosJug->id_division == 3}
+                <h3><b>TERCERA DIVISIÓN</b></h3>
+            {/if}
+            {if $datosJug->id_division == 4}
+                <h3><b>CUARTA DIVISIÓN</b></h3>
             {/if}
             {if $datosJug->id_division == 5}
                 <h3><b>QUINTA DIVISIÓN</b></h3>

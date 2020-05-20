@@ -1,10 +1,17 @@
-{include 'templates/header.tpl'}
-    <div class="titulo_mostrar_jugadores">
-        <p><b>JUGADORES</b> DEL CLUB PARA LA <b>TEMPORADA 2020</b></p>
-    </div>
+{include 'header.tpl'}
+    {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+        <div class="titulo_mostrar_jugadores">
+            <p><b>JUGADORES</b> DEL CLUB PARA LA <b>TEMPORADA 2020</b></p>
+        </div>
+    {/if}
+    {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+        <div class="centrar btn_alta">
+            <h4><a class="btn btn-danger" href="agregar_jugador"><b>Alta Jugador</b></a></h4>
+        </div>
+    {/if}
     <div class="conteiner contenedor">
         {foreach from=$listaJugadores item=jugador}
-            <div class="contenedor_show_player">
+            <div class="contenedor_show_player centrar">
                 <div class="centrar">
                     <div class="alto">
                         <b class="fuente_nombre">{$jugador->nombre|upper}</b>
@@ -14,11 +21,18 @@
                 <div class="centrar puesto">
                     <h5><b>{$jugador->puesto|upper}</b></h5>
                 </div>
-                <div class="centrar">
-                    <h4><a class="btn btn-danger" href="ver_jugador/{$jugador->id_jugador}">Perfil</a></h4>
-                </div>
+                {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+                    <div class="centrar">
+                        <h4><a class="btn btn-danger" href="ver_jugador/{$jugador->id_jugador}"><b>Perfil</b></a></h4>
+                    </div>
+                {/if}
+                {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+                    <div class="centrar">
+                        <h4><a class="btn btn-danger" href="ver_jugador/{$jugador->id_jugador}"><b>Modificar | Baja</b></a></h4>
+                    </div>
+                {/if}
             </div>
         {/foreach}  
     </div>
  
-{include 'templates/footer.tpl'}
+{include 'footer.tpl'}

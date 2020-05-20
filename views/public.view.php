@@ -19,14 +19,16 @@ class PublicView{
         $this->smarty->display('templates/printError.tpl');
     }
 
-    public function showPlayers($jugadores) {
+    public function showPlayers($jugadores, $admin) {
         $this->smarty->assign('listaJugadores', $jugadores);
+        $this->smarty->assign('isAdmin', $admin);
         $this->smarty->display('templates/showPlayers.tpl');
     }
 
-    public function showPlayer($jugador, $jugadores) {
+    public function showPlayer($jugador, $jugadores, $admin) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
+        $this->smarty->assign('isAdmin', $admin);
         $this->smarty->display('templates/showPlayer.tpl');
     }
 
@@ -35,8 +37,9 @@ class PublicView{
         $this->smarty->assign('listaJugadores', $jugadores);
         $this->smarty->display('templates/showPlayerDivision.tpl');
     }
-    public function showDivisions($divisiones) {
+    public function showDivisions($divisiones, $admin) {
         $this->smarty->assign('listaDivisiones', $divisiones);
+        $this->smarty->assign('isAdmin', $admin);
         $this->smarty->display('templates/showDivisions.tpl');
     }    
 

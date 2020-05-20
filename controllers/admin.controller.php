@@ -80,7 +80,7 @@ class AdminController{
     public function addPlayer() {
         if(empty($_POST['dni']) || empty($_POST['name']) || empty($_POST['edad'])|| empty($_POST['fechaNacimiento']) || empty($_POST['numeroCarnet'])
             || empty($_POST['puesto']) || empty($_POST['clubOrigen']) || empty($_POST['telefono']) || empty($_POST['foto']) || empty($_POST['categoria'])) {
-                echo "Debe ingresar todos los datos requeridos!";
+                echo 'Debe ingresar todos los datos requeridos!';
         } else {
             $jugador = $this->modelJugadores->get($_POST['dni']);
             if(!empty($jugador)) {
@@ -114,17 +114,9 @@ class AdminController{
     }
 
     //muestra formulario para Editar el jugador con id = dni
-    public function editDataPlayer(){
-        if(!empty($_POST['dni'])){
-            $dni = $_POST['dni'];
-            $jugador = $this->modelJugadores->get($dni);
-            $this->view->showFormEditionPlayer($jugador);
-        }
-        else{
-            echo "DEBE INGRESAR UN DNI";
-            //<a class="nav-link" href="jugadores">Volver</a>;
-            //header('location: ' . BASE_URL . 'listar');
-        }
+    public function editDataPlayer($dni){
+        $jugador = $this->modelJugadores->get($dni);
+        $this->view->showFormEditionPlayer($jugador);
     }
 
     //modifica datos de jugador en DDBB
@@ -143,9 +135,11 @@ class AdminController{
                                       $_POST['foto']);
     }
 
-    public function removePlayer(){
+    public function removePlayer($dni){
+        
+        $this->modelJugadores->delete($dni,);
+        
 
-        $this->modelJugadores->delete($_POST['dni']);
     }
 
     //muestra formulario para Editar una Division

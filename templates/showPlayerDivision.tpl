@@ -39,7 +39,6 @@
             <img class="imagen_perfil"src="{$datosJug->imagen}">
         </div>
         <div class="datosJugador">
-            <h3><b>PERFIL DEL JUGADOR</b></h3>
             <p id="nombre_jugador_perfil">{$datosJug->nombre}</p>
             <h1>{$datosJug->puesto}</h1>
             {if $datosJug->id_division == 1}
@@ -93,7 +92,7 @@
                                             <h6><a  class="fila" href="ver_jugador_division/{$jugador->id_jugador}/{$jugador->id_division}">VOL | {$jugador->nombre}</a></h6>
                                         {/if}
                                         {if $jugador->puesto == "DELANTERO"}
-                                            <h6><a  class="fila" href="ver_jugador_division/{$jugador->id_jugador}/{$jugador->id_division}}">DEL | {$jugador->nombre}</a></h6>
+                                            <h6><a  class="fila" href="ver_jugador_division/{$jugador->id_jugador}/{$jugador->id_division}">DEL | {$jugador->nombre}</a></h6>
                                         {/if}
                                     </div>
                                 </td>

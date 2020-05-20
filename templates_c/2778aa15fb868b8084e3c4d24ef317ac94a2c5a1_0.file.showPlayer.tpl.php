@@ -1,29 +1,29 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-16 20:54:49
+/* Smarty version 3.1.34-dev-7, created on 2020-05-19 05:40:53
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\showPlayer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ec036f9816060_00367731',
+  'unifunc' => 'content_5ec35545ddee72_26093318',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2778aa15fb868b8084e3c4d24ef317ac94a2c5a1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\showPlayer.tpl',
-      1 => 1589655287,
+      1 => 1589859651,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:templates/header.tpl' => 1,
+    'file:header.tpl' => 1,
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ec036f9816060_00367731 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_5ec35545ddee72_26093318 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="titulo_mostrar_jugadores ancho">
         <p><b>PERFILES JUGADORES</b> TEMPORADA <b> 2020</b></p>
@@ -32,15 +32,32 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
         <div>
             <img class="imagen_perfil"src="<?php echo $_smarty_tpl->tpl_vars['datosJug']->value->imagen;?>
 ">
+            <?php ob_start();
+echo $_smarty_tpl->tpl_vars['isAdmin']->value;
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1) {?>                 <h4><a class="btn btn-danger centrar btn_alta" href="editar_jugador/<?php echo $_smarty_tpl->tpl_vars['datosJug']->value->id_jugador;?>
+"><b>Editar Jugador</b></a></h4>
+                <h4><a class="btn btn-danger centrar btn_alta" href="eliminar_jugador/<?php echo $_smarty_tpl->tpl_vars['datosJug']->value->id_jugador;?>
+"><b>Baja del Jugador</b></a></h4>
+                <h4><a class="btn btn-danger centrar btn_alta" href="listar_jugadores"><b>Volver</b></a>;
+            <?php }?>
         </div>
         <div class="datosJugador">
-            <h3><b>PERFIL DEL JUGADOR</b></h3>
             <p id="nombre_jugador_perfil"><?php echo $_smarty_tpl->tpl_vars['datosJug']->value->nombre;?>
 </p>
             <h1><?php echo $_smarty_tpl->tpl_vars['datosJug']->value->puesto;?>
 </h1>
             <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 1) {?>
                 <h3><b>PRIMERA DIVISIÓN</b></h3>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 2) {?>
+                <h3><b>SEGUNDA DIVISIÓN</b></h3>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 3) {?>
+                <h3><b>TERCERA DIVISIÓN</b></h3>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 4) {?>
+                <h3><b>CUARTA DIVISIÓN</b></h3>
             <?php }?>
             <?php if ($_smarty_tpl->tpl_vars['datosJug']->value->id_division == 5) {?>
                 <h3><b>QUINTA DIVISIÓN</b></h3>

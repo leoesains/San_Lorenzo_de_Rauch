@@ -49,4 +49,8 @@ class AdminView{
         $this->smarty->assign('division', $div);
         $this->smarty->display('templates/showFormEditionDivision.tpl');
     }
+    public function alert($msg){
+        $this->smarty->assign('mensaje', $msg);
+        $this->smarty->display('templates/alert.tpl');
+    }
 }

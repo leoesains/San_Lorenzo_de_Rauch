@@ -95,7 +95,7 @@ switch($parametros[0]){
 
     case 'editar_jugador': {
         $controller = new AdminController();  
-        $controller->editDataPlayer();
+        $controller->editDataPlayer($parametros[1]);
     break;
     }
     case 'guardar_edicion_jugador': {
@@ -105,7 +105,7 @@ switch($parametros[0]){
     }
     case 'eliminar_jugador': {
         $controller = new AdminController();  
-        $controller->removePlayer();
+        $controller->removePlayer($parametros[1]);
     break;
     }
     case 'editar_division': {
