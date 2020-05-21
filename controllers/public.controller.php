@@ -9,7 +9,7 @@ class PublicController{
     private $modelDivisiones;
     private $modelJugadores;
     private $view;
-    private $isAdmin = true; //Si el usuario es o no administrador
+    private $isAdmin = false; //Si el usuario es o no administrador
 
 
     public function __construct(){ //Constructor de la clase

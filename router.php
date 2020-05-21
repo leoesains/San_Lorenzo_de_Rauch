@@ -2,6 +2,8 @@
 
 require_once 'controllers/public.controller.php';
 require_once 'controllers/admin.controller.php';
+require_once 'controllers/login.controller.php';
+
 
 // definimos la base url de forma dinamica
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -83,7 +85,7 @@ switch($parametros[0]){
     }
 
     case 'loguearse': {
-        $controller = new AdminController();  
+        $controller = new LoginController();  
         $controller->loginAdmin();
     break;
     }
@@ -124,7 +126,7 @@ switch($parametros[0]){
     break;
     }
     case 'cerrar_sesion': {
-        $controller = new AdminController();     
+        $controller = new LoginController();     
         $controller->logout();
     break;
     }
