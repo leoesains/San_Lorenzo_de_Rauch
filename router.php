@@ -124,8 +124,8 @@ switch($parametros[0]){
     break;
     }
     case 'cerrar_sesion': {
-        $controller = new PublicController();     
-        $controller->home();
+        $controller = new AdminController();     
+        $controller->logout();
     break;
     }
     case 'ver_jugador_division': {

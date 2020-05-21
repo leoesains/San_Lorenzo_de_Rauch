@@ -17,6 +17,7 @@ class AdminController{
     
     
     public function __construct() { //Constructor de la clase
+        
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
         $this->modelAdmin = new AdminModel();
@@ -28,34 +29,37 @@ class AdminController{
     //Controla que el usuario ingresado sea correcto
     public function loginAdmin(){
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
+            
             echo "No ingreso todos los datos requeridos";
             
         } else {
             $username = $_POST['username'];
             $password = $_POST['psw'];
-            $administradores = $this->modelAdmin->getAllAdmin();
-                        
-            $longitud = count($administradores);
-            for($i = 0; $i < $longitud; $i ++) {
-                if($administradores[$i]->nombre_usuario == $username && $administradores[$i]->contraseña == $password) {
-                    $this->view->welcome($administradores[$i]->nombre);
-                    //echo "Bienvenido " .$administradores[$i]->nombre;
-                    
-                    die();
+            $user = $this->modelAdmin->getAdmin($username);
+
+            if($user) {
+                if(password_verify($password, $user->contraseña)) {
+                    $this->view->welcome($user->nombre); 
+                    session_start();                                    //Abro la sesion
+                    $_SESSION['NOMBRE_USUARIO'] = $user->nombre;        //Guardo el nombre del usuario
+                } else {
+                    echo "contraseña incorrecta";
                 }
-            }
-            if($i == $longitud) {
-                echo "Usuario Desconocido";
+            } else {
+                echo "el usuario no existe";
             }
         }
     }
 
+    //muestra un pequeño formulario para elegir si se quiere hacer el CRUD en jugadores o categorias
     public function showOptionAdm(){
+        $this->userLoggued();
         $this->view->chooseTask();
     }
 
     //muestra los jugadores para poder eliminar, actualizar o agregar un jugador nuevo
     public function crudPlayers() {
+        $this->userLoggued();
         //Pido los jugadores al modelo
         $jugadores = $this->modelJugadores->getAll();
         //Actualizo la vista
@@ -64,6 +68,7 @@ class AdminController{
 
     //muestra las categorias para poder eliminar, actualizar o agregar una nueva
     public function crudDivisions() {
+        $this->userLoggued();
         //pido las divisiones al modelo
         $divisiones = $this->modelDivisiones->getAll();
         //actualizo la vista
@@ -72,12 +77,14 @@ class AdminController{
 
     //muestra un formulario vacio para cargar los datos de un nuevo jugador y posteriormente guardarlo en la BBDD
     public function formPlayer() {
+        $this->userLoggued();
         $divisiones = $this->modelDivisiones->getAll();
         $this->view->formPlayerAdd($divisiones);
     }
 
     //guarda un nuevo jugador en la BBDD
     public function addPlayer() {
+        $this->userLoggued();
         if(empty($_POST['dni']) || empty($_POST['name']) || empty($_POST['edad'])|| empty($_POST['fechaNacimiento']) || empty($_POST['numeroCarnet'])
             || empty($_POST['puesto']) || empty($_POST['clubOrigen']) || empty($_POST['telefono']) || empty($_POST['foto']) || empty($_POST['categoria'])) {
                 echo 'Debe ingresar todos los datos requeridos!';
@@ -95,11 +102,13 @@ class AdminController{
 
     //muestra un formulario vacio para cargar los datos de una nueva division y posteriormente guardarla en la BBDD
     public function formDivision() {
+        $this->userLoggued();
         $this->view->formDivisionAdd();
     }
 
     //guarda una nueva categoria en la BBDD
     public function addDivision() {
+        $this->userLoggued();
         if(empty($_POST['numeroCategoria']) || empty($_POST['nombreCategoria']) || empty($_POST['edadLimite'])|| empty($_POST['limiteJugadores']) || empty($_POST['excepciones'])) {
             echo "Todos los datos son obligatorios";
         } else {
@@ -111,17 +120,20 @@ class AdminController{
                 echo "categoria guardada correctamente";
             }
         }
+    
     }
 
     //muestra formulario para Editar el jugador con id = dni
     public function editDataPlayer($dni){
+        $this->userLoggued();
         $jugador = $this->modelJugadores->get($dni);
         $this->view->showFormEditionPlayer($jugador);
     }
 
     //modifica datos de jugador en DDBB
     public function modifyDataPlayer(){
-       if(empty($_POST['nombre']) || empty($_POST['edad'])|| 
+        $this->userLoggued();
+        if(empty($_POST['nombre']) || empty($_POST['edad'])|| 
           empty($_POST['fechaNacimiento']) || empty($_POST['numeroCarnet']) || 
           empty($_POST['puesto']) || empty($_POST['clubOrigen']) || 
           empty($_POST['telefono']) || empty($_POST['foto']) || 
@@ -136,20 +148,20 @@ class AdminController{
     }
 
     public function removePlayer($dni){
-        
-        $this->modelJugadores->delete($dni,);
-        
-
+        $this->userLoggued();
+        $this->modelJugadores->delete($dni);
     }
 
     //muestra formulario para Editar una Division
-        public function editDataDivision($id_division){
+    public function editDataDivision($id_division){
+        $this->userLoggued();
         $division = $this->modelDivisiones->get($id_division);
         $this->view->showFormEditionDivision($division);
 
     }
 
     public function modifyDataDivision(){
+        $this->userLoggued();
         if(empty($_POST['nombre_div']) || empty($_POST['edad_limite'])|| 
            empty($_POST['limite_jugadores_LBF']) || empty($_POST['excepciones'])) {
              $this->viewPublic->printError("No se permiten campos vacíos");
@@ -162,15 +174,31 @@ class AdminController{
     }
 
     public function removeDivision($id_div){
+        $this->userLoggued();
         $this->modelDivisiones->delete($id_div);
     }
 
-
-
-
     public function showError($msg){
+        $this->userLoggued();
         //Le digo a la VISTA que me muestre el error en pantalla
         $this->view->printError($msg);
+    }
+
+    //destruye la session que se encuentra abierta para cerrar sesion
+    public function logout() {
+        $this->userLoggued();
+        session_start();
+        session_destroy();
+        header('Location: home');
+    }
+
+    //verifica que haya un usuario logueado
+    private function userLoggued() {
+        session_start();
+        if(!isset($_SESSION['NOMBRE_USUARIO'])) {
+            header('Location: home');
+            die();
+        }
     }
 
 

@@ -10,16 +10,16 @@ class AdminModel{
         $this->modelConection = new dbConectionModel();
     }
 
-    //devuelve todos los administradores de la tabla administradores
-    public function getAllAdmin() {
+    //devuelve el admin si existe en la DDBB o vacio si no existe
+    public function getAdmin($username) {
         //Me conecto con la DDBB
         $db = $this->modelConection->createConexion();
         //Hacemos la consulta
-        $sql = "SELECT * FROM administradores";
+        $sql = "SELECT * FROM administradores WHERE nombre_usuario = ?";
         $query = $db->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
-        $query->execute();        //la ejecuto
-        $administradores = $query->fetchAll(PDO::FETCH_OBJ);    
-        return $administradores;
+        $query->execute([$username]);        //la ejecuto
+        $administrador = $query->fetch(PDO::FETCH_OBJ);    
+        return $administrador;
     }
 
 }
