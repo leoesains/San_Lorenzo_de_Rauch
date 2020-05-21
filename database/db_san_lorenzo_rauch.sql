@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2020 a las 14:53:36
+-- Tiempo de generación: 21-05-2020 a las 04:03:30
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.5
+-- Versión de PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `administradores` (
   `id_administrador` int(2) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `nombre_usuario` varchar(100) NOT NULL,
-  `contraseña` varchar(12) NOT NULL
+  `contraseña` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -39,9 +39,7 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id_administrador`, `nombre`, `nombre_usuario`, `contraseña`) VALUES
-(1, 'Leo Esains', 'LeoCuervoRauch', '12344321'),
-(2, 'Tomas Esains', 'TomasCuervoEsains', '12344321'),
-(3, 'Paz Freccero', 'Paz', '12344321');
+(1, 'Seba Esains', 'admin', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O');
 
 -- --------------------------------------------------------
 
