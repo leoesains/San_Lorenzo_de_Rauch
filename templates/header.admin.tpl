@@ -24,11 +24,27 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            
+                            <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                JUGADORES
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="ver_arqueros">ARQUEROS</a>
+                                <a class="dropdown-item" href="ver_defensores">DEFENSORES</a>
+                                <a class="dropdown-item" href="ver_volantes">VOLANTES</a>
+                                <a class="dropdown-item" href="ver_delanteros">DELANTEROS</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="listar_jugadores">TODOS</a>
+                            </div>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="listar_divisiones">DIVISIONES</a>
                         </li>
                     </ul>
                 </div>
                 <div>
+                    {*<h5>{$nombreUsuario}</h5>*}
                     <a class="navbar-brand" href="cerrar_sesion"><b>Cerrar Sesion</b></a>
                 </div>
             </nav>

@@ -135,6 +135,32 @@ switch($parametros[0]){
         $controller->viewPlayerDivision($parametros[1],$parametros[2]);
     break;
     }
+    case 'ver_arqueros': {
+        $controller = new PublicController();     
+        $controller->viewPlayersPosition("ARQUERO");
+    break;
+    }
+    case 'ver_defensores': {
+        $controller = new PublicController();     
+        $controller->viewPlayersPosition("DEFENSOR");
+    break;
+    }
+    case 'ver_volantes': {
+        $controller = new PublicController();     
+        $controller->viewPlayersPosition("VOLANTE");
+    break;
+    }
+    case 'ver_delanteros': {
+        $controller = new PublicController();     
+        $controller->viewPlayersPosition("DELANTERO");
+    break;
+    }
+    case 'ver_jugador_puesto': {
+        $controller = new PublicController();     
+        $controller->viewPlayerPosition($parametros[1],$parametros[2]);
+    break;
+    }
+
     default: {
         $controller = new PublicController();     
         $controller->showError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");

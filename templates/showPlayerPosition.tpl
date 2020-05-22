@@ -6,37 +6,19 @@
 {/if}
 <div class="titulo_mostrar_jugadores ancho">
     <p> PERFILES 
-        {if {$datosJug->id_division} == 1}
-            <b>PRIMERA</b> 
+        {if {$datosJug->puesto} == "ARQUERO"}
+            <b>ARQUEROS</b> 
         {/if}
-        {if {$datosJug->id_division} == 2}
-            <b>SEGUNDA</b> 
+        {if {$datosJug->puesto} == "DEFENSOR"}
+            <b>DEFENSORES</b> 
         {/if}
-        {if {$datosJug->id_division} == 3}
-            <b>TERCERA</b> 
+        {if {$datosJug->puesto} == "VOLANTE"}
+            <b>VOLANTES</b> 
         {/if}
-        {if {$datosJug->id_division} == 4}
-            <b>CUARTA</b> 
+        {if {$datosJug->puesto} == "DELANTERO"}
+            <b>DELANTEROS</b> 
         {/if}
-        {if {$datosJug->id_division} == 5}
-            <b>QUINTA</b> 
-        {/if}
-        {if {$datosJug->id_division} == 6}
-            <b>SEXTA</b> 
-        {/if}
-        {if {$datosJug->id_division} == 7}
-            <b>SÉPTIMA</b> 
-        {/if}
-        {if {$datosJug->id_division} == 8}
-            <b>OCTAVA</b> 
-        {/if}
-        {if {$datosJug->id_division} == 9}
-            <b>NOVENA</b> 
-        {/if}
-        {if {$datosJug->id_division} == 10}
-            <b>DÉCIMA</b> 
-        {/if}
-        DIVISIÓN TEMPORADA 2020
+         TEMPORADA 2020
     </p>
 </div>
 <div class="contenedorPerfil">
@@ -46,7 +28,18 @@
             <h4><a class="btn btn-danger centrar btn_alta" href="editar_jugador/{$datosJug->id_jugador}"><b>Editar Jugador</b></a></h4>
             <h4><a class="btn btn-danger centrar btn_alta" href="eliminar_jugador/{$datosJug->id_jugador}"><b>Baja del Jugador</b></a></h4>
         {/if}
-        <h4><a class="btn btn-danger centrar btn_alta" href="divisiones_jugadores/{$datosJug->id_division}"><b>Volver</b></a>;
+        {if {$datosJug->puesto} == "ARQUERO"}
+            <h4><a class="btn btn-danger centrar btn_alta" href="ver_arqueros"><b>Volver</b></a>; 
+        {/if}
+        {if {$datosJug->puesto} == "DEFENSOR"}
+            <h4><a class="btn btn-danger centrar btn_alta" href="ver_defensores"><b>Volver</b></a>; 
+        {/if}
+        {if {$datosJug->puesto} == "VOLANTE"}
+            <h4><a class="btn btn-danger centrar btn_alta" href="ver_volantes"><b>Volver</b></a>; 
+        {/if}
+        {if {$datosJug->puesto} == "DELANTERO"}
+            <h4><a class="btn btn-danger centrar btn_alta" href="ver_delanteros"><b>Volver</b></a>;
+        {/if}
     </div>
     <div class="datosJugador">
         <p id="nombre_jugador_perfil">{$datosJug->nombre}</p>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-15 05:14:25
+/* Smarty version 3.1.34-dev-7, created on 2020-05-22 03:50:09
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ebe0911cff861_88773057',
+  'unifunc' => 'content_5ec72fd186df90_35566253',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '92bd1097ff97e0fe271079a113e1196c5c566ffa' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\header.tpl',
-      1 => 1589512456,
+      1 => 1590112204,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ebe0911cff861_88773057 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec72fd186df90_35566253 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
     <html lang="en">
         <head>
@@ -50,8 +50,18 @@ function content_5ebe0911cff861_88773057 (Smarty_Internal_Template $_smarty_tpl)
                         <li class="nav-item active">
                             <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="listar_jugadores">JUGADORES</a>
+                        <li class="nav-item active dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                JUGADORES
+                            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="ver_arqueros">ARQUEROS</a>
+                            <a class="dropdown-item" href="ver_defensores">DEFENSORES</a>
+                            <a class="dropdown-item" href="ver_volantes">VOLANTES</a>
+                            <a class="dropdown-item" href="ver_delanteros">DELANTEROS</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="listar_jugadores">TODOS</a>
+                        </div>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="listar_divisiones">DIVISIONES</a>
@@ -64,7 +74,7 @@ function content_5ebe0911cff861_88773057 (Smarty_Internal_Template $_smarty_tpl)
                         <input type="password" placeholder="Password" name="psw">
                         <button type="submit">Login</button>
                     </form>
-                    
-                </div>
+                
+
             </nav><?php }
 }
