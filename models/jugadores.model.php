@@ -81,4 +81,19 @@ class JugadoresModel{
        $query->execute([$dni]);        
 
     }
+
+    public function getPlayerPosition($puesto){
+        //1. Abro la conexion con MySQL
+        $db = $this->modelConection->createConexion();
+        //2. Enviamos la consulta (Se preapra, se envía o ejecuta y se obtiene la respuesta)
+        $sql = "SELECT * FROM jugadores WHERE puesto = ?"; //Consulta que quiero realizar en la Base de Datos
+        $query = $db->prepare($sql); //Preparo para hacer la consulta
+        $query->execute([$puesto]); //Envío o ejecuto la consulta
+        $jugadoresXpuesto = $query->fetchAll(PDO::FETCH_OBJ); //Obtengo la respuesta a mi consulta. 
+        return $jugadoresXpuesto;
+
+
+
+    }
+
 }

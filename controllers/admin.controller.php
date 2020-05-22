@@ -4,6 +4,7 @@ require_once 'models/jugadores.model.php';
 require_once 'models/login.model.php';
 require_once 'views/public.view.php';
 require_once 'views/admin.view.php';
+require_once 'helpers/auth.helper.php';
 
 
 class AdminController{
@@ -17,7 +18,7 @@ class AdminController{
     
     
     public function __construct() { //Constructor de la clase
-        $this->userLoggued();
+        authHelper::userLoggued();
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
         $this->modelAdmin = new AdminModel();
@@ -156,14 +157,6 @@ class AdminController{
         $this->view->printError($msg);
     }
 
-    //verifica que haya un usuario logueado
-    private function userLoggued() {
-        session_start();
-        if(!isset($_SESSION['NOMBRE_USUARIO'])) {
-            header('Location: home');
-            die();
-        }
-    }
-
+    
 
 }

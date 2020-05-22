@@ -29,6 +29,7 @@ class LoginController{
             if($user) {
                 if(password_verify($password, $user->contraseña)) {
                     session_start();                                    //Abro la sesion
+                    $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;        //Guardo el nombre del usuario
                     $this->view->welcome($user->nombre); 
                 } else {

@@ -26,8 +26,18 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="listar_jugadores">JUGADORES</a>
+                        <li class="nav-item active dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                JUGADORES
+                            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="ver_arqueros">ARQUEROS</a>
+                            <a class="dropdown-item" href="ver_defensores">DEFENSORES</a>
+                            <a class="dropdown-item" href="ver_volantes">VOLANTES</a>
+                            <a class="dropdown-item" href="ver_delanteros">DELANTEROS</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="listar_jugadores">TODOS</a>
+                        </div>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="listar_divisiones">DIVISIONES</a>

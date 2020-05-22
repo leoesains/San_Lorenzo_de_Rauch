@@ -6,11 +6,15 @@ class PublicView{
    
     private $smarty;
     
+    
     public function __construct(){
         $this->smarty = new Smarty();
+        
     }
 
-    public function showHome(){
+    public function showHome($admin){
+        $this->smarty->assign('isAdmin', $admin);
+        //$this->smarty->assign('nombreUsuario', $nameAdmin);
         $this->smarty->display('templates/showHome.tpl');
     }
 
@@ -32,9 +36,10 @@ class PublicView{
         $this->smarty->display('templates/showPlayer.tpl');
     }
 
-    public function showPlayerDivision($jugador, $jugadores) {
+    public function showPlayerDivision($jugador, $jugadores, $admin) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
+        $this->smarty->assign('isAdmin', $admin);
         $this->smarty->display('templates/showPlayerDivision.tpl');
     }
     public function showDivisions($divisiones, $admin) {
@@ -43,8 +48,23 @@ class PublicView{
         $this->smarty->display('templates/showDivisions.tpl');
     }    
 
-    public function printPlayersByDivision($jugXdiv) {
+    public function printPlayersByDivision($jugXdiv, $admin) {
        $this->smarty->assign('jugadoresXdivisiones', $jugXdiv);
+       $this->smarty->assign('isAdmin', $admin);
        $this->smarty->display('templates/printPlayersByDivision.tpl');
     }
+
+    public function printPlayersByPosition($jugXpos, $admin) {
+        $this->smarty->assign('jugadoresXpuesto', $jugXpos);
+        $this->smarty->assign('isAdmin', $admin);
+        $this->smarty->display('templates/printPlayersByPosition.tpl');
+     }
+
+     public function showPlayerPosition($jugador, $jugadores, $admin) {
+        $this->smarty->assign('datosJug', $jugador);
+        $this->smarty->assign('listaJugadores', $jugadores);
+        $this->smarty->assign('isAdmin', $admin);
+        $this->smarty->display('templates/showPlayerPosition.tpl');
+    }
+
 }
