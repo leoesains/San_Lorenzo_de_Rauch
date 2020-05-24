@@ -18,7 +18,7 @@ class PublicController{
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
         $this->view = new PublicView();
-        $this->isAdmin = authHelper::userLoggued();
+        $this->isAdmin = authHelper::userLogged();
       //  $this->nameAdmin = $this->getUserName();
         
         

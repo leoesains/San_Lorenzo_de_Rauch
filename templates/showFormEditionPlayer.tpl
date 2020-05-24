@@ -1,26 +1,47 @@
 {include 'templates/header.admin.tpl'}
-    <h1>MODIFIQUE LOS DATOS QUE DESEA CAMBIAR</H1>
-    <form action="guardar_edicion_jugador" method="POST">
+    <form id="form_add_jugador" action="guardar_edicion_jugador" method="POST">
+        <h1>MODIFIQUE</h1>
         <input type="hidden" name="dni" value="{$jugador->id_jugador}">
-        <label>nombre completo</label>
+        <label>NOMBRE COMPLETO</label>
         <input type="text" name="nombre" value="{$jugador->nombre}">
-        <label>edad</label>
-        <input type="text" name="edad" value="{$jugador->edad}">
-        <label>fecha de nacimiento</label>
+        <label>EDAD</label>
+        <input type="number" name="edad" value="{$jugador->edad}">
+        <label>FECHA DE NACIMIENTO</label>
         <input type="text" name="fechaNacimiento" value="{$jugador->fecha_nac}">
-        <label>numero de carnet</label>
+        <label>N° DE CARNET</label>
         <input type="text" name="numeroCarnet" value="{$jugador->carnet}">
-        <label>puesto en la cancha</label >
+        <label>PUESTO</label >
         <input type="text" name="puesto" value="{$jugador->puesto}">
-        <label>club de origen</label>
+        {*<select name="puesto" value="{$jugador->puesto}">
+            <option disabled selected>{$jugador->puesto}</option>
+            <option>ARQUERO</option>
+            <option>DEFENSOR</option>
+            <option>VOLANTE</option>
+            <option>DELANTERO</option>
+        </select>*}
+        <label>CLUB AL QUE PERTENECE EL PASE</label>
         <input type="text" name="clubOrigen" value="{$jugador->club_origen}">
-        <label>numero de telefono</label>
-        <input type="text" name="telefono" value="{$jugador->telefono}">
-        <label>division</label>
-        <input type="text" name="division" value="{$jugador->id_division}">
-        <label>una foto</label>
+        {*<select name="clubOrigen" value="{$jugador->club_origen}">
+            <option disabled selected>{$jugador->club_origen}</option>
+            <option>SAN LORENZO</option>
+            <option>BOTAFOGO</option>
+            <option>AGRARIA</option>
+            <option>DEPORTIVO RAUCH</option>
+        </select>
+        <label>TELÉFONO</label>
+        <input type="text" name="telefono" value="{$jugador->telefono}">*}
+        <label>DIVISIÓN</label>
+        <input type="text" name="categoria" value="{$jugador->id_division}">
+        {*<select name="categoria" value="{$jugador->id_division}">
+            <option disabled selected>{$jugador->id_division}</option>
+            {foreach from=$listaDivisiones item=division} 
+                <option>{$division->id_division}</option>
+            {/foreach}
+        </select>*}
+        <label>FOTO</label>
         <input type="text" name="foto" value="{$jugador->imagen}">
-        <button type="submit">Modificar datos</button>
+        <button type="submit" class="btn btn-danger"><b>Enviar</b></button>
+        <a class="btn btn-danger btn-volver" href="listar_jugadores"><b>Volver</b></a>;
+        </div>
     </form>
-    <a class="nav-link" href="jugadores"><b>Volver sin Confirmar Cambios</b></a>;
-{include 'templates/footer.tpl'}
+{include 'footer.tpl'}    

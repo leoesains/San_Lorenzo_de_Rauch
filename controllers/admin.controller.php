@@ -18,7 +18,7 @@ class AdminController{
     
     
     public function __construct() { //Constructor de la clase
-        authHelper::userLoggued();
+        authHelper::checkLogged();
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
         $this->modelAdmin = new AdminModel();
@@ -130,6 +130,7 @@ class AdminController{
         
         $division = $this->modelDivisiones->get($id_division);
         $this->view->showFormEditionDivision($division);
+        
 
     }
 
