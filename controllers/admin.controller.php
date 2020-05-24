@@ -68,12 +68,12 @@ class AdminController{
             } else {
                 $this->modelJugadores->insert($_POST['dni'], $_POST['name'], $_POST['edad'], $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'],
                                               $_POST['clubOrigen'], $_POST['telefono'], $_POST['categoria'], $_POST['foto']);
-                echo "jugador guardado correctamente";
+                header ('Location: ' .BASE_URL. 'agregar_jugador');
             }
         }
     }
 
-    //muestra un formulario vacio para cargar los datos de una nueva division y posteriormente guardarla en la BBDD
+    //muestra un formulario vacio para cargar los datos de una nueva categoria y posteriormente guardarla en la BBDD
     public function formDivision() {
         
         $this->view->formDivisionAdd();
@@ -85,12 +85,12 @@ class AdminController{
         if(empty($_POST['numeroCategoria']) || empty($_POST['nombreCategoria']) || empty($_POST['edadLimite'])|| empty($_POST['limiteJugadores']) || empty($_POST['excepciones'])) {
             echo "Todos los datos son obligatorios";
         } else {
-            $division = $this->modelDivisiones->get($_POST['numeroCategoria']);
-            if(!empty($division)) {
-                echo "La division ya estaba cargada";
+            $categoria = $this->modelDivisiones->get($_POST['numeroCategoria']);
+            if(!empty($categoria)) {
+                echo "La categoria ya estaba cargada";
             } else {
                 $this->modelDivisiones->insert($_POST['numeroCategoria'], $_POST['nombreCategoria'], $_POST['edadLimite'], $_POST['limiteJugadores'], $_POST['excepciones']);
-                echo "categoria guardada correctamente";
+                header ('Location: ' .BASE_URL. 'agregar_division');
             }
         }
     
@@ -100,7 +100,8 @@ class AdminController{
     public function editDataPlayer($dni){
         
         $jugador = $this->modelJugadores->get($dni);
-        $this->view->showFormEditionPlayer($jugador);
+        $divisiones = $this->modelDivisiones->getAll();
+        $this->view->showFormEditionPlayer($jugador, $divisiones);
     }
 
     //modifica datos de jugador en DDBB
@@ -110,13 +111,14 @@ class AdminController{
           empty($_POST['fechaNacimiento']) || empty($_POST['numeroCarnet']) || 
           empty($_POST['puesto']) || empty($_POST['clubOrigen']) || 
           empty($_POST['telefono']) || empty($_POST['foto']) || 
-          empty($_POST['division'])) {
+          empty($_POST['categoria'])) {
             $this->viewPublic->printError("No se permiten campos vacíos");
             die;
         } 
+        
         $this->modelJugadores->update($_POST['dni'],$_POST['nombre'], $_POST['edad'], 
                                       $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'], $_POST['clubOrigen'], 
-                                      $_POST['telefono'], $_POST['division'],
+                                      $_POST['telefono'], $_POST['categoria'],
                                       $_POST['foto']);
     }
 
@@ -128,8 +130,8 @@ class AdminController{
     //muestra formulario para Editar una Division
     public function editDataDivision($id_division){
         
-        $division = $this->modelDivisiones->get($id_division);
-        $this->view->showFormEditionDivision($division);
+        $categoria = $this->modelDivisiones->get($id_division);
+        $this->view->showFormEditionDivision($categoria);
         
 
     }

@@ -44,10 +44,10 @@
                 </div>
                 <div class="centrar">
                     {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
-                        <h4><a class="btn btn-danger" href="ver_jugador_puesto/{$jugXpos->id_jugador}/{$jugXpos->puesto}">Modificar | Baja</a></h4>
+                        <h4><a class="btn btn-danger" href="ver_jugador_puesto/{$jugXpos->id_jugador}/{$jugXpos->puesto}"><b>Ver | Edit | Baja</b></a></h4>
                     {/if}                
                     {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
-                        <h4><a class="btn btn-danger" href="ver_jugador_puesto/{$jugXpos->id_jugador}/{$jugXpos->puesto}">Perfil</a></h4>
+                        <h4><a class="btn btn-danger" href="ver_jugador_puesto/{$jugXpos->id_jugador}/{$jugXpos->puesto}"><b>Perfil</b></a></h4>
                     {/if}
                 </div>
             </div>

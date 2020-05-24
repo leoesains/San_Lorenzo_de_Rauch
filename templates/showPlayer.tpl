@@ -17,7 +17,7 @@
         <h4><a class="btn btn-danger centrar btn_alta" href="listar_jugadores"><b>Volver</b></a>;
     </div>
     <div class="datosJugador">
-        <p id="nombre_jugador_perfil">{$datosJug->nombre}</p>
+        <p id="nombre_jugador_perfil">{$datosJug->nombre|upper}</p>
         <h1>{$datosJug->puesto}</h1>
         {if $datosJug->id_division == 1}
             <h3><b>PRIMERA DIVISIÓN</b></h3>
@@ -70,16 +70,16 @@
                             <td id="nombre">
                                 <div class="col-sm">
                                     {if $jugador->puesto == "ARQUERO"}
-                                        <h6><a  class="fila" href="ver_jugador/{$jugador->id_jugador}">ARQ | {$jugador->nombre}</a></h6>
+                                        <h6><a  class="fila" href="ver_jugador/{$jugador->id_jugador}">ARQ | {$jugador->nombre|upper}</a></h6>
                                     {/if}
                                     {if $jugador->puesto == "DEFENSOR"}
-                                        <h6><a class="fila" href="ver_jugador/{$jugador->id_jugador}">DEF | {$jugador->nombre}</a></h6>
+                                        <h6><a class="fila" href="ver_jugador/{$jugador->id_jugador}">DEF | {$jugador->nombre|upper}</a></h6>
                                     {/if}
                                     {if $jugador->puesto == "VOLANTE"}
-                                        <h6><a  class="fila" href="ver_jugador/{$jugador->id_jugador}">VOL | {$jugador->nombre}</a></h6>
+                                        <h6><a  class="fila" href="ver_jugador/{$jugador->id_jugador}">VOL | {$jugador->nombre|upper}</a></h6>
                                     {/if}
                                     {if $jugador->puesto == "DELANTERO"}
-                                        <h6><a  class="fila" href="ver_jugador/{$jugador->id_jugador}">DEL | {$jugador->nombre}</a></h6>
+                                        <h6><a  class="fila" href="ver_jugador/{$jugador->id_jugador}">DEL | {$jugador->nombre|upper}</a></h6>
                                     {/if}
                                 </div>
                             </td>

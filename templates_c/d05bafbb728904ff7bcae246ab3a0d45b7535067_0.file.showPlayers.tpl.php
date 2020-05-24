@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-22 00:15:20
+/* Smarty version 3.1.34-dev-7, created on 2020-05-24 05:34:51
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\showPlayers.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ec6fd78448399_71064191',
+  'unifunc' => 'content_5ec9eb5be0b975_77538441',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd05bafbb728904ff7bcae246ab3a0d45b7535067' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\showPlayers.tpl',
-      1 => 1590099316,
+      1 => 1590291290,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ec6fd78448399_71064191 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec9eb5be0b975_77538441 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['isAdmin']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -80,7 +80,7 @@ echo $_smarty_tpl->tpl_vars['isAdmin']->value;
 $_prefixVariable6 = ob_get_clean();
 if ($_prefixVariable6) {?>                 <div class="centrar">
                     <h4><a class="btn btn-danger" href="ver_jugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
-"><b>Modificar | Baja</b></a></h4>
+"><b>Ver | Edit | Baja</b></a></h4>
                 </div>
             <?php }?>
         </div>

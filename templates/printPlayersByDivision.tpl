@@ -56,10 +56,10 @@
                 </div>
                 <div class="centrar">
                     {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
-                        <h4><a class="btn btn-danger" href="ver_jugador_division/{$jugXdiv->id_jugador}/{$jugXdiv->id_division}">Modificación | Baja</a></h4>
+                        <h4><a class="btn btn-danger" href="ver_jugador_division/{$jugXdiv->id_jugador}/{$jugXdiv->id_division}"><b>Ver | Edit | Baja</b></a></h4>
                     {/if}
                     {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
-                        <h4><a class="btn btn-danger" href="ver_jugador_division/{$jugXdiv->id_jugador}/{$jugXdiv->id_division}">Perfil</a></h4>
+                        <h4><a class="btn btn-danger" href="ver_jugador_division/{$jugXdiv->id_jugador}/{$jugXdiv->id_division}"><b>Perfil</b></a></h4>
                     {/if}
                 </div>
             </div>

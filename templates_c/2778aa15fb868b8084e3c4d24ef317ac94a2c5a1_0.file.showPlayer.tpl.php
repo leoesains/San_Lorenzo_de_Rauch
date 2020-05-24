@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-22 02:02:47
+/* Smarty version 3.1.34-dev-7, created on 2020-05-24 06:17:43
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\showPlayer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ec716a7e652f7_12009145',
+  'unifunc' => 'content_5ec9f567b0d977_56376890',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2778aa15fb868b8084e3c4d24ef317ac94a2c5a1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\showPlayer.tpl',
-      1 => 1590105756,
+      1 => 1590293193,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ec716a7e652f7_12009145 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec9f567b0d977_56376890 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['isAdmin']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -52,7 +52,7 @@ if ($_prefixVariable3) {?>             <h4><a class="btn btn-danger centrar btn_
         <h4><a class="btn btn-danger centrar btn_alta" href="listar_jugadores"><b>Volver</b></a>;
     </div>
     <div class="datosJugador">
-        <p id="nombre_jugador_perfil"><?php echo $_smarty_tpl->tpl_vars['datosJug']->value->nombre;?>
+        <p id="nombre_jugador_perfil"><?php echo mb_strtoupper($_smarty_tpl->tpl_vars['datosJug']->value->nombre, 'UTF-8');?>
 </p>
         <h1><?php echo $_smarty_tpl->tpl_vars['datosJug']->value->puesto;?>
 </h1>
@@ -116,22 +116,22 @@ foreach ($_from as $_smarty_tpl->tpl_vars['jugador']->value) {
                                 <div class="col-sm">
                                     <?php if ($_smarty_tpl->tpl_vars['jugador']->value->puesto == "ARQUERO") {?>
                                         <h6><a  class="fila" href="ver_jugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
-">ARQ | <?php echo $_smarty_tpl->tpl_vars['jugador']->value->nombre;?>
+">ARQ | <?php echo mb_strtoupper($_smarty_tpl->tpl_vars['jugador']->value->nombre, 'UTF-8');?>
 </a></h6>
                                     <?php }?>
                                     <?php if ($_smarty_tpl->tpl_vars['jugador']->value->puesto == "DEFENSOR") {?>
                                         <h6><a class="fila" href="ver_jugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
-">DEF | <?php echo $_smarty_tpl->tpl_vars['jugador']->value->nombre;?>
+">DEF | <?php echo mb_strtoupper($_smarty_tpl->tpl_vars['jugador']->value->nombre, 'UTF-8');?>
 </a></h6>
                                     <?php }?>
                                     <?php if ($_smarty_tpl->tpl_vars['jugador']->value->puesto == "VOLANTE") {?>
                                         <h6><a  class="fila" href="ver_jugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
-">VOL | <?php echo $_smarty_tpl->tpl_vars['jugador']->value->nombre;?>
+">VOL | <?php echo mb_strtoupper($_smarty_tpl->tpl_vars['jugador']->value->nombre, 'UTF-8');?>
 </a></h6>
                                     <?php }?>
                                     <?php if ($_smarty_tpl->tpl_vars['jugador']->value->puesto == "DELANTERO") {?>
                                         <h6><a  class="fila" href="ver_jugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
-">DEL | <?php echo $_smarty_tpl->tpl_vars['jugador']->value->nombre;?>
+">DEL | <?php echo mb_strtoupper($_smarty_tpl->tpl_vars['jugador']->value->nombre, 'UTF-8');?>
 </a></h6>
                                     <?php }?>
                                 </div>

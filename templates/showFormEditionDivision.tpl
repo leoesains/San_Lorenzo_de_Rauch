@@ -1,16 +1,19 @@
 {include 'templates/header.admin.tpl'}
-    <h1>MODIFIQUE LOS DATOS QUE DESEA CAMBIAR</H1>
-    <form action="guardar_edicion_division" method="POST">
+    
+    <form id="form_add_jugador" action="guardar_edicion_division" method="POST">
+        <h1>MODIFIQUE LOS DATOS QUE DESEA CAMBIAR</h1>
         <input type="hidden" name="id_division" value="{$division->id_division}">
-        <label>nombre</label>
+        <label>NOMBRE</label>
         <input type="text" name="nombre_div" value="{$division->nombre_div}">
-        <label>edad limite</label>
+        <label>EDAD LÍMITE</label>
         <input type="text" name="edad_limite" value="{$division->edad_limite}">
-        <label>cantidad de jugadores en LBF</label>
+        <label>CANTIDAD MÁX JUGADORES EN LBF</label>
         <input type="text" name="limite_jugadores_LBF" value="{$division->limite_jugadores_LBF}">
-        <label>observaciones/excepciones</label>
-        <input type="text" name="excepciones" value="{$division->excepciones}">
-        <button type="submit">Modificar datos</button>
+        <label>OBSERVACIONES / EXCEPCIONES</label>
+        <textarea name="excepciones" value="{$division->excepciones}">{$division->excepciones}</textarea>
+        <button type="submit" class="btn btn-danger btn-volver"><b>Enviar</b></button>
+        <a class="btn btn-danger btn-volver" href="listar_divisiones"><b>Volver</b></a>;
     </form>
-    <a class="nav-link" href="categorias"><b>Volver sin Confirmar Cambios</b></a>;
+    
 {include 'templates/footer.tpl'}
+

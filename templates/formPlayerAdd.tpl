@@ -1,11 +1,13 @@
 {include 'header.admin.tpl'}
     <form id="form_add_jugador" action="guardar_jugador" method="POST">
-        <h1>Completar todos los datos del nuevo jugador</h1>
+        <h1>DATOS DEL NUEVO JUGADOR</h1>
         <input type="namber" placeholder="INGRESE DNI" name="dni">
-        <input type="text" class="mayuscula"placeholder="Ingrese Nombre y Apellido" name="name">
+        <input type="text" class="mayuscula" placeholder="Ingrese Nombre y Apellido" name="name">
         <input type="text" placeholder="INGRESE EDAD" name="edad">
-        <label>INGRESE FECHA DE NACIMIENTO</label>
-        <input type="date" placeholder="INGRESE FECHA DE NACIMIENTO" name="fechaNacimiento">
+        <div>
+            <label>INGRESE FECHA DE NACIMIENTO</label>
+            <input type="date" placeholder="INGRESE FECHA DE NACIMIENTO" name="fechaNacimiento">
+        </div>
         <input type="text" class="mayuscula" placeholder="INGRESE N° DE CARNET" name="numeroCarnet">
         <select name="puesto">
             <option disabled selected>SELECCIONE UN PUESTO</option>

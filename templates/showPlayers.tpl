@@ -33,7 +33,7 @@
             {/if}
             {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
                 <div class="centrar">
-                    <h4><a class="btn btn-danger" href="ver_jugador/{$jugador->id_jugador}"><b>Modificar | Baja</b></a></h4>
+                    <h4><a class="btn btn-danger" href="ver_jugador/{$jugador->id_jugador}"><b>Ver | Edit | Baja</b></a></h4>
                 </div>
             {/if}
         </div>

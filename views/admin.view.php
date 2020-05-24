@@ -41,8 +41,9 @@ class AdminView{
         $this->smarty->display('templates/formDivisionAdd.tpl');
     }
 
-    public function showFormEditionPlayer($jug){
+    public function showFormEditionPlayer($jug, $divisiones){
         $this->smarty->assign('jugador', $jug);
+        $this->smarty->assign('listaDivisiones', $divisiones);
         $this->smarty->display('templates/showFormEditionPlayer.tpl');
     }
     public function showFormEditionDivision($div){
