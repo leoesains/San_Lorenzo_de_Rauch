@@ -45,5 +45,25 @@
                     </ul>
                 </div>
 
+                
+                
+                
+
+                <div class="login-container">
+                    <form class="form_log" action="loguearse" method="POST">
+                        <input type="text" placeholder="Username" name="username">
+                        <input type="password" placeholder="Password" name="psw">
+                        <button type="submit">Login</button>
+
+                        {if {$error}}
+                            <div class="alert alert-danger contenedor-alert-usuario">
+                                {$error}
+                            </div>
+                        {/if}
+
+                    </form>
+                
+                
+
             </nav>
        

@@ -338,3 +338,15 @@ label{
     margin-bottom: 0px;
     color: whitesmoke;
 }
+.contenedor-alert-usuario{
+    font-size: 1em;
+    font-weight: bold;
+    width: 400px;
+    height: 25px;
+    text-align: center;
+    margin-top: 5px;
+    padding: 0px;
+    background-color: tomato;
+
+    
+}

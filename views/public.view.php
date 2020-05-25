@@ -24,47 +24,54 @@ class PublicView{
         $this->smarty->display('templates/printError.tpl');
     }
 
-    public function showPlayers($jugadores, $admin) {
+    public function showPlayers($jugadores, $admin, $error = null) {
         $this->smarty->assign('listaJugadores', $jugadores);
         $this->smarty->assign('isAdmin', $admin);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayers.tpl');
     }
 
-    public function showPlayer($jugador, $jugadores, $admin) {
+    public function showPlayer($jugador, $jugadores, $admin, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
         $this->smarty->assign('isAdmin', $admin);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayer.tpl');
     }
 
-    public function showPlayerDivision($jugador, $jugadores, $admin) {
+    public function showPlayerDivision($jugador, $jugadores, $admin, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
         $this->smarty->assign('isAdmin', $admin);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayerDivision.tpl');
     }
-    public function showDivisions($divisiones, $admin) {
+    public function showDivisions($divisiones, $admin, $error = null) {
         $this->smarty->assign('listaDivisiones', $divisiones);
         $this->smarty->assign('isAdmin', $admin);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showDivisions.tpl');
     }    
 
-    public function printPlayersByDivision($jugXdiv, $admin) {
+    public function printPlayersByDivision($jugXdiv, $admin, $error = null) {
        $this->smarty->assign('jugadoresXdivisiones', $jugXdiv);
        $this->smarty->assign('isAdmin', $admin);
+       $this->smarty->assign('error', $error);
        $this->smarty->display('templates/printPlayersByDivision.tpl');
     }
 
-    public function printPlayersByPosition($jugXpos, $admin) {
+    public function printPlayersByPosition($jugXpos, $admin, $error = null) {
         $this->smarty->assign('jugadoresXpuesto', $jugXpos);
         $this->smarty->assign('isAdmin', $admin);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/printPlayersByPosition.tpl');
      }
 
-     public function showPlayerPosition($jugador, $jugadores, $admin) {
+     public function showPlayerPosition($jugador, $jugadores, $admin, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
         $this->smarty->assign('isAdmin', $admin);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayerPosition.tpl');
     }
 

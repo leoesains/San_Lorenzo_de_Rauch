@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-22 03:50:09
+/* Smarty version 3.1.34-dev-7, created on 2020-05-25 21:26:14
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ec72fd186df90_35566253',
+  'unifunc' => 'content_5ecc1bd6cae962_25423750',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '92bd1097ff97e0fe271079a113e1196c5c566ffa' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\header.tpl',
-      1 => 1590112204,
+      1 => 1590434765,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec72fd186df90_35566253 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ecc1bd6cae962_25423750 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
     <html lang="en">
         <head>
@@ -68,13 +68,7 @@ function content_5ec72fd186df90_35566253 (Smarty_Internal_Template $_smarty_tpl)
                         </li>
                     </ul>
                 </div>
-                <div class="login-container">
-                    <form class="form_log" action="loguearse" method="POST">
-                        <input type="text" placeholder="Username" name="username">
-                        <input type="password" placeholder="Password" name="psw">
-                        <button type="submit">Login</button>
-                    </form>
-                
 
-            </nav><?php }
+            </nav>
+       <?php }
 }

@@ -35,7 +35,7 @@
         <button type="submit" class="btn btn-danger"><b>Enviar</b></button>
         <a class="btn btn-danger btn-volver" href="listar_jugadores"><b>Volver</b></a>;
 
-        {if $error}
+        {if {$error}}
             <div class="alert alert-danger">
                 {$error}
             </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-22 00:18:53
+/* Smarty version 3.1.34-dev-7, created on 2020-05-25 17:17:30
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\showDivisions.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ec6fe4d2572c8_91550247',
+  'unifunc' => 'content_5ecbe18a2a1145_56307400',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e4bb310ad4e22049fd474f1796c9626c8dc85b55' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\showDivisions.tpl',
-      1 => 1590099411,
+      1 => 1590419848,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ec6fe4d2572c8_91550247 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ecbe18a2a1145_56307400 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['isAdmin']->value;
 $_prefixVariable1 = ob_get_clean();
