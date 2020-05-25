@@ -60,5 +60,11 @@
             <button type="submit" class="btn btn-danger btn-volver"><b>Enviar</b></button>
             <a class="btn btn-danger btn-volver btn-volver-edit-jug" href="listar_jugadores"><b>Volver</b></a>;
         </div>
+
+       {if $error}
+            <div class="alert alert-danger">
+                {$error}
+            </div>
+        {/if} 
     </form>
 {include 'footer.tpl'}    

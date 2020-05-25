@@ -12,8 +12,9 @@ class PublicView{
         
     }
 
-    public function showHome($admin){
+    public function showHome($admin, $error = null){
         $this->smarty->assign('isAdmin', $admin);
+        $this->smarty->assign('error', $error);
         //$this->smarty->assign('nombreUsuario', $nameAdmin);
         $this->smarty->display('templates/showHome.tpl');
     }

@@ -32,22 +32,26 @@ class AdminView{
         $this->smarty->display('templates/showDivisionsCrud.tpl');
     }    
 
-    public function formPlayerAdd($divisiones) {
+    public function formPlayerAdd($divisiones, $error = null) {
         $this->smarty->assign('listaDivisiones', $divisiones);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/formPlayerAdd.tpl');
     }
 
-    public function formDivisionAdd() {
+    public function formDivisionAdd($error = null) {
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/formDivisionAdd.tpl');
     }
 
-    public function showFormEditionPlayer($jug, $divisiones){
+    public function showFormEditionPlayer($jug, $divisiones, $error = null){
         $this->smarty->assign('jugador', $jug);
         $this->smarty->assign('listaDivisiones', $divisiones);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showFormEditionPlayer.tpl');
     }
-    public function showFormEditionDivision($div){
+    public function showFormEditionDivision($div, $error = null){
         $this->smarty->assign('division', $div);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showFormEditionDivision.tpl');
     }
     public function alert($msg){

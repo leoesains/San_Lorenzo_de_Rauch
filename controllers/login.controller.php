@@ -2,30 +2,29 @@
 
 require_once 'models/login.model.php';
 require_once 'views/public.view.php';
+require_once 'views/admin.view.php';
 
 class LoginController{
 
     //Variables globales del controlador
     private $modelLogin;
     private $view;
+    private $viewPublic;
     
     public function __construct() { //Constructor de la clase
-        
         $this->modelLogin = new AdminModel();
         $this->view = new AdminView();
+        $this->viewPublic = new PublicView();
     }
 
     //Controla que el usuario ingresado sea correcto
     public function loginAdmin(){
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
-            
-            echo "No ingreso todos los datos requeridos";
-            
+            $this->viewPublic->showHome(false, "No ingreso todos los datos!!");
         } else {
             $username = $_POST['username'];
             $password = $_POST['psw'];
             $user = $this->modelLogin->getAdmin($username);
-
             if($user) {
                 if(password_verify($password, $user->contraseña)) {
                     session_start();                                    //Abro la sesion
@@ -33,10 +32,10 @@ class LoginController{
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;        //Guardo el nombre del usuario
                     $this->view->welcome($user->nombre); 
                 } else {
-                    echo "contraseña incorrecta";
+                    $this->viewPublic->showHome(false, "Contraseña incorrecta");
                 }
             } else {
-                echo "el usuario no existe";
+                $this->viewPublic->showHome(false, "El usuario ingresado no existe");
             }
         }
     }
