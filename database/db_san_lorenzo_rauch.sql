@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2020 a las 04:03:30
+-- Tiempo de generación: 27-05-2020 a las 01:05:01
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.6
+-- Versión de PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,13 +60,13 @@ CREATE TABLE `divisiones` (
 --
 
 INSERT INTO `divisiones` (`id_division`, `nombre_div`, `edad_limite`, `limite_jugadores_LBF`, `excepciones`) VALUES
-(1, 'PRIMERA', 99, 40, 'En primera divisi?n es libre, no hace falta excepciones.'),
-(5, 'QUINTA', 20, 40, 'Se pueden incorporar 2 jugadores de 18 a?os y 2 de 19 a?os. El arquero es libre.'),
-(6, 'SEXTA', 14, 50, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.'),
-(7, 'SEPTIMA', 14, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.'),
-(8, 'OCTAVA', 12, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.'),
-(9, 'NOVENA', 11, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.'),
-(10, 'DECIMA', 10, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo d?a en su divisi?n.');
+(1, 'PRIMERA', 99, 40, 'En primera división es libre, no hace falta excepciones.'),
+(5, 'QUINTA', 20, 40, 'Se pueden incorporar 2 jugadores de 18 años y 2 de 19 años. El arquero es libre.'),
+(6, 'SEXTA', 14, 50, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo día en su división.'),
+(7, 'SEPTIMA', 14, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo día en su división.'),
+(8, 'OCTAVA', 12, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo día en su división.'),
+(9, 'NOVENA', 11, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo día en su división.'),
+(10, 'DECIMA', 10, 60, 'Se pueden incorporar jugadores de divisiones inferiores siempre y cuando no jueguen en el mismo día en su división.');
 
 -- --------------------------------------------------------
 
@@ -92,65 +92,64 @@ CREATE TABLE `jugadores` (
 --
 
 INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, `puesto`, `club_origen`, `telefono`, `id_division`, `imagen`) VALUES
-(23322505, 'Leonardo Esains', 47, '30/07/1973', '12345', 'Defensor', 'San Lorenzo', '249 154 559796', 1, 'images/jugadores/45036455.jpg'),
-(27830858, 'OSCAR ALFREDO ECHENIQUE', 40, '05/01/1980', 'SL-047', 'DEFENSOR', 'AGRARIA', '(249) 154 504532', 1, 'images/jugadores/27830858.jpg'),
-(29885727, 'BARRAGAN PASCUAL', 17, '03/01/2003', 'SL-045', 'ARQUERO', 'SAN LORENZO', '(249) 154 017548', 1, 'images/jugadores/29885727.jpg'),
+(23322505, 'LEONARDO ESAINS', 35, '1973-07-30', 'SL-099', 'ARQUERO', 'AGRARIA', '249 154 559796', 5, 'images/jugadores/45036455.jpg'),
+(23698773, 'pipi romagnoli', 38, '1999-11-23', 'SL-088', 'VOLANTE', 'SAN LORENZO', '(249) 154 594923', 1, 'images/jugadores/45036455.jpg'),
+(29885727, 'BARRAGÁN PASCUAL', 17, '03/01/2003', 'SL-045', 'ARQUERO', 'SAN LORENZO', '(249) 154 017548', 1, 'images/jugadores/29885727.jpg'),
 (32312811, 'FACUNDO LIPPO', 34, '11/04/1986', 'SL-030', 'DEFENSOR', 'SAN LORENZO', '(11) 1526 484453', 1, 'images/jugadores/32312811.jpg'),
-(32362317, 'MARCELO OSCAR IBA?EZ', 34, '09/07/1986', 'SL-036', 'VOLANTE', 'SAN LORENZO', '(249) 154 338452', 1, 'images/jugadores/32362317.jpg'),
-(32378592, 'MAXIMILIANO ROLDAN', 34, '23/06/1986', 'SL-025', 'DEFENSOR', 'SAN LORENZO', '(249) 154 311712', 1, 'images/jugadores/32378592.jpg'),
-(32815032, 'JONATAN ORELLANO', 33, '16/01/1987', 'SL-090', 'DEFENSOR', 'SAN LORENZO', '(249) 154 022005', 1, 'images/jugadores/32815032.jpg'),
+(32362317, 'MARCELO OSCAR IBÁÑEZ', 34, '09/07/1986', 'SL-036', 'VOLANTE', 'SAN LORENZO', '(249) 154 338452', 1, 'images/jugadores/32362317.jpg'),
+(32815032, 'JÓNATAN ORELLANO', 33, '16/01/1987', 'SL-090', 'DEFENSOR', 'SAN LORENZO', '(249) 154 022005', 1, 'images/jugadores/32815032.jpg'),
 (32815188, 'VICTORIANO CANO KELLY', 33, '26/08/1987', 'SL-146', 'DELANTERO', 'SAN LORENZO', '(249) 154 279512', 1, 'images/jugadores/32815188.jpg'),
 (33292157, 'LUCIANO DINAMARCA', 33, '10/07/1987', 'SL-031', 'DELANTERO', 'SAN LORENZO', '(221) 154 181054', 1, 'images/jugadores/33292157.jpg'),
 (33328427, 'CARLOS SAINZ', 32, '14/02/1988', 'SL-044', 'DELANTERO', 'SAN LORENZO', '(249) 154 561764', 1, 'images/jugadores/33328427.jpg'),
-(33917962, 'MARTIN GABRIEL VELA', 32, '04/11/1988', 'SL-098', 'VOLANTE', 'SAN LORENZO', '(249) 154 279512', 1, 'images/jugadores/33917962.jpg'),
-(33917970, 'JUAN OCTAVIO MARTINEZ', 31, '15/01/1989', 'SL-028', 'VOLANTE', 'SAN LORENZO', '(249) 154 557145', 1, 'images/jugadores/33917970.jpg'),
-(34961205, 'MATIAS VALDEZ', 31, '21/09/1989', 'SL-040', 'DELANTERO', 'SAN LORENZO', '(249) 154 550406', 1, 'images/jugadores/34961205.jpg'),
-(34961390, 'YONATHAN BENITEZ', 30, '03/07/1990', 'SL-042', 'DELANTERO', 'SAN LORENZO', '(249) 154 550406', 1, 'images/jugadores/34961390.jpg'),
-(35334734, 'ARIAS JOSE HECTOR ', 30, '03/08/1990', 'SL-033', 'VOLANTE', 'AGRARIA', '(249) 154 541147', 1, 'images/jugadores/35334734.jpg'),
-(35334774, 'BERNATENE JONATHAN', 29, '25/09/1991', 'SL-102', 'VOLANTE', 'SAN LORENZO', '(249) 154 356205', 1, 'images/jugadores/35334774.jpg'),
+(33917962, 'MARTÍN GABRIEL VELA', 32, '04/11/1988', 'SL-098', 'VOLANTE', 'SAN LORENZO', '(249) 154 279512', 1, 'images/jugadores/33917962.jpg'),
+(33917970, 'JUAN OCTAVIO MARTÍNEZ', 31, '15/01/1989', 'SL-028', 'VOLANTE', 'SAN LORENZO', '(249) 154 557145', 1, 'images/jugadores/33917970.jpg'),
+(34961205, 'MATÍAS VALDEZ', 31, '21/09/1989', 'SL-040', 'DELANTERO', 'SAN LORENZO', '(249) 154 550406', 1, 'images/jugadores/34961205.jpg'),
+(34961390, 'YÓNATHAN BENÍTEZ', 30, '03/07/1990', 'SL-042', 'DELANTERO', 'SAN LORENZO', '(249) 154 550406', 1, 'images/jugadores/34961390.jpg'),
+(35334734, 'ARIAS JOSÉ HÉCTOR ', 30, '03/08/1990', 'SL-033', 'VOLANTE', 'AGRARIA', '(249) 154 541147', 1, 'images/jugadores/35334734.jpg'),
+(35334774, 'BERNATENE JÓNATHAN', 29, '25/09/1991', 'SL-102', 'VOLANTE', 'SAN LORENZO', '(249) 154 356205', 1, 'images/jugadores/35334774.jpg'),
 (35797712, 'RAFAEL CABALLERO', 30, '09/11/1990', 'SL-117', 'DEFENSOR', 'AGRARIA', '(249) 154 539254', 1, 'images/jugadores/35797712.jpg'),
-(35797761, 'JOS? GARRALDA ', 17, '02/01/2003', 'SL-079', 'DEFENSOR', 'SAN LORENZO', '(249) 154 552318', 1, 'images/jugadores/35797761.jpg'),
-(36484415, 'ALEXIS  GUTI?RREZ', 28, '18/12/1991', 'SL-038', 'DEFENSOR', 'SAN LORENZO', '(249) 154 347755', 1, 'images/jugadores/36484415.jpg'),
-(36933055, 'DAMIAN LOURTAU ', 28, '31/05/1992', 'SL-144', 'DELANTERO', 'SAN LORENZO', '(249) 154 002830', 1, 'images/jugadores/36933055.jpg'),
-(36933116, 'MARCELO DANIEL ACU?A', 28, '02/09/1992', 'SL-149', 'DEFENSOR', 'SAN LORENZO', '(249) 154 279512', 1, 'images/jugadores/36933116.jpg'),
+(35797761, 'JOSÉ GARRALDA ', 17, '02/01/2003', 'SL-079', 'DEFENSOR', 'SAN LORENZO', '(249) 154 552318', 1, 'images/jugadores/35797761.jpg'),
+(36484415, 'ALEXIS  GUTIÉRREZ', 28, '18/12/1991', 'SL-038', 'DEFENSOR', 'SAN LORENZO', '(249) 154 347755', 1, 'images/jugadores/36484415.jpg'),
+(36933055, 'DAMIÁN LOURTAU ', 28, '31/05/1992', 'SL-144', 'DELANTERO', 'SAN LORENZO', '(249) 154 002830', 1, 'images/jugadores/36933055.jpg'),
+(36933116, 'MARCELO DANIEL ACUÑA', 28, '02/09/1992', 'SL-149', 'DEFENSOR', 'SAN LORENZO', '(249) 154 279512', 1, 'images/jugadores/36933116.jpg'),
 (36933194, 'JOAQUIN ALCIDES ACOSTA', 27, '26/11/1992', 'SL-043', 'VOLANTE', 'SAN LORENZO', '(249) 154 553852', 1, 'images/jugadores/36933194.jpg'),
 (37197440, 'RODRIGO CORRAL', 27, '13/05/1993', 'SL-078', 'VOLANTE', 'SAN LORENZO', '(249) 154 598504', 1, 'images/jugadores/37197440.jpg'),
-(37380179, 'AGUSTIN VAQUEIRO', 27, '05/02/1993', 'SL-073', 'VOLANTE', 'SAN LORENZO', '(249) 154 359892', 1, 'images/jugadores/37380179.jpg'),
+(37380179, 'AGUSTÍN VAQUEIRO', 27, '05/02/1993', 'SL-073', 'VOLANTE', 'SAN LORENZO', '(249) 154 359892', 1, 'images/jugadores/37380179.jpg'),
 (37380218, 'MARIANO CIOLFI', 27, '04/05/1993', 'SL-046', 'DEFENSOR', 'SAN LORENZO', '(249) 154 663247', 1, 'images/jugadores/37380218.jpg'),
 (37871062, 'FEDERICO ROBLES ', 26, '01/12/1993', 'SL-099', 'VOLANTE', 'SAN LORENZO', '(249) 154 531400', 1, 'images/jugadores/37871062.jpg'),
-(37871096, 'MANGO AGUSTIN', 26, '30/12/1993', 'SL-086', 'DEFENSOR', 'SAN LORENZO', '(249) 154 340895', 1, 'images/jugadores/37871096.jpg'),
+(37871096, 'MANGO AGUSTÍN', 26, '30/12/1993', 'SL-086', 'DEFENSOR', 'SAN LORENZO', '(249) 154 340895', 1, 'images/jugadores/37871096.jpg'),
 (37871185, 'GONZALO ORELLANO', 26, '14/04/1994', 'SL-066', 'DELANTERO', 'SAN LORENZO', '(249) 154 346566', 1, 'images/jugadores/37871185.jpg'),
-(37871189, 'BARRAGAN LUCAS', 26, '06/05/1994', 'SL-135', 'VOLANTE', 'SAN LORENZO', '(249) 154 324788', 1, 'images/jugadores/37871189.jpg'),
-(37871205, 'FACUNDO BENAVIDEZ', 26, '22/05/1994', 'SL-037', 'DELANTERO', 'AGRARIA', '(249) 154 322028', 1, 'images/jugadores/37871205.jpg'),
+(37871189, 'BARRAGÁN LUCAS', 26, '06/05/1994', 'SL-135', 'VOLANTE', 'SAN LORENZO', '(249) 154 324788', 1, 'images/jugadores/37871189.jpg'),
+(37871205, 'FACUNDO BENAVÍDEZ', 26, '22/05/1994', 'SL-037', 'DELANTERO', 'AGRARIA', '(249) 154 322028', 1, 'images/jugadores/37871205.jpg'),
 (40810190, 'IRUNGARAY FEDERICO', 22, '15/04/1998', 'SL-024', 'DEFENSOR', 'SAN LORENZO', '(249) 154 007181', 1, 'images/jugadores/40810190.jpg'),
 (41097637, 'GABRIEL ARTIGAS', 22, '08/07/1998', 'SL-091', 'DEFENSOR', 'SAN LORENZO', '(249) 154 062750', 1, 'images/jugadores/41097637.jpg'),
 (41969619, 'BRAIAN JAVIER CASAL ', 21, '09/10/1999', 'SL-122', 'DELANTERO', 'SAN LORENZO', '(249) 154 500787', 5, 'images/jugadores/41969619.jpg'),
-(41969659, 'JUAN MANUEL ISLAS', 20, '27/12/1999', 'SL-006', 'DEFENSOR', 'SAN LORENZO', '(249) 154 218547', 5, 'images/jugadores/41969659.jpg'),
 (41969699, 'BAUTISTA KEEGAN', 20, '01/01/2000', 'SL-062', 'DEFENSOR', 'SAN LORENZO', '(249) 154 279512', 5, 'images/jugadores/41969699.jpg'),
-(42428423, 'ERNESTO JOSE DE CANDILO', 20, '15/11/1999', 'SL-072', 'DEFENSOR', 'SAN LORENZO', '(249) 154 357929', 5, 'images/jugadores/42428423.jpg'),
-(42491632, 'TOMAS FEDERICO ELUAIZA', 20, '23/03/2000', 'SL-142', 'VOLANTE', 'SAN LORENZO', '(249) 154 022973', 5, 'images/jugadores/42491632.jpg'),
-(42491658, 'ALEX ATUCHA', 17, '19/04/2003', 'SL-075', 'VOLANTE', 'SAN LORENZO', '(249) 154 062262', 1, 'images/jugadores/42491658.jpg'),
+(42428423, 'ERNESTO JOSÉ DE CANDILO', 20, '15/11/1999', 'SL-072', 'DEFENSOR', 'SAN LORENZO', '(249) 154 357929', 5, 'images/jugadores/42428423.jpg'),
+(42491632, 'TOMÁS FEDERICO ELUAIZA', 20, '23/03/2000', 'SL-142', 'VOLANTE', 'SAN LORENZO', '(249) 154 022973', 5, 'images/jugadores/42491632.jpg'),
+(42491658, 'ÁLEX ATUCHA', 17, '19/04/2003', 'SL-075', 'VOLANTE', 'SAN LORENZO', '(249) 154 062262', 1, 'images/jugadores/42491658.jpg'),
 (42839254, 'LEONEL MOYANO ', 20, '14/09/2000', 'SL-054', 'VOLANTE', 'SAN LORENZO', '(249) 154 475368', 5, 'images/jugadores/42839254.jpg'),
-(42839281, 'AGUSTIN CORREA', 20, '23/10/2000', 'SL-010', 'DEFENSOR', 'SAN LORENZO', '(249) 154 593436', 5, 'images/jugadores/42839281.jpg'),
+(42839281, 'AGUSTÍN CORREA', 20, '23/10/2000', 'SL-010', 'DEFENSOR', 'SAN LORENZO', '(249) 154 593436', 5, 'images/jugadores/42839281.jpg'),
 (42839289, 'THIAGO MARINO ', 20, '05/11/2000', 'SL-088', 'VOLANTE', 'SAN LORENZO', '(249) 154 476802', 5, 'images/jugadores/42839289.jpg'),
 (42879700, 'FEDERICO JAUREGUIBERRY', 20, '14/08/2000', 'SL-048', 'DELANTERO', 'SAN LORENZO', '(249) 154 569480', 5, 'images/jugadores/42879700.jpg'),
-(43197192, 'AXEL EMMANUEL FACCIO', 19, '19/04/2001', 'SL-124', 'DEFENSOR', 'SAN LORENZO', '(249) 154 050733', 5, 'images/jugadores/43197192.jpg'),
-(43471258, 'MARTIN ELUAIZA', 19, '15/07/2001', 'SL-041', 'DEFENSOR', 'SAN LORENZO', '(249) 154 327502', 5, 'images/jugadores/43471258.jpg'),
-(43471266, 'ORUEZABAL TOMAS', 19, '10/05/2001', 'SL-138', 'VOLANTE', 'SAN LORENZO', '(249) 154 062100', 5, 'images/jugadores/43471266.jpg'),
+(43197192, 'ÁXEL EMMANUEL FACCIO', 19, '19/04/2001', 'SL-124', 'DEFENSOR', 'SAN LORENZO', '(249) 154 050733', 5, 'images/jugadores/43197192.jpg'),
+(43471258, 'MARTÍN ELUAIZA', 19, '15/07/2001', 'SL-041', 'DEFENSOR', 'SAN LORENZO', '(249) 154 327502', 5, 'images/jugadores/43471258.jpg'),
+(43471266, 'ORUEZABAL TOMÁS', 19, '10/05/2001', 'SL-138', 'VOLANTE', 'SAN LORENZO', '(249) 154 062100', 5, 'images/jugadores/43471266.jpg'),
 (43972615, 'GIULIANO CARRIZO', 17, '14/05/2003', 'SL-026', 'DELANTERO', 'SAN LORENZO', '(249) 154 694413', 5, 'images/jugadores/43972615.jpg'),
 (44046838, 'ALFARO MATEO', 17, '12/04/2003', 'SL-022', 'VOLANTE', 'SAN LORENZO', '(249) 154 000272', 5, 'images/jugadores/44046838.jpg'),
-(44357004, 'SALVADOR GALVAN', 18, '04/08/2002', 'SL-039', 'VOLANTE', 'SAN LORENZO', '(249) 154 029447', 5, 'images/jugadores/44357004.jpg'),
+(44357004, 'SALVADOR GALVÁN', 18, '04/08/2002', 'SL-039', 'VOLANTE', 'SAN LORENZO', '(249) 154 029447', 5, 'images/jugadores/44357004.jpg'),
 (44357044, 'ALCETEGARAY FEDERICO', 17, '23/09/2003', 'SL-007', 'DELANTERO', 'SAN LORENZO', '(249) 154 066399', 5, 'images/jugadores/44357044.jpg'),
-(44357080, 'NICOLAS CERVETTA', 17, '19/11/2002', 'SL-027', 'DEFENSOR', 'SAN LORENZO', '(249) 154 207282', 5, 'images/jugadores/44357080.jpg'),
+(44357080, 'NICOLÁS CERVETTA', 17, '19/11/2002', 'SL-027', 'DEFENSOR', 'SAN LORENZO', '(249) 154 207282', 5, 'images/jugadores/44357080.jpg'),
 (44357100, 'ALEJANDRO AREVALO', 17, '01/12/2002', 'SL-032', 'DEFENSOR', 'SAN LORENZO', '(249) 154 028486', 5, 'images/jugadores/44357100.jpg'),
 (44649537, 'PABLO GASPAR CARLUCCIO', 17, '14/02/2003', 'SL-004', 'VOLANTE', 'SAN LORENZO', '(249) 154 019819', 5, 'images/jugadores/44649537.jpg'),
 (44649542, 'MATEO FACCIO ', 17, '17/02/2003', 'SL-001', 'VOLANTE', 'SAN LORENZO', '(249) 154 213122', 5, 'images/jugadores/44649542.jpg'),
-(44649543, 'NICANOR DOMINGUEZ', 17, '28/01/2003', 'SL-114', 'ARQUERO', 'SAN LORENZO', '(249) 154 278626', 5, 'images/jugadores/44649543.jpg'),
+(44649543, 'NICANOR DOMINGUEZ', 17, '28/01/2003', 'SL-114', 'ARQUERO', 'SAN LORENZO', '(249) 154 278626', 1, 'images/jugadores/44649543.jpg'),
 (44649545, 'LUCIO COSTANTINO', 17, '23/02/2003', 'SL-145', 'VOLANTE', 'SAN LORENZO', '(249) 154 210500', 5, 'images/jugadores/44649545.jpg'),
 (44649556, 'LUCIANO ALFREDO LESCANO', 17, '21/03/2003', 'SL-034', 'VOLANTE', 'SAN LORENZO', '(249) 154 356935', 5, 'images/jugadores/44649556.jpg'),
 (44649560, 'ULISES HERRERIA ', 17, '21/03/2003', 'SL-067', 'DEFENSOR', 'SAN LORENZO', '(249) 154 534234', 5, 'images/jugadores/44649560.jpg'),
-(45036419, 'VALENTIN MI?OLA', 17, '16/04/2003', 'SL-119', 'ARQUERO', 'SAN LORENZO', '(249) 154 694461', 5, 'images/jugadores/45036419.jpg'),
+(45036419, 'VALENTÍN MIÑOLA', 17, '16/04/2003', 'SL-119', 'ARQUERO', 'SAN LORENZO', '(249) 154 694461', 5, 'images/jugadores/45036419.jpg'),
 (45036447, 'ALEJANDRO CROCCI', 17, '03/06/2003', 'SL-068', 'ARQUERO', 'SAN LORENZO', '(249) 154 665099', 5, 'images/jugadores/45036447.jpg'),
+(45036455, 'TOMÁS ESAINS', 16, '14/06/2003', 'SL-021', 'DEFENSOR', 'SAN LORENZO', '(249) 154 594923', 5, 'images/jugadores/45036455.jpg'),
 (45223755, 'TOMAS ALONSO', 17, '18/08/2003', 'SL-065', 'VOLANTE', 'SAN LORENZO', '(249) 154 356350', 1, 'images/jugadores/45223755.jpg'),
 (45223769, 'FELIPE BENAVIDEZ', 17, '04/09/2003', 'SL-103', 'DELANTERO', 'SAN LORENZO', '(249) 154 348229', 5, 'images/jugadores/45223769.jpg'),
 (45223775, 'IAN DIAZ', 17, '21/08/2003', 'SL-113', 'DELANTERO', 'BOTAFOGO', '(249) 154 325519', 5, 'images/jugadores/45223775.jpg'),
@@ -228,7 +227,8 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 (49603036, 'SANTIAGO ABEL RIVERA', 11, '01/07/2009', 'SL-140', 'VOLANTE', 'SAN LORENZO', '(249) 154 476506', 10, 'images/jugadores/49603036.jpg'),
 (49748001, 'FRANCO LEONEL MEDINA ', 11, '30/09/2009', 'SL-029', 'ARQUERO', 'BOTAFOGO', '(249) 154 311712', 10, 'images/jugadores/49748001.jpg'),
 (49748028, 'I?AKI CEJAS', 10, '12/11/2009', 'SL-128', 'VOLANTE', 'SAN LORENZO', '(249) 154 273248', 10, 'images/jugadores/49748028.jpg'),
-(95314624, 'PEDRO AQUINO', 17, '29/06/2003', 'SL-012', 'VOLANTE', 'SAN LORENZO', '(249) 154 562324', 5, 'images/jugadores/95314624.jpg');
+(95314624, 'PEDRO AQUINO', 17, '29/06/2003', 'SL-012', 'VOLANTE', 'SAN LORENZO', '(249) 154 562324', 5, 'images/jugadores/95314624.jpg'),
+(1234567866, 'Tomas Esains', 60, '2020-05-07', 'SL-099', 'ARQUERO', 'SAN LORENZO', '249 154 559796', 10, 'images/jugadores/45036455.jpg');
 
 --
 -- Índices para tablas volcadas

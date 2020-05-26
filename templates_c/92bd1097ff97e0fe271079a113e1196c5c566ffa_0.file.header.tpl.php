@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-25 21:26:14
+/* Smarty version 3.1.34-dev-7, created on 2020-05-26 19:10:17
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ecc1bd6cae962_25423750',
+  'unifunc' => 'content_5ecd4d79bb61a2_16223243',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '92bd1097ff97e0fe271079a113e1196c5c566ffa' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\header.tpl',
-      1 => 1590434765,
+      1 => 1590512994,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ecc1bd6cae962_25423750 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ecd4d79bb61a2_16223243 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
     <html lang="en">
         <head>
@@ -48,7 +48,7 @@ function content_5ecc1bd6cae962_25423750 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="home">HOME | LOGIN<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -4,7 +4,9 @@ class AuthHelper {
 
     //verifica que haya un usuario logueado
     static public function userLogged() {
-        session_start();
+        if(session_status() != PHP_SESSION_ACTIVE){
+            session_start();
+        }
         if(isset($_SESSION['IS_LOGGED'])) {
             return true;
         }

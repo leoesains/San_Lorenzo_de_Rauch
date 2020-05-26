@@ -10,8 +10,15 @@
     </div>
 {/if}
 {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
-    <div class="centrar btn_alta">
-        <h4><a class="btn btn-danger" href="agregar_jugador"><b>Alta Jugador</b></a></h4>
+    <div>
+        <form action="editar_jugador" method="POST">
+            <label><b>Ingrese DNI del jugador que desea EDITAR</b></label>
+            <input type="text" name="dni">
+            <button type="submit"><b>Editar</b></button>
+        </form>
+        <div class="centrar btn_alta">
+            <h4><a class="btn btn-danger" href="agregar_jugador"><b>Alta Jugador</b></a></h4>
+        </div>
     </div>
 {/if}
 <div class="conteiner contenedor">

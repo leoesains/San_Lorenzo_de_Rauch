@@ -177,15 +177,15 @@ class AdminController{
         if(empty($jugadores)) {
             $this->modelDivisiones->delete($id_div);
             $divisiones = $this->modelDivisiones->getAll();
-            $this->viewPublic->showDivisions($divisiones, true, "Division borrada exitosamente");
+            $this->viewPublic->showDivisions($divisiones, "Division borrada exitosamente");
         } else {
             $divisiones = $this->modelDivisiones->getAll();
-            $this->viewPublic->showDivisions($divisiones, true, "No se puede eliminar esta division porque tiene jugadores cargados");
+            $this->viewPublic->showDivisions($divisiones, "No se puede eliminar esta division porque tiene jugadores cargados");
         }
     }
 
-    public function showError($msg){
+    public function showError($msg,$isAdmin){
         //Le digo a la VISTA que me muestre el error en pantalla
-        $this->view->printError($msg);
+        $this->view->printError($msg,$isAdmin);
     }
 }

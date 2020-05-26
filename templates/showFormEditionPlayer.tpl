@@ -56,15 +56,20 @@
             <label>FOTO</label>
             <input type="text" name="foto" value="{$jugador->imagen}">
         </div>
-        <div class="fila_form_edit_jugador">
-            <button type="submit" class="btn btn-danger btn-volver"><b>Enviar</b></button>
-            <a class="btn btn-danger btn-volver btn-volver-edit-jug" href="listar_jugadores"><b>Volver</b></a>;
+        <div class="fila_form_edit_jugador contenedor-btn-mensaje">
+            <div>
+                {if {$error}}
+                    <div class="alert alert-danger contenedor-alert-edit-exit">
+                        {$error}
+                    </div>
+                {/if}
+            </div>
+            <div>
+                <button type="submit" class="btn btn-danger btn-volver"><b>Enviar</b></button>
+                <a class="btn btn-danger btn-volver btn-volver-edit-jug" href="listar_jugadores"><b>Volver</b></a>;
+            </div>
         </div>
 
-       {if {$error}}
-            <div class="alert alert-danger contenedor-alert-usuario">
-                {$error}
-            </div>
-        {/if} 
+        
     </form>
 {include 'footer.tpl'}    

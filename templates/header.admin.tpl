@@ -46,6 +46,6 @@
                 <div>
                     
                     {*<h5>{$admin}</h5>*}
-                    <a class="navbar-brand" href="cerrar_sesion"><b>Cerrar Sesion</b></a>
+                    <a class="navbar-brand btn btn-danger" href="cerrar_sesion"><b>Cerrar Sesión</b></a>
                 </div>
             </nav>

@@ -10,8 +10,18 @@
     </div>
 {/if}
 {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
-    <div class="centrar btn_alta">
-        <h4><a class="btn btn-danger" href="agregar_division"><b>Alta División</b></a></h4>
+    <div class="contenedor-btn-mensaje">
+        <div>
+            {if {$error}}
+                <div class="alert alert-danger contenedor-alert-division">
+                    {$error}
+                </div>
+            {/if}
+        </div>
+        
+        <div class="centrar btn_alta">
+            <h4><a class="btn btn-danger" href="agregar_division"><b>Alta División</b></a></h4>
+        </div>
     </div>
 {/if}
 <div class="conteiner contenedor_divisiones">
@@ -40,13 +50,8 @@
                     <a class="btn btn-danger" href="editar_division/{$division->id_division}"><b>Modificar</b></a>
                     <a class="btn btn-danger" href="eliminar_division/{$division->id_division}"><b>Baja</b></a>
                 </div>
-                {if {$error}}
-                    <div class="alert alert-danger contenedor-alert-usuario">
-                        {$error}
-                    </div>
-                {/if}           
+                           
             {/if}
-
         </div>    
     {/foreach}
     

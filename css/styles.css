@@ -248,6 +248,24 @@ h1{
     margin: 10px auto;
 }
 
+#form_delete_jugador {
+    background-color:  rgba(38, 37, 41, 0.5);
+    width: 700px;
+    border-radius: 15px;
+    margin: 10px auto;
+}
+
+.btn-eliminar-jugador{
+    margin-left: 220px;
+}
+
+#pregunta-eliminar-jugador{
+    padding-top: 15px;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0px;
+}
+
 #form_edit_jugador{
     background-color:  rgba(38, 37, 41, 0.5);
     width: 700px;
@@ -295,9 +313,8 @@ form h1{
 }
 
 .btn-volver-edit-jug{
-    margin-right: 35px;
+    margin-right: 53px;
 }
-
 
 textarea{
     height: 150px;
@@ -346,7 +363,48 @@ label{
     text-align: center;
     margin-top: 5px;
     padding: 0px;
-    background-color: tomato;
+    background-color: rgb(188, 191, 224);
+}
 
-    
+.contenedor-alert-division{
+    font-size: 1em;
+    font-weight: bold;
+    width: auto;
+    height: 25px;
+    text-align: center;
+    margin-top: 18px;
+    padding: 0px;
+    background-color: rgb(188, 191, 224);
+    border: whitesmoke;
+}
+
+.contenedor-btn-mensaje{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:1em;
+    margin: 15px;
+}
+
+.contenedor-alert-modif-div{
+    font-size: 1em;
+    font-weight: bold;
+    width: 400px;
+    height: 25px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0px;
+    background-color: rgb(188, 191, 224);
+}
+
+.contenedor-alert-edit-exit{
+    font-size: 1em;
+    font-weight: bold;
+    width: 300px;
+    height: 25px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0px;
+    background-color: rgb(188, 191, 224);
 }

@@ -22,23 +22,25 @@ class LoginController{
         $urlPaginaAnterior = explode('/', $_SERVER['HTTP_REFERER']);
         $accion = end($urlPaginaAnterior);
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
-            $this->viewPublic->showHome(false, "Debe ingresar Usuario y Contraseña");
+            $this->viewPublic->showHome("Debe ingresar Usuario y Contraseña",false);
         } else {
             $username = $_POST['username'];
             $password = $_POST['psw'];
             $user = $this->modelLogin->getAdmin($username);
             if($user) {
                 if(password_verify($password, $user->contraseña)) {
-                    session_start();                                    //Abro la sesion
+                    if(session_status() != PHP_SESSION_ACTIVE){
+                        session_start();                           
+                    }         //Abro la sesion
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;        //Guardo el nombre del usuario
                     $this->view->welcome($user->nombre); 
                 } else {
                     //var_dump($accion);die;
-                    $this->viewPublic->showHome(false, "Contraseña incorrecta");
+                    $this->viewPublic->showHome("Contraseña incorrecta", false);
                 }
             } else {
-                $this->viewPublic->showHome(false, "El usuario ingresado no existe");
+                $this->viewPublic->showHome("El usuario ingresado no existe", false);
             }
         }
     }

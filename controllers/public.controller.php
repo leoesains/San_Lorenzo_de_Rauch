@@ -10,7 +10,7 @@ class PublicController{
     private $modelDivisiones;
     private $modelJugadores;
     private $view;
-    private $isAdmin; //Si el usuario es o no administrador
+    
     //private $admin; //administrador
 
 
@@ -18,7 +18,7 @@ class PublicController{
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
         $this->view = new PublicView();
-        $this->isAdmin = authHelper::userLogged();
+        
         //$this->admin = authHelper::checkLogged();
         //var_dump($this->admin);
         //$this->nameAdmin = $this->getUserName();
@@ -36,7 +36,7 @@ class PublicController{
 
 
     public function home(){
-        $this->view->showHome($this->isAdmin);
+        $this->view->showHome();
     }
 
     //muestra todos los jugadores que hay cargados en la BBDD
@@ -45,7 +45,7 @@ class PublicController{
         $jugadores = $this->modelJugadores->getAll();
         
         //Actualizo la vista
-        $this->view->showPlayers($jugadores, $this->isAdmin);
+        $this->view->showPlayers($jugadores);
     }
 
     //muestra un jugador
@@ -54,18 +54,18 @@ class PublicController{
         $jugador = $this->modelJugadores->get($idJugador);
         
         if(!empty($jugador))
-            $this->view->showPlayer($jugador, $jugadores, $this->isAdmin);
+            $this->view->showPlayer($jugador, $jugadores);
         else
-            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos");
+            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos", true);
     }
 
     public function viewPlayerDivision($idJugador, $division) {
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
         $jugador = $this->modelJugadores->get($idJugador);
         if(!empty($jugador))
-            $this->view->showPlayerDivision($jugador, $jugadoresXdivisiones, $this->isAdmin);
+            $this->view->showPlayerDivision($jugador, $jugadoresXdivisiones);
         else
-            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos");
+            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos",true);
     }
 
     //muestra todas las divisiones cargadas en la BBDD
@@ -74,33 +74,33 @@ class PublicController{
         $divisiones = $this->modelDivisiones->getAll();
         
         //actualizo la vista
-        $this->view->showDivisions($divisiones, $this->isAdmin);
+        $this->view->showDivisions($divisiones);
     }
 
     //muestra los jugadores de una division especifica
     public function showPlayersByDivision($division){
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
-        $this->view->printPlayersByDivision($jugadoresXdivisiones, $this->isAdmin);
+        $this->view->printPlayersByDivision($jugadoresXdivisiones);
     }
 
-    public function showError($msg){
+    public function showError($msg, $isAdmin){
         //Le digo a la VISTA que me muestre el error en pantalla
-        $this->view->printError($msg);
+        $this->view->printError($msg, $isAdmin);
     }
 
     public function viewPlayersPosition($puesto){
         
         $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($puesto);
-        $this->view->printPlayersByPosition($jugadoresXpuesto, $this->isAdmin);
+        $this->view->printPlayersByPosition($jugadoresXpuesto);
     }
 
     public function viewPlayerPosition($idJugador, $puesto) {
         $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($puesto);
         $jugador = $this->modelJugadores->get($idJugador);
         if(!empty($jugador))
-            $this->view->showPlayerPosition($jugador, $jugadoresXpuesto, $this->isAdmin);
+            $this->view->showPlayerPosition($jugador, $jugadoresXpuesto);
         else
-            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos");
+            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos",true);
     }
 
 }
