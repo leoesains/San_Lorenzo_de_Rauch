@@ -13,9 +13,11 @@ class AuthHelper {
 
     static public function checkLogged() {
         session_start(); 
-        if (!isset($_SESSION['IS_LOGGED'])) {
+        if (!isset($_SESSION['NOMBRE_USUARIO'])) {
             header('Location: ' . BASE_URL . 'home');
             die();
+        } else {
+            return $_SESSION['NOMBRE_USUARIO'];
         }
 
     }

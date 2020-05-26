@@ -54,6 +54,12 @@ class AdminView{
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showFormEditionDivision.tpl');
     }
+
+    public function formDeletePlayer($jugador) {
+        $this->smarty->assign('jugador', $jugador);
+        $this->smarty->display('templates/formPlayerDelete.tpl');
+    }
+
     public function alert($msg){
         $this->smarty->assign('mensaje', $msg);
         $this->smarty->display('templates/alert.tpl');

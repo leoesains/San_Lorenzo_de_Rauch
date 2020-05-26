@@ -15,6 +15,7 @@
     </div>
 {/if}
 <div class="conteiner contenedor_divisiones">
+
     {foreach from=$listaDivisiones item=division} 
         <div class="contenedor_show_division centrar">
             <div class="centrar">
@@ -38,10 +39,17 @@
                 <div class="centrar">
                     <a class="btn btn-danger" href="editar_division/{$division->id_division}"><b>Modificar</b></a>
                     <a class="btn btn-danger" href="eliminar_division/{$division->id_division}"><b>Baja</b></a>
-                </div>          
+                </div>
+                {if {$error}}
+                    <div class="alert alert-danger contenedor-alert-usuario">
+                        {$error}
+                    </div>
+                {/if}           
             {/if}
 
         </div>    
-    {/foreach}   
+    {/foreach}
+    
+      
 </div>
 {include 'templates/footer.tpl'}

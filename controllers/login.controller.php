@@ -22,7 +22,7 @@ class LoginController{
         $urlPaginaAnterior = explode('/', $_SERVER['HTTP_REFERER']);
         $accion = end($urlPaginaAnterior);
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
-            $this->viewPublic->showHome(false, "No ingreso todos los datos");
+            $this->viewPublic->showHome(false, "Debe ingresar Usuario y Contraseña");
         } else {
             $username = $_POST['username'];
             $password = $_POST['psw'];
@@ -34,7 +34,7 @@ class LoginController{
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;        //Guardo el nombre del usuario
                     $this->view->welcome($user->nombre); 
                 } else {
-                    var_dump($accion);die;
+                    //var_dump($accion);die;
                     $this->viewPublic->showHome(false, "Contraseña incorrecta");
                 }
             } else {

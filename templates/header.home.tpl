@@ -44,11 +44,7 @@
                         </li>
                     </ul>
                 </div>
-
                 
-                
-                
-
                 <div class="login-container">
                     <form class="form_log" action="loguearse" method="POST">
                         <input type="text" placeholder="Username" name="username">

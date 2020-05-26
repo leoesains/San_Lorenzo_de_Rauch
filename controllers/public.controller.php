@@ -11,7 +11,7 @@ class PublicController{
     private $modelJugadores;
     private $view;
     private $isAdmin; //Si el usuario es o no administrador
-    //private $nameAdmin; //Nombre del administrador
+    //private $admin; //administrador
 
 
     public function __construct(){ //Constructor de la clase
@@ -19,7 +19,9 @@ class PublicController{
         $this->modelJugadores = new JugadoresModel();
         $this->view = new PublicView();
         $this->isAdmin = authHelper::userLogged();
-      //  $this->nameAdmin = $this->getUserName();
+        //$this->admin = authHelper::checkLogged();
+        //var_dump($this->admin);
+        //$this->nameAdmin = $this->getUserName();
         
         
     }

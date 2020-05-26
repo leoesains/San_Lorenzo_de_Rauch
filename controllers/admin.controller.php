@@ -61,19 +61,19 @@ class AdminController{
         if(empty($_POST['dni']) || empty($_POST['name']) || empty($_POST['edad'])|| empty($_POST['fechaNacimiento']) || empty($_POST['numeroCarnet'])
             || empty($_POST['puesto']) || empty($_POST['clubOrigen']) || empty($_POST['telefono']) || empty($_POST['foto']) || empty($_POST['categoria'])) {
                 $divisiones = $this->modelDivisiones->getAll(); 
-                $this->view->formPlayerAdd($divisiones, "No ingreso todos los datos pedidos");
+                $this->view->formPlayerAdd($divisiones, "No ingreso todos los datos requeridos");
         } else {
             $jugador = $this->modelJugadores->get($_POST['dni']);
             if(!empty($jugador)) {
                 $divisiones = $this->modelDivisiones->getAll(); 
-                $this->view->formPlayerAdd($divisiones, "El jugador " . $_POST['name'] . " ya existìa en la base de datos!");
+                $this->view->formPlayerAdd($divisiones, "El jugador " . $_POST['name'] . " ya existìa!");
             } else {
                 $this->modelJugadores->insert($_POST['dni'], $_POST['name'], $_POST['edad'], $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'],
                                               $_POST['clubOrigen'], $_POST['telefono'], $_POST['categoria'], $_POST['foto']);
                 
                 $divisiones = $this->modelDivisiones->getAll(); 
-                $this->view->formPlayerAdd($divisiones, "El jugador " . $_POST['name'] . " fue guardado correctamente!");
-                header ('Location: ' .BASE_URL. 'agregar_jugador');
+                $this->view->formPlayerAdd($divisiones, $_POST['name'] . " fue guardado correctamente!");
+                //header ('Location: ' .BASE_URL. 'agregar_jugador');
             }
         }
     }
@@ -88,16 +88,16 @@ class AdminController{
         
         if(empty($_POST['numeroCategoria']) || empty($_POST['nombreCategoria']) || empty($_POST['edadLimite'])|| empty($_POST['limiteJugadores']) || empty($_POST['excepciones'])) {
             
-            $this->view->formDivisionAdd("No ingreso todos los datos pedidos");
+            $this->view->formDivisionAdd("No ingreso todos los datos requeridos");
         } else {
             $categoria = $this->modelDivisiones->get($_POST['numeroCategoria']);
             if(!empty($categoria)) {
                 
-                $this->view->formDivisionAdd("La categoria ya existia!!");
+                $this->view->formDivisionAdd("La categoria " . $categoria->nombre_div . " ya existia!!");
             } else {
                 $this->modelDivisiones->insert($_POST['numeroCategoria'], $_POST['nombreCategoria'], $_POST['edadLimite'], $_POST['limiteJugadores'], $_POST['excepciones']);
                 $this->view->formDivisionAdd("Categoria guardada correctamente");
-                header ('Location: ' .BASE_URL. 'agregar_division');
+                //header ('Location: ' .BASE_URL. 'agregar_division');
             }
         }
     
@@ -124,17 +124,28 @@ class AdminController{
             $jugador = $this->modelJugadores->get($_POST['dni']);
             $divisiones = $this->modelDivisiones->getAll();
             $this->view->showFormEditionPlayer($jugador, $divisiones, "No se permiten campos vacios");
-        } 
-        
-        $this->modelJugadores->update($_POST['dni'],$_POST['nombre'], $_POST['edad'], 
+        } else {
+            $this->modelJugadores->update($_POST['dni'],$_POST['nombre'], $_POST['edad'], 
                                       $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'], $_POST['clubOrigen'], 
                                       $_POST['telefono'], $_POST['categoria'],
                                       $_POST['foto']);
+            $jugador = $this->modelJugadores->get($_POST['dni']);
+            $divisiones = $this->modelDivisiones->getAll();
+            $this->view->showFormEditionPlayer($jugador, $divisiones, "Cambios guardados exitosamente");
+        }
+        
         
     }
 
+    public function confirmDeletePlayer($dni) {
+        $jugador = $this->modelJugadores->get($dni);
+        $this->view->formDeletePlayer($jugador);
+    }
+    
     public function removePlayer($dni){
         $this->modelJugadores->delete($dni);
+        header ('Location: ' .BASE_URL. 'listar_jugadores');
+        
     }
 
     //muestra formulario para Editar una Division
@@ -150,15 +161,27 @@ class AdminController{
              //die;
              $categoria = $this->modelDivisiones->get($_POST['id_division']);
              $this->view->showFormEditionDivision($categoria, "No se permiten campos vacios");
-         } 
-         $this->modelDivisiones->update($_POST['id_division'],$_POST['nombre_div'], 
+        } else {
+            $this->modelDivisiones->update($_POST['id_division'],$_POST['nombre_div'], 
                                         $_POST['edad_limite'], 
                                         $_POST['limite_jugadores_LBF'], 
                                         $_POST['excepciones']);
+            $categoria = $this->modelDivisiones->get($_POST['id_division']);
+            $this->view->showFormEditionDivision($categoria, "Cambios realizados exitosamente");
+        }
+        
     }
 
     public function removeDivision($id_div){
-        $this->modelDivisiones->delete($id_div);
+        $jugadores = $this->modelJugadores->getPlayerDivisions($id_div);
+        if(empty($jugadores)) {
+            $this->modelDivisiones->delete($id_div);
+            $divisiones = $this->modelDivisiones->getAll();
+            $this->viewPublic->showDivisions($divisiones, true, "Division borrada exitosamente");
+        } else {
+            $divisiones = $this->modelDivisiones->getAll();
+            $this->viewPublic->showDivisions($divisiones, true, "No se puede eliminar esta division porque tiene jugadores cargados");
+        }
     }
 
     public function showError($msg){

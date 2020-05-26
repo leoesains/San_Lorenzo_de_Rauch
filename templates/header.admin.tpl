@@ -44,7 +44,8 @@
                     </ul>
                 </div>
                 <div>
-                    {*<h5>{$nombreUsuario}</h5>*}
+                    
+                    {*<h5>{$admin}</h5>*}
                     <a class="navbar-brand" href="cerrar_sesion"><b>Cerrar Sesion</b></a>
                 </div>
             </nav>

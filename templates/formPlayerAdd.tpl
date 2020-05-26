@@ -36,7 +36,7 @@
         <a class="btn btn-danger btn-volver" href="listar_jugadores"><b>Volver</b></a>;
 
         {if {$error}}
-            <div class="alert alert-danger">
+            <div class="alert alert-danger contenedor-alert-usuario">
                 {$error}
             </div>
         {/if}

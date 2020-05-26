@@ -62,7 +62,7 @@
         </div>
 
        {if {$error}}
-            <div class="alert alert-danger">
+            <div class="alert alert-danger contenedor-alert-usuario">
                 {$error}
             </div>
         {/if} 

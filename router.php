@@ -107,6 +107,11 @@ switch($parametros[0]){
     }
     case 'eliminar_jugador': {
         $controller = new AdminController();  
+        $controller->confirmDeletePlayer($parametros[1]);
+    break;
+    }
+    case 'confirmar_eliminar_jugador': {
+        $controller = new AdminController();  
         $controller->removePlayer($parametros[1]);
     break;
     }
@@ -123,7 +128,8 @@ switch($parametros[0]){
     case 'eliminar_division': {
         $controller = new AdminController();  
         $controller->removeDivision($parametros[1]);
-        header ('Location: ' .BASE_URL. 'listar_divisiones');
+
+        //header ('Location: ' .BASE_URL. 'listar_divisiones');
     break;
     }
     case 'cerrar_sesion': {
