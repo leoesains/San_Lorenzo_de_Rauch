@@ -11,9 +11,6 @@ class PublicController{
     private $modelJugadores;
     private $view;
     
-    //private $admin; //administrador
-
-
     public function __construct(){ //Constructor de la clase
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
@@ -26,12 +23,13 @@ class PublicController{
 
     //muestra todos los jugadores que hay cargados en la BBDD
     public function showPlayer() {
-        
-        //Pido los jugadores al modelo
-        $jugadores = $this->modelJugadores->getAll();
-        
-        //Actualizo la vista
-        $this->view->showPlayers($jugadores);
+        $jugadores = $this->modelJugadores->getAll();               //Pido los jugadores al modelo
+
+        if(empty($jugadores)) {
+            $this->DDBBvacia("No hay jugadores en la Base de Datos");
+        } else {
+            $this->view->showPlayers($jugadores);                       //Actualizo la vista
+        }
     }
 
     //muestra un jugador
@@ -39,34 +37,44 @@ class PublicController{
         $jugadores = $this->modelJugadores->getAll();
         $jugador = $this->modelJugadores->get($idJugador);
         
-        if(!empty($jugador))
+        if(!empty($jugador)) {
             $this->view->showPlayer($jugador, $jugadores);
-        else
-            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos", true);
+        } else {
+            $this->DDBBvacia("El jugador no se encuentra en la Base de datos");
+        }
     }
 
     public function viewPlayerDivision($idJugador, $division) {
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
         $jugador = $this->modelJugadores->get($idJugador);
-        if(!empty($jugador))
+
+        if(!empty($jugador)) {
             $this->view->showPlayerDivision($jugador, $jugadoresXdivisiones);
-        else
-            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos",true);
+        } else {
+            $this->DDBBvacia("El jugador no se encuentra en la Base de Datos");
+        }
     }
 
     //muestra todas las divisiones cargadas en la BBDD
     public function showDivision() {
-        //pido las divisiones al modelo
-        $divisiones = $this->modelDivisiones->getAll();
-        
-        //actualizo la vista
-        $this->view->showDivisions($divisiones);
+        $divisiones = $this->modelDivisiones->getAll();             //pido las divisiones al modelo
+
+        if(empty($divisiones)) {
+            $this->DDBBvacia("No hay Divisiones en la Base de Datos");
+        } else {
+            $this->view->showDivisions($divisiones);                //actualizo la vista
+        }
     }
 
     //muestra los jugadores de una division especifica
     public function showPlayersByDivision($division){
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
-        $this->view->printPlayersByDivision($jugadoresXdivisiones);
+
+        if(empty($jugadoresXdivisiones)) {
+            $this->DDBBvacia("No hay Jugadores cargados en la Base de Datos en " .$division. " division");
+        } else {
+            $this->view->printPlayersByDivision($jugadoresXdivisiones);
+        }
     }
     
     public function showError($msg, $isAdmin){
@@ -74,19 +82,29 @@ class PublicController{
         $this->view->printError($msg, $isAdmin);
     }
 
+    public function DDBBvacia($msg){
+        //Le digo a la VISTA que me muestre el error en pantalla
+        $this->view->printDDBBvacia($msg);
+    }
+
     public function viewPlayersPosition($puesto){
-        
         $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($puesto);
-        $this->view->printPlayersByPosition($jugadoresXpuesto);
+
+        if(empty($jugadoresXpuesto)) {
+            $this->DDBBvacia("No hay Jugadores cargados en la Base de Datos en el puesto " .$puesto);
+        } else {
+            $this->view->printPlayersByPosition($jugadoresXpuesto);
+        }
     }
 
     public function viewPlayerPosition($idJugador, $puesto) {
         $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($puesto);
         $jugador = $this->modelJugadores->get($idJugador);
-        if(!empty($jugador))
-            $this->view->showPlayerPosition($jugador, $jugadoresXpuesto);
-        else
-            $this->view->showError("El jugador con id = " .$idJugador. " no se encuentra en la Base de Datos",true);
-    }
 
+        if(!empty($jugador)) {
+            $this->view->showPlayerPosition($jugador, $jugadoresXpuesto); 
+        } else {
+            $this->DDBBvacia("El Jugador no se encuentra en la Base de Datos");
+        }
+    }
 }

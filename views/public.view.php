@@ -27,6 +27,11 @@ class PublicView{
         $this->smarty->display('templates/printError.tpl');
     }
 
+    public function printDDBBvacia($msg) {
+        $this->smarty->assign('mensaje', $msg);
+        $this->smarty->display('templates/printDDBBvacia.tpl');
+    }
+
     public function showPlayers($jugadores, $error = null) {
         $this->smarty->assign('listaJugadores', $jugadores);
         $this->smarty->assign('error', $error);
