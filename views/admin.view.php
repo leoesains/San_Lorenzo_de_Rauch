@@ -60,6 +60,11 @@ class AdminView{
         $this->smarty->display('templates/formPlayerDelete.tpl');
     }
 
+    public function formDeleteDivision($division) {
+        $this->smarty->assign('division', $division);
+        $this->smarty->display('templates/formDivisionDelete.tpl');
+    }
+
     public function alert($msg){
         $this->smarty->assign('mensaje', $msg);
         $this->smarty->display('templates/alert.tpl');

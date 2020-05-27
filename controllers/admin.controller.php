@@ -172,6 +172,11 @@ class AdminController{
         
     }
 
+    public function confirmDeleteDivision($id_div) {
+        $division = $this->modelDivisiones->get($id_div);
+        $this->view->formDeleteDivision($division);
+    }
+
     public function removeDivision($id_div){
         $jugadores = $this->modelJugadores->getPlayerDivisions($id_div);
         if(empty($jugadores)) {
@@ -183,6 +188,8 @@ class AdminController{
             $this->viewPublic->showDivisions($divisiones, "No se puede eliminar esta division porque tiene jugadores cargados");
         }
     }
+
+    
 
     public function showError($msg,$isAdmin){
         //Le digo a la VISTA que me muestre el error en pantalla

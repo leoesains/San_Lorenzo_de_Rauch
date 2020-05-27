@@ -11,7 +11,7 @@
 {/if}
 {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
     <div>
-        <form action="editar_jugador" method="POST">
+        <form action="editar_jugador/{37871062}" method="POST">
             <label><b>Ingrese DNI del jugador que desea EDITAR</b></label>
             <input type="text" name="dni">
             <button type="submit"><b>Editar</b></button>

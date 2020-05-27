@@ -41,6 +41,7 @@ class PublicController{
 
     //muestra todos los jugadores que hay cargados en la BBDD
     public function showPlayer() {
+        
         //Pido los jugadores al modelo
         $jugadores = $this->modelJugadores->getAll();
         
