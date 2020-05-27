@@ -19,8 +19,6 @@ class LoginController{
 
     //Controla que el usuario ingresado sea correcto
     public function loginAdmin(){
-        
-
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
             $this->viewPublic->showHome("Debe ingresar Usuario y Contraseña", session_status() === PHP_SESSION_ACTIVE);
         } else {
@@ -30,13 +28,12 @@ class LoginController{
             if($user) {
                 if(password_verify($password, $user->contraseña)) {
                     if(session_status() != PHP_SESSION_ACTIVE){
-                        session_start();                           
-                    }         //Abro la sesion
+                        session_start();         //Abro la sesion                  
+                    }         
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;        //Guardo el nombre del usuario
                     $this->view->welcome($user->nombre); 
                 } else {
-                    //var_dump($accion);die;
                     $this->viewPublic->showHome("Contraseña incorrecta", session_status() === PHP_SESSION_ACTIVE);
                 }
             } else {

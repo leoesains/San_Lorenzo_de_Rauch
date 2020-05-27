@@ -21,5 +21,4 @@ class AdminModel{
         $administrador = $query->fetch(PDO::FETCH_OBJ);    
         return $administrador;
     }
-
 }

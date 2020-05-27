@@ -4,7 +4,6 @@ require_once 'controllers/public.controller.php';
 require_once 'controllers/admin.controller.php';
 require_once 'controllers/login.controller.php';
 
-
 // definimos la base url de forma dinamica
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -19,7 +18,6 @@ $parametros = explode('/', $accion);
 switch($parametros[0]){
 
     // -- Acciones del public.controller
-
     case 'home': {
         $controller = new PublicController();     
         $controller->home();
@@ -45,36 +43,31 @@ switch($parametros[0]){
         $controller->showPlayersByDivision($parametros[1]);
     break;
     }
-   case 'agregar_jugador': {
+    case 'agregar_jugador': {
         $controller = new AdminController();  
         $controller->formPlayer();
     break;
     }
-
     case 'guardar_jugador': {
         $controller = new AdminController();  
         $controller->addPlayer();
     break;
     }
-    
     case 'agregar_division': {
         $controller = new AdminController();  
         $controller->formDivision();
     break;
     }
-
     case 'guardar_division': {
         $controller = new AdminController();  
         $controller->addDivision();
     break;
     }
-
     case 'loguearse': {
         $controller = new LoginController();  
         $controller->loginAdmin();
     break;
     }
-
     case 'editar_jugador': {
         $controller = new AdminController();  
         $controller->editDataPlayer($parametros[1]);
@@ -150,7 +143,6 @@ switch($parametros[0]){
         $controller->viewPlayerPosition($parametros[1],$parametros[2]);
     break;
     }
-
     default: {
         $controller = new PublicController();     
         $controller->showError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");

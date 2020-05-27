@@ -10,7 +10,6 @@ class DivisionesModel{
         $this->modelConection = new dbConectionModel();
     }
 
-    
     //Obtengo todas las divisiones
     public function getAll() {
         //Me conecto con la DDBB
@@ -38,29 +37,29 @@ class DivisionesModel{
 
     //ingresa una nueva division a la BBDD
     function insert($numeroDivision, $nombreDivision, $edadLimite, $limiteJugadores, $excepciones) {
-        // 1) abro la conexion con mysql
+        //abro la conexion con mysql
         $db = $this->modelConection->createConexion();
-        // 2)enviamos la consulta
+        //enviamos la consulta
         $sql = "INSERT INTO divisiones(id_division, nombre_div, edad_limite, limite_jugadores_LBF, excepciones) VALUES (?, ?, ?, ?, ?)";
         $query = $db->prepare($sql);  
         $query->execute([$numeroDivision, $nombreDivision, $edadLimite, $limiteJugadores, $excepciones]);        
     }
+
     public function update($id_div, $nombre, $edad_lim, $lim_jug_LBF, $excepciones) {
-        // 1) abro la conexion con mysql
+        //abro la conexion con mysql
         $db = $this->modelConection->createConexion();
-        // 2)enviamos la consulta
+        //enviamos la consulta
         $sql = "UPDATE divisiones SET nombre_div = ?, edad_limite = ?, limite_jugadores_LBF = ?, excepciones = ? WHERE id_division = $id_div";
         $query = $db->prepare($sql);  
         $query->execute([$nombre, $edad_lim, $lim_jug_LBF, $excepciones]);        
     }
+
     public function delete($id_div){
-        // 1) abro la conexion con mysql
+        //abro la conexion con mysql
         $db = $this->modelConection->createConexion();
-        // 2)enviamos la consulta
+        //enviamos la consulta
         $sql = "DELETE FROM divisiones WHERE id_division = ?";
         $query = $db->prepare($sql);  
         $query->execute([$id_div]);        
- 
-     }
-
+    }
 }

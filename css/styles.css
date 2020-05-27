@@ -5,7 +5,6 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 10px;
     width: 100%;
-    
 }
 
 .imagenNav{
@@ -27,7 +26,6 @@ td {
     text-align: left;
     vertical-align: top;
     padding: 0.3em;
-    
 }
 
 th {
@@ -35,7 +33,6 @@ th {
     color: rgb(255, 255, 255);
     font-size: 1.3em;
 }
-
 
 .contenedorTablaDivisionesCrud {
     margin: 0 auto;
@@ -57,7 +54,6 @@ caption {
 }
 
 .contenedorPerfil{
-    
     display:flex;
 	flex-flow:row wrap;
     margin-top: 40px;
@@ -73,7 +69,6 @@ caption {
     padding: 10px;
     border-radius: 15px;
 }
-
 
 .imagen_perfil{
     width: 200px;
@@ -134,6 +129,7 @@ h1{
     margin:auto;
     text-align: center;
 }
+
 .imagen_show_player{
     display:block;
     margin:auto;
@@ -146,7 +142,6 @@ h1{
 .puesto{
     color: rgb(3, 3, 26);
     background-color: whitesmoke;
-    
 }
 
 .margen{
@@ -204,7 +199,6 @@ h1{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap:1em;
     margin: 15px;
-
 }
 
 .contenedor_show_division{
@@ -228,7 +222,6 @@ h1{
     color: whitesmoke;
     font-weight: bold;
     margin-top: 15px;
-
 }
 
 .ancho{
@@ -273,7 +266,6 @@ h1{
     margin: 10px auto;
 }
 
-
 form h1{
     text-align: center;
     color: white;
@@ -292,7 +284,6 @@ form h1{
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    
 }
 
 #form_edit_jugador input{
@@ -304,7 +295,6 @@ form h1{
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-
 }
 
 .fila_form_edit_jugador{
@@ -355,6 +345,7 @@ label{
     margin-bottom: 0px;
     color: whitesmoke;
 }
+
 .contenedor-alert-usuario{
     font-size: 1em;
     font-weight: bold;

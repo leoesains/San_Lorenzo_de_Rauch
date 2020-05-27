@@ -11,12 +11,13 @@ class PublicController{
     private $modelJugadores;
     private $view;
     
-    public function __construct(){ //Constructor de la clase
+    public function __construct(){                  //Constructor de la clase
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
         $this->view = new PublicView();
     }
 
+    //Muestra la pagina de inicio
     public function home(){
         $this->view->showHome();
     }
@@ -44,6 +45,7 @@ class PublicController{
         }
     }
 
+    //muestra un jugador cuyo id = $idJugador y una lista de todos los jugadores que pertenece ese jugador
     public function viewPlayerDivision($idJugador, $division) {
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
         $jugador = $this->modelJugadores->get($idJugador);
@@ -71,22 +73,23 @@ class PublicController{
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
 
         if(empty($jugadoresXdivisiones)) {
-            $this->DDBBvacia("No hay Jugadores cargados en la Base de Datos en " .$division. " division");
+            $this->DDBBvacia("No hay Jugadores cargados en la Base de Datos en " .$division. " divisiòn");
         } else {
             $this->view->printPlayersByDivision($jugadoresXdivisiones);
         }
     }
-    
+
+    //Le digo a la VISTA que me muestre el error en pantalla
     public function showError($msg, $isAdmin){
-        //Le digo a la VISTA que me muestre el error en pantalla
         $this->view->printError($msg, $isAdmin);
     }
 
+    //Le digo a la VISTA que me muestre el error en pantalla
     public function DDBBvacia($msg){
-        //Le digo a la VISTA que me muestre el error en pantalla
         $this->view->printDDBBvacia($msg);
     }
 
+    //muestra los jugadores de un determinado puesto ($puesto)
     public function viewPlayersPosition($puesto){
         $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($puesto);
 
@@ -97,6 +100,7 @@ class PublicController{
         }
     }
 
+    //muestra un jugador ($idJugador) de un determinado puesto ($puesto)
     public function viewPlayerPosition($idJugador, $puesto) {
         $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($puesto);
         $jugador = $this->modelJugadores->get($idJugador);
