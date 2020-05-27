@@ -16,27 +16,14 @@ class AdminView{
         $this->smarty->display('templates/welcome.tpl');
     }
 
-    //muestra un formulario para elegir si quiere modificar jugadores o divisiones
-    public function chooseTask() {
-        $this->smarty->display('templates/chooseTask.tpl');
-    }
-
-    //
-    public function showPlayersCrud($jugadores) {
-        $this->smarty->assign('listaJugadores', $jugadores);
-        $this->smarty->display('templates/showPlayersCrud.tpl');
-    }
-
-    public function showDivisionsCrud($divisiones) {
-        $this->smarty->assign('listaDivisiones', $divisiones);
-        $this->smarty->display('templates/showDivisionsCrud.tpl');
-    }    
-
     public function formPlayerAdd($divisiones, $error = null) {
         $this->smarty->assign('listaDivisiones', $divisiones);
         $this->smarty->assign('error', $error);
+        //var_dump($error);die;
         $this->smarty->display('templates/formPlayerAdd.tpl');
     }
+
+    
 
     public function formDivisionAdd($error = null) {
         $this->smarty->assign('error', $error);
@@ -65,8 +52,4 @@ class AdminView{
         $this->smarty->display('templates/formDivisionDelete.tpl');
     }
 
-    public function alert($msg){
-        $this->smarty->assign('mensaje', $msg);
-        $this->smarty->display('templates/alert.tpl');
-    }
 }

@@ -19,10 +19,10 @@ class LoginController{
 
     //Controla que el usuario ingresado sea correcto
     public function loginAdmin(){
-        $urlPaginaAnterior = explode('/', $_SERVER['HTTP_REFERER']);
-        $accion = end($urlPaginaAnterior);
+        
+
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
-            $this->viewPublic->showHome("Debe ingresar Usuario y Contraseña",false);
+            $this->viewPublic->showHome("Debe ingresar Usuario y Contraseña", session_status() === PHP_SESSION_ACTIVE);
         } else {
             $username = $_POST['username'];
             $password = $_POST['psw'];
@@ -37,10 +37,10 @@ class LoginController{
                     $this->view->welcome($user->nombre); 
                 } else {
                     //var_dump($accion);die;
-                    $this->viewPublic->showHome("Contraseña incorrecta", false);
+                    $this->viewPublic->showHome("Contraseña incorrecta", session_status() === PHP_SESSION_ACTIVE);
                 }
             } else {
-                $this->viewPublic->showHome("El usuario ingresado no existe", false);
+                $this->viewPublic->showHome("El Usuario ingresado no existe", session_status() === PHP_SESSION_ACTIVE);
             }
         }
     }
@@ -49,7 +49,7 @@ class LoginController{
     public function logout() {
         session_start();
         session_destroy();
-        header('Location: home');
+        header('Location: ' .BASE_URL. 'home');
     }
 }
 

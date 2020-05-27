@@ -408,3 +408,7 @@ label{
     padding: 0px;
     background-color: rgb(188, 191, 224);
 }
+
+#error{
+    font-size: 4em;
+}

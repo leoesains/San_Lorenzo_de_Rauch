@@ -18,22 +18,7 @@ class PublicController{
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
         $this->view = new PublicView();
-        
-        //$this->admin = authHelper::checkLogged();
-        //var_dump($this->admin);
-        //$this->nameAdmin = $this->getUserName();
-        
-        
     }
-
-    /*public function getUserName() {
-        session_start();
-
-        $userName = $_SESSION['NOMBRE_USUARIO'];
-        
-        return $userName;
-    }*/
-
 
     public function home(){
         $this->view->showHome();
@@ -83,7 +68,7 @@ class PublicController{
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
         $this->view->printPlayersByDivision($jugadoresXdivisiones);
     }
-
+    
     public function showError($msg, $isAdmin){
         //Le digo a la VISTA que me muestre el error en pantalla
         $this->view->printError($msg, $isAdmin);

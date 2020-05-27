@@ -33,8 +33,8 @@
         <input type="text" placeholder="INGRESE FOTO" name="foto">
 
         <button type="submit" class="btn btn-danger"><b>Enviar</b></button>
-        <a class="btn btn-danger btn-volver" href="listar_jugadores"><b>Volver</b></a>;
-
+        
+        <a class="btn btn-danger btn-volver" href="listar_jugadores"><b>Volver</b></a>
         {if {$error}}
             <div class="alert alert-danger contenedor-alert-usuario">
                 {$error}

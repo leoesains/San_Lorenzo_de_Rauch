@@ -31,33 +31,15 @@ class AdminController{
         $this->view->chooseTask();
     }
 
-    //muestra los jugadores para poder eliminar, actualizar o agregar un jugador nuevo
-    public function crudPlayers() {
-        //Pido los jugadores al modelo
-        $jugadores = $this->modelJugadores->getAll();
-        //Actualizo la vista
-        $this->view->showPlayersCrud($jugadores);
-    }
-
-    //muestra las categorias para poder eliminar, actualizar o agregar una nueva
-    public function crudDivisions() {
-        
-        //pido las divisiones al modelo
-        $divisiones = $this->modelDivisiones->getAll();
-        //actualizo la vista
-        $this->view->showDivisionsCrud($divisiones);
-    }
 
     //muestra un formulario vacio para cargar los datos de un nuevo jugador y posteriormente guardarlo en la BBDD
     public function formPlayer() {
-        
         $divisiones = $this->modelDivisiones->getAll();
         $this->view->formPlayerAdd($divisiones);
     }
 
     //guarda un nuevo jugador en la BBDD
     public function addPlayer() {
-        
         if(empty($_POST['dni']) || empty($_POST['name']) || empty($_POST['edad'])|| empty($_POST['fechaNacimiento']) || empty($_POST['numeroCarnet'])
             || empty($_POST['puesto']) || empty($_POST['clubOrigen']) || empty($_POST['telefono']) || empty($_POST['foto']) || empty($_POST['categoria'])) {
                 $divisiones = $this->modelDivisiones->getAll(); 
@@ -72,6 +54,9 @@ class AdminController{
                                               $_POST['clubOrigen'], $_POST['telefono'], $_POST['categoria'], $_POST['foto']);
                 
                 $divisiones = $this->modelDivisiones->getAll(); 
+
+                
+                
                 $this->view->formPlayerAdd($divisiones, $_POST['name'] . " fue guardado correctamente!");
                 //header ('Location: ' .BASE_URL. 'agregar_jugador');
             }
@@ -105,7 +90,6 @@ class AdminController{
 
     //muestra formulario para Editar el jugador con id = dni
     public function editDataPlayer($dni){
-        
         $jugador = $this->modelJugadores->get($dni);
         $divisiones = $this->modelDivisiones->getAll();
         $this->view->showFormEditionPlayer($jugador, $divisiones);
@@ -189,10 +173,4 @@ class AdminController{
         }
     }
 
-    
-
-    public function showError($msg,$isAdmin){
-        //Le digo a la VISTA que me muestre el error en pantalla
-        $this->view->printError($msg,$isAdmin);
-    }
 }

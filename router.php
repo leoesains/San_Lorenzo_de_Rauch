@@ -45,22 +45,7 @@ switch($parametros[0]){
         $controller->showPlayersByDivision($parametros[1]);
     break;
     }
-
-    // -- Acciones del admin.controller
-
-    case 'jugadores': {
-        $controller = new AdminController();  
-        $controller->crudPlayers();
-    break;
-    }
-
-    case 'categorias': {
-        $controller = new AdminController();  
-        $controller->crudDivisions();
-    break;
-    }
-
-    case 'agregar_jugador': {
+   case 'agregar_jugador': {
         $controller = new AdminController();  
         $controller->formPlayer();
     break;
@@ -87,11 +72,6 @@ switch($parametros[0]){
     case 'loguearse': {
         $controller = new LoginController();  
         $controller->loginAdmin();
-    break;
-    }
-    case 'elegir_tarea': {
-        $controller = new AdminController();  
-        $controller->showOptionAdm();
     break;
     }
 
