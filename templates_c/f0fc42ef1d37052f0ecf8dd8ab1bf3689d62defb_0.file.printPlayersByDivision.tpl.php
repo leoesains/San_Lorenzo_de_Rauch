@@ -1,94 +1,103 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-24 06:14:26
+/* Smarty version 3.1.34-dev-7, created on 2020-05-27 19:55:43
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\printPlayersByDivision.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ec9f4a22935b9_62212064',
+  'unifunc' => 'content_5ecea99f2e0cb6_83201136',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f0fc42ef1d37052f0ecf8dd8ab1bf3689d62defb' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\printPlayersByDivision.tpl',
-      1 => 1590291499,
+      1 => 1590602138,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:templates/header.tpl' => 1,
+    'file:header.admin.tpl' => 1,
+    'file:header.tpl' => 1,
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ec9f4a22935b9_62212064 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
+function content_5ecea99f2e0cb6_83201136 (Smarty_Internal_Template $_smarty_tpl) {
+ob_start();
+echo $_smarty_tpl->tpl_vars['isAdmin']->value;
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1) {?>     <?php $_smarty_tpl->_subTemplateRender('file:header.admin.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+ob_start();
+echo !$_smarty_tpl->tpl_vars['isAdmin']->value;
+$_prefixVariable2 = ob_get_clean();
+if ($_prefixVariable2) {?>     <?php $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}?>
     <?php ob_start();
 echo !$_smarty_tpl->tpl_vars['isAdmin']->value;
-$_prefixVariable1 = ob_get_clean();
-if ($_prefixVariable1) {?>         <div class="titulo_mostrar_jugadores">
+$_prefixVariable3 = ob_get_clean();
+if ($_prefixVariable3) {?>         <div class="titulo_mostrar_jugadores">
             <p>
                 JUGADORES  DE 
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable2 = ob_get_clean();
-if ($_prefixVariable2 == 1) {?>
+$_prefixVariable4 = ob_get_clean();
+if ($_prefixVariable4 == 1) {?>
                     <b>PRIMERA</b> 
                 <?php }?>
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable3 = ob_get_clean();
-if ($_prefixVariable3 == 2) {?>
+$_prefixVariable5 = ob_get_clean();
+if ($_prefixVariable5 == 2) {?>
                     <b>SEGUNDA</b> 
                 <?php }?>
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable4 = ob_get_clean();
-if ($_prefixVariable4 == 3) {?>
+$_prefixVariable6 = ob_get_clean();
+if ($_prefixVariable6 == 3) {?>
                     <b>TERCERA</b> 
                 <?php }?>
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable5 = ob_get_clean();
-if ($_prefixVariable5 == 4) {?>
+$_prefixVariable7 = ob_get_clean();
+if ($_prefixVariable7 == 4) {?>
                     <b>CUARTA</b> 
                 <?php }?>
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable6 = ob_get_clean();
-if ($_prefixVariable6 == 5) {?>
+$_prefixVariable8 = ob_get_clean();
+if ($_prefixVariable8 == 5) {?>
                     <b>QUINTA</b> 
                 <?php }?>
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable7 = ob_get_clean();
-if ($_prefixVariable7 == 6) {?>
+$_prefixVariable9 = ob_get_clean();
+if ($_prefixVariable9 == 6) {?>
                     <b>SEXTA</b> 
                 <?php }?>
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable8 = ob_get_clean();
-if ($_prefixVariable8 == 7) {?>
+$_prefixVariable10 = ob_get_clean();
+if ($_prefixVariable10 == 7) {?>
                     <b>SÉPTIMA</b> 
                 <?php }?>
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable9 = ob_get_clean();
-if ($_prefixVariable9 == 8) {?>
+$_prefixVariable11 = ob_get_clean();
+if ($_prefixVariable11 == 8) {?>
                     <b>OCTAVA</b> 
                 <?php }?>
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable10 = ob_get_clean();
-if ($_prefixVariable10 == 9) {?>
+$_prefixVariable12 = ob_get_clean();
+if ($_prefixVariable12 == 9) {?>
                     <b>NOVENA</b> 
                 <?php }?>
                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['jugadoresXdivisiones']->value[0]->id_division;
-$_prefixVariable11 = ob_get_clean();
-if ($_prefixVariable11 == 10) {?>
+$_prefixVariable13 = ob_get_clean();
+if ($_prefixVariable13 == 10) {?>
                     <b>DÉCIMA</b> 
                 <?php }?>
                 DIVISIÓN DEL CLUB PARA LA TEMPORADA 2020
@@ -97,8 +106,8 @@ if ($_prefixVariable11 == 10) {?>
     <?php }?>
     <?php ob_start();
 echo $_smarty_tpl->tpl_vars['isAdmin']->value;
-$_prefixVariable12 = ob_get_clean();
-if ($_prefixVariable12) {?>         <div class="centrar btn_alta">
+$_prefixVariable14 = ob_get_clean();
+if ($_prefixVariable14) {?>         <div class="centrar btn_alta">
             <h4><a class="btn btn-danger" href="agregar_jugador"><b>Alta Jugador</b></a></h4>
         </div>
     <?php }?>
@@ -124,15 +133,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['jugXdiv']->value) {
                 <div class="centrar">
                     <?php ob_start();
 echo $_smarty_tpl->tpl_vars['isAdmin']->value;
-$_prefixVariable13 = ob_get_clean();
-if ($_prefixVariable13) {?>                         <h4><a class="btn btn-danger" href="ver_jugador_division/<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_jugador;?>
+$_prefixVariable15 = ob_get_clean();
+if ($_prefixVariable15) {?>                         <h4><a class="btn btn-danger" href="ver_jugador_division/<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_jugador;?>
 /<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_division;?>
 "><b>Ver | Edit | Baja</b></a></h4>
                     <?php }?>
                     <?php ob_start();
 echo !$_smarty_tpl->tpl_vars['isAdmin']->value;
-$_prefixVariable14 = ob_get_clean();
-if ($_prefixVariable14) {?>                         <h4><a class="btn btn-danger" href="ver_jugador_division/<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_jugador;?>
+$_prefixVariable16 = ob_get_clean();
+if ($_prefixVariable16) {?>                         <h4><a class="btn btn-danger" href="ver_jugador_division/<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_jugador;?>
 /<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_division;?>
 "><b>Perfil</b></a></h4>
                     <?php }?>

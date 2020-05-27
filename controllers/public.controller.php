@@ -62,7 +62,7 @@ class PublicController{
         $divisiones = $this->modelDivisiones->getAll();             //pido las divisiones al modelo
 
         if(empty($divisiones)) {
-            $this->DDBBvacia("No hay Divisiones en la Base de Datos");
+            $this->DDBBvacia("Aún no se ha cargado ninguna División");
         } else {
             $this->view->showDivisions($divisiones);                //actualizo la vista
         }
@@ -73,7 +73,7 @@ class PublicController{
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
 
         if(empty($jugadoresXdivisiones)) {
-            $this->DDBBvacia("No hay Jugadores cargados en la Base de Datos en " .$division. " divisiòn");
+            $this->DDBBvacia("No hay Jugadores cargados en esta División");
         } else {
             $this->view->printPlayersByDivision($jugadoresXdivisiones);
         }

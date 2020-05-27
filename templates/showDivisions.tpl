@@ -47,6 +47,7 @@
             {/if}
             {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
                 <div class="centrar">
+                    <a class="btn btn-danger" href="divisiones_jugadores/{$division->id_division}"><b>Ver Jugadores</b></a>
                     <a class="btn btn-danger" href="editar_division/{$division->id_division}"><b>Modificar</b></a>
                     <a class="btn btn-danger" href="eliminar_division/{$division->id_division}"><b>Baja</b></a>
                 </div>

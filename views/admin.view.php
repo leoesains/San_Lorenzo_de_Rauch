@@ -2,17 +2,19 @@
 
 require_once 'libs/Smarty.class.php';
 
+
 class AdminView{
 
     private $smarty;
     
     public function __construct(){
         $this->smarty = new Smarty();
+        $nameAdmin = authHelper::nameLogged();
+        $this->smarty->assign('nameAdmin', $nameAdmin);
     }
 
-    //muestra un formulario para elegir si quiere modificar jugadores o divisiones
-    public function welcome($admin) {
-        $this->smarty->assign('nombre_admin', $admin);
+    //Da la bienvenida al Usuario Administrador
+    public function welcome() {
         $this->smarty->display('templates/welcome.tpl');
     }
 
@@ -20,7 +22,6 @@ class AdminView{
     public function formPlayerAdd($divisiones, $error = null) {
         $this->smarty->assign('listaDivisiones', $divisiones);
         $this->smarty->assign('error', $error);
-        //var_dump($error);die;
         $this->smarty->display('templates/formPlayerAdd.tpl');
     }
 

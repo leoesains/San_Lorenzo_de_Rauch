@@ -196,13 +196,13 @@ h1{
 
 .contenedor_divisiones{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap:1em;
     margin: 15px;
 }
 
 .contenedor_show_division{
-    width: 295px;
+    width: 400px;
     padding-bottom: 15px;
     background-color: rgb(213, 241, 213, 0.4);
     border-radius: 15px;
@@ -402,4 +402,11 @@ label{
 
 #error{
     font-size: 4em;
+}
+
+.nombre-usuario{
+    margin-top: 5px;
+    color: whitesmoke;
+    font-size: 1.1em;
+    margin-bottom: 0;
 }

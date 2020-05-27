@@ -25,6 +25,16 @@ class AuthHelper {
 
     }
 
-    
+    //verifica que haya un usuario logueado y devuelve su nombre
+    static public function nameLogged() {
+        if(session_status() != PHP_SESSION_ACTIVE){
+            session_start();
+        }
+        if(isset($_SESSION['IS_LOGGED'])) {
+            return $_SESSION['NOMBRE_USUARIO'];
+        }
+        return null;
+    }
+
     
 }

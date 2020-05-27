@@ -1,4 +1,9 @@
-{include 'templates/header.tpl'}
+{if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+    {include 'header.admin.tpl'}
+{/if}
+{if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+    {include 'header.tpl'}
+{/if}
     {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
         <div class="titulo_mostrar_jugadores">
             <p>

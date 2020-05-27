@@ -32,7 +32,7 @@ class LoginController{
                     }         
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;        //Guardo el nombre del usuario
-                    $this->view->welcome($user->nombre); 
+                    $this->view->welcome(); 
                 } else {
                     $this->viewPublic->showHome("Contraseña incorrecta", session_status() === PHP_SESSION_ACTIVE);
                 }

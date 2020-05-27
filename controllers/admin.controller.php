@@ -22,6 +22,7 @@ class AdminController{
         $this->modelAdmin = new AdminModel();
         $this->view = new AdminView();
         $this->viewPublic = new PublicView();
+        
     }
 
     //muestra un formulario vacio para cargar los datos de un nuevo jugador y posteriormente guardarlo en la BBDD
@@ -29,7 +30,7 @@ class AdminController{
         $divisiones = $this->modelDivisiones->getAll();
 
         if(empty($divisiones)) {
-            $this->DDBBvacia("Aùn no hay cargadas divisiones en la Base de Datos");
+            $this->DDBBvacia("Aún no hay cargadas divisiones en la Base de Datos");
         } else {
             $this->view->formPlayerAdd($divisiones);
         }
