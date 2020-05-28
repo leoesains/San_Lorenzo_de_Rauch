@@ -25,9 +25,10 @@ class AdminController{
         
     }
 
-    //muestra un formulario vacio para cargar los datos de un nuevo jugador y posteriormente guardarlo en la BBDD
+    //muestra el formulario para cargar los datos de un nuevo jugador
+    //para posteriormente guardarlo en la BBDD
     public function formPlayer() {
-        $divisiones = $this->modelDivisiones->getAll();
+        $divisiones = $this->modelDivisiones->getAll(); //para el select del form
 
         if(empty($divisiones)) {
             $this->DDBBvacia("Aún no hay cargadas divisiones en la Base de Datos");
@@ -56,12 +57,13 @@ class AdminController{
         }
     }
 
-    //muestra un formulario vacio para cargar los datos de una nueva categoria y posteriormente guardarla en la BBDD
+    //muestra el formulario para cargar los datos de una nueva División
+    //para posteriormente guardarla en la BBDD
     public function formDivision() {
         $this->view->formDivisionAdd();
     }
 
-    //guarda una nueva categoria en la BBDD
+    //guarda una nueva División en la BBDD
     public function addDivision() {
         if(empty($_POST['numeroCategoria']) || empty($_POST['nombreCategoria']) || empty($_POST['edadLimite'])|| empty($_POST['limiteJugadores']) || empty($_POST['excepciones'])) {
             $this->view->formDivisionAdd("No ingreso todos los datos requerìdos");
@@ -76,10 +78,10 @@ class AdminController{
         }
     }
 
-    //muestra formulario para Editar el jugador con id = dni
+    //muestra formulario para Editar un jugador
     public function editDataPlayer($dni){
-        $jugador = $this->modelJugadores->get($dni);
-        $divisiones = $this->modelDivisiones->getAll();
+        $jugador = $this->modelJugadores->get($dni); //para precargar los datos al form
+        $divisiones = $this->modelDivisiones->getAll(); //para select en form
         $this->view->showFormEditionPlayer($jugador, $divisiones);
     }
 
@@ -104,13 +106,13 @@ class AdminController{
         }
     }
 
-    //Pregunta si esta seguro en eliminar al jugador cuyo id = $dni
+    //Repregunta si esta seguro en eliminar un jugador de la BBDD
     public function confirmDeletePlayer($dni) {
         $jugador = $this->modelJugadores->get($dni);
         $this->view->formDeletePlayer($jugador);
     }
 
-    //Elimina al jugador cuyo id = $dni y luego se situa en listar_jugadores
+    //Elimina un jugador. luego se situa en listar_jugadores
     public function removePlayer($dni){
         $this->modelJugadores->delete($dni);
         header ('Location: ' .BASE_URL. 'listar_jugadores');
@@ -118,7 +120,7 @@ class AdminController{
 
     //muestra formulario para Editar una Division
     public function editDataDivision($id_division){
-        $categoria = $this->modelDivisiones->get($id_division);
+        $categoria = $this->modelDivisiones->get($id_division); //para precargar los datos al form
         $this->view->showFormEditionDivision($categoria);
     }
 
@@ -138,7 +140,7 @@ class AdminController{
         }
     }
 
-    //Pregunta si esta seguro en eliminar a la division cuyo id = $id_div
+    //Repregunta si esta seguro en eliminar una Division
     public function confirmDeleteDivision($id_div) {
         $division = $this->modelDivisiones->get($id_div);
         $this->view->formDeleteDivision($division);
@@ -150,10 +152,10 @@ class AdminController{
         if(empty($jugadores)) {
             $this->modelDivisiones->delete($id_div);
             $divisiones = $this->modelDivisiones->getAll();
-            $this->viewPublic->showDivisions($divisiones, "Divisiòn borrada exitosamente");
+            $this->viewPublic->showDivisions($divisiones, "División borrada exitosamente");
         } else {
             $divisiones = $this->modelDivisiones->getAll();
-            $this->viewPublic->showDivisions($divisiones, "No se puede eliminar esta divisiòn porque tiene jugadores cargados");
+            $this->viewPublic->showDivisions($divisiones, "No se puede eliminar esta división porque tiene jugadores cargados");
         }
     }
 

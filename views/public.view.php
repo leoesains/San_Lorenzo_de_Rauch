@@ -1,6 +1,7 @@
 ﻿<?php
 
 require_once 'libs/Smarty.class.php';
+require_once 'helpers/auth.helper.php';
 
 class PublicView{
    
@@ -39,7 +40,7 @@ class PublicView{
         $this->smarty->display('templates/showPlayers.tpl');
     }
 
-    //Muestra un jugador especìfico y todos los jugadores del club
+    //Muestra un jugador específico y todos los jugadores del club
     public function showPlayer($jugador, $jugadores, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
@@ -47,7 +48,8 @@ class PublicView{
         $this->smarty->display('templates/showPlayer.tpl');
     }
 
-    //Muestra un jugador especìfico y todos los jugadores de la divisiòn del jugador o todos los jugadores del puesto del jugador
+    //Muestra un jugador específico de una división
+    //y todos los jugadores de la misma división del jugador
     public function showPlayerDivision($jugador, $jugadores, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
@@ -69,14 +71,15 @@ class PublicView{
        $this->smarty->display('templates/printPlayersByDivision.tpl');
     }
 
-    //Muestra todos los jugadores de una posiciòn
+    //Muestra todos los jugadores de una posición dada
     public function printPlayersByPosition($jugXpos, $error = null) {
         $this->smarty->assign('jugadoresXpuesto', $jugXpos);
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/printPlayersByPosition.tpl');
     }
 
-    //Muestra el perfìl de un jugador y todos los jugadores de la posiciòn de dicho jugador
+    //Muestra un jugador específico de un puesto
+    //y todos los jugadores del mismo puesto del jugador
      public function showPlayerPosition($jugador, $jugadores, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);

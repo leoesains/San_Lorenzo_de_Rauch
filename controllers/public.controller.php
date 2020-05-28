@@ -33,7 +33,7 @@ class PublicController{
         }
     }
 
-    //muestra un jugador
+    //muestra Perfil de un jugador y la lista de jugadores para ver otros perfiles 
     public function viewPlayer($idJugador) {
         $jugadores = $this->modelJugadores->getAll();
         $jugador = $this->modelJugadores->get($idJugador);
@@ -45,7 +45,7 @@ class PublicController{
         }
     }
 
-    //muestra un jugador cuyo id = $idJugador y una lista de todos los jugadores que pertenece ese jugador
+    //muestra Perfil de un jugador y una lista de todos los jugadores de la misma división
     public function viewPlayerDivision($idJugador, $division) {
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
         $jugador = $this->modelJugadores->get($idJugador);
@@ -79,12 +79,12 @@ class PublicController{
         }
     }
 
-    //Le digo a la VISTA que me muestre el error en pantalla
-    public function showError($msg, $isAdmin){
-        $this->view->printError($msg, $isAdmin);
+    //Le digo a la VISTA que me muestre un ERROR en pantalla
+    public function showError($msg){
+        $this->view->printError($msg);
     }
 
-    //Le digo a la VISTA que me muestre el error en pantalla
+    //Le digo a la VISTA que me muestre un MENSAJE en pantalla
     public function DDBBvacia($msg){
         $this->view->printDDBBvacia($msg);
     }
@@ -100,7 +100,8 @@ class PublicController{
         }
     }
 
-    //muestra un jugador ($idJugador) de un determinado puesto ($puesto)
+    //muestra el Perfil de un jugador ($idJugador), de un determinado puesto ($puesto)
+    //y una lista de jugadores del mismo puesto.
     public function viewPlayerPosition($idJugador, $puesto) {
         $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($puesto);
         $jugador = $this->modelJugadores->get($idJugador);
