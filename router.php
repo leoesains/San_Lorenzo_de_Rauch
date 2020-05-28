@@ -17,7 +17,10 @@ $parametros = explode('/', $accion);
 
 switch($parametros[0]){
 
-    // -- Acciones del public.controller
+    //++++++++++++++++++++++++++++++++++++
+    //++ Acciones del public.controller ++
+    //++++++++++++++++++++++++++++++++++++
+    
     case 'home': {
         $controller = new PublicController();     
         $controller->home();
@@ -43,6 +46,41 @@ switch($parametros[0]){
         $controller->showPlayersByDivision($parametros[1]);
     break;
     }
+    case 'ver_jugador_division': {
+        $controller = new PublicController();     
+        $controller->viewPlayerDivision($parametros[1],$parametros[2]);
+    break;
+    }
+    case 'ver_arqueros': {
+        $controller = new PublicController();     
+        $controller->viewPlayersPosition("ARQUERO");
+    break;
+    }
+    case 'ver_defensores': {
+        $controller = new PublicController();     
+        $controller->viewPlayersPosition("DEFENSOR");
+    break;
+    }
+    case 'ver_volantes': {
+        $controller = new PublicController();     
+        $controller->viewPlayersPosition("VOLANTE");
+    break;
+    }
+    case 'ver_delanteros': {
+        $controller = new PublicController();     
+        $controller->viewPlayersPosition("DELANTERO");
+    break;
+    }
+    case 'ver_jugador_puesto': {
+        $controller = new PublicController();     
+        $controller->viewPlayerPosition($parametros[1],$parametros[2]);
+    break;
+    }
+
+    //++++++++++++++++++++++++++++++++++++
+    //++ Acciones del admin.controller +++
+    //++++++++++++++++++++++++++++++++++++
+
     case 'agregar_jugador': {
         $controller = new AdminController();  
         $controller->formPlayer();
@@ -61,11 +99,6 @@ switch($parametros[0]){
     case 'guardar_division': {
         $controller = new AdminController();  
         $controller->addDivision();
-    break;
-    }
-    case 'loguearse': {
-        $controller = new LoginController();  
-        $controller->loginAdmin();
     break;
     }
     case 'editar_jugador': {
@@ -108,41 +141,26 @@ switch($parametros[0]){
         $controller->removeDivision($parametros[1]);
     break;
     }
+
+    //++++++++++++++++++++++++++++++++++++
+    //++ Acciones del login.controller +++
+    //++++++++++++++++++++++++++++++++++++
+
+    case 'loguearse': {
+        $controller = new LoginController();  
+        $controller->loginAdmin();
+    break;
+    }
     case 'cerrar_sesion': {
         $controller = new LoginController();     
         $controller->logout();
     break;
     }
-    case 'ver_jugador_division': {
-        $controller = new PublicController();     
-        $controller->viewPlayerDivision($parametros[1],$parametros[2]);
-    break;
-    }
-    case 'ver_arqueros': {
-        $controller = new PublicController();     
-        $controller->viewPlayersPosition("ARQUERO");
-    break;
-    }
-    case 'ver_defensores': {
-        $controller = new PublicController();     
-        $controller->viewPlayersPosition("DEFENSOR");
-    break;
-    }
-    case 'ver_volantes': {
-        $controller = new PublicController();     
-        $controller->viewPlayersPosition("VOLANTE");
-    break;
-    }
-    case 'ver_delanteros': {
-        $controller = new PublicController();     
-        $controller->viewPlayersPosition("DELANTERO");
-    break;
-    }
-    case 'ver_jugador_puesto': {
-        $controller = new PublicController();     
-        $controller->viewPlayerPosition($parametros[1],$parametros[2]);
-    break;
-    }
+
+    //++++++++++++++++++++++++++++++++++++
+    //+++++++ Acción por defecto +++++++++
+    //++++++++++++++++++++++++++++++++++++
+
     default: {
         $controller = new PublicController();     
         $controller->showError("Se ha ejecutado una acción desconocida","images/errores/accion_desconocida.jpg");

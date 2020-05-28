@@ -1,6 +1,7 @@
 <?php
 
 require_once 'libs/Smarty.class.php';
+require_once 'helpers/auth.helper.php';
 
 
 class AdminView{
@@ -31,7 +32,7 @@ class AdminView{
         $this->smarty->display('templates/formDivisionAdd.tpl');
     }
 
-    //Muestra un formulario para editar un jugador
+    //Muestra un formulario para editar un jugador con los datos precargados 
     public function showFormEditionPlayer($jug, $divisiones, $error = null){
         $this->smarty->assign('jugador', $jug);
         $this->smarty->assign('listaDivisiones', $divisiones);
@@ -39,20 +40,20 @@ class AdminView{
         $this->smarty->display('templates/showFormEditionPlayer.tpl');
     }
 
-    //Muestra un formulario para editar una division
+    //Muestra un formulario para editar una division con los datos precargados
     public function showFormEditionDivision($div, $error = null){
         $this->smarty->assign('division', $div);
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showFormEditionDivision.tpl');
     }
 
-    //Muestra un formulario para saber si esta seguro en eliminar un jugador
+    //Muestra un mensaje para saber si esta seguro en eliminar un jugador
     public function formDeletePlayer($jugador) {
         $this->smarty->assign('jugador', $jugador);
         $this->smarty->display('templates/formPlayerDelete.tpl');
     }
 
-    //Muestra un formulario para saber si esta seguro en eliminar una division
+    //Muestra un mensaje para saber si esta seguro en eliminar una division
     public function formDeleteDivision($division) {
         $this->smarty->assign('division', $division);
         $this->smarty->display('templates/formDivisionDelete.tpl');

@@ -17,7 +17,7 @@ class LoginController{
         $this->viewPublic = new PublicView();
     }
 
-    //Controla que el usuario ingresado sea correcto
+    //Controla que el usuario ingresado sea correcto e Inicia Sesión
     public function loginAdmin(){
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
             $this->viewPublic->showHome("Debe ingresar Usuario y Contraseña", session_status() === PHP_SESSION_ACTIVE);
@@ -31,7 +31,7 @@ class LoginController{
                         session_start();         //Abro la sesion                  
                     }         
                     $_SESSION['IS_LOGGED'] = true;
-                    $_SESSION['NOMBRE_USUARIO'] = $user->nombre;        //Guardo el nombre del usuario
+                    $_SESSION['NOMBRE_USUARIO'] = $user->nombre;  //Guardo el nombre del usuario
                     $this->view->welcome(); 
                 } else {
                     $this->viewPublic->showHome("Contraseña incorrecta", session_status() === PHP_SESSION_ACTIVE);
@@ -42,7 +42,7 @@ class LoginController{
         }
     }
 
-    //destruye la session que se encuentra abierta para cerrar la sesion y redirecciona al home
+    //destruye la sesión que se encuentra abierta y redirecciona al home
     public function logout() {
         session_start();
         session_destroy();
