@@ -15,6 +15,8 @@ class LoginController{
         $this->modelLogin = new AdminModel();
         $this->view = new AdminView();
         $this->viewPublic = new PublicView();
+
+
     }
 
     //Controla que el usuario ingresado sea correcto e Inicia Sesión
@@ -33,7 +35,8 @@ class LoginController{
                     }         
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;  //Guardo el nombre del usuario
-                    $this->view->welcome(); 
+                    //$this->view->welcome($user->nombre); 
+                    header('Location: ' .BASE_URL. 'loguearse');
                 } else {
                     $this->viewPublic->showHome("Contraseña incorrecta", session_status() === PHP_SESSION_ACTIVE);
                 }

@@ -14,10 +14,11 @@ class AdminView{
         $this->smarty->assign('nameAdmin', $nameAdmin);
     }
 
+    /*
     //Da la bienvenida al Usuario Administrador
-    public function welcome() {
+    public function welcome($nombreUsuario) {
         $this->smarty->display('templates/welcome.tpl');
-    }
+    }*/
 
     //Muestra un formulario para agregar un jugador
     public function formPlayerAdd($divisiones, $error = null) {
