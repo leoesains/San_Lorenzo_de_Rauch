@@ -61,7 +61,7 @@ class DivisionsController extends AdminBaseController {
             $divisiones = $this->getModelDivisions()->getAll();
             $this->getViewPublic()->showDivisions($divisiones, "División borrada exitosamente");
         } else {
-            $divisiones = $this->modelDivisiones->getAll();
+            $divisiones = $this->getModelDivisions()->getAll();
             $this->getViewPublic()->showDivisions($divisiones, "No se puede eliminar esta división porque tiene jugadores cargados");
         }
     }

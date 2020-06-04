@@ -2,9 +2,8 @@
 
 require_once 'controllers/public.controller.php';
 require_once 'controllers/login.controller.php';
-//require_once 'controllers/adminBase.controller.php';        //este no va cuando hagamos herencia
-require_once 'controllers/players.controller.php';
-require_once 'controllers/divisions.controller.php';
+require_once 'controllers/adminPlayers.controller.php';
+require_once 'controllers/adminDivisions.controller.php';
 
 
 // definimos la base url de forma dinamica
