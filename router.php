@@ -31,11 +31,13 @@ switch($parametros[0]){
         $controller->showPlayer();
     break;
     }
+    /*
     case 'ver_jugador': {
         $controller = new PublicController();     
         $controller->viewPlayer($parametros[1]);
     break;
     }
+    */
     case 'listar_divisiones': {
         $controller = new PublicController();     
         $controller->showDivision();

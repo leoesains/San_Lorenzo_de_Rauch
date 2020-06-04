@@ -39,7 +39,7 @@ class PublicView{
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayers.tpl');
     }
-
+/*
     //Muestra un jugador específico y todos los jugadores del club
     public function showPlayer($jugador, $jugadores, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
@@ -47,7 +47,7 @@ class PublicView{
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayer.tpl');
     }
-
+*/
     //Muestra un jugador específico de una división
     //y todos los jugadores de la misma división del jugador
     public function showPlayerDivision($jugador, $jugadores, $error = null) {
