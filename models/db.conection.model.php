@@ -1,5 +1,6 @@
 <?php
-    
+
+//Clase padre    
 class dbConectionModel {
 
     private $db;
@@ -7,10 +8,6 @@ class dbConectionModel {
     public function __construct(){
         //hacemos la conexión con a BBDD
         $this->db = $this->createConexion();
-    }
-
-    public function getConnection() {
-        return $this->db;
     }
 
     //Crea la conexión a la DDBB
@@ -25,6 +22,10 @@ class dbConectionModel {
             var_dump($e);
         }
         return $pdo;
+    }
+
+    public function getConnection() {
+        return $this->db;
     }
 }
     
