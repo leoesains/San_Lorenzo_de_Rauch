@@ -86,16 +86,16 @@
                             <td id="nombre">
                                 <div class="col-sm">
                                     {if $jugador->puesto == "ARQUERO"}
-                                        <h6><a  class="fila" href="ver_jugador_puesto/{$jugador->id_jugador}/{$jugador->puesto}">ARQ | {$jugador->nombre|upper}</a></h6>
+                                        <h6><a  class="fila" href="ver_jugador_puesto/{$jugador->id_jugador}">ARQ | {$jugador->nombre|upper}</a></h6>
                                     {/if}
                                     {if $jugador->puesto == "DEFENSOR"}
-                                        <h6><a class="fila" href="ver_jugador_puesto/{$jugador->id_jugador}/{$jugador->puesto}">DEF | {$jugador->nombre|upper}</a></h6>
+                                        <h6><a class="fila" href="ver_jugador_puesto/{$jugador->id_jugador}">DEF | {$jugador->nombre|upper}</a></h6>
                                     {/if}
                                     {if $jugador->puesto == "VOLANTE"}
-                                        <h6><a  class="fila" href="ver_jugador_puesto/{$jugador->id_jugador}/{$jugador->puesto}">VOL | {$jugador->nombre|upper}</a></h6>
+                                        <h6><a  class="fila" href="ver_jugador_puesto/{$jugador->id_jugador}">VOL | {$jugador->nombre|upper}</a></h6>
                                     {/if}
                                     {if $jugador->puesto == "DELANTERO"}
-                                        <h6><a  class="fila" href="ver_jugador_puesto/{$jugador->id_jugador}/{$jugador->puesto}">DEL | {$jugador->nombre|upper}</a></h6>
+                                        <h6><a  class="fila" href="ver_jugador_puesto/{$jugador->id_jugador}">DEL | {$jugador->nombre|upper}</a></h6>
                                     {/if}
                                 </div>
                             </td>

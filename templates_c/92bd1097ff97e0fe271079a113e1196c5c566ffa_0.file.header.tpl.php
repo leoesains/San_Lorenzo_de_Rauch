@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-05 15:48:24
+/* Smarty version 3.1.34-dev-7, created on 2020-06-05 19:26:53
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5eda4d28833824_04276534',
+  'unifunc' => 'content_5eda805d6f34f9_57622396',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '92bd1097ff97e0fe271079a113e1196c5c566ffa' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\header.tpl',
-      1 => 1591364902,
+      1 => 1591377961,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eda4d28833824_04276534 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eda805d6f34f9_57622396 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
     <html lang="en">
         <head>
@@ -48,7 +48,7 @@ function content_5eda4d28833824_04276534 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="home">HOME | LOGIN | REGISTRARSE<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="home">HOME | LOGIN<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,6 +67,9 @@ function content_5eda4d28833824_04276534 (Smarty_Internal_Template $_smarty_tpl)
                             <a class="nav-link" href="listar_divisiones">DIVISIONES</a>
                         </li>
                     </ul>
+                </div>
+                <div class="contenedor-registrarse">
+                    <a class="nav-link" href="registrarse">Registrarse<span class="sr-only">(current)</span></a>
                 </div>
 
             </nav>

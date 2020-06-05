@@ -47,13 +47,13 @@
                 
                 <div class="login-container">
                     <form class="form_log" action="loguearse" method="POST">
-                        <input type="text" placeholder="Username" name="username">
-                        <input type="password" placeholder="Password" name="psw">
+                        <input type="email" placeholder="Nombre Usuario" name="username">
+                        <input type="password" placeholder="Contraseña" name="psw">
                         <button type="submit">Login</button>
                     </form>
                     <div class="contenedor-registrarse-olvide">
-                        <a class="nav-link" href="registrarse">REGISTRARSE<span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="recuperar_contraseña">OLVIDÉ LA CONTRASEÑA<span class="sr-only">(current)</span></a>               
+                        <a class="nav-link" href="registrarse">Registrarse<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="recuperar_contraseña">Olvidé la Contraseña<span class="sr-only">(current)</span></a>               
                     </div>
                 </div>
                 

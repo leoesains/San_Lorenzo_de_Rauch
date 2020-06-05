@@ -75,7 +75,7 @@ switch($parametros[0]){
     }
     case 'ver_jugador_puesto': {
         $controller = new PublicController();     
-        $controller->viewPlayerPosition($parametros[1],$parametros[2]);
+        $controller->viewPlayerPosition($parametros[1]);
     break;
     }
 

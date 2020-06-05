@@ -102,9 +102,12 @@ class PublicController{
 
     //muestra el Perfil de un jugador ($idJugador), de un determinado puesto ($puesto)
     //y una lista de jugadores del mismo puesto.
-    public function viewPlayerPosition($idJugador, $puesto) {
-        $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($puesto);
+    public function viewPlayerPosition($idJugador) {
+        
+        //sacar parametro puesto
         $jugador = $this->modelJugadores->get($idJugador);
+        $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($jugador->puesto);
+        
 
         if(!empty($jugador)) {
             $this->view->showPlayerPosition($jugador, $jugadoresXpuesto); 

@@ -434,6 +434,12 @@ label{
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 87%;
-    font-size: 0.7em;
+    font-size: 1em;
     text-align: left;
+}
+
+.contenedor-registrarse{
+    
+    font-size: 1.2em;
+    
 }
