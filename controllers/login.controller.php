@@ -22,7 +22,7 @@ class LoginController{
     //Controla que el usuario ingresado sea correcto e Inicia Sesión
     public function loginAdmin(){
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
-            $this->viewPublic->showHome("Debe ingresar Usuario y Contraseña", session_status() === PHP_SESSION_ACTIVE);
+            $this->viewPublic->showHome("Debe ingresar Nombre Usuario y Contraseña", session_status() === PHP_SESSION_ACTIVE);
         } else {
             $username = $_POST['username'];
             $password = $_POST['psw'];
