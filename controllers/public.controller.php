@@ -32,7 +32,7 @@ class PublicController{
             $this->view->showPlayers($jugadores);                       //Actualizo la vista
         }
     }
-/*
+
     //muestra Perfil de un jugador y la lista de jugadores para ver otros perfiles 
     public function viewPlayer($idJugador) {
         $jugadores = $this->modelJugadores->getAll();
@@ -44,7 +44,7 @@ class PublicController{
             $this->DDBBvacia("El jugador no se encuentra en la Base de datos");
         }
     }
-*/
+
     //muestra Perfil de un jugador y una lista de todos los jugadores de la misma división
     public function viewPlayerDivision($idJugador, $division) {
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);

@@ -88,6 +88,7 @@ caption {
     width: 90%;
     margin: auto;
     margin-top: 40px;
+    
 }
 
 .contenedorFrase img{
@@ -355,6 +356,7 @@ label{
     margin-top: 5px;
     padding: 0px;
     background-color: rgb(188, 191, 224);
+    margin-left: 800px;
 }
 
 .contenedor-alert-division{
@@ -404,9 +406,34 @@ label{
     font-size: 4em;
 }
 
-.nombre-usuario{
-    margin-top: 5px;
+#nombre-usuario{
+    margin-top: 0px;
     color: whitesmoke;
-    font-size: 1.1em;
+    font-family: Exotc350 DmBd BT;
+    font-size: 1.3em;
     margin-bottom: 0;
+    margin-right: 40px;
+    padding: 0px;
+        
+}
+
+.derecha{
+    margin-left: 90px;
+}
+
+#menu-usuario{
+    color: darkgrey;
+    padding: 5px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    font-family: Exotc350 DmBd BT;
+    font-size: 1.2em;
+}
+
+.contenedor-registrarse-olvide{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 87%;
+    font-size: 0.7em;
+    text-align: left;
 }

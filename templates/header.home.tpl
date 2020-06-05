@@ -50,15 +50,12 @@
                         <input type="text" placeholder="Username" name="username">
                         <input type="password" placeholder="Password" name="psw">
                         <button type="submit">Login</button>
-
-                        {if {$error}}
-                            <div class="alert alert-danger contenedor-alert-usuario">
-                                {$error}
-                            </div>
-                        {/if}
-
                     </form>
-                
+                    <div class="contenedor-registrarse-olvide">
+                        <a class="nav-link" href="registrarse">REGISTRARSE<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="recuperar_contraseña">OLVIDÉ LA CONTRASEÑA<span class="sr-only">(current)</span></a>               
+                    </div>
+                </div>
                 
 
             </nav>

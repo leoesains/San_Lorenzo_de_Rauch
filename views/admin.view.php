@@ -10,8 +10,8 @@ class AdminView{
     
     public function __construct(){
         $this->smarty = new Smarty();
-        $nameAdmin = authHelper::nameLogged();
-        $this->smarty->assign('nameAdmin', $nameAdmin);
+        $nameUser = authHelper::nameLogged();
+        $this->smarty->assign('nameUser', $nameUser);
     }
 
     /*

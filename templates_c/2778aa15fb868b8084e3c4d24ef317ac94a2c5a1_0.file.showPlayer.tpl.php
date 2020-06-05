@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-24 06:17:43
+/* Smarty version 3.1.34-dev-7, created on 2020-06-05 04:39:53
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\showPlayer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ec9f567b0d977_56376890',
+  'unifunc' => 'content_5ed9b079340588_24236955',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2778aa15fb868b8084e3c4d24ef317ac94a2c5a1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\showPlayer.tpl',
-      1 => 1590293193,
+      1 => 1591324774,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ec9f567b0d977_56376890 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed9b079340588_24236955 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['isAdmin']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -45,11 +45,26 @@ if ($_prefixVariable2) {?>     <?php $_smarty_tpl->_subTemplateRender('file:head
 echo $_smarty_tpl->tpl_vars['isAdmin']->value;
 $_prefixVariable3 = ob_get_clean();
 if ($_prefixVariable3) {?>             <h4><a class="btn btn-danger centrar btn_alta" href="editar_jugador/<?php echo $_smarty_tpl->tpl_vars['datosJug']->value->id_jugador;?>
-"><b>Editar Jugador</b></a></h4>
+"><b>Editar Jugador | 
+                <svg class="bi bi-pencil" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+                <path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+                </svg></b>
+            </a></h4>
             <h4><a class="btn btn-danger centrar btn_alta" href="eliminar_jugador/<?php echo $_smarty_tpl->tpl_vars['datosJug']->value->id_jugador;?>
-"><b>Baja del Jugador</b></a></h4>
+"><b>Baja del Jugador | 
+                <svg class="bi bi-trash" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                </svg></b>
+            </a></h4>
         <?php }?>
-        <h4><a class="btn btn-danger centrar btn_alta" href="listar_jugadores"><b>Volver</b></a>;
+        <h4><a class="btn btn-danger centrar btn_alta" href="listar_jugadores"><b>Volver |
+            <svg class="bi bi-arrow-return-left" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M5.854 5.646a.5.5 0 0 1 0 .708L3.207 9l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z"/>
+            <path fill-rule="evenodd" d="M13.5 2.5a.5.5 0 0 1 .5.5v4a2.5 2.5 0 0 1-2.5 2.5H3a.5.5 0 0 1 0-1h8.5A1.5 1.5 0 0 0 13 7V3a.5.5 0 0 1 .5-.5z"/>
+            </svg></b>
+        </a></h4>;
     </div>
     <div class="datosJugador">
         <p id="nombre_jugador_perfil"><?php echo mb_strtoupper($_smarty_tpl->tpl_vars['datosJug']->value->nombre, 'UTF-8');?>
