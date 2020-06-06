@@ -13,4 +13,13 @@ class AdminModel extends dbConectionModel {
         $administrador = $query->fetch(PDO::FETCH_OBJ);    
         return $administrador;
     }
+
+    //ingresa un nuevo usuario a la BBDD
+    public function insert($nombre, $nombre_usuario, $contraseña, $tipo) {
+        //enviamos la consulta
+        $sql = "INSERT INTO administradores(nombre, nombre_usuario, contraseña, tipo) 
+                VALUES (?, ?, ?, ?) ";
+        $query = $this->getConnection()->prepare($sql);  
+        $query->execute([$nombre, $nombre_usuario, $contraseña, $tipo]);        
+    }
 }

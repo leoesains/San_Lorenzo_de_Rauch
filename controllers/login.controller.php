@@ -35,6 +35,7 @@ class LoginController{
                     }         
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;  //Guardo el nombre del usuario
+                    $_SESSION['TIPO'] = $user->tipo;
                     //$this->view->welcome($user->nombre); 
                     header('Location: ' .BASE_URL. 'home');
                 } else {
@@ -51,6 +52,35 @@ class LoginController{
         session_start();
         session_destroy();
         header('Location: ' .BASE_URL. 'home');
+    }
+
+    public function formCheckIn() {
+       $this->viewPublic->showCheckIn(); 
+    }
+
+    public function addUser() {
+        if(empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['contraseña']) || empty($_POST['repitaContraseña'])) {
+            $this->viewPublic->showCheckIn("Todos los datos son obligatorios");
+        } else {
+            $name = $_POST['nombre'];
+            $username = $_POST['email'];
+            $password = $_POST['contraseña'];
+            $repitPassword = $_POST['repitaContraseña'];
+            $tipo = "usuario";
+            $user = $this->modelLogin->getAdmin($username);
+            if($user) {
+                $this->viewPublic->showCheckIn("El usuario " . $username . " ya estaba registrado");
+            } else {
+                if($password != $repitPassword) {
+                    $this->viewPublic->showCheckIn("Las contraseñas no coinciden"); 
+                } else {
+                    $passwordCifrado = password_hash($password, PASSWORD_DEFAULT);
+                    $this->modelLogin->insert($name, $username, $passwordCifrado, $tipo);
+                    $this->viewPublic->showCheckIn("Usuario registrado correctamente!");
+                }
+            }
+
+        }
     }
 }
 

@@ -86,4 +86,10 @@ class PublicView{
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayerPosition.tpl');
     }
+
+    //Muestra un formulario para cargar un nuevo usuario
+    public function showCheckIn($error = null) {
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/formUsuarioAdd.tpl');
+    }
 }

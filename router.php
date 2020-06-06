@@ -158,6 +158,16 @@ switch($parametros[0]){
         $controller->logout();
     break;
     }
+    case 'registrarse': {
+        $controller = new LoginController();     
+        $controller->formCheckIn();
+    break;
+    }
+    case 'guardar_usuario': {
+        $controller = new LoginController();     
+        $controller->addUser();
+    break;
+    }
 
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++ Acción por defecto ++++++++++++++++++++
