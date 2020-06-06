@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2020 a las 01:05:01
+-- Tiempo de generación: 07-06-2020 a las 01:14:18
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.5
+-- Versión de PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,15 +31,17 @@ CREATE TABLE `administradores` (
   `id_administrador` int(2) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `nombre_usuario` varchar(100) NOT NULL,
-  `contraseña` varchar(200) NOT NULL
+  `contraseña` varchar(200) NOT NULL,
+  `tipo` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `administradores`
 --
 
-INSERT INTO `administradores` (`id_administrador`, `nombre`, `nombre_usuario`, `contraseña`) VALUES
-(1, 'Seba Esains', 'admin', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O');
+INSERT INTO `administradores` (`id_administrador`, `nombre`, `nombre_usuario`, `contraseña`, `tipo`) VALUES
+(1, 'Seba Esains', 'admin@sanlorenzoderauch.com', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O', 'administrador'),
+(4, 'leo esains', 'leo.esains@gmail.com', '$2y$10$l59qtmNeIo03stwWFgz1quyKUC1dD9U.a/0WmPX0/5ANSTEc5lUfS', 'usuario');
 
 -- --------------------------------------------------------
 
@@ -261,7 +263,7 @@ ALTER TABLE `jugadores`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id_administrador` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_administrador` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
