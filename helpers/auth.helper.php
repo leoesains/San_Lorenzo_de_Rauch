@@ -22,7 +22,6 @@ class AuthHelper {
         } else {
             return $_SESSION['NOMBRE_USUARIO'];
         }
-
     }
 
     //verifica que haya un usuario logueado y devuelve su nombre
