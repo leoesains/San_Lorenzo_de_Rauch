@@ -22,7 +22,7 @@ class LoginController{
     //Controla que el usuario ingresado sea correcto e Inicia Sesión
     public function loginAdmin(){
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
-            $this->viewPublic->showHome("Debe ingresar Nombre Usuario y Contraseña", session_status() === PHP_SESSION_ACTIVE);
+            $this->viewPublic->showHome("Debe ingresar Nombre de Usuario y Contraseña", session_status() === PHP_SESSION_ACTIVE);
         } else {
             $username = $_POST['username'];
             $password = $_POST['psw'];
@@ -55,12 +55,12 @@ class LoginController{
     }
 
     public function formCheckIn() {
-       $this->viewPublic->showCheckIn(); 
+       $this->viewPublic->formCheckIn(); 
     }
 
     public function addUser() {
         if(empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['contraseña']) || empty($_POST['repitaContraseña'])) {
-            $this->viewPublic->showCheckIn("Todos los datos son obligatorios");
+            $this->viewPublic->formCheckIn("Todos los datos son obligatorios");
         } else {
             $name = $_POST['nombre'];
             $username = $_POST['email'];
@@ -69,14 +69,21 @@ class LoginController{
             $tipo = "usuario";
             $user = $this->modelLogin->getAdmin($username);
             if($user) {
-                $this->viewPublic->showCheckIn("El usuario " . $username . " ya estaba registrado");
+                $this->viewPublic->formCheckIn("El usuario " . $username . " ya estaba registrado");
             } else {
                 if($password != $repitPassword) {
-                    $this->viewPublic->showCheckIn("Las contraseñas no coinciden"); 
+                    $this->viewPublic->formCheckIn("Las contraseñas no coinciden"); 
                 } else {
                     $passwordCifrado = password_hash($password, PASSWORD_DEFAULT);
                     $this->modelLogin->insert($name, $username, $passwordCifrado, $tipo);
-                    $this->viewPublic->showCheckIn("Usuario registrado correctamente!");
+                    if(session_status() != PHP_SESSION_ACTIVE){
+                        session_start();         //Abro la sesion                  
+                    }         
+                    $_SESSION['IS_LOGGED'] = true;
+                    $_SESSION['NOMBRE_USUARIO'] = $name;  //Guardo el nombre del usuario
+                    $_SESSION['TIPO'] = $tipo;
+                    header('Location: ' .BASE_URL. 'home');
+                    
                 }
             }
 

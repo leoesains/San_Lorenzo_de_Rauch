@@ -88,8 +88,8 @@ class PublicView{
     }
 
     //Muestra un formulario para cargar un nuevo usuario
-    public function showCheckIn($error = null) {
+    public function formCheckIn($error = null) {
         $this->smarty->assign('error', $error);
-        $this->smarty->display('templates/formUsuarioAdd.tpl');
+        $this->smarty->display('templates/formUserAdd.tpl');
     }
 }

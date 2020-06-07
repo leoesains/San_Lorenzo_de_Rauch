@@ -35,5 +35,16 @@ class AuthHelper {
         return null;
     }
 
+    //verifica que haya un usuario logueado y devuelve el tipo de administrador
+    static public function typeLogged() {
+        session_start(); 
+        if (!isset($_SESSION['TIPO'])) {
+            header('Location: ' . BASE_URL . 'home');
+            die();
+        } else {
+            return $_SESSION['TIPO'];
+        }
+    }
+
     
 }
