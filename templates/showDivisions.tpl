@@ -4,12 +4,14 @@
 {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
     {include 'header.tpl'}
 {/if}
-{if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+{*{if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+{if {$type != "administrador"}}
     <div class="titulo_mostrar_jugadores">
         <p><b>DIVISIONES</b> DEL CLUB PARA LA TEMPORADA 2020</p>
     </div>
 {/if}
-{if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+{*{if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+{if {$type == "administrador"}}
     <div class="contenedor-btn-mensaje">
         <div>
             {if {$error}}
@@ -40,12 +42,14 @@
             <div class="centrar alto_excepciones">
                 Observaciones: {$division->excepciones}
             </div>
-            {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+            {*{if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+            {if {$type != "administrador"}}
                 <div class="centrar">
                     <a class="btn btn-danger" href="divisiones_jugadores/{$division->id_division}"><b>Ver Jugadores</b></a>
                 </div>          
             {/if}
-            {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+            {*{if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+            {if {$type == "administrador"}}
                 <div class="centrar">
                     <a class="btn btn-danger" href="divisiones_jugadores/{$division->id_division}"><b>Ver Jugadores</b></a>
                     <a class="btn btn-danger" href="editar_division/{$division->id_division}">

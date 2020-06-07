@@ -42,7 +42,8 @@
 <div class="contenedorPerfil">
     <div>
         <img class="imagen_perfil"src="{$datosJug->imagen}">
-        {if {$isAdmin}} {* SI ES ADMINISTRADOR*}
+        {*{if {$isAdmin}} {* SI ES ADMINISTRADOR*}
+        {if {$type == "administrador"}}
             <h4><a class="btn btn-danger centrar btn_alta" href="editar_jugador/{$datosJug->id_jugador}"><b>Editar Jugador</b></a></h4>
             <h4><a class="btn btn-danger centrar btn_alta" href="eliminar_jugador/{$datosJug->id_jugador}"><b>Baja del Jugador</b></a></h4>
         {/if}

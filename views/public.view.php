@@ -13,6 +13,8 @@ class PublicView{
         $this->smarty->assign('isAdmin', $admin);
         $nameUser = authHelper::nameLogged();
         $this->smarty->assign('nameUser', $nameUser);
+        $type = authHelper::typeLogged();
+        $this->smarty->assign('type', $type);
     }
 
     //Muestra la pagina de inicio

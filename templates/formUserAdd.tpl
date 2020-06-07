@@ -10,7 +10,7 @@
         <label>REPITA LA CONTRASEÑA</label>
         <input type="password" placeholder="REPITA CONTRASEÑA" name="repitaContraseña">
         
-        <button type="submit" class="btn btn-danger btn-volver"><b>Enviar</b></button>
+        <button type="submit" class="btn btn-danger btn-volver"><b>Registrar</b></button>
         <a class="btn btn-danger btn-volver" href="home"><b>Salir</b></a>;
         {if $error}
             <div class="alert alert-danger contenedor-alert-usuario">

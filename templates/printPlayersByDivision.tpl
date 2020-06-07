@@ -4,7 +4,8 @@
 {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
     {include 'header.tpl'}
 {/if}
-    {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+    {*{if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+    {if {$type != "administrador"}}
         <div class="titulo_mostrar_jugadores">
             <p>
                 JUGADORES  DE 
@@ -42,7 +43,8 @@
             </p>
         </div>
     {/if}
-    {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+    {*{if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+    {if {$type == "administrador"}}
         <div class="centrar btn_alta">
             <h4><a class="btn btn-danger" href="agregar_jugador"><b>Alta Jugador</b></a></h4>
         </div>
@@ -60,10 +62,12 @@
                     <h5><b>{$jugXdiv->puesto|upper}</b></h5>
                 </div>
                 <div class="centrar">
-                    {if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+                    {*{if {$isAdmin}} {*SI ES UN ADMINISTRADOR*}
+                    {if {$type == "administrador"}}
                         <h4><a class="btn btn-danger" href="ver_jugador_division/{$jugXdiv->id_jugador}/{$jugXdiv->id_division}"><b>Ver | Edit | Baja</b></a></h4>
                     {/if}
-                    {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+                    {*{if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
+                    {if {$type != "administrador"}}
                         <h4><a class="btn btn-danger" href="ver_jugador_division/{$jugXdiv->id_jugador}/{$jugXdiv->id_division}"><b>Perfil</b></a></h4>
                     {/if}
                 </div>

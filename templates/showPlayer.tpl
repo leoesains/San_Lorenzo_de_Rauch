@@ -10,7 +10,8 @@
 <div class="contenedorPerfil">
     <div>
         <img class="imagen_perfil"src="{$datosJug->imagen}">
-        {if {$isAdmin}} {* SI ES ADMINISTRADOR*}
+        {*{if {$isAdmin}} {* SI ES ADMINISTRADOR*}
+        {if {$type == "administrador"}}
             <h4><a class="btn btn-danger centrar btn_alta" href="editar_jugador/{$datosJug->id_jugador}"><b>Editar Jugador | 
                 <svg class="bi bi-pencil" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
