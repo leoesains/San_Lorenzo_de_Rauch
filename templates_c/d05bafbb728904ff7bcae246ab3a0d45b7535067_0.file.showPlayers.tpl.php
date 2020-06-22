@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-27 06:05:23
+/* Smarty version 3.1.34-dev-7, created on 2020-06-20 17:20:38
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\showPlayers.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ecde703150a95_35349970',
+  'unifunc' => 'content_5eee294656f516_39170043',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd05bafbb728904ff7bcae246ab3a0d45b7535067' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\showPlayers.tpl',
-      1 => 1590552321,
+      1 => 1591707096,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ecde703150a95_35349970 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eee294656f516_39170043 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['isAdmin']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -35,16 +35,18 @@ $_prefixVariable2 = ob_get_clean();
 if ($_prefixVariable2) {?>     <?php $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
 ob_start();
-echo !$_smarty_tpl->tpl_vars['isAdmin']->value;
+echo $_smarty_tpl->tpl_vars['type']->value != "administrador";
 $_prefixVariable3 = ob_get_clean();
-if ($_prefixVariable3) {?>     <div class="titulo_mostrar_jugadores">
+if ($_prefixVariable3) {?>
+    <div class="titulo_mostrar_jugadores">
         <p><b>JUGADORES</b> DEL CLUB PARA LA <b>TEMPORADA 2020</b></p>
     </div>
 <?php }
 ob_start();
-echo $_smarty_tpl->tpl_vars['isAdmin']->value;
+echo $_smarty_tpl->tpl_vars['type']->value == "administrador";
 $_prefixVariable4 = ob_get_clean();
-if ($_prefixVariable4) {?>     <div>
+if ($_prefixVariable4) {?>
+    <div>
         <div class="centrar btn_alta">
             <h4><a class="btn btn-danger" href="agregar_jugador"><b>Alta Jugador</b></a></h4>
         </div>
@@ -69,18 +71,20 @@ foreach ($_from as $_smarty_tpl->tpl_vars['jugador']->value) {
                 <h5><b><?php echo mb_strtoupper($_smarty_tpl->tpl_vars['jugador']->value->puesto, 'UTF-8');?>
 </b></h5>
             </div>
-            <?php ob_start();
-echo !$_smarty_tpl->tpl_vars['isAdmin']->value;
+                        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['type']->value != "administrador";
 $_prefixVariable5 = ob_get_clean();
-if ($_prefixVariable5) {?>                 <div class="centrar">
+if ($_prefixVariable5) {?>
+                <div class="centrar">
                     <h4><a class="btn btn-danger" href="ver_jugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
 "><b>Perfil</b></a></h4>
                 </div>
             <?php }?>
-            <?php ob_start();
-echo $_smarty_tpl->tpl_vars['isAdmin']->value;
+                        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['type']->value == "administrador";
 $_prefixVariable6 = ob_get_clean();
-if ($_prefixVariable6) {?>                 <div class="centrar">
+if ($_prefixVariable6) {?>
+                <div class="centrar">
                     <h4><a class="btn btn-danger" href="ver_jugador/<?php echo $_smarty_tpl->tpl_vars['jugador']->value->id_jugador;?>
 "><b>Ver | Edit | Baja</b></a></h4>
                 </div>

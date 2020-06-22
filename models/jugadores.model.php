@@ -38,29 +38,34 @@ class JugadoresModel extends dbConectionModel {
         return $jugadorXdivision;
     }
 
+
+
     //ingresa un nuevo jugador a la BBDD
-    public function insert($dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria) {
+    public function insert($dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $categoria, $foto) {
         //enviamos la consulta
         $sql = "INSERT INTO jugadores(id_jugador, nombre, edad, fecha_nac, carnet, puesto, club_origen, telefono, id_division, imagen) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
         $query = $this->getConnection()->prepare($sql);  
-        $query->execute([$dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria]);        
+        $query->execute([$dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $categoria, $foto]);        
     }
 
     //actualiza los datos de un jugador  
-    public function update($dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria) {
+    public function update($dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $categoria, $foto) {
         //enviamos la consulta
         $sql = "UPDATE jugadores SET nombre = ?, edad = ?, fecha_nac = ?, carnet = ?, puesto = ?, club_origen = ?, telefono = ?, id_division = ?, imagen = ? WHERE id_jugador = $dni";
         $query = $this->getConnection()->prepare($sql);  
-        $query->execute([$nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $foto, $categoria]);        
+        $query->execute([$nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $categoria, $foto]);        
     }
 
     //Elimina un jugador ($dni) de la base de datos
     public function delete($dni){
-       //enviamos la consulta
-       $sql = "DELETE FROM jugadores WHERE id_jugador = ?";
-       $query = $this->getConnection()->prepare($sql);  
-       $query->execute([$dni]);        
+        $jugador = $this->get($dni);
+        //enviamos la consulta
+        $sql = "DELETE FROM jugadores WHERE id_jugador = ?";
+        $query = $this->getConnection()->prepare($sql);  
+        $query->execute([$dni]);
+        //Elimina la imagen de la carpeta
+        unlink($jugador->imagen);        
     }
 
     //Devuelve los jugadores de un determinado puesto

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-27 19:55:43
+/* Smarty version 3.1.34-dev-7, created on 2020-06-09 15:01:30
   from 'C:\xampp\htdocs\proyectos\Web 2\San_Lorenzo_de_Rauch\templates\printPlayersByDivision.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ecea99f2e0cb6_83201136',
+  'unifunc' => 'content_5edf882ab0fe15_70406919',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f0fc42ef1d37052f0ecf8dd8ab1bf3689d62defb' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web 2\\San_Lorenzo_de_Rauch\\templates\\printPlayersByDivision.tpl',
-      1 => 1590602138,
+      1 => 1591707096,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ecea99f2e0cb6_83201136 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5edf882ab0fe15_70406919 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['isAdmin']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -34,10 +34,11 @@ echo !$_smarty_tpl->tpl_vars['isAdmin']->value;
 $_prefixVariable2 = ob_get_clean();
 if ($_prefixVariable2) {?>     <?php $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }?>
-    <?php ob_start();
-echo !$_smarty_tpl->tpl_vars['isAdmin']->value;
+        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['type']->value != "administrador";
 $_prefixVariable3 = ob_get_clean();
-if ($_prefixVariable3) {?>         <div class="titulo_mostrar_jugadores">
+if ($_prefixVariable3) {?>
+        <div class="titulo_mostrar_jugadores">
             <p>
                 JUGADORES  DE 
                 <?php ob_start();
@@ -104,10 +105,11 @@ if ($_prefixVariable13 == 10) {?>
             </p>
         </div>
     <?php }?>
-    <?php ob_start();
-echo $_smarty_tpl->tpl_vars['isAdmin']->value;
+        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['type']->value == "administrador";
 $_prefixVariable14 = ob_get_clean();
-if ($_prefixVariable14) {?>         <div class="centrar btn_alta">
+if ($_prefixVariable14) {?>
+        <div class="centrar btn_alta">
             <h4><a class="btn btn-danger" href="agregar_jugador"><b>Alta Jugador</b></a></h4>
         </div>
     <?php }?>
@@ -131,17 +133,19 @@ foreach ($_from as $_smarty_tpl->tpl_vars['jugXdiv']->value) {
 </b></h5>
                 </div>
                 <div class="centrar">
-                    <?php ob_start();
-echo $_smarty_tpl->tpl_vars['isAdmin']->value;
+                                        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['type']->value == "administrador";
 $_prefixVariable15 = ob_get_clean();
-if ($_prefixVariable15) {?>                         <h4><a class="btn btn-danger" href="ver_jugador_division/<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_jugador;?>
+if ($_prefixVariable15) {?>
+                        <h4><a class="btn btn-danger" href="ver_jugador_division/<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_jugador;?>
 /<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_division;?>
 "><b>Ver | Edit | Baja</b></a></h4>
                     <?php }?>
-                    <?php ob_start();
-echo !$_smarty_tpl->tpl_vars['isAdmin']->value;
+                                        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['type']->value != "administrador";
 $_prefixVariable16 = ob_get_clean();
-if ($_prefixVariable16) {?>                         <h4><a class="btn btn-danger" href="ver_jugador_division/<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_jugador;?>
+if ($_prefixVariable16) {?>
+                        <h4><a class="btn btn-danger" href="ver_jugador_division/<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_jugador;?>
 /<?php echo $_smarty_tpl->tpl_vars['jugXdiv']->value->id_division;?>
 "><b>Perfil</b></a></h4>
                     <?php }?>

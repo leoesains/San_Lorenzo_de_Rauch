@@ -1,5 +1,6 @@
 {include 'header.admin.tpl'}
-    <form id="form_add_jugador" action="guardar_jugador" method="POST">
+    
+    <form id="form_add_jugador" action="guardar_jugador" method="POST" enctype="multipart/form-data">
         <h1>DATOS DEL NUEVO JUGADOR</h1>
         <input type="namber" placeholder="INGRESE DNI" name="dni">
         <input type="text" class="mayuscula" placeholder="Ingrese Nombre y Apellido" name="name">
@@ -30,16 +31,14 @@
                 <option>{$division->id_division}</option>
             {/foreach}
         </select>
-        <input type="text" placeholder="INGRESE FOTO" name="foto">
-
+        <input type="file" class="input-file" name="foto">
         <button type="submit" class="btn btn-danger"><b>Enviar</b></button>
-        
         <a class="btn btn-danger btn-volver" href="listar_jugadores"><b>Volver</b></a>
         {if {$error}}
             <div class="alert alert-danger contenedor-alert-usuario">
                 {$error}
             </div>
-        {/if}
+        {/if}        
 
     </form>
 {include 'templates/footer.tpl'}

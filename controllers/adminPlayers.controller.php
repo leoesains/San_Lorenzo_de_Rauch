@@ -16,22 +16,46 @@ class PlayersController extends AdminBaseController {
         }
     }
 
+    // Le asigno un nombre único al archivo subido, 
+    // lo guardo en la carpeta images/jugadores/
+    // y retorna el nombre creado para guardarlo en la DDBB 
+    public function copyImage(){
+        // Nombre archivo original
+        $nombreOriginal = $_FILES['foto']['name'];
+        // Nombre en el file system:
+        $nombreFisico = $_FILES['foto']['tmp_name'];
+        $nombreFinal = "images/jugadores/". uniqid("", true) . "." . strtolower(pathinfo($nombreOriginal, PATHINFO_EXTENSION));
+        move_uploaded_file($nombreFisico, $nombreFinal); 
+        return $nombreFinal;
+    }
+
     //guarda un nuevo jugador en la BBDD
     public function addPlayer() {
         if(empty($_POST['dni']) || empty($_POST['name']) || empty($_POST['edad'])|| empty($_POST['fechaNacimiento']) || empty($_POST['numeroCarnet'])
-            || empty($_POST['puesto']) || empty($_POST['clubOrigen']) || empty($_POST['telefono']) || empty($_POST['foto']) || empty($_POST['categoria'])) {
+            || empty($_POST['puesto']) || empty($_POST['clubOrigen']) 
+            || empty($_POST['telefono']) || empty($_POST['categoria'])
+            || ($_FILES['foto']['name'] == "")) {
                 $divisiones = $this->getModelDivisions()->getAll(); 
                 $this->getViewAdmin()->formPlayerAdd($divisiones, "No ingresò todos los datos requeridos");
-        } else {
+        } 
+        else {
             $jugador = $this->getModelPlayers()->get($_POST['dni']);
             if(!empty($jugador)) {
                 $divisiones = $this->getModelDivisions()->getAll(); 
-                $this->getViewAdmin()->formPlayerAdd($divisiones, "El jugador " . $_POST['name'] . " ya existìa!");
-            } else {
-                $this->getModelPlayers()->insert($_POST['dni'], $_POST['name'], $_POST['edad'], $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'],
-                                              $_POST['clubOrigen'], $_POST['telefono'], $_POST['categoria'], $_POST['foto']);
-                $divisiones = $this->getModelDivisions()->getAll(); 
-                $this->getViewAdmin()->formPlayerAdd($divisiones, $_POST['name'] . " fue guardado correctamente!");
+                $this->getViewAdmin()->formPlayerAdd($divisiones, "El jugador " . $_POST['name'] . " ya existe!");
+            }
+            else {
+                
+                if($_FILES['foto']['type'] == "image/jpg" || $_FILES['foto']['type'] == "image/jpeg" || $_FILES['foto']['type'] == "image/png"){
+                    $imagen = $this->copyImage();
+                    $this->getModelPlayers()->insert($_POST['dni'], $_POST['name'], $_POST['edad'], $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'], $_POST['clubOrigen'], $_POST['telefono'], $_POST['categoria'], $imagen);
+                    $divisiones = $this->getModelDivisions()->getAll(); 
+                    $this->getViewAdmin()->formPlayerAdd($divisiones, $_POST['name'] . " fue guardado correctamente!");
+                }
+                else {
+                    $divisiones = $this->getModelDivisions()->getAll(); 
+                    $this->getViewAdmin()->formPlayerAdd($divisiones, "No ingresó archivo de imágen correcto");
+                }
             }
         }
     }
