@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2020 a las 01:14:18
+-- Tiempo de generación: 23-06-2020 a las 03:16:27
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -24,24 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `administradores`
+-- Estructura de tabla para la tabla `comentarios`
 --
 
-CREATE TABLE `administradores` (
-  `id_administrador` int(2) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `nombre_usuario` varchar(100) NOT NULL,
-  `contraseña` varchar(200) NOT NULL,
-  `tipo` varchar(20) NOT NULL
+CREATE TABLE `comentarios` (
+  `id_comentarios` int(11) NOT NULL,
+  `comentario` text NOT NULL,
+  `usuario` varchar(100) NOT NULL,
+  `fecha` date NOT NULL,
+  `puntaje` int(5) NOT NULL,
+  `id_jugador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `administradores`
---
-
-INSERT INTO `administradores` (`id_administrador`, `nombre`, `nombre_usuario`, `contraseña`, `tipo`) VALUES
-(1, 'Seba Esains', 'admin@sanlorenzoderauch.com', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O', 'administrador'),
-(4, 'leo esains', 'leo.esains@gmail.com', '$2y$10$l59qtmNeIo03stwWFgz1quyKUC1dD9U.a/0WmPX0/5ANSTEc5lUfS', 'usuario');
 
 -- --------------------------------------------------------
 
@@ -145,7 +138,7 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 (44357100, 'ALEJANDRO AREVALO', 17, '01/12/2002', 'SL-032', 'DEFENSOR', 'SAN LORENZO', '(249) 154 028486', 5, 'images/jugadores/44357100.jpg'),
 (44649537, 'PABLO GASPAR CARLUCCIO', 17, '14/02/2003', 'SL-004', 'VOLANTE', 'SAN LORENZO', '(249) 154 019819', 5, 'images/jugadores/44649537.jpg'),
 (44649542, 'MATEO FACCIO ', 17, '17/02/2003', 'SL-001', 'VOLANTE', 'SAN LORENZO', '(249) 154 213122', 5, 'images/jugadores/44649542.jpg'),
-(44649543, 'NICANOR DOMINGUEZ', 17, '28/01/2003', 'SL-114', 'ARQUERO', 'SAN LORENZO', '(249) 154 278626', 1, 'images/jugadores/44649543.jpg'),
+(44649543, 'NICANOR DOMINGUEZ', 18, '28/01/2003', 'SL-114', 'ARQUERO', 'SAN LORENZO', '(249) 154 278626', 1, 'images/jugadores/44649543.jpg'),
 (44649545, 'LUCIO COSTANTINO', 17, '23/02/2003', 'SL-145', 'VOLANTE', 'SAN LORENZO', '(249) 154 210500', 5, 'images/jugadores/44649545.jpg'),
 (44649556, 'LUCIANO ALFREDO LESCANO', 17, '21/03/2003', 'SL-034', 'VOLANTE', 'SAN LORENZO', '(249) 154 356935', 5, 'images/jugadores/44649556.jpg'),
 (44649560, 'ULISES HERRERIA ', 17, '21/03/2003', 'SL-067', 'DEFENSOR', 'SAN LORENZO', '(249) 154 534234', 5, 'images/jugadores/44649560.jpg'),
@@ -232,15 +225,39 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 (95314624, 'PEDRO AQUINO', 17, '29/06/2003', 'SL-012', 'VOLANTE', 'SAN LORENZO', '(249) 154 562324', 5, 'images/jugadores/95314624.jpg'),
 (1234567866, 'Tomas Esains', 60, '2020-05-07', 'SL-099', 'ARQUERO', 'SAN LORENZO', '249 154 559796', 10, 'images/jugadores/45036455.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_administrador` int(2) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `nombre_usuario` varchar(100) NOT NULL,
+  `contraseña` varchar(200) NOT NULL,
+  `tipo` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_administrador`, `nombre`, `nombre_usuario`, `contraseña`, `tipo`) VALUES
+(1, 'Seba Esains', 'admin@sanlorenzoderauch.com', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O', 'administrador'),
+(8, 'leo esains', 'leo.esains@gmail.com', '$2y$10$WgEbNKNWN.vWkStcHmEfSO26LA/IEanRebHUMO/Mg3FcKptuv2kUi', 'usuario'),
+(9, 'daniel', 'danxsck@hotmail', '$2y$10$TbQ7YuF4nG04rnFJ3eQWvumYTnVxNfF2LO/kT3fBzJrEZtNMn76UG', 'usuario');
+
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `administradores`
+-- Indices de la tabla `comentarios`
 --
-ALTER TABLE `administradores`
-  ADD PRIMARY KEY (`id_administrador`);
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_comentarios`),
+  ADD KEY `id_jugador` (`id_jugador`);
 
 --
 -- Indices de la tabla `divisiones`
@@ -256,18 +273,36 @@ ALTER TABLE `jugadores`
   ADD KEY `id_division` (`id_division`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_administrador`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `administradores`
+-- AUTO_INCREMENT de la tabla `comentarios`
 --
-ALTER TABLE `administradores`
-  MODIFY `id_administrador` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `comentarios`
+  MODIFY `id_comentarios` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_administrador` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_jugador`) REFERENCES `jugadores` (`id_jugador`);
 
 --
 -- Filtros para la tabla `jugadores`

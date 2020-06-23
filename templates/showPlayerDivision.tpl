@@ -82,6 +82,29 @@
         <h4><b>CLUB AL QUE PERTENECE EL PASE</b></h4>
         <h3>{$datosJug->club_origen}</h3>
     </div>
+
+    <div>
+        <form action="guardar_comentario" method="POST">
+            {if {$type == "administrador"} || {$type == "usuario"}}
+                <br><h4><b>{$nameUser}</b></h4>
+                {date_default_timezone_set("America/Argentina/Buenos_aires")}
+                <br><h4><b>{date("d-m-o")}</b></h4>
+                <br><h4><b>{date("h:i a")}</b></h4>           
+                <textarea name="comentarios" placeholder="COMENTARIOS"></textarea>
+                <br><h4><b>puntuacion:</b></h4>
+                <select name="puesto">
+                    <option disabled selected>PUNTAJE</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <button type="submit" class="btn btn-danger"><b>Enviar Comentario</b></button>
+            {/if}
+        </form>
+    </div>
+    
     <div class="contenedorTablaJugadores">
         <div class="otros_perfiles">
             <p class="titulo_otros_perfiles"><b>OTROS PERFILES</b></p>
