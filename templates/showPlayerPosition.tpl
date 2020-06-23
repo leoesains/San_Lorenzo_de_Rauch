@@ -30,17 +30,39 @@
             <h4><a class="btn btn-danger centrar btn_alta" href="eliminar_jugador/{$datosJug->id_jugador}"><b>Baja del Jugador</b></a></h4>
         {/if}
         {if {$datosJug->puesto} == "ARQUERO"}
-            <h4><a class="btn btn-danger centrar btn_alta" href="ver_arqueros"><b>Volver</b></a>; 
+            <h4><a class="btn btn-danger centrar btn_alta" href="ver_arqueros"><b>Volver</b></a> 
         {/if}
         {if {$datosJug->puesto} == "DEFENSOR"}
-            <h4><a class="btn btn-danger centrar btn_alta" href="ver_defensores"><b>Volver</b></a>; 
+            <h4><a class="btn btn-danger centrar btn_alta" href="ver_defensores"><b>Volver</b></a> 
         {/if}
         {if {$datosJug->puesto} == "VOLANTE"}
-            <h4><a class="btn btn-danger centrar btn_alta" href="ver_volantes"><b>Volver</b></a>; 
+            <h4><a class="btn btn-danger centrar btn_alta" href="ver_volantes"><b>Volver</b></a>
         {/if}
         {if {$datosJug->puesto} == "DELANTERO"}
-            <h4><a class="btn btn-danger centrar btn_alta" href="ver_delanteros"><b>Volver</b></a>;
+            <h4><a class="btn btn-danger centrar btn_alta" href="ver_delanteros"><b>Volver</b></a>
         {/if}
+
+        <div >
+            {if {$type == "usuario"}}
+                <form class="contenedor-form-comentario" action="guardar_comentario" method="POST">
+                    <textarea class="cajas-form-comentario-pos-div" name="comentarios" placeholder="COMENTARIO"></textarea>
+                    <input type="hidden" name="usuario" value="{$nameUser}">
+                    <input type="hidden" name="zona_fecha" value="{date_default_timezone_set("America/Argentina/Buenos_aires")}">
+                    <input type="hidden" name="fecha" value="{date("d-m-o")} - {date("h:i a")}">
+                    <select class="cajas-form-comentario-pos-div" name="puntuacion">
+                        <option disabled selected>PUNTUACIÓN</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <button type="submit" class="btn btn-danger centrar btn_alta"><b>Publicar</b></button>
+                </form>
+            {/if}
+        </div>
+
+
     </div>
     <div class="datosJugador">
         <p id="nombre_jugador_perfil">{$datosJug->nombre|upper}</p>
@@ -76,27 +98,7 @@
         <h3>{$datosJug->club_origen}</h3>
     </div>
 
-    <div>
-        <form action="guardar_comentario" method="POST">
-            {if {$type == "administrador"} || {$type == "usuario"}}
-                <br><h4><b>{$nameUser}</b></h4>
-                {date_default_timezone_set("America/Argentina/Buenos_aires")}
-                <br><h4><b>{date("d-m-o")}</b></h4>
-                <br><h4><b>{date("h:i a")}</b></h4>           
-                <textarea name="comentarios" placeholder="COMENTARIOS"></textarea>
-                <br><h4><b>puntuacion:</b></h4>
-                <select name="puesto">
-                    <option disabled selected>PUNTAJE</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-                <button type="submit" class="btn btn-danger"><b>Enviar Comentario</b></button>
-            {/if}
-        </form>
-    </div>
+    
     
     <div class="contenedorTablaJugadores">
         <div class="otros_perfiles">

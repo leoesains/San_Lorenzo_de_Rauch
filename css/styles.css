@@ -77,7 +77,7 @@ caption {
 }
 
 #nombre_jugador_perfil{
-    font-size: 3em;
+    font-size: 1.5em;
     font-weight: bolder;
     background-color: rgba(20, 20, 20, 0.5);   
     color: aliceblue; 
@@ -439,7 +439,45 @@ label{
 }
 
 .contenedor-registrarse{
-    
     font-size: 1.2em;
-    
 }
+
+.contenedor-form-comentario{
+    width: 200px;
+}
+
+.cajas-form-comentario{
+    margin: 0px;
+    width: 200px;
+    background-color: rgb(202, 206, 198, 0.5);
+    font-size: 0.8em;
+}
+
+.cajas-form-comentario-pos-div{
+    margin: 0px;
+    width: 200px;
+    background-color: rgb(202, 206, 198, 0.5);
+    font-size: 0.6em;
+    margin-top: 5px;
+}
+
+.mostrar-comentarios{
+    margin-bottom: 5px;
+    text-align: justify;
+    font-size: 0.8em;
+    padding: 8px;
+    width: 580px;
+    height: 222px;
+    border-radius: 15px;
+    background-color: rgba(126, 120, 120, 0.3);
+    overflow: auto;
+}
+
+.margen-cero{
+    margin: 0px;
+}
+
+.margen-botton{
+    margin-bottom: 10px;
+}
+
