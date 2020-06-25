@@ -16,7 +16,7 @@ class AuthHelper {
     //verifica que haya un usuario logueado y si no lo hay redirecciona a home
     static public function checkLogged() {
         session_start(); 
-        if (!isset($_SESSION['NOMBRE_USUARIO'])) {
+        if (!isset($_SESSION['NOMBRE_USUARIO']) || $_SESSION['TIPO'] != "administrador") {
             header('Location: ' . BASE_URL . 'home');
             die();
         } else {
