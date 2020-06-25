@@ -20,4 +20,13 @@ class ComentariosModel extends dbConectionModel {
         $query = $this->getConnection()->prepare($sql);  
         $query->execute([$id_comentarios]);        
     }
+
+    //Obtengo todos los comentarios de un jugador
+    public function getAll($id_jugador) {
+        $sql = "SELECT * FROM comentarios WHERE id_jugador = ?";
+        $query = $this->getConnection()->prepare($sql);    
+        $query->execute([$id_jugador]);        
+        $comentarios = $query->fetchAll(PDO::FETCH_OBJ);    
+        return $comentarios;
+    }
 }
