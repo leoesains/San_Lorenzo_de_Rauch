@@ -13,7 +13,7 @@ class CommentsApiController {
     public function __construct() {
         $this->model = new ComentariosModel();
         $this->view = new APIView();
-        $this->data = file_get_contents("php://input");       //Lee el input ingresado
+        $this->data = file_get_contents("php://input");  //Lee el input ingresado
     }
 
     public function getComments($params = []) {
@@ -32,7 +32,7 @@ class CommentsApiController {
         if(!empty($comentarios)) {
             $this->view->response($comentarios, 200); 
         } else {
-            $this->view->response("No hay comentarios del jugador ", 404);
+            $this->view->response($comentarios, 404); // devuelve un arreglo vacío
         }
     }
 

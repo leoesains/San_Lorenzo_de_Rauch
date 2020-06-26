@@ -34,8 +34,8 @@
 
         <div >
             {if {$type == "usuario"}}
-                <form class="contenedor-form-comentario" action="guardar_comentario" method="POST">
-                    <textarea class="cajas-form-comentario" name="comentarios" placeholder="COMENTARIO"></textarea>
+                <form id="form-comentario" class="contenedor-form-comentario" action="guardar_comentario" method="POST">
+                    <textarea class="cajas-form-comentario" name="comentario" placeholder="COMENTARIO"></textarea>
                     <input type="hidden" name="usuario" value="{$nameUser}">
                     <input type="hidden" name="zona_fecha" value="{date_default_timezone_set("America/Argentina/Buenos_aires")}">
                     <input type="hidden" name="fecha" value="{date("d-m-o")} - {date("h:i a")}">
@@ -47,7 +47,9 @@
                         <option>4</option>
                         <option>5</option>
                     </select>
-                    <button type="submit" class="btn btn-danger centrar btn_alta"><b>Publicar</b></button>
+                    <input type="hidden" name="jugador" value="{$datosJug->id_jugador}">
+                    <input type="submit" class="btn btn-danger centrar btn_alta" value="Publicar">
+                  {*<button type="submit" class="btn btn-danger centrar btn_alta"><b>Publicar</b></button>*}
                 </form>
             {/if}
         </div>
@@ -94,18 +96,12 @@
         <h5>{$datosJug->carnet}</h5>
         <h6><b>CLUB AL QUE PERTENECE EL PASE</b></h6>
         <h5>{$datosJug->club_origen}</h5>
-        <h7><b>|COMENTARIOS|</b></h7>
-        <div class="mostrar-comentarios">
-            <p class="margen-cero"><b>Paz Freccero | 23-6-2020 8:30 PM</b></p>
-            <p class="margen-cero">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, nobis veniam repudiandae maxime odit nulla doloribus porro, amet reprehenderit voluptatum cum reiciendis eveniet corrupti sed, accusamus quasi fugiat nesciunt fugit?</p>
-            <p class="margen-cero margen-botton">Puntuación: 3</p>
-            <p class="margen-cero"><b>Leo Esains | 23-6-2020 8:45 PM</b></p>
-            <p class="margen-cero">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, nobis veniam repudiandae maxime odit nulla doloribus porro, amet reprehenderit voluptatum cum reiciendis eveniet corrupti sed, accusamus quasi fugiat nesciunt fugit?</p>
-            <p class="margen-cero margen-botton">Puntuación: 1</p>
-            <p class="margen-cero"><b>Sebastián Esains | 23-6-2020 9:41 PM</b></p>
-            <p class="margen-cero">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, nobis veniam repudiandae maxime odit nulla doloribus porro, amet reprehenderit voluptatum cum reiciendis eveniet corrupti sed, accusamus quasi fugiat nesciunt fugit?</p>
-            <p class="margen-cero margen-botton">Puntuación: 5</p>
-        </div>
+        
+        {* Espacio para poner los comentarios *}
+        <input type="hidden" name="jugador" value="{$datosJug->id_jugador}">
+        
+        {include 'templates/vue/showComments.vue'}
+
     </div>
 
     

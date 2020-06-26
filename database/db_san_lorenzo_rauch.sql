@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2020 a las 03:16:27
+-- Tiempo de generación: 26-06-2020 a las 16:40:42
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.6
+-- Versión de PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,10 +31,31 @@ CREATE TABLE `comentarios` (
   `id_comentarios` int(11) NOT NULL,
   `comentario` text NOT NULL,
   `usuario` varchar(100) NOT NULL,
-  `fecha` date NOT NULL,
+  `fecha` varchar(30) NOT NULL,
   `puntaje` int(5) NOT NULL,
   `id_jugador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id_comentarios`, `comentario`, `usuario`, `fecha`, `puntaje`, `id_jugador`) VALUES
+(1, 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, nobis veniam repudiandae maxime odit nulla doloribus porro, amet reprehenderit voluptatum cum reiciendis eveniet corrupti sed, accusamus quasi fugiat nesciunt fugit? Agregado en DDBB.', 'Tomas Esains', '23-6-2020 8:30 PM', 2, 23322505),
+(2, 'require_once \'api/task-api.controller.php\';', 'Paz Freccero', '23-6-2020 8:30 PM', 5, 23322505),
+(10, 'Este comentario lo cargo desde el formulario y a través de la API', 'Paz Freccero', '25-06-2020 - 10:41 pm', 2, 23322505),
+(11, 'Este comentario lo cargo desde el formulario y a través de la API', 'Paz Freccero', '25-06-2020 - 10:41 pm', 2, 23322505),
+(12, 'Este comentario lo cargo desde el formulario y a través de la API', 'Paz Freccero', '25-06-2020 - 10:41 pm', 2, 23322505),
+(13, 'jshgkjhkjaghjshagkjhsakjhgksjahgkjshagkjhkajghkjhakjghkasjhgkjshakgjhskajhgkjshakjghjhasgkj', 'Paz Freccero', '26-06-2020 - 12:32 am', 4, 23322505),
+(14, 'genial partido jugaste!!!!!', 'Paz Freccero', '26-06-2020 - 12:38 am', 5, 23322505),
+(15, 'Horrible jugaste', 'Paz Freccero', '26-06-2020 - 12:39 am', 1, 23322505),
+(16, 'skdljgkjglkjljsglk', 'Paz Freccero', '26-06-2020 - 08:58 am', 3, 29885727),
+(17, 'ultimo comentario', 'Paz Freccero', '26-06-2020 - 09:01 am', 1, 23322505),
+(18, 'Nuevo comentario', 'TOMAS ESAINS', '26-06-2020 - 09:19 am', 4, 29885727),
+(19, 'Otro comentario mas', 'TOMAS ESAINS', '26-06-2020 - 09:19 am', 1, 29885727),
+(20, 'Otro comentario mas y no jodemas mas', 'TOMAS ESAINS', '26-06-2020 - 09:19 am', 1, 29885727),
+(21, 'El primer comentario del Fatu', 'Paz Freccero', '26-06-2020 - 11:35 am', 3, 45036419),
+(22, 'El segundo comentario del Fatu', 'Paz Freccero', '26-06-2020 - 11:35 am', 1, 45036419);
 
 -- --------------------------------------------------------
 
@@ -246,7 +267,9 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id_administrador`, `nombre`, `nombre_usuario`, `contraseña`, `tipo`) VALUES
 (1, 'Seba Esains', 'admin@sanlorenzoderauch.com', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O', 'administrador'),
 (8, 'leo esains', 'leo.esains@gmail.com', '$2y$10$WgEbNKNWN.vWkStcHmEfSO26LA/IEanRebHUMO/Mg3FcKptuv2kUi', 'usuario'),
-(9, 'daniel', 'danxsck@hotmail', '$2y$10$TbQ7YuF4nG04rnFJ3eQWvumYTnVxNfF2LO/kT3fBzJrEZtNMn76UG', 'usuario');
+(9, 'daniel', 'danxsck@hotmail', '$2y$10$TbQ7YuF4nG04rnFJ3eQWvumYTnVxNfF2LO/kT3fBzJrEZtNMn76UG', 'usuario'),
+(10, 'Paz Freccero', 'paz.freccero@gmail.com', '$2y$10$pASptz.YjX3Uz4yqA53QmOI4Z7/lP4cLOg0bzQAgF.iFHj50FEOyW', 'usuario'),
+(11, 'TOMAS ESAINS', 'tomas.esains@gmail.com', '$2y$10$x9dL6WrVdYM0sA0dL543q.n0k9H4iRQ3wBv19y2edTazUe8p1P1BC', 'usuario');
 
 --
 -- Índices para tablas volcadas
@@ -286,13 +309,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentarios` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comentarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_administrador` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_administrador` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
