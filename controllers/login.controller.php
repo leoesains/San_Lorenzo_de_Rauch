@@ -89,5 +89,39 @@ class LoginController{
 
         }
     }
+
+    //Muestra todos los usuarios
+    public function showUsers() {
+        $usuarios = $this->modelLogin->get();
+        $tipos = $this->modelLogin->types();
+        $this->view->showUsers($usuarios, $tipos);
+    }
+
+    //Repregunta si esta seguro en eliminar un usuario de la BBDD
+    public function confirmDeleteUser($id_usuario) {
+        $usuario = $this->modelLogin->getId($id_usuario);
+        $this->view->formDeleteUser($usuario);
+    }
+
+    //Elimina un usuario. luego se situa en listar_usuarios
+    public function removeUser($id_usuario){
+        $this->modelLogin->delete($id_usuario);
+        header ('Location: ' .BASE_URL. 'listar_usuarios');
+    }
+
+    //modifica datos de un usuario en DDBB
+    public function editUser(){
+        
+        if(empty($_POST['name']) || empty($_POST['username']) || empty($_POST['type'])) {
+            $usuarios = $this->modelLogin->get();
+            $tipos = $this->modelLogin->types();
+            $this->view->showUsers($usuarios, $tipos, "No se permiten campos vacios");
+        } else {
+            $this->modelLogin->update($_POST['id_administrador'], $_POST['tipo']);
+            $usuarios = $this->modelLogin->get();
+            $tipos = $this->modelLogin->types();
+            $this->view->showUsers($usuarios, $tipos, "Cambios guardados exitosamente");
+        }
+    }
 }
 

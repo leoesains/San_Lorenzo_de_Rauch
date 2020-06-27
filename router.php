@@ -168,7 +168,28 @@ switch($parametros[0]){
         $controller->addUser();
     break;
     }
-
+    case 'listar_usuarios': {
+        $controller = new LoginController();     
+        $controller->showUsers();
+    break;
+    }
+    case 'eliminar_usuario': {
+        $controller = new LoginController();     
+        $controller->confirmDeleteUser($parametros[1]);
+    break;
+    }
+    case 'confirmar_eliminar_usuario': {
+        $controller = new LoginController();     
+        $controller->removeUser($parametros[1]);
+    break;
+    }
+    
+    case 'editar_usuario': {
+        $controller = new LoginController();     
+        $controller->editUser($parametros[1]);
+    break;
+    }
+    
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++ Acción por defecto ++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

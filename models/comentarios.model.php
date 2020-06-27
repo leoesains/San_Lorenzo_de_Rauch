@@ -39,7 +39,7 @@ class ComentariosModel extends dbConectionModel {
 
         $sql = "SELECT * FROM comentarios WHERE id_jugador = ? ORDER BY $order $direccion";
         */
-        $sql = "SELECT * FROM comentarios WHERE id_jugador = ?";
+        $sql = "SELECT * FROM comentarios WHERE id_jugador = ? ORDER BY id_comentarios DESC";   //traemos los comentarios ordenados por fecha
         $query = $this->getConnection()->prepare($sql);    
         $query->execute([$id_jugador]);        
         $comentarios = $query->fetchAll(PDO::FETCH_OBJ);    

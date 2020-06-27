@@ -14,12 +14,6 @@ class AdminView{
         $this->smarty->assign('nameUser', $nameUser);
     }
 
-    /*
-    //Da la bienvenida al Usuario Administrador
-    public function welcome($nombreUsuario) {
-        $this->smarty->display('templates/welcome.tpl');
-    }*/
-
     //Muestra un formulario para agregar un jugador
     public function formPlayerAdd($divisiones, $error = null) {
         $this->smarty->assign('listaDivisiones', $divisiones);
@@ -58,5 +52,19 @@ class AdminView{
     public function formDeleteDivision($division) {
         $this->smarty->assign('division', $division);
         $this->smarty->display('templates/formDivisionDelete.tpl');
+    }
+
+    //Muestra todos los usuarios y administradores registrados
+    public function showUsers($usuarios, $tipos, $error = null) {
+        $this->smarty->assign('usuarios', $usuarios);
+        $this->smarty->assign('tipos', $tipos);
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/showUsers.tpl');
+    }
+
+    //Muestra un mensaje para saber si esta seguro en eliminar una division
+    public function formDeleteUser($usuario) {
+        $this->smarty->assign('usuario', $usuario);
+        $this->smarty->display('templates/formUserDelete.tpl');
     }
 }

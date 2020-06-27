@@ -35,7 +35,7 @@
         <div >
             {if {$type == "usuario"}}
                 <form id="form-comentario" class="contenedor-form-comentario" action="guardar_comentario" method="POST">
-                    <textarea class="cajas-form-comentario" name="comentario" placeholder="COMENTARIO"></textarea>
+                    <textarea class="cajas-form-comentario" name="comentario" placeholder="COMENTARIO" maxlength="200" required></textarea>
                     <input type="hidden" name="usuario" value="{$nameUser}">
                     <input type="hidden" name="zona_fecha" value="{date_default_timezone_set("America/Argentina/Buenos_aires")}">
                     <input type="hidden" name="fecha" value="{date("d-m-o")} - {date("h:i a")}">

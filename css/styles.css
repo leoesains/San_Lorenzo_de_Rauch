@@ -451,6 +451,7 @@ label{
     width: 200px;
     background-color: rgb(202, 206, 198, 0.5);
     font-size: 0.8em;
+    resize: none;
 }
 
 .cajas-form-comentario-pos-div{
@@ -459,6 +460,7 @@ label{
     background-color: rgb(202, 206, 198, 0.5);
     font-size: 0.6em;
     margin-top: 5px;
+    
 }
 
 .mostrar-comentarios{
@@ -476,6 +478,8 @@ label{
 .margen-cero{
     margin: 0px;
 }
+
+
 
 .margen-botton{
     margin-bottom: 10px;
