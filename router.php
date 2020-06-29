@@ -143,6 +143,11 @@ switch($parametros[0]){
         $controller->removeDivision($parametros[1]);
     break;
     }
+    case 'eliminar_comentarios': {
+        $controller = new PlayersController();  
+        $controller->showComments($parametros[1]);
+    break;
+    }
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++ Acciones del login.controller ++++++++++++++

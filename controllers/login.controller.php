@@ -110,14 +110,13 @@ class LoginController{
     }
 
     //modifica datos de un usuario en DDBB
-    public function editUser(){
-        
+    public function editUser($id_usuario){
         if(empty($_POST['name']) || empty($_POST['username']) || empty($_POST['type'])) {
             $usuarios = $this->modelLogin->get();
             $tipos = $this->modelLogin->types();
             $this->view->showUsers($usuarios, $tipos, "No se permiten campos vacios");
         } else {
-            $this->modelLogin->update($_POST['id_administrador'], $_POST['tipo']);
+            $this->modelLogin->update($id_usuario, $_POST['type']);
             $usuarios = $this->modelLogin->get();
             $tipos = $this->modelLogin->types();
             $this->view->showUsers($usuarios, $tipos, "Cambios guardados exitosamente");

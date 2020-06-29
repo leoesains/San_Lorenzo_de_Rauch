@@ -46,26 +46,26 @@ class AdminModel extends dbConectionModel {
     //elimina un usuario de la DDBB
     public function delete($id_usuario){
         //enviamos la consulta
-        $sql = "DELETE FROM usuarios WHERE id_administrador = ?";
+        $sql = "DELETE FROM usuarios WHERE id_usuario = ?";
         $query = $this->getConnection()->prepare($sql);  
         $query->execute([$id_usuario]);        
     }
 
-    //obtengo una division pasada por parametro
-    public function getId($idUsuario) {
+    //obtengo un usuario pasada por parametro
+    public function getId($id_usuario) {
         
         //Enviamos la consulta
-        $sql = "SELECT * FROM usuarios WHERE id_administrador = ?";
+        $sql = "SELECT * FROM usuarios WHERE id_usuario = ?";
         $query = $this->getConnection()->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
-        $query->execute([$idUsuario]);        //La ejecuto
+        $query->execute([$id_usuario]);        //La ejecuto
         $usuario = $query->fetch(PDO::FETCH_OBJ);    
         return $usuario;
     }
 
-    public function update($id_administrador, $tipo) {
+    public function update($id_usuario, $tipo) {
         
         //enviamos la consulta
-        $sql = "UPDATE usuarios SET tipo = ? WHERE id_administrador = $id_administrador";
+        $sql = "UPDATE usuarios SET tipo = ? WHERE id_usuario = $id_usuario";
         $query = $this->getConnection()->prepare($sql);  
         $query->execute([$tipo]);        
     } 

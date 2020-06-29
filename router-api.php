@@ -13,4 +13,3 @@ $router->addRoute('comentario', 'POST', 'CommentsApiController', 'addComment'); 
 
 //Rutea
 $router->route($_REQUEST['resource'], $_SERVER['REQUEST_METHOD']);       //$_REQUEST['resource']: recurso del usuario, $_SERVER['REQUEST_METHOD']: verbo
-

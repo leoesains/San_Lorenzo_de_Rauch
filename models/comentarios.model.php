@@ -15,9 +15,9 @@ class ComentariosModel extends dbConectionModel {
         return $lastId;  
     }
 
-    public function delete($id_comentarios){
+    public function delete($id_comentario){
         //enviamos la consulta
-        $sql = "DELETE FROM comentarios WHERE id_comentarios = ?";
+        $sql = "DELETE FROM comentarios WHERE id_comentario = ?";
         $query = $this->getConnection()->prepare($sql);  
         $query->execute([$id_comentarios]);        
     }
@@ -39,10 +39,11 @@ class ComentariosModel extends dbConectionModel {
 
         $sql = "SELECT * FROM comentarios WHERE id_jugador = ? ORDER BY $order $direccion";
         */
-        $sql = "SELECT * FROM comentarios WHERE id_jugador = ? ORDER BY id_comentarios DESC";   //traemos los comentarios ordenados por fecha
+        $sql = "SELECT * FROM comentarios WHERE id_jugador = ? ORDER BY id_comentario DESC";   //traemos los comentarios ordenados por fecha
         $query = $this->getConnection()->prepare($sql);    
         $query->execute([$id_jugador]);        
         $comentarios = $query->fetchAll(PDO::FETCH_OBJ);    
+        
         return $comentarios;
     }
 

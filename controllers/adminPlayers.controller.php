@@ -100,6 +100,11 @@ class PlayersController extends AdminBaseController {
         header ('Location: ' .BASE_URL. 'listar_jugadores');
     }
 
+    public function showComments($id_jug){
+        $comentarios = $this->getModelComments()->getAll($id_jug);
+        $nombre_jug = $this->getModelPlayers()->get($id_jug)->nombre;
+        $this->getViewAdmin()->printComments($comentarios, $nombre_jug);
+    }
 
 }
 

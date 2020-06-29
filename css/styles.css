@@ -485,3 +485,40 @@ label{
     margin-bottom: 10px;
 }
 
+.contenedor-usuarios{
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap:1em;
+    margin: 20px;
+}
+
+.input-usuario, .select_usuario{
+    margin: 0px;
+    margin-bottom: 5px;
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btns-usuario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:1em;
+    margin: 20px;
+}
+
+.contenedor-comentario-adm{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-gap:1em;
+    margin: 5px;
+    border-bottom: solid black;
+}
+
+.btn-elim-com{
+    text-align: center;
+    align-self: center;
+    font-weight: bold;
+    
+}

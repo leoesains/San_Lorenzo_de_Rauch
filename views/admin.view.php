@@ -67,4 +67,10 @@ class AdminView{
         $this->smarty->assign('usuario', $usuario);
         $this->smarty->display('templates/formUserDelete.tpl');
     }
+
+    public function printComments($comentarios, $nombre_jug){
+        $this->smarty->assign('comentarios', $comentarios);
+        $this->smarty->assign('nombre_jugador', $nombre_jug);
+        $this->smarty->display('templates/printComments.tpl');
+    }
 }

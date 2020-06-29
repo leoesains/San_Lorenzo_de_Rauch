@@ -4,9 +4,11 @@
 
 require_once 'models/divisiones.model.php';
 require_once 'models/jugadores.model.php';
+require_once 'models/comentarios.model.php';
 //require_once 'models/login.model.php';
 require_once 'views/public.view.php';
 require_once 'views/admin.view.php';
+
 require_once 'helpers/auth.helper.php';
 
 class AdminBaseController{
@@ -17,6 +19,7 @@ class AdminBaseController{
     //private $modelAdmin;
     private $viewAdmin;
     private $viewPublic;
+    private $modelComments;
     
     public function __construct() { //Constructor de la clase
         authHelper::checkLogged();
@@ -25,6 +28,7 @@ class AdminBaseController{
         //$this->modelAdmin = new AdminModel();
         $this->viewAdmin = new AdminView();
         $this->viewPublic = new PublicView();
+        $this->modelComments = new ComentariosModel();
     }
 
     public function getModelDivisions() {
@@ -45,6 +49,10 @@ class AdminBaseController{
 
     public function getViewPublic() {
         return $this->viewPublic;
+    }
+
+    public function getModelComments() {
+        return $this->modelComments;
     }
 
     //Le digo a la VISTA que me muestre un mensaje por pantalla

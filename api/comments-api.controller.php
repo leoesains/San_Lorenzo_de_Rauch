@@ -19,7 +19,6 @@ class CommentsApiController {
     public function getComments($params = []) {
         /*
         $orden = [];
-
         if(isset($_GET['sort'])) {
             $orden['sort'] = $_GET['sort'];
             if(isset($_GET['order'])) {
@@ -27,7 +26,7 @@ class CommentsApiController {
             }
         }
         */
-        $id_jugador = $params[':ID'];                       //Obtengo el id del jugador del arreglo asociativo $params
+        $id_jugador = $params[':ID'];  //Obtengo el id del jugador del arreglo asociativo $params
         $comentarios = $this->model->getAll($id_jugador);
         if(!empty($comentarios)) {
             $this->view->response($comentarios, 200); 

@@ -6,13 +6,17 @@ let app = new Vue({
     el: "#app-comments",
     data: {
         comentarios: [],
-        promedio: 0
+        promedio: 0,
+        admin: 0
     }
 })
 
+
 printComments();
 
+
 document.querySelector("#form-comentario").addEventListener('submit', addComment);
+//document.querySelector("#eliminar-comentario").addEventListener('click', delComment);
 
 
 
@@ -37,21 +41,28 @@ function addComment(e) {
 }
 
 function printComments() {
+    
     let id_jug = document.querySelector("input[name=jugador]").value;
+    let tipo_usuario = document.querySelector("input[name=usuario]").value;
     let suma = 0;
     let cont = 0;
+    console.log(tipo_usuario);
     fetch('api/comentarios/' + id_jug)
         .then(response => response.json())
         .then(comentarios => {
+            
             // asigno los comentarios de un jugador que me devuelve la API
             app.comentarios = comentarios; // es como el $this->smarty->assign("comentarios", comentarios);
             for(let comentario of comentarios){
                 suma += parseInt(comentario.puntaje, 10);
                 cont ++;
             }
-            console.log(cont);
             app.promedio = parseFloat(suma/cont).toFixed(2);
+            if(tipo_usuario == "administrador"){
+                app.admin = 1;
+            }
         });
 }
 
 setInterval(printComments, 1000);
+
