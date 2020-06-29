@@ -8,11 +8,10 @@
                     <p class="margen-cero"><b>{{ comentario.usuario }} | {{ comentario.fecha }}</b></p>
                     <p class="margen-cero">{{ comentario.comentario }}</p>
                     <p class="margen-cero margen-botton">Puntuación: {{ comentario.puntaje }}</p>
+                    <input type="hidden" name="id_coment" v-bind:value="comentario.id_comentario">
                 </div>
                 <div>    
-                    
-                    <input type="hidden" name="id_comentario" value="{$comentario->id_comentario}">
-                    <input v-if="admin == 1" type="button" value="Eliminar" id="eliminar-comentario" class="btn btn-danger btn-elim-com">
+                    <button v-if="admin == 1" id="eliminar-comentario" class="btn btn-danger btn-elim-com">Eliminar</button>
                 </div>
             </div>
         </div>

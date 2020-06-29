@@ -100,8 +100,9 @@
         <h5>{$datosJug->club_origen}</h5>
     
         {* Espacio para poner los comentarios *}
-        <input type="hidden" name="jugador" value="{$datosJug->id_jugador}">
         
+        <input type="hidden" name="usuario" value="{$type}">
+        <input type="hidden" name="jugador" value="{$datosJug->id_jugador}">
         {include 'templates/vue/showComments.vue'}
     
     </div>

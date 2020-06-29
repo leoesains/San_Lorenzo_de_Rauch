@@ -105,9 +105,10 @@
         <h6><b>CLUB AL QUE PERTENECE EL PASE</b></h6>
         <h5>{$datosJug->club_origen}</h5>
 
-        {* Espacio para poner los comentarios *}
-        <input type="hidden" name="jugador" value="{$datosJug->id_jugador}">
+       {* Espacio para poner los comentarios *}
         
+        <input type="hidden" name="usuario" value="{$type}">
+        <input type="hidden" name="jugador" value="{$datosJug->id_jugador}">
         {include 'templates/vue/showComments.vue'}
 
     </div>

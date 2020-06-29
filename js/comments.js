@@ -35,10 +35,12 @@ function addComment(e) {
         body: JSON.stringify(data)
     })
     .then(response => {
-        
+        printComments();
     })
     .catch(error => console.log(error));
 }
+
+
 
 function printComments() {
     
@@ -46,7 +48,7 @@ function printComments() {
     let tipo_usuario = document.querySelector("input[name=usuario]").value;
     let suma = 0;
     let cont = 0;
-    console.log(tipo_usuario);
+    
     fetch('api/comentarios/' + id_jug)
         .then(response => response.json())
         .then(comentarios => {
@@ -64,5 +66,12 @@ function printComments() {
         });
 }
 
-setInterval(printComments, 1000);
+//setInterval(printComments, 1000);
+
+function delComment(){
+    let id_com = document.querySelector("input[name=id_coment]").value;
+    alert(id_com);
+}
+
+
 

@@ -43,7 +43,6 @@ class ComentariosModel extends dbConectionModel {
         $query = $this->getConnection()->prepare($sql);    
         $query->execute([$id_jugador]);        
         $comentarios = $query->fetchAll(PDO::FETCH_OBJ);    
-        
         return $comentarios;
     }
 
