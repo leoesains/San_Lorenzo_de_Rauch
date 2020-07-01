@@ -1,5 +1,5 @@
 {include 'templates/header.admin.tpl'}
-    <form id="form_edit_jugador" action="guardar_edicion_jugador" method="POST">
+    <form id="form_edit_jugador" action="guardar_edicion_jugador" method="POST" enctype="multipart/form-data">
         <h1>MODIFIQUE LOS DATOS QUE DESEE CAMBIAR</h1>
         <input type="hidden" name="dni" value="{$jugador->id_jugador}">
         <div class="fila_form_edit_jugador">
@@ -56,6 +56,11 @@
             <label>FOTO</label>
             <input type="text" name="foto" value="{$jugador->imagen}">
         </div>
+        <div class="fila_form_edit_jugador">
+            <label>CAMBIAR LA FOTO ACTUAL</label>
+            <input type="file" class="input-file" name="foto">
+        </div>
+
         <div class="fila_form_edit_jugador contenedor-btn-mensaje">
             <div>
                 {if {$error}}

@@ -78,15 +78,32 @@ class PlayersController extends AdminBaseController {
             $divisiones = $this->getModelDivisions()->getAll();
             $this->getViewAdmin()->showFormEditionPlayer($jugador, $divisiones, "No se permiten campos vacìos");
         } else {
-            $this->getModelPlayers()->update($_POST['dni'],$_POST['nombre'], $_POST['edad'], 
-                                      $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'], $_POST['clubOrigen'], 
-                                      $_POST['telefono'], $_POST['categoria'],
-                                      $_POST['foto']);
+            
+            if(($_FILES['foto']['name'] == "")){
+                $this->getModelPlayers()->update($_POST['dni'],$_POST['nombre'], $_POST['edad'], 
+                                        $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'], $_POST['clubOrigen'], 
+                                        $_POST['telefono'], $_POST['categoria'],
+                                        $_POST['foto']);
+            } else {
+                if($_FILES['foto']['type'] == "image/jpg" || $_FILES['foto']['type'] == "image/jpeg" || $_FILES['foto']['type'] == "image/png"){
+                    unlink($_POST['foto']);
+                    $imagen = $this->copyImage();
+                    $this->getModelPlayers()->update($_POST['dni'],$_POST['nombre'], $_POST['edad'], 
+                                        $_POST['fechaNacimiento'], $_POST['numeroCarnet'], $_POST['puesto'], $_POST['clubOrigen'], 
+                                        $_POST['telefono'], $_POST['categoria'],
+                                        $imagen);
+                } else {
+                    $jugador = $this->getModelPlayers()->get($_POST['dni']);
+                    $divisiones = $this->getModelDivisions()->getAll();
+                    $this->getViewAdmin()->showFormEditionPlayer($jugador, $divisiones, "No ingresó archivo de imagen correcto");
+                }
+            }
             $jugador = $this->getModelPlayers()->get($_POST['dni']);
             $divisiones = $this->getModelDivisions()->getAll();
             $this->getViewAdmin()->showFormEditionPlayer($jugador, $divisiones, "Cambios guardados exitosamente");
-        }
+            }
     }
+    
 
     //Repregunta si esta seguro en eliminar un jugador de la BBDD
     public function confirmDeletePlayer($dni) {
@@ -100,12 +117,7 @@ class PlayersController extends AdminBaseController {
         header ('Location: ' .BASE_URL. 'listar_jugadores');
     }
 
-    public function showComments($id_jug){
-        $comentarios = $this->getModelComments()->getAll($id_jug);
-        $nombre_jug = $this->getModelPlayers()->get($id_jug)->nombre;
-        $this->getViewAdmin()->printComments($comentarios, $nombre_jug);
-    }
-
+    
 }
 
 

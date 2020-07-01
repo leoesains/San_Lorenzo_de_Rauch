@@ -47,29 +47,15 @@
             <h6><a class="btn btn-danger centrar btn_alta" href="editar_jugador/{$datosJug->id_jugador}"><b>Editar Jugador</b></a></h6>
             <h6><a class="btn btn-danger centrar btn_alta" href="eliminar_jugador/{$datosJug->id_jugador}"><b>Baja del Jugador</b></a></h6>
         {/if}
-        <h6><a class="btn btn-danger centrar btn_alta" href="divisiones_jugadores/{$datosJug->id_division}"><b>Volver</b></a>
+        <h6><a class="btn btn-danger centrar btn_alta margen-bottom" href="divisiones_jugadores/{$datosJug->id_division}"><b>Volver</b></a>
     
         <div >
-            {if {$type == "usuario"}}
-                <form id="form-comentario" class="contenedor-form-comentario" action="guardar_comentario" method="POST">
-                    <textarea class="cajas-form-comentario" name="comentario" placeholder="COMENTARIO" maxlength="200" required></textarea>
-                    <input type="hidden" name="usuario" value="{$nameUser}">
-                    <input type="hidden" name="zona_fecha" value="{date_default_timezone_set("America/Argentina/Buenos_aires")}">
-                    <input type="hidden" name="fecha" value="{date("d-m-o")} - {date("h:i a")}">
-                    <select class="cajas-form-comentario" name="puntuacion" required>
-                        {*<option disabled selected>PUNTUACIÓN</option>*}
-                        <option value="">Elige un Puntaje</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                    <input type="hidden" name="jugador" value="{$datosJug->id_jugador}">
-                    <input type="submit" class="btn btn-danger centrar btn_alta" value="Publicar">
-                  {*<button type="submit" class="btn btn-danger centrar btn_alta"><b>Publicar</b></button>*}
-                </form>
-            {/if}
+            {* Espacio para poner form para hacer comentarios *}
+
+            <input type="hidden" name="tipo_usuario" value="{$type}">
+            <input type="hidden" name="nombre_usuario" value="{$nameUser}"> 
+            <input type="hidden" name="id_jugador" value="{$datosJug->id_jugador}">
+            {include 'templates/vue/formAddComment.vue'} 
         </div>
     
     </div>

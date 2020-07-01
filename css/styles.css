@@ -513,11 +513,28 @@ label{
     grid-template-columns: 4fr 1fr;
     grid-gap:1em;
     margin: 5px;
-    border-bottom: solid black;
+    border-bottom: solid black 1px;
 }
 
 .btn-elim-com{
     text-align: center;
     align-self: center;
         
+}
+
+.letra{
+    margin: 0px;
+    margin-bottom: 3px;
+    font-size: 1.1em;
+}
+
+.coment-punt{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap:1em;
+    
+}
+
+.margen-bottom{
+    margin-bottom: 8px;
 }

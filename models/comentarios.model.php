@@ -19,7 +19,7 @@ class ComentariosModel extends dbConectionModel {
         //enviamos la consulta
         $sql = "DELETE FROM comentarios WHERE id_comentario = ?";
         $query = $this->getConnection()->prepare($sql);  
-        $query->execute([$id_comentarios]);        
+        $query->execute([$id_comentario]);        
     }
 
     //Obtengo todos los comentarios de un jugador
@@ -48,7 +48,7 @@ class ComentariosModel extends dbConectionModel {
 
     //Obtengo un comentario
     public function get($id_comentario) {
-        $sql = "SELECT * FROM comentarios WHERE id_jugador = ?";
+        $sql = "SELECT * FROM comentarios WHERE id_comentario = ?";
         $query = $this->getConnection()->prepare($sql);    
         $query->execute([$id_comentario]);        
         $comentario = $query->fetch(PDO::FETCH_OBJ);    
