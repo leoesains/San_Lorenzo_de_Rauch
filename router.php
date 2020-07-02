@@ -184,10 +184,14 @@ switch($parametros[0]){
         $controller->removeUser($parametros[1]);
     break;
     }
-    
     case 'editar_usuario': {
         $controller = new LoginController();     
         $controller->editUser($parametros[1]);
+    break;
+    }
+    case 'perfil_usuario': {
+        $controller = new LoginController();     
+        $controller->showUser($parametros[1]);
     break;
     }
     

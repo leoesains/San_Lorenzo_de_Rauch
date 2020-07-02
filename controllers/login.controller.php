@@ -36,6 +36,7 @@ class LoginController{
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;  //Guardo el nombre del usuario
                     $_SESSION['TIPO'] = $user->tipo;
+                    $_SESSION['ID'] = $user->id_administrador;
                     //$this->view->welcome($user->nombre); 
                     header('Location: ' .BASE_URL. 'home');
                 } else {
@@ -76,12 +77,14 @@ class LoginController{
                 } else {
                     $passwordCifrado = password_hash($password, PASSWORD_DEFAULT);
                     $this->modelLogin->insert($name, $username, $passwordCifrado, $tipo);
+                    $user = $this->modelLogin->getAdmin($username);
                     if(session_status() != PHP_SESSION_ACTIVE){
                         session_start();         //Abro la sesion                  
                     }         
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $name;  //Guardo el nombre del usuario
                     $_SESSION['TIPO'] = $tipo;
+                    $_SESSION['ID'] = $user->id_administrador;
                     header('Location: ' .BASE_URL. 'home');
                     
                 }
@@ -121,6 +124,12 @@ class LoginController{
             $tipos = $this->modelLogin->types();
             $this->view->showUsers($usuarios, $tipos, "Cambios guardados exitosamente");
         }
+    }
+
+    //Muestra todos los usuarios
+    public function showUser($id_usuario) {
+        $usuario = $this->modelLogin->getUser($id_usuario);
+        $this->view->viewUser($usuario);
     }
 }
 

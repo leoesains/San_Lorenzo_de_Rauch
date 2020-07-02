@@ -68,5 +68,15 @@ class AdminModel extends dbConectionModel {
         $sql = "UPDATE usuarios SET tipo = ? WHERE id_usuario = $id_usuario";
         $query = $this->getConnection()->prepare($sql);  
         $query->execute([$tipo]);        
-    } 
+    }
+    
+    //Devuelve un usuario
+    public function getUser($id_usuario) {
+        //Enviamos la consulta
+        $sql = "SELECT * FROM usuarios WHERE id_administrador = ?";
+        $query = $this->getConnection()->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
+        $query->execute([$id_usuario]);        //La ejecuto
+        $usuario = $query->fetch(PDO::FETCH_OBJ);    
+        return $usuario;
+    }
 }

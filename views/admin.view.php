@@ -12,6 +12,7 @@ class AdminView{
         $this->smarty = new Smarty();
         $nameUser = authHelper::nameLogged();
         $this->smarty->assign('nameUser', $nameUser);
+        
     }
 
     //Muestra un formulario para agregar un jugador
@@ -68,5 +69,9 @@ class AdminView{
         $this->smarty->display('templates/formUserDelete.tpl');
     }
 
-    
+    //Muestra el perfil de un usuarios o administrador registrado
+    public function viewUser($usuario) {
+        $this->smarty->assign('usuario', $usuario);
+        $this->smarty->display('templates/showUser.tpl');
+    }
 }
