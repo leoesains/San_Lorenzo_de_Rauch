@@ -5,7 +5,7 @@
         <input type="hidden" name="zona_fecha" value="{date_default_timezone_set("America/Argentina/Buenos_aires")}">
         <input type="hidden" name="fecha" value="{date("d-m-o")} - {date("h:i a")}">
         <select class="cajas-form-comentario" name="puntuacion" required>
-            <option value="">Elige un Puntaje</option>
+            <option value="0">Elige un Puntaje</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>

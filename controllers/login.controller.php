@@ -22,7 +22,7 @@ class LoginController{
     //Controla que el usuario ingresado sea correcto e Inicia Sesión
     public function loginAdmin(){
         if(empty($_POST['username']) || empty($_POST['psw'])) {   
-            $this->viewPublic->showHome("Debe ingresar Nombre de Usuario y Contraseña", session_status() === PHP_SESSION_ACTIVE);
+            $this->viewPublic->showHome("Debe ingresar Mail y Contraseña", session_status() === PHP_SESSION_ACTIVE);
         } else {
             $username = $_POST['username'];
             $password = $_POST['psw'];
@@ -36,14 +36,14 @@ class LoginController{
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;  //Guardo el nombre del usuario
                     $_SESSION['TIPO'] = $user->tipo;
-                    $_SESSION['ID'] = $user->id_administrador;
+                    $_SESSION['ID'] = $user->id_usuario;
                     //$this->view->welcome($user->nombre); 
                     header('Location: ' .BASE_URL. 'home');
                 } else {
                     $this->viewPublic->showHome("Contraseña incorrecta", session_status() === PHP_SESSION_ACTIVE);
                 }
             } else {
-                $this->viewPublic->showHome("El Usuario ingresado no existe", session_status() === PHP_SESSION_ACTIVE);
+                $this->viewPublic->showHome("El Mail ingresado no existe", session_status() === PHP_SESSION_ACTIVE);
             }
         }
     }
@@ -53,6 +53,7 @@ class LoginController{
         session_start();
         session_destroy();
         header('Location: ' .BASE_URL. 'home');
+        
     }
 
     public function formCheckIn() {
@@ -84,7 +85,7 @@ class LoginController{
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['NOMBRE_USUARIO'] = $name;  //Guardo el nombre del usuario
                     $_SESSION['TIPO'] = $tipo;
-                    $_SESSION['ID'] = $user->id_administrador;
+                    $_SESSION['ID'] = $user->id_usuario;
                     header('Location: ' .BASE_URL. 'home');
                     
                 }
@@ -94,10 +95,10 @@ class LoginController{
     }
 
     //Muestra todos los usuarios
-    public function showUsers() {
+    public function showUsers($error = null) {
         $usuarios = $this->modelLogin->get();
         $tipos = $this->modelLogin->types();
-        $this->view->showUsers($usuarios, $tipos);
+        $this->view->showUsers($usuarios, $tipos, $error);
     }
 
     //Repregunta si esta seguro en eliminar un usuario de la BBDD
@@ -109,7 +110,9 @@ class LoginController{
     //Elimina un usuario. luego se situa en listar_usuarios
     public function removeUser($id_usuario){
         $this->modelLogin->delete($id_usuario);
-        header ('Location: ' .BASE_URL. 'listar_usuarios');
+        $usuarios = $this->modelLogin->get();
+        $tipos = $this->modelLogin->types();
+        $this->view->showUsers($usuarios, $tipos, "El usuario se eliminó exitosamente");
     }
 
     //modifica datos de un usuario en DDBB
@@ -128,6 +131,7 @@ class LoginController{
 
     //Muestra todos los usuarios
     public function showUser($id_usuario) {
+        
         $usuario = $this->modelLogin->getUser($id_usuario);
         $this->view->viewUser($usuario);
     }

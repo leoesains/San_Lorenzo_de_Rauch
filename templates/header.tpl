@@ -45,10 +45,18 @@
                             <a class="nav-link" href="listar_divisiones">DIVISIONES</a>
                         </li>
                     </ul>
+                    <div class="contenedor-registrarse">
+                        <a class="nav-link" href="registrarse">Registrarse<span class="sr-only">(current)</span></a>
+                    </div>
                 </div>
-                <div class="contenedor-registrarse">
-                    <a class="nav-link" href="registrarse">Registrarse<span class="sr-only">(current)</span></a>
+                
+
+                <div class="hacete-socio-header">
+                    <h5><MARQUEE>¡Hacete Socio!</MARQUEE></h5>
+                    <a class="socio-header" href="asociarse">¡Asociate!</a>
                 </div>
+                
+                
 
             </nav>
        

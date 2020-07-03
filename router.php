@@ -78,6 +78,11 @@ switch($parametros[0]){
         $controller->viewPlayerPosition($parametros[1]);
     break;
     }
+    case 'asociarse': {
+        $controller = new PublicController();     
+        $controller->viewAsociarse();
+    break;
+    }
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //++ Acciones del players.controller y divisions.controller ++

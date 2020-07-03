@@ -4,16 +4,32 @@
 {if {!$isAdmin}} {*SI NO ES UN ADMINISTRADOR*}
     {include 'header.home.tpl'}
 {/if}
+<div class="contenedor-msg">
+    {if {$error}}
+        <MARQUEE loop="2">{$error}</MARQUEE>
+    {/if}
+</div>
 
-{if {$error}}
-    <div class="alert alert-danger contenedor-alert-usuario">
-        {$error}
-    </div>
-{/if}
+<div class="Iam">
+    <p class="font-size">Institución dedicada a</p>
+    <b>
+    <div class="innerIam">
+        La Enseñanza del Deporte a niños, jóvenes y adultos.<br /> 
+        La Formación Humana de niños, jóvenes y adultos.<br />
+        Fortalecer lazos familiares.<br /> 
+        Fortalecer lazos de amistad.<br />
+        Promover actividad para nuestra ciudad.
+        </div>
+    </b>
+</div>
 
-<div class="contenedorFrase">
-    <h1>Institución dedicada a la Enseñanza del Deporte y la Formación Humana de niños, jóvenes y adultos</h1>
-    <p class="frase">"Todos tenemos sueños, pero para que se vuelvan realidad se necesita una gran determinación, dedicación, autodisciplina y esfuerzo."</P>
+{*<p class="frase">"Todos tenemos sueños, pero para que se vuelvan realidad se necesita una gran determinación, dedicación, autodisciplina y esfuerzo."</P>
+*}
+<div class="hacete-socio">
+
+    <h1><MARQUEE> | ¡Hacete Socio! | !Colaborás! | ¡Participás! | ¡Formás Parte! |</MARQUEE></h1>
+    <a class="socio" href="asociarse">¡Asociate!</a>
+
 </div>
 
     

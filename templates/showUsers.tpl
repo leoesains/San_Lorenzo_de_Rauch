@@ -2,7 +2,11 @@
 <div class="titulo_mostrar_jugadores">
     <p><b>USUARIOS REGISTRADOS EN EL SISTEMA</b></p>
 </div>
-<h4></h4>
+<div class="contenedor-msg">
+    {if {$error}}
+        <MARQUEE loop="2">{$error}</MARQUEE>
+    {/if}
+</div>
 <div class="contenedor-usuarios">
     {foreach from=$usuarios item=usuario}
         {if {$usuario->nombre != "San Lorenzo"}}

@@ -63,11 +63,11 @@
 
         <div class="fila_form_edit_jugador contenedor-btn-mensaje">
             <div>
-                {if {$error}}
-                    <div class="alert alert-danger contenedor-alert-edit-exit">
-                        {$error}
-                    </div>
-                {/if}
+                <div class="contenedor-msg">
+                    {if {$error}}
+                        <MARQUEE loop="2">{$error}</MARQUEE>
+                    {/if}
+                </div>
             </div>
             <div>
                 <button type="submit" class="btn btn-danger btn-volver"><b>Enviar</b></button>

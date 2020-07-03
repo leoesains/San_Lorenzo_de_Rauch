@@ -10,6 +10,8 @@
             <link rel="stylesheet" href="css/styles.css">
             <!-- development version, includes helpful console warnings -->
             <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+            <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
         </head>
         <body>
             <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
@@ -49,7 +51,7 @@
                 
                 <div class="login-container">
                     <form class="form_log" action="loguearse" method="POST">
-                        <input type="email" placeholder="Nombre Usuario" name="username">
+                        <input type="email" placeholder="Ingrese Mail" name="username">
                         <input type="password" placeholder="Contraseña" name="psw">
                         <button type="submit">Login</button>
                     </form>

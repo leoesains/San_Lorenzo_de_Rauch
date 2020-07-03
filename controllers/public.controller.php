@@ -115,4 +115,8 @@ class PublicController{
             $this->DDBBvacia("El Jugador no se encuentra en la Base de Datos");
         }
     }
+
+    public function viewAsociarse(){
+        $this->view->showFormAsociarse();
+    }
 }

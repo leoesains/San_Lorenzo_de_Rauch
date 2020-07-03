@@ -14,11 +14,11 @@
 {if {$type == "administrador"}}
     <div class="contenedor-btn-mensaje">
         <div>
+            <div class="contenedor-msg">
             {if {$error}}
-                <div class="alert alert-danger contenedor-alert-division">
-                    {$error}
-                </div>
+                <MARQUEE loop="2">{$error}</MARQUEE>
             {/if}
+        </div>
         </div>
         
         <div class="centrar btn_alta">

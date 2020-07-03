@@ -38,24 +38,30 @@ let app_form = new Vue({
     },
     methods: {
         addComment: function () {
-            let data = {
-                comentario: document.querySelector("textarea[name=comentario]").value,
-                usuario: document.querySelector("input[name=usuario]").value,
-                fecha: document.querySelector("input[name=fecha]").value,
-                puntaje: document.querySelector("select[name=puntuacion]").value,
-                id_jugador: document.querySelector("input[name=jugador]").value
+            if(document.querySelector("select[name=puntuacion]").value == 0
+                || document.querySelector("textarea[name=comentario]").value == ""){
+                alert("Para publicar un comentario debe completar sendos campos Comentario y Puntaje");
+            }
+            else
+            {
+                let data = {
+                    comentario: document.querySelector("textarea[name=comentario]").value,
+                    usuario: document.querySelector("input[name=usuario]").value,
+                    fecha: document.querySelector("input[name=fecha]").value,
+                    puntaje: document.querySelector("select[name=puntuacion]").value,
+                    id_jugador: document.querySelector("input[name=jugador]").value
+                } 
+                fetch('api/comentario', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    printComments();
+                })
+                .catch(error => console.log(error));
             } 
-            fetch('api/comentario', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                printComments();
-            })
-            .catch(error => console.log(error));
-        } 
-
+        }
 
     }
 })

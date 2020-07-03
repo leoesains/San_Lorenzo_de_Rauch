@@ -96,4 +96,9 @@ class PublicView{
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/formUserAdd.tpl');
     }
+
+    //Mustra el formulario para asociarse
+    public function showFormAsociarse() {
+        $this->smarty->display('templates/showFormAsociarse.tpl');
+    }
 }

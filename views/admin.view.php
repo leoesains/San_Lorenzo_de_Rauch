@@ -12,6 +12,10 @@ class AdminView{
         $this->smarty = new Smarty();
         $nameUser = authHelper::nameLogged();
         $this->smarty->assign('nameUser', $nameUser);
+        $idUser = authHelper::idLogged();
+        $this->smarty->assign('idUser', $idUser);
+        $type = authHelper::typeLogged();
+        $this->smarty->assign('type', $type);
         
     }
 
@@ -71,6 +75,7 @@ class AdminView{
 
     //Muestra el perfil de un usuarios o administrador registrado
     public function viewUser($usuario) {
+        
         $this->smarty->assign('usuario', $usuario);
         $this->smarty->display('templates/showUser.tpl');
     }

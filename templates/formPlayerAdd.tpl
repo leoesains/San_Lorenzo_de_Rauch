@@ -34,11 +34,11 @@
         <input type="file" class="input-file" name="foto">
         <button type="submit" class="btn btn-danger"><b>Enviar</b></button>
         <a class="btn btn-danger btn-volver" href="listar_jugadores"><b>Volver</b></a>
-        {if {$error}}
-            <div class="alert alert-danger contenedor-alert-usuario">
-                {$error}
-            </div>
-        {/if}        
+        <div class="contenedor-msg">
+            {if {$error}}
+                <MARQUEE loop="2">{$error}</MARQUEE>
+            {/if}
+        </div>      
 
     </form>
 {include 'templates/footer.tpl'}
