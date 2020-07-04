@@ -3,7 +3,6 @@
 require_once 'models/comentarios.model.php';
 require_once 'api/api.view.php';
 
-
 class CommentsApiController {
 
     private $model;
@@ -17,16 +16,6 @@ class CommentsApiController {
     }
 
     public function getComments($params = []) {
-       
-        /*
-        $orden = [];
-        if(isset($_GET['sort'])) {
-            $orden['sort'] = $_GET['sort'];
-            if(isset($_GET['order'])) {
-                $orden['order'] = $_GET['order'];
-            }
-        }
-        */
         $id_jugador = $params[':ID'];  //Obtengo el id del jugador del arreglo asociativo $params
         $comentarios = $this->model->getAll($id_jugador);
         
@@ -39,7 +28,7 @@ class CommentsApiController {
 
     public function deleteComment($params = []) {
         $id_comentario = $params[':ID'];
-        //faltaria preguntar si esta seguro en eliminar el comentario
+        
         $comentario = $this->model->get($id_comentario);
         if(!empty($comentario)) {
             $this->model->delete($id_comentario);

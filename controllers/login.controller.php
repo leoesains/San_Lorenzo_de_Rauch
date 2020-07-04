@@ -4,7 +4,7 @@ require_once 'models/login.model.php';
 require_once 'views/public.view.php';
 require_once 'views/admin.view.php';
 
-class LoginController{
+class LoginController {
 
     //Variables globales del controlador
     private $modelLogin;
@@ -12,11 +12,9 @@ class LoginController{
     private $viewPublic;
     
     public function __construct() { //Constructor de la clase
-        $this->modelLogin = new AdminModel();
+        $this->modelLogin = new LoginModel();
         $this->view = new AdminView();
         $this->viewPublic = new PublicView();
-
-
     }
 
     //Controla que el usuario ingresado sea correcto e Inicia Sesión
@@ -37,7 +35,6 @@ class LoginController{
                     $_SESSION['NOMBRE_USUARIO'] = $user->nombre;  //Guardo el nombre del usuario
                     $_SESSION['TIPO'] = $user->tipo;
                     $_SESSION['ID'] = $user->id_usuario;
-                    //$this->view->welcome($user->nombre); 
                     header('Location: ' .BASE_URL. 'home');
                 } else {
                     $this->viewPublic->showHome("Contraseña incorrecta", session_status() === PHP_SESSION_ACTIVE);
@@ -129,11 +126,6 @@ class LoginController{
         }
     }
 
-    //Muestra todos los usuarios
-    public function showUser($id_usuario) {
-        
-        $usuario = $this->modelLogin->getUser($id_usuario);
-        $this->view->viewUser($usuario);
-    }
+    
 }
 

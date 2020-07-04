@@ -104,7 +104,6 @@ class PlayersController extends AdminBaseController {
             }
     }
     
-
     //Repregunta si esta seguro en eliminar un jugador de la BBDD
     public function confirmDeletePlayer($dni) {
         $jugador = $this->getModelPlayers()->get($dni);

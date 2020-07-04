@@ -15,6 +15,7 @@ class ComentariosModel extends dbConectionModel {
         return $lastId;  
     }
 
+    //Elimina un comentario de la BBDD
     public function delete($id_comentario){
         //enviamos la consulta
         $sql = "DELETE FROM comentarios WHERE id_comentario = ?";
@@ -24,21 +25,6 @@ class ComentariosModel extends dbConectionModel {
 
     //Obtengo todos los comentarios de un jugador
     public function getAll($id_jugador, $orden = []) {
-        /*
-        $order = 'puntaje';
-        $direccion = 'DESC';
-
-        if(isset($orden['sort'])) {
-            $order = $orden['sort'];
-            if(isset($orden['order'])) {
-                $direccion = $orden['order'];
-            }
-        }
-        $order = $this->white_list($order, ["comentario", "usuario", "fecha", "puntaje", "id_jugador"], "Columna no valida");
-        $direccion = $this->white_list($direccion, ["ASC", "DESC"], "Direccion de ORDER BY no vàlida");
-
-        $sql = "SELECT * FROM comentarios WHERE id_jugador = ? ORDER BY $order $direccion";
-        */
         $sql = "SELECT * FROM comentarios WHERE id_jugador = ? ORDER BY id_comentario DESC";   //traemos los comentarios ordenados por fecha
         $query = $this->getConnection()->prepare($sql);    
         $query->execute([$id_jugador]);        
@@ -54,19 +40,4 @@ class ComentariosModel extends dbConectionModel {
         $comentario = $query->fetch(PDO::FETCH_OBJ);    
         return $comentario;
     }
-
-    //devuelve una lista de valores permitidos, sino emite un error
-    public function white_list($value, $alloweb, $message) {
-        if($value === null) {
-            return $alloweb[0];
-        }
-        $key = array_search($value, $alloweb, true);
-        if($key === false) {
-            throw new InvalidArgumentException($message);
-        } else {
-            return $value;
-        }
-    }
-
-
 }

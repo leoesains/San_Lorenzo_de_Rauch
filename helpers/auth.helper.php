@@ -46,18 +46,4 @@ class AuthHelper {
             return null;
         }
     }
-
-    //verifica que haya un usuario logueado y devuelve el id
-    static public function idLogged() {
-        if(session_status() != PHP_SESSION_ACTIVE){
-            session_start();
-        } 
-        if (isset($_SESSION['ID'])) {
-            return $_SESSION['ID'];
-        } else {
-            return null;
-        }
-    }
-
-    
 }

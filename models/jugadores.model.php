@@ -38,8 +38,6 @@ class JugadoresModel extends dbConectionModel {
         return $jugadorXdivision;
     }
 
-
-
     //ingresa un nuevo jugador a la BBDD
     public function insert($dni, $nombre, $edad, $fechaNacimiento, $numeroCarnet, $puesto, $clubOrigen, $telefono, $categoria, $foto) {
         //enviamos la consulta

@@ -2,7 +2,7 @@
 
 require_once 'models/db.conection.model.php';
 
-class AdminModel extends dbConectionModel {
+class LoginModel extends dbConectionModel {
 
     //devuelve el admin si existe en la DDBB o vacio si no existe
     public function getAdmin($username) {
@@ -53,7 +53,6 @@ class AdminModel extends dbConectionModel {
 
     //obtengo un usuario pasada por parametro
     public function getId($id_usuario) {
-        
         //Enviamos la consulta
         $sql = "SELECT * FROM usuarios WHERE id_usuario = ?";
         $query = $this->getConnection()->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
@@ -62,21 +61,13 @@ class AdminModel extends dbConectionModel {
         return $usuario;
     }
 
+    //Actualiza el tipo de usuario
     public function update($id_usuario, $tipo) {
-        
         //enviamos la consulta
         $sql = "UPDATE usuarios SET tipo = ? WHERE id_usuario = $id_usuario";
         $query = $this->getConnection()->prepare($sql);  
         $query->execute([$tipo]);        
     }
     
-    //Devuelve un usuario
-    public function getUser($id_usuario) {
-        //Enviamos la consulta
-        $sql = "SELECT * FROM usuarios WHERE id_administrador = ?";
-        $query = $this->getConnection()->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
-        $query->execute([$id_usuario]);        //La ejecuto
-        $usuario = $query->fetch(PDO::FETCH_OBJ);    
-        return $usuario;
-    }
+    
 }

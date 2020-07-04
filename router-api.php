@@ -11,11 +11,5 @@ $router->addRoute('jugadores/:ID/comentarios', 'GET', 'CommentsApiController', '
 $router->addRoute('comentario/:ID', 'DELETE', 'CommentsApiController', 'deleteComment'); //Elimino un comentario (id del comentario)
 $router->addRoute('comentario', 'POST', 'CommentsApiController', 'addComment'); //Agrego un comentario
 
-
-
-//$router->addRoute('comentarios/:ID', 'GET', 'CommentsApiController', 'getComments'); //Obtengo todos los comentarios sobre un jugador dado (id del jugador)
-//$router->addRoute('comentario/:ID', 'DELETE', 'CommentsApiController', 'deleteComment'); //Elimino un comentario (id del comentario)
-//$router->addRoute('comentario', 'POST', 'CommentsApiController', 'addComment'); //Agrego un comentario
-
 //Rutea
 $router->route($_REQUEST['resource'], $_SERVER['REQUEST_METHOD']);       //$_REQUEST['resource']: recurso del usuario, $_SERVER['REQUEST_METHOD']: verbo

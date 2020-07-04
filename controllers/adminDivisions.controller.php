@@ -65,8 +65,4 @@ class DivisionsController extends AdminBaseController {
             $this->getViewPublic()->showDivisions($divisiones, "No se puede eliminar esta división porque tiene jugadores cargados");
         }
     }
-
-
-
-
 }

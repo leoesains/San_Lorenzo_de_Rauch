@@ -3,7 +3,6 @@
 require_once 'libs/smarty/Smarty.class.php';
 require_once 'helpers/auth.helper.php';
 
-
 class AdminView{
 
     private $smarty;
@@ -12,11 +11,8 @@ class AdminView{
         $this->smarty = new Smarty();
         $nameUser = authHelper::nameLogged();
         $this->smarty->assign('nameUser', $nameUser);
-        $idUser = authHelper::idLogged();
-        $this->smarty->assign('idUser', $idUser);
         $type = authHelper::typeLogged();
         $this->smarty->assign('type', $type);
-        
     }
 
     //Muestra un formulario para agregar un jugador
@@ -67,16 +63,11 @@ class AdminView{
         $this->smarty->display('templates/showUsers.tpl');
     }
 
-    //Muestra un mensaje para saber si esta seguro en eliminar una division
+    //Muestra un mensaje para saber si esta seguro en eliminar un usuario
     public function formDeleteUser($usuario) {
         $this->smarty->assign('usuario', $usuario);
         $this->smarty->display('templates/formUserDelete.tpl');
     }
 
-    //Muestra el perfil de un usuarios o administrador registrado
-    public function viewUser($usuario) {
-        
-        $this->smarty->assign('usuario', $usuario);
-        $this->smarty->display('templates/showUser.tpl');
-    }
+    
 }

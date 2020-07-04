@@ -3,7 +3,6 @@
 // App Vue Mostrar comentarios
 // Para eliminarlo, si es adm agrego botón eliminar
 // Ese botón ejecuta delCommet
-
 let app = new Vue({
     el: "#app-comments",
     data: {
@@ -15,7 +14,6 @@ let app = new Vue({
         delComment: function (id_com){
             fetch('api/comentario/' + id_com, {
                 method: 'DELETE',
-                
             })
             .then(response => {
                 printComments();
@@ -28,7 +26,6 @@ let app = new Vue({
 // App Vue para mostrar form para agregar comentario
 // Lo mustra si es un usuario registrado
 // El botón ejecuta la función addComment
- 
 let app_form = new Vue({
     el: "#app-form-comments",
     data: {
@@ -62,13 +59,11 @@ let app_form = new Vue({
                 .catch(error => console.log(error));
             } 
         }
-
     }
 })
 
 printComments();
 printFormAddComment();
-
 
 function addComment(e) {
     e.preventDefault();
@@ -103,7 +98,6 @@ function printComments() {
     fetch('api/jugadores/' + id_jug + '/comentarios' )
         .then(response => response.json())
         .then(comentarios => {
-            
             // asigno los comentarios de un jugador que me devuelve la API
             app.comentarios = comentarios; // es como el $this->smarty->assign("comentarios", comentarios);
             for(let comentario of comentarios){

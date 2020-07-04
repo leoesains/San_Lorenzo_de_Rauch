@@ -15,8 +15,6 @@ class PublicView{
         $this->smarty->assign('nameUser', $nameUser);
         $type = authHelper::typeLogged();
         $this->smarty->assign('type', $type);
-        $idUser = authHelper::idLogged();
-        $this->smarty->assign('idUser', $idUser);
     }
 
     //Muestra la pagina de inicio
