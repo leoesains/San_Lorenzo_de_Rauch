@@ -18,7 +18,7 @@
         La Formación Humana de niños, jóvenes y adultos.<br />
         Fortalecer lazos familiares.<br /> 
         Fortalecer lazos de amistad.<br />
-        Promover actividad para nuestra ciudad.
+        Promover actividades para nuestra ciudad.
         </div>
     </b>
 </div>

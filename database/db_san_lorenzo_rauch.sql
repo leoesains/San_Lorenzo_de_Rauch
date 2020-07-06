@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-06-2020 a las 16:40:42
+-- Tiempo de generación: 06-07-2020 a las 15:56:49
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.5
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `comentarios` (
-  `id_comentarios` int(11) NOT NULL,
+  `id_comentario` int(11) NOT NULL,
   `comentario` text NOT NULL,
   `usuario` varchar(100) NOT NULL,
   `fecha` varchar(30) NOT NULL,
@@ -40,22 +40,46 @@ CREATE TABLE `comentarios` (
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id_comentarios`, `comentario`, `usuario`, `fecha`, `puntaje`, `id_jugador`) VALUES
-(1, 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, nobis veniam repudiandae maxime odit nulla doloribus porro, amet reprehenderit voluptatum cum reiciendis eveniet corrupti sed, accusamus quasi fugiat nesciunt fugit? Agregado en DDBB.', 'Tomas Esains', '23-6-2020 8:30 PM', 2, 23322505),
-(2, 'require_once \'api/task-api.controller.php\';', 'Paz Freccero', '23-6-2020 8:30 PM', 5, 23322505),
+INSERT INTO `comentarios` (`id_comentario`, `comentario`, `usuario`, `fecha`, `puntaje`, `id_jugador`) VALUES
 (10, 'Este comentario lo cargo desde el formulario y a través de la API', 'Paz Freccero', '25-06-2020 - 10:41 pm', 2, 23322505),
 (11, 'Este comentario lo cargo desde el formulario y a través de la API', 'Paz Freccero', '25-06-2020 - 10:41 pm', 2, 23322505),
-(12, 'Este comentario lo cargo desde el formulario y a través de la API', 'Paz Freccero', '25-06-2020 - 10:41 pm', 2, 23322505),
-(13, 'jshgkjhkjaghjshagkjhsakjhgksjahgkjshagkjhkajghkjhakjghkasjhgkjshakgjhskajhgkjshakjghjhasgkj', 'Paz Freccero', '26-06-2020 - 12:32 am', 4, 23322505),
+(13, 'jshgkjhkja ghjshagkjhsakjhgk sjahgkjshagkjhkajghkjh akjghkasjhgkjshakgjhska jhgkjsh akjghjhasgkj', 'Paz Freccero', '26-06-2020 - 12:32 am', 4, 23322505),
 (14, 'genial partido jugaste!!!!!', 'Paz Freccero', '26-06-2020 - 12:38 am', 5, 23322505),
 (15, 'Horrible jugaste', 'Paz Freccero', '26-06-2020 - 12:39 am', 1, 23322505),
-(16, 'skdljgkjglkjljsglk', 'Paz Freccero', '26-06-2020 - 08:58 am', 3, 29885727),
 (17, 'ultimo comentario', 'Paz Freccero', '26-06-2020 - 09:01 am', 1, 23322505),
 (18, 'Nuevo comentario', 'TOMAS ESAINS', '26-06-2020 - 09:19 am', 4, 29885727),
-(19, 'Otro comentario mas', 'TOMAS ESAINS', '26-06-2020 - 09:19 am', 1, 29885727),
-(20, 'Otro comentario mas y no jodemas mas', 'TOMAS ESAINS', '26-06-2020 - 09:19 am', 1, 29885727),
-(21, 'El primer comentario del Fatu', 'Paz Freccero', '26-06-2020 - 11:35 am', 3, 45036419),
-(22, 'El segundo comentario del Fatu', 'Paz Freccero', '26-06-2020 - 11:35 am', 1, 45036419);
+(22, 'El segundo comentario del Fatu', 'Paz Freccero', '26-06-2020 - 11:35 am', 1, 45036419),
+(27, 'Primer comentario!!!!', 'Paz Freccero', '29-06-2020 - 12:07 pm', 1, 48674626),
+(28, 'Otro comentario', 'Paz Freccero', '29-06-2020 - 12:07 pm', 4, 48674626),
+(29, 'Un nuevo comentario!!!!', 'Paz Freccero', '29-06-2020 - 12:09 pm', 2, 48674626),
+(30, 'Holaaaaaaaa', 'Paz Freccero', '29-06-2020 - 12:11 pm', 3, 48674626),
+(31, 'sgkjslgjk skgjskldjg sgjskg', 'Paz Freccero', '29-06-2020 - 12:12 pm', 4, 48674626),
+(32, 'chauuuuuu', 'Paz Freccero', '29-06-2020 - 12:12 pm', 4, 48674626),
+(33, 'kjglksjgkljsklg', 'Paz Freccero', '29-06-2020 - 12:15 pm', 3, 42428423),
+(34, 'se fueeee', 'Paz Freccero', '29-06-2020 - 12:16 pm', 5, 35797761),
+(38, 'fkjhakjhfhafsjajkh', 'Paz Freccero', '30-06-2020 - 12:01 am', 2, 45036447),
+(39, 'jhjfhkjhjfkjfhkf', 'Paz Freccero', '30-06-2020 - 02:00 pm', 2, 46412504),
+(40, 'jhjfhkjhjfkjfhkf jhjdahfja akjfkajkf afjkajkjk', 'Paz Freccero', '30-06-2020 - 02:00 pm', 5, 46412504),
+(41, 'Holaaa!!!!', 'Paz Freccero', '30-06-2020 - 10:29 pm', 3, 47885306),
+(42, 'lkjkjlkjkjljl', 'Paz Freccero', '30-06-2020 - 10:38 pm', 4, 47885306),
+(44, 'Probando!!! Probando!!!', 'leo esains', '30-06-2020 - 10:57 pm', 4, 29885727),
+(45, 'Probando!!! Probando!!! Otro mas!!!', 'leo esains', '30-06-2020 - 10:57 pm', 3, 29885727),
+(49, 'Probando con otro comentario!!!', 'leo esains', '01-07-2020 - 11:02 am', 5, 29885727),
+(50, 'Primer comentario a Nica!!!!!', 'leo esains', '01-07-2020 - 11:13 am', 5, 44649543),
+(51, 'Segundo comentario a Nica', 'leo esains', '01-07-2020 - 11:14 am', 3, 44649543),
+(52, 'Tercer comentario', 'leo esains', '01-07-2020 - 11:14 am', 4, 44649543),
+(53, 'Otro mas', 'Paz Freccero', '01-07-2020 - 11:18 am', 5, 44649543),
+(54, 'Holaaa!!!!', 'Paz Freccero', '01-07-2020 - 01:14 pm', 3, 45782960),
+(67, 'etwtwtwtwtw', 'leo esains', '02-07-2020 - 10:36 pm', 2, 48519702),
+(68, 'lkdsglkjglskjljkg', 'Paz Freccero', '03-07-2020 - 09:18 am', 3, 22222222),
+(69, 'dhdhdhdh', 'Paz Freccero', '05-07-2020 - 09:24 am', 3, 47685826),
+(70, 'fgfgfg', 'Paz Freccero', '05-07-2020 - 09:24 am', 3, 47685826),
+(71, 'ghhjjk', 'Paz Freccero', '05-07-2020 - 09:25 am', 3, 32312811),
+(72, 'Holala!!!', 'Paz Freccero', '05-07-2020 - 10:11 pm', 3, 44649543),
+(73, 'Hola!!!!!!!!!!', 'Paz Freccero', '05-07-2020 - 10:13 pm', 5, 32815188),
+(74, 'fdsfsdff', 'Paz Freccero', '05-07-2020 - 10:15 pm', 2, 32815188),
+(75, 'ggg', 'Paz Freccero', '05-07-2020 - 10:16 pm', 3, 32815188),
+(76, 'uuuuuuuuuuuuuuuuuu', 'Paz Freccero', '06-07-2020 - 09:29 am', 4, 44649543);
 
 -- --------------------------------------------------------
 
@@ -108,6 +132,7 @@ CREATE TABLE `jugadores` (
 --
 
 INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, `puesto`, `club_origen`, `telefono`, `id_division`, `imagen`) VALUES
+(22222222, 'CACHULA ARIAS', 60, '1988-12-13', 'SL-099', 'ARQUERO', 'SAN LORENZO', '249 154 559796', 1, 'images/jugadores/5eff22b2ac2081.17774816.png'),
 (23322505, 'LEONARDO ESAINS', 35, '1973-07-30', 'SL-099', 'ARQUERO', 'AGRARIA', '249 154 559796', 5, 'images/jugadores/45036455.jpg'),
 (23698773, 'pipi romagnoli', 38, '1999-11-23', 'SL-088', 'VOLANTE', 'SAN LORENZO', '(249) 154 594923', 1, 'images/jugadores/45036455.jpg'),
 (29885727, 'BARRAGÁN PASCUAL', 17, '03/01/2003', 'SL-045', 'ARQUERO', 'SAN LORENZO', '(249) 154 017548', 1, 'images/jugadores/29885727.jpg'),
@@ -165,7 +190,7 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 (44649560, 'ULISES HERRERIA ', 17, '21/03/2003', 'SL-067', 'DEFENSOR', 'SAN LORENZO', '(249) 154 534234', 5, 'images/jugadores/44649560.jpg'),
 (45036419, 'VALENTÍN MIÑOLA', 17, '16/04/2003', 'SL-119', 'ARQUERO', 'SAN LORENZO', '(249) 154 694461', 5, 'images/jugadores/45036419.jpg'),
 (45036447, 'ALEJANDRO CROCCI', 17, '03/06/2003', 'SL-068', 'ARQUERO', 'SAN LORENZO', '(249) 154 665099', 5, 'images/jugadores/45036447.jpg'),
-(45036455, 'TOMÁS ESAINS', 16, '14/06/2003', 'SL-021', 'DEFENSOR', 'SAN LORENZO', '(249) 154 594923', 5, 'images/jugadores/45036455.jpg'),
+(45036455, 'TOMÁS ESAINS', 17, '14/06/2003', 'SL-021', 'DEFENSOR', 'SAN LORENZO', '(249) 154 594923', 5, 'images/jugadores/45036455.jpg'),
 (45223755, 'TOMAS ALONSO', 17, '18/08/2003', 'SL-065', 'VOLANTE', 'SAN LORENZO', '(249) 154 356350', 1, 'images/jugadores/45223755.jpg'),
 (45223769, 'FELIPE BENAVIDEZ', 17, '04/09/2003', 'SL-103', 'DELANTERO', 'SAN LORENZO', '(249) 154 348229', 5, 'images/jugadores/45223769.jpg'),
 (45223775, 'IAN DIAZ', 17, '21/08/2003', 'SL-113', 'DELANTERO', 'BOTAFOGO', '(249) 154 325519', 5, 'images/jugadores/45223775.jpg'),
@@ -224,7 +249,7 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 (48309216, 'IVAN TOMAS CORREA', 13, '22/10/2007', 'SL-101', 'VOLANTE', 'SAN LORENZO', '(249) 154 210025', 9, 'images/jugadores/48309216.jpg'),
 (48309227, 'THIAGO PARRA', 13, '02/11/2007', 'SL-111', 'DELANTERO', 'SAN LORENZO', '(249) 154 279512', 7, 'images/jugadores/48309227.jpg'),
 (48309249, 'SANTIAGO ALVAREZ', 12, '29/12/2007', 'SL-106', 'DEFENSOR', 'SAN LORENZO', '(249) 154 479307', 9, 'images/jugadores/48309249.jpg'),
-(48519702, 'FEDERICO MATEO BISCAY', 12, '10/04/2008', 'SL-023', 'ARQUERO', 'SAN LORENZO', '(249) 154 309987', 9, 'images/jugadores/48519702.jpg'),
+(48519702, 'FEDERICO MATEO BISCAY', 12, '10/04/2008', 'SL-023', 'ARQUERO', 'SAN LORENZO', '(249) 154 309987', 9, 'images/jugadores/5eff4ea18e0499.77237356.png'),
 (48643939, 'THOMAS MONTES', 12, '20/04/2008', 'SL-110', 'VOLANTE', 'SAN LORENZO', '(249) 154 322913', 9, 'images/jugadores/48643939.jpg'),
 (48643962, 'BAUTISTA FERN?NDEZ ', 12, '12/04/2008', 'SL-011', 'DEFENSOR', 'SAN LORENZO', '(249) 154 016731', 9, 'images/jugadores/48643962.jpg'),
 (48651348, 'DI NAPOLI AVELINO', 12, '29/09/2008', 'SL-107', 'DELANTERO', 'SAN LORENZO', '(249) 154 015086', 9, 'images/jugadores/48651348.jpg'),
@@ -249,11 +274,37 @@ INSERT INTO `jugadores` (`id_jugador`, `nombre`, `edad`, `fecha_nac`, `carnet`, 
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `publicidades`
+--
+
+CREATE TABLE `publicidades` (
+  `id_publicidad` int(11) NOT NULL,
+  `imagen` varchar(200) NOT NULL,
+  `contacto` varchar(100) NOT NULL,
+  `valor` varchar(10) NOT NULL,
+  `activa` int(2) NOT NULL,
+  `imagen2` varchar(200) NOT NULL,
+  `imagen3` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `publicidades`
+--
+
+INSERT INTO `publicidades` (`id_publicidad`, `imagen`, `contacto`, `valor`, `activa`, `imagen2`, `imagen3`) VALUES
+(7, 'images/publicidades/5f02296deb8b89.63988015.jpg', 'San Lorenzo', '100', 1, '', ''),
+(24, 'images/publicidades/5f0321e36b1345.49373311.jpg', 'Angel Krauel', '700', 1, '', ''),
+(25, 'images/publicidades/5f032d21097b57.51091992.jpg', 'Ruben Ciolfi', '1800', 1, 'images/publicidades/5f032d2109e6e0.83799312.jpg', ''),
+(26, 'images/publicidades/5f032d3d014962.18145443.jpg', 'Pepe Arias', '2300', 1, 'images/publicidades/5f032d3d01ae98.78644576.jpg', 'images/publicidades/5f032d3d020d12.34355033.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
-  `id_administrador` int(2) NOT NULL,
+  `id_usuario` int(2) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `nombre_usuario` varchar(100) NOT NULL,
   `contraseña` varchar(200) NOT NULL,
@@ -264,12 +315,13 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_administrador`, `nombre`, `nombre_usuario`, `contraseña`, `tipo`) VALUES
-(1, 'Seba Esains', 'admin@sanlorenzoderauch.com', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O', 'administrador'),
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `nombre_usuario`, `contraseña`, `tipo`) VALUES
+(1, 'San Lorenzo', 'admin@sanlorenzoderauch.com', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O', 'administrador'),
 (8, 'leo esains', 'leo.esains@gmail.com', '$2y$10$WgEbNKNWN.vWkStcHmEfSO26LA/IEanRebHUMO/Mg3FcKptuv2kUi', 'usuario'),
-(9, 'daniel', 'danxsck@hotmail', '$2y$10$TbQ7YuF4nG04rnFJ3eQWvumYTnVxNfF2LO/kT3fBzJrEZtNMn76UG', 'usuario'),
 (10, 'Paz Freccero', 'paz.freccero@gmail.com', '$2y$10$pASptz.YjX3Uz4yqA53QmOI4Z7/lP4cLOg0bzQAgF.iFHj50FEOyW', 'usuario'),
-(11, 'TOMAS ESAINS', 'tomas.esains@gmail.com', '$2y$10$x9dL6WrVdYM0sA0dL543q.n0k9H4iRQ3wBv19y2edTazUe8p1P1BC', 'usuario');
+(11, 'TOMAS ESAINS', 'tomas.esains@gmail.com', '$2y$10$x9dL6WrVdYM0sA0dL543q.n0k9H4iRQ3wBv19y2edTazUe8p1P1BC', 'usuario'),
+(13, 'juan', 'juanperez@gmail.com', '$2y$10$cdJ6ELI0pC13AoCG0brbL./sRqt9Qc2jv0GTe10bC35eqxVxlzts2', 'usuario'),
+(15, 'maria', 'maria@gmail.com', '$2y$10$mPRWLS.04EcNtOzHI76lnuZIh.6vPX5R2ni1vo/xilC9CwolUvYg6', 'usuario');
 
 --
 -- Índices para tablas volcadas
@@ -279,7 +331,7 @@ INSERT INTO `usuarios` (`id_administrador`, `nombre`, `nombre_usuario`, `contras
 -- Indices de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  ADD PRIMARY KEY (`id_comentarios`),
+  ADD PRIMARY KEY (`id_comentario`),
   ADD KEY `id_jugador` (`id_jugador`);
 
 --
@@ -296,10 +348,16 @@ ALTER TABLE `jugadores`
   ADD KEY `id_division` (`id_division`);
 
 --
+-- Indices de la tabla `publicidades`
+--
+ALTER TABLE `publicidades`
+  ADD PRIMARY KEY (`id_publicidad`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_administrador`);
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -309,13 +367,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT de la tabla `publicidades`
+--
+ALTER TABLE `publicidades`
+  MODIFY `id_publicidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_administrador` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_usuario` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas

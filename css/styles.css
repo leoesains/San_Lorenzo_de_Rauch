@@ -110,7 +110,7 @@ h1{
 }
 
 .table-fixed tbody{
-    height: 600px;
+    height: 350px;
     overflow-y: auto;
     width: 330px;
 }
@@ -676,4 +676,49 @@ label{
     font-weight: bold;
     margin: 0px;
     
+}
+
+.contenedor-fotos-adicionales{
+    border-radius: 5px;
+    padding: 10px;
+    width: 350px;
+    height: 200px;
+    background-color: rgb(214, 210, 205, 0.3);
+    margin-bottom: 10px;
+}
+
+.imagen-publicidad{
+    width: 330px;
+    height: 180px;
+}
+
+.imagen_amb_publicidad{
+    width: 100px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.contenedor_abm_publicidades{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap:1em;
+    margin: 15px;
+}
+.input-publi-contacto{
+    width: 300px;
+}
+
+.input-publi-valor{
+    width: 170px;
+}
+
+.contenedor_show_publicidad{
+    width: 400px;
+    padding-bottom: 15px;
+    background-color: rgba(208, 214, 208, 0.4);
+    border-radius: 15px;
+    padding: 20px;
 }

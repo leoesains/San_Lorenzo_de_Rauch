@@ -43,18 +43,20 @@ class PublicView{
     }
 
     //Muestra un jugador específico y todos los jugadores del club
-    public function showPlayer($jugador, $jugadores, $error = null) {
+    public function showPlayer($jugador, $jugadores, $publicidades, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
+        $this->smarty->assign('publicidades', $publicidades);
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayer.tpl');
     }
 
     //Muestra un jugador específico de una división
     //y todos los jugadores de la misma división del jugador
-    public function showPlayerDivision($jugador, $jugadores, $error = null) {
+    public function showPlayerDivision($jugador, $jugadores, $publicidades, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
+        $this->smarty->assign('publicidades', $publicidades);
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayerDivision.tpl');
     }
@@ -82,9 +84,10 @@ class PublicView{
 
     //Muestra un jugador específico de un puesto
     //y todos los jugadores del mismo puesto del jugador
-     public function showPlayerPosition($jugador, $jugadores, $error = null) {
+     public function showPlayerPosition($jugador, $jugadores, $publicidades, $error = null) {
         $this->smarty->assign('datosJug', $jugador);
         $this->smarty->assign('listaJugadores', $jugadores);
+        $this->smarty->assign('publicidades', $publicidades);
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/showPlayerPosition.tpl');
     }

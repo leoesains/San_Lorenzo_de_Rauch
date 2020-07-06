@@ -8,5 +8,5 @@ Importar la base de datos desde `database/db_san_lorenzo-rauch.sql`
 ## Admin
 Las contraseñas se encriptan mediante BCrypt
 
-user: admin
+user: admin@sanlorenzoderauch.com
 pass: admin

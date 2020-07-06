@@ -94,6 +94,47 @@
     
     
     <div class="contenedorTablaJugadores">
+        <div class="contenedor-fotos-adicionales">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                
+                <div class="carousel-inner">
+                    {foreach from=$publicidades item=publicidad}
+                        {if $publicidad->contacto == "San Lorenzo"}
+                            <div class="carousel-item active">
+                                <img class="imagen-publicidad" src="{$publicidad->imagen}" class="d-block w-100" alt="...">
+                            </div>
+                        {/if}
+                        {if $publicidad->contacto != "San Lorenzo"}
+                            <div class="carousel-item">
+                                <img class="imagen-publicidad" src="{$publicidad->imagen}" class="d-block w-100" alt="...">
+                            </div>
+                            {if $publicidad->imagen2 != ""}
+                                <div class="carousel-item">
+                                    <img class="imagen-publicidad" src="{$publicidad->imagen2}" class="d-block w-100" alt="...">    
+                                </div>
+                            {/if}
+                            {if $publicidad->imagen3 != ""}
+                                <div class="carousel-item">
+                                    <img class="imagen-publicidad" src="{$publicidad->imagen3}" class="d-block w-100" alt="...">    
+                                </div>
+                            {/if}                           
+                            
+                        {/if}
+                    {/foreach}
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+
         <div class="otros_perfiles">
             <p class="titulo_otros_perfiles"><b>OTROS PERFILES</b></p>
         </div>

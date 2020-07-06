@@ -69,5 +69,17 @@ class AdminView{
         $this->smarty->display('templates/formUserDelete.tpl');
     }
 
+    //Muestra el ABM de Publicidades
+    public function abmPublicidades($publicidades, $error = null){
+        $this->smarty->assign('publicidades', $publicidades);
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/abmPublicidades.tpl');
+    }
+
+    //Muestra un formulario para agregar una Publicidad
+    public function formPublicidadAdd($error = null) {
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/formPublicidadAdd.tpl');
+    }
     
 }

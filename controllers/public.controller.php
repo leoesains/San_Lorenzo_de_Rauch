@@ -3,6 +3,7 @@ require_once 'models/divisiones.model.php';
 require_once 'models/jugadores.model.php';
 require_once 'views/public.view.php';
 require_once 'helpers/auth.helper.php';
+require_once 'models/publicidades.model.php';
 
 class PublicController{
 
@@ -10,11 +11,13 @@ class PublicController{
     private $modelDivisiones;
     private $modelJugadores;
     private $view;
+    private $modelPublicidades;
     
     public function __construct(){                  //Constructor de la clase
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
         $this->view = new PublicView();
+        $this->modelPublicidades = new PublicidadesModel();
     }
 
     //Muestra la pagina de inicio
@@ -37,9 +40,9 @@ class PublicController{
     public function viewPlayer($idJugador) {
         $jugadores = $this->modelJugadores->getAll();
         $jugador = $this->modelJugadores->get($idJugador);
-        
+        $publicidades = $this->modelPublicidades->getAll();
         if(!empty($jugador)) {
-            $this->view->showPlayer($jugador, $jugadores);
+            $this->view->showPlayer($jugador, $jugadores, $publicidades);
         } else {
             $this->DDBBvacia("El jugador no se encuentra en la Base de datos");
         }
@@ -49,9 +52,9 @@ class PublicController{
     public function viewPlayerDivision($idJugador, $division) {
         $jugadoresXdivisiones = $this->modelJugadores->getPlayerDivisions($division);
         $jugador = $this->modelJugadores->get($idJugador);
-
+        $publicidades = $this->modelPublicidades->getAll();
         if(!empty($jugador)) {
-            $this->view->showPlayerDivision($jugador, $jugadoresXdivisiones);
+            $this->view->showPlayerDivision($jugador, $jugadoresXdivisiones, $publicidades);
         } else {
             $this->DDBBvacia("El jugador no se encuentra en la Base de Datos");
         }
@@ -107,10 +110,10 @@ class PublicController{
         //sacar parametro puesto
         $jugador = $this->modelJugadores->get($idJugador);
         $jugadoresXpuesto = $this->modelJugadores->getPlayerPosition($jugador->puesto);
-        
+        $publicidades = $this->modelPublicidades->getAll();
 
         if(!empty($jugador)) {
-            $this->view->showPlayerPosition($jugador, $jugadoresXpuesto); 
+            $this->view->showPlayerPosition($jugador, $jugadoresXpuesto, $publicidades); 
         } else {
             $this->DDBBvacia("El Jugador no se encuentra en la Base de Datos");
         }

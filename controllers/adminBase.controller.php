@@ -8,6 +8,7 @@ require_once 'models/comentarios.model.php';
 require_once 'views/public.view.php';
 require_once 'views/admin.view.php';
 require_once 'helpers/auth.helper.php';
+require_once 'models/publicidades.model.php';
 
 class AdminBaseController{
 
@@ -17,6 +18,7 @@ class AdminBaseController{
     private $modelComments;
     private $viewAdmin;
     private $viewPublic;
+    private $modelPublicidades;
     
     public function __construct() { //Constructor de la clase
         authHelper::checkLogged();
@@ -25,6 +27,8 @@ class AdminBaseController{
         $this->modelComments = new ComentariosModel();
         $this->viewAdmin = new AdminView();
         $this->viewPublic = new PublicView();
+        $this->modelPublicidades = new PublicidadesModel();
+        
     }
 
     public function getModelDivisions() {
@@ -45,6 +49,10 @@ class AdminBaseController{
 
     public function getViewPublic() {
         return $this->viewPublic;
+    }
+
+    public function getModelPublicidades() {
+        return $this->modelPublicidades;
     }
 
     //Le digo a la VISTA que me muestre un mensaje por pantalla

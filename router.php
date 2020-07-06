@@ -4,6 +4,7 @@ require_once 'controllers/public.controller.php';
 require_once 'controllers/login.controller.php';
 require_once 'controllers/adminPlayers.controller.php';
 require_once 'controllers/adminDivisions.controller.php';
+require_once 'controllers/adminPublicidades.controller.php';
 
 // definimos la base url de forma dinamica
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -147,6 +148,29 @@ switch($parametros[0]){
         $controller->removeDivision($parametros[1]);
         break;
     }
+
+    case 'mostrar_abm_publicidades': {
+        $controller = new PublicidadesController();  
+        $controller->showABMPublicidades();
+        break;
+    }
+    
+    case 'agregar_publicidad': {
+        $controller = new PublicidadesController();  
+        $controller->formPublicidad();
+        break;
+    }
+    case 'guardar_publicidad': {
+        $controller = new PublicidadesController();  
+        $controller->addPublicidad();
+        break;
+    }
+    
+    case 'eliminar_foto': {
+        $controller = new PublicidadesController();  
+        $controller->deleteFotos($parametros[1]);
+        break;
+    }
     
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++ Acciones del login.controller ++++++++++++++
@@ -192,6 +216,7 @@ switch($parametros[0]){
         $controller->editUser($parametros[1]);
         break;
     }
+
         
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++ Acción por defecto ++++++++++++++++++++
