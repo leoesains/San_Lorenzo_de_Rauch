@@ -15,12 +15,12 @@ class LoginModel extends dbConectionModel {
     }
 
     //ingresa un nuevo usuario a la BBDD
-    public function insert($nombre, $nombre_usuario, $contraseña, $tipo) {
+    public function insert($nombre, $nombre_usuario, $contraseña, $tipo, $mascota, $ciudad) {
         //enviamos la consulta
-        $sql = "INSERT INTO usuarios(nombre, nombre_usuario, contraseña, tipo) 
-                VALUES (?, ?, ?, ?) ";
+        $sql = "INSERT INTO usuarios(nombre, nombre_usuario, contraseña, tipo, respuesta1, respuesta2) 
+                VALUES (?, ?, ?, ?, ?, ?) ";
         $query = $this->getConnection()->prepare($sql);  
-        $query->execute([$nombre, $nombre_usuario, $contraseña, $tipo]);        
+        $query->execute([$nombre, $nombre_usuario, $contraseña, $tipo, $mascota, $ciudad]);        
     }
 
     //devuelve los usuarios y administradores
@@ -64,10 +64,27 @@ class LoginModel extends dbConectionModel {
     //Actualiza el tipo de usuario
     public function update($id_usuario, $tipo) {
         //enviamos la consulta
-        $sql = "UPDATE usuarios SET tipo = ? WHERE id_usuario = $id_usuario";
+        $sql = "UPDATE usuarios SET tipo = ? WHERE id_usuario = ?";
         $query = $this->getConnection()->prepare($sql);  
-        $query->execute([$tipo]);        
+        $query->execute([$tipo, $id_usuario]);        
     }
     
-    
+    //devuelve el usuario con email $mail
+    public function getMail($mail) {
+        
+        //Hacemos la consulta
+        $sql = "SELECT * FROM usuarios WHERE nombre_usuario = ?";
+        $query = $this->getConnection()->prepare($sql);    //Preparo la sentencia sql para hacer la consulta
+        $query->execute([$mail]);        //la ejecuto
+        $usuario = $query->fetch(PDO::FETCH_OBJ);    
+        return $usuario;
+    }
+
+    //Actualiza contraseña del usuario
+    public function updatePassword($id_usuario, $contraseña) {
+        //enviamos la consulta
+        $sql = "UPDATE usuarios SET contraseña = ? WHERE id_usuario = ?";
+        $query = $this->getConnection()->prepare($sql);  
+        $query->execute([$contraseña, $id_usuario]);        
+    }
 }

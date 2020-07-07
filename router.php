@@ -83,6 +83,27 @@ switch($parametros[0]){
         $controller->viewAsociarse();
         break;
     }
+    case 'recuperar_contraseña': {
+        $controller = new PublicController();     
+        $controller->formPedirUsuario();
+        break;
+    }
+
+    case 'viewIsUser': {
+        $controller = new PublicController();     
+        $controller->verificarUsuario();
+        break;
+    }
+    case 'verificar_respuestas': {
+        $controller = new PublicController();     
+        $controller->verificarRespuestas();
+        break;
+    }
+    case 'cambiar_contraseña': {
+        $controller = new PublicController();     
+        $controller->actualizarContraseña();
+        break;
+    }
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //++ Acciones del players.controller y divisions.controller ++
@@ -216,7 +237,6 @@ switch($parametros[0]){
         $controller->editUser($parametros[1]);
         break;
     }
-
         
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++ Acción por defecto ++++++++++++++++++++

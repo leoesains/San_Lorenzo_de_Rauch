@@ -4,6 +4,7 @@ require_once 'models/jugadores.model.php';
 require_once 'views/public.view.php';
 require_once 'helpers/auth.helper.php';
 require_once 'models/publicidades.model.php';
+require_once 'models/login.model.php';
 
 class PublicController{
 
@@ -12,12 +13,14 @@ class PublicController{
     private $modelJugadores;
     private $view;
     private $modelPublicidades;
+    private $modelLogin;
     
     public function __construct(){                  //Constructor de la clase
         $this->modelDivisiones = new DivisionesModel();
         $this->modelJugadores = new JugadoresModel();
         $this->view = new PublicView();
         $this->modelPublicidades = new PublicidadesModel();
+        $this->modelLogin = new LoginModel();
     }
 
     //Muestra la pagina de inicio
@@ -122,4 +125,58 @@ class PublicController{
     public function viewAsociarse(){
         $this->view->showFormAsociarse();
     }
+
+    public function formPedirUsuario(){
+        $this->view->formNameUser();
+    } 
+
+    public function verificarUsuario(){
+        if(empty($_POST['mail'])){
+            $this->view->formNameUser("No ingresó un mail! ");
+            die;
+        }
+        $mail = $_POST['mail'];
+        $usuario = $this->modelLogin->getMail($mail);
+        if(!$usuario){
+            $this->view->formNameUser("No existe el mail ingresado! ");
+            die;
+        }
+        $respuesta1 = $usuario->respuesta1;
+        $respuesta2 = $usuario->respuesta2;
+        $id_usuario = $usuario->id_usuario;
+        $this->view->formPreguntas($respuesta1, $respuesta2, $id_usuario);
+    }
+    public function verificarRespuestas(){
+        
+        if(empty($_POST['resp1']) || empty($_POST['resp2'])){
+            $this->view->formPreguntas($_POST['respuesta1'], $_POST['respuesta2'], $_POST['id_usuario'], "Debe responder las dos preguntas!");
+            die;
+        }
+        /**Controlar las respuestas */
+        if(password_verify($_POST['resp1'], $_POST['respuesta1']) && password_verify($_POST['resp2'], $_POST['respuesta2'])){
+            $this->view->formCambiarContraseña($_POST['id_usuario']);
+        }
+        else
+        {
+            $this->view->formPreguntas($_POST['respuesta1'], $_POST['respuesta2'], $_POST['id_usuario'], "Verifique sus respuestas");
+            die;
+        }
+    }
+
+    public function actualizarContraseña(){
+        if(empty($_POST['contraseña']) || empty($_POST['repitaContraseña'])){
+            $this->view->formCambiarContraseña($_POST['id_usuario'], "Debe ingresar todos los campos pedidos");
+            die;
+        }
+        if($_POST['contraseña'] != $_POST['repitaContraseña']){
+            $this->view->formCambiarContraseña($_POST['id_usuario'], "Las contraseñas no coinciden");
+            die;
+        }
+        $contraseña = $_POST['contraseña'];
+        $id_usuario = $_POST['id_usuario'];
+        $passwordCifrado = password_hash($contraseña, PASSWORD_DEFAULT);
+        $this->modelLogin->updatePassword($id_usuario, $passwordCifrado);
+        $this->view->showHome("Se reestableció correctamente su contraseña");
+    }
+
 }
