@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-07-2020 a las 15:56:49
+-- Tiempo de generación: 07-07-2020 a las 04:45:28
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.5
 
@@ -295,7 +295,9 @@ INSERT INTO `publicidades` (`id_publicidad`, `imagen`, `contacto`, `valor`, `act
 (7, 'images/publicidades/5f02296deb8b89.63988015.jpg', 'San Lorenzo', '100', 1, '', ''),
 (24, 'images/publicidades/5f0321e36b1345.49373311.jpg', 'Angel Krauel', '700', 1, '', ''),
 (25, 'images/publicidades/5f032d21097b57.51091992.jpg', 'Ruben Ciolfi', '1800', 1, 'images/publicidades/5f032d2109e6e0.83799312.jpg', ''),
-(26, 'images/publicidades/5f032d3d014962.18145443.jpg', 'Pepe Arias', '2300', 1, 'images/publicidades/5f032d3d01ae98.78644576.jpg', 'images/publicidades/5f032d3d020d12.34355033.jpg');
+(26, 'images/publicidades/5f032d3d014962.18145443.jpg', 'Pepe Arias', '2300', 1, 'images/publicidades/5f032d3d01ae98.78644576.jpg', 'images/publicidades/5f032d3d020d12.34355033.jpg'),
+(27, 'images/publicidades/5f03408d3ae5f5.34177078.jpg', 'Francisco Harkes', '700', 1, '', ''),
+(28, 'images/publicidades/5f038dda3fd9f8.83455840.jpg', 'Luchy', '1950', 1, 'images/publicidades/5f038dda4076c7.74336491.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -308,20 +310,18 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(30) NOT NULL,
   `nombre_usuario` varchar(100) NOT NULL,
   `contraseña` varchar(200) NOT NULL,
-  `tipo` varchar(20) NOT NULL
+  `tipo` varchar(20) NOT NULL,
+  `respuesta1` varchar(200) NOT NULL,
+  `respuesta2` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `nombre_usuario`, `contraseña`, `tipo`) VALUES
-(1, 'San Lorenzo', 'admin@sanlorenzoderauch.com', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O', 'administrador'),
-(8, 'leo esains', 'leo.esains@gmail.com', '$2y$10$WgEbNKNWN.vWkStcHmEfSO26LA/IEanRebHUMO/Mg3FcKptuv2kUi', 'usuario'),
-(10, 'Paz Freccero', 'paz.freccero@gmail.com', '$2y$10$pASptz.YjX3Uz4yqA53QmOI4Z7/lP4cLOg0bzQAgF.iFHj50FEOyW', 'usuario'),
-(11, 'TOMAS ESAINS', 'tomas.esains@gmail.com', '$2y$10$x9dL6WrVdYM0sA0dL543q.n0k9H4iRQ3wBv19y2edTazUe8p1P1BC', 'usuario'),
-(13, 'juan', 'juanperez@gmail.com', '$2y$10$cdJ6ELI0pC13AoCG0brbL./sRqt9Qc2jv0GTe10bC35eqxVxlzts2', 'usuario'),
-(15, 'maria', 'maria@gmail.com', '$2y$10$mPRWLS.04EcNtOzHI76lnuZIh.6vPX5R2ni1vo/xilC9CwolUvYg6', 'usuario');
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `nombre_usuario`, `contraseña`, `tipo`, `respuesta1`, `respuesta2`) VALUES
+(1, 'San Lorenzo', 'admin@sanlorenzoderauch.com', '$2y$10$S1Nls0pCAHOl2Brfy.KUouH6LvQDVk4ABqYJ2lmAag8i0jVmiBq9O', 'administrador', '', ''),
+(21, 'Leonardo Jose', 'leo.esains@gmail.com', '$2y$10$kC4TiL7oD7Sc3IsXeet8eeVtW9/BKE36GbjupQkgRCipQAXMN4QOG', 'usuario', '$2y$10$wpTqVC6xxKGnBrGGWyKeIOyqIxXWFxu9oULXI/nKeBLu8H13aVZom', '$2y$10$KzO9q9l1U.0zToNk.x2V2eIuYzJVoxYE8BguccR3oVsHMsl7AJn4S');
 
 --
 -- Índices para tablas volcadas
@@ -373,13 +373,13 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `publicidades`
 --
 ALTER TABLE `publicidades`
-  MODIFY `id_publicidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_publicidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_usuario` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas
