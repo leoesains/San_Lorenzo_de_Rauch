@@ -93,7 +93,9 @@ class PublicView{
     }
 
     //Muestra un formulario para cargar un nuevo usuario
-    public function formCheckIn($error = null) {
+    public function formCheckIn($error = null, $usuario = null, $mail = null) {
+        $this->smarty->assign('nombre', $usuario);
+        $this->smarty->assign('mail', $mail);
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/formUserAdd.tpl');
     }
@@ -101,5 +103,25 @@ class PublicView{
     //Mustra el formulario para asociarse
     public function showFormAsociarse() {
         $this->smarty->display('templates/showFormAsociarse.tpl');
+    }
+
+    public function formNameUser($error = null){
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/formNameUser.tpl');
+    } 
+
+    public function formPreguntas($respuesta1, $respuesta2, $id_usuario, $error = null){
+        
+        $this->smarty->assign('respuesta1', $respuesta1);
+        $this->smarty->assign('respuesta2', $respuesta2);
+        $this->smarty->assign('id_usuario', $id_usuario);
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/formPreguntas.tpl');
+    }
+
+    public function formCambiarContraseña($id_usuario, $error = null) {
+        $this->smarty->assign('id_usuario', $id_usuario);
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/formCambiarContraseña.tpl');
     }
 }

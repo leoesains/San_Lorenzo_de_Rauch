@@ -58,23 +58,27 @@ class LoginController {
     }
 
     public function addUser() {
-        if(empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['contraseña']) || empty($_POST['repitaContraseña'])) {
-            $this->viewPublic->formCheckIn("Todos los datos son obligatorios");
+        if(empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['contraseña']) || empty($_POST['repitaContraseña']) || empty($_POST['mascota']) || empty($_POST['ciudad'])) {
+            $this->viewPublic->formCheckIn("Todos los datos son obligatorios", $_POST['nombre'], $_POST['email']);
         } else {
             $name = $_POST['nombre'];
             $username = $_POST['email'];
             $password = $_POST['contraseña'];
             $repitPassword = $_POST['repitaContraseña'];
             $tipo = "usuario";
+            $mascota = $_POST['mascota'];
+            $ciudad = $_POST['ciudad'];
             $user = $this->modelLogin->getAdmin($username);
             if($user) {
                 $this->viewPublic->formCheckIn("El usuario " . $username . " ya estaba registrado");
             } else {
                 if($password != $repitPassword) {
-                    $this->viewPublic->formCheckIn("Las contraseñas no coinciden"); 
+                    $this->viewPublic->formCheckIn("Las contraseñas no coinciden", $_POST['nombre'], $_POST['email']); 
                 } else {
                     $passwordCifrado = password_hash($password, PASSWORD_DEFAULT);
-                    $this->modelLogin->insert($name, $username, $passwordCifrado, $tipo);
+                    $mascotaCifrado = password_hash($mascota, PASSWORD_DEFAULT);
+                    $ciudadCifrado = password_hash($ciudad, PASSWORD_DEFAULT);
+                    $this->modelLogin->insert($name, $username, $passwordCifrado, $tipo, $mascotaCifrado, $ciudadCifrado);
                     $user = $this->modelLogin->getAdmin($username);
                     if(session_status() != PHP_SESSION_ACTIVE){
                         session_start();         //Abro la sesion                  
@@ -92,10 +96,14 @@ class LoginController {
     }
 
     //Muestra todos los usuarios
-    public function showUsers($error = null) {
+    public function showUsers() {
         $usuarios = $this->modelLogin->get();
         $tipos = $this->modelLogin->types();
-        $this->view->showUsers($usuarios, $tipos, $error);
+        if(count($usuarios) == 1){
+            $this->view->showUsers($usuarios, $tipos, "Aún no hay Usuarios cargados.");
+            die;
+        }
+        $this->view->showUsers($usuarios, $tipos);
     }
 
     //Repregunta si esta seguro en eliminar un usuario de la BBDD
@@ -126,6 +134,7 @@ class LoginController {
         }
     }
 
+    
     
 }
 
