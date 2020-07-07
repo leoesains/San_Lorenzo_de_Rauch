@@ -74,7 +74,5 @@
                 <a class="btn btn-danger btn-volver btn-volver-edit-jug" href="listar_jugadores"><b>Volver</b></a>;
             </div>
         </div>
-
-        
     </form>
 {include 'footer.tpl'}    

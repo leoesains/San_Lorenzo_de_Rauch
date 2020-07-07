@@ -14,7 +14,7 @@ class PublicidadesModel extends dbConectionModel {
         return $publicidades;
     }
 
-    //ingresa una nueva publicidad a la BBDD
+    //Guarda una nueva publicidad a la BBDD
     public function insert($foto, $contacto, $valor, $foto2, $foto3) {
         //enviamos la consulta
         $sql = "INSERT INTO publicidades(imagen, contacto, valor, activa, imagen2, imagen3) VALUES (?, ?, ?, ?, ?, ?)";

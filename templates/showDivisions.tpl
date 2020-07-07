@@ -69,7 +69,5 @@
             {/if}
         </div>    
     {/foreach}
-    
-      
 </div>
 {include 'templates/footer.tpl'}

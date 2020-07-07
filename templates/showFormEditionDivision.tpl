@@ -1,5 +1,4 @@
 {include 'templates/header.admin.tpl'}
-    
     <form id="form_add_jugador" action="guardar_edicion_division" method="POST">
         <h1>MODIFIQUE LOS DATOS QUE DESEA CAMBIAR</h1>
         <input type="hidden" name="id_division" value="{$division->id_division}">
@@ -19,6 +18,5 @@
             {/if}
         </div>
     </form>
-    
 {include 'templates/footer.tpl'}
 

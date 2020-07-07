@@ -93,19 +93,11 @@
         <h5>{$datosJug->club_origen}</h5>
 
        {* Espacio para poner los comentarios *}
-        
-        <input type="hidden" name="usuario" value="{$type}">
-        <input type="hidden" name="jugador" value="{$datosJug->id_jugador}">
         {include 'templates/vue/showComments.vue'}
-
     </div>
-
-    
-    
     <div class="contenedorTablaJugadores">
         <div class="contenedor-fotos-adicionales">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                
                 <div class="carousel-inner">
                     {foreach from=$publicidades item=publicidad}
                         {if $publicidad->contacto == "San Lorenzo"}
@@ -127,10 +119,8 @@
                                     <img class="imagen-publicidad" src="{$publicidad->imagen3}" class="d-block w-100" alt="...">    
                                 </div>
                             {/if}                           
-                            
                         {/if}
                     {/foreach}
-
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -142,8 +132,6 @@
                 </a>
             </div>
         </div>
-
-
         <div class="otros_perfiles">
             <p class="titulo_otros_perfiles"><b>OTROS PERFILES</b></p>
         </div>
@@ -175,6 +163,4 @@
         </div>    
     </div>
 </div>
-        
- 
 {include 'templates/footer.tpl'}

@@ -1,5 +1,4 @@
 {include 'header.admin.tpl'}
-    
     <form id="form_add_jugador" action="guardar_jugador" method="POST" enctype="multipart/form-data">
         <h1>DATOS DEL NUEVO JUGADOR</h1>
         <input type="namber" placeholder="INGRESE DNI" name="dni">
@@ -39,6 +38,5 @@
                 <MARQUEE loop="2">{$error}</MARQUEE>
             {/if}
         </div>      
-
     </form>
 {include 'templates/footer.tpl'}

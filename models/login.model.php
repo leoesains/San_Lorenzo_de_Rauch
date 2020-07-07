@@ -71,7 +71,6 @@ class LoginModel extends dbConectionModel {
     
     //devuelve el usuario con email $mail
     public function getMail($mail) {
-        
         //Hacemos la consulta
         $sql = "SELECT * FROM usuarios WHERE nombre_usuario = ?";
         $query = $this->getConnection()->prepare($sql);    //Preparo la sentencia sql para hacer la consulta

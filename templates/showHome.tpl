@@ -9,7 +9,6 @@
         <MARQUEE loop="2">{$error}</MARQUEE>
     {/if}
 </div>
-
 <div class="Iam">
     <p class="font-size">Institución dedicada a</p>
     <b>
@@ -22,15 +21,8 @@
         </div>
     </b>
 </div>
-
-{*<p class="frase">"Todos tenemos sueños, pero para que se vuelvan realidad se necesita una gran determinación, dedicación, autodisciplina y esfuerzo."</P>
-*}
 <div class="hacete-socio">
-
     <h1><MARQUEE> | ¡Hacete Socio! | !Colaborás! | ¡Participás! | ¡Formás Parte! |</MARQUEE></h1>
     <a class="socio" href="asociarse">¡Asociate!</a>
-
 </div>
-
-    
 {include 'templates/footer.tpl'}

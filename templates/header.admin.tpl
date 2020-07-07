@@ -82,7 +82,4 @@
                     <h5><MARQUEE>¡Hacete Socio!</MARQUEE></h5>
                     <a class="socio-header" href="asociarse">¡Asociate!</a>
                 </div>
-
-
-                
             </nav>

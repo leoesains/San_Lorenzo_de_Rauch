@@ -19,6 +19,5 @@
             {/if}
         </div>
     </form>
-    
 {include 'templates/footer.tpl'}
 

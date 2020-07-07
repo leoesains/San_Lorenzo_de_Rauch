@@ -105,13 +105,16 @@ class PublicView{
         $this->smarty->display('templates/showFormAsociarse.tpl');
     }
 
+    //Muestra formulario para ingresar mail de usuario para
+    //recuperar contraseña
     public function formNameUser($error = null){
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/formNameUser.tpl');
     } 
 
+    //Muestra formulario para responder las preguntas secretas para
+    //recuperar contraseña
     public function formPreguntas($respuesta1, $respuesta2, $id_usuario, $error = null){
-        
         $this->smarty->assign('respuesta1', $respuesta1);
         $this->smarty->assign('respuesta2', $respuesta2);
         $this->smarty->assign('id_usuario', $id_usuario);
@@ -119,6 +122,8 @@ class PublicView{
         $this->smarty->display('templates/formPreguntas.tpl');
     }
 
+    //Muestra formulario para ingresar la nueva contraseña para
+    //recuperar contraseña
     public function formCambiarContraseña($id_usuario, $error = null) {
         $this->smarty->assign('id_usuario', $id_usuario);
         $this->smarty->assign('error', $error);

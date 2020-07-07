@@ -126,10 +126,15 @@ class PublicController{
         $this->view->showFormAsociarse();
     }
 
+    // METODOS NECESARIOS PARA EL RECUPERO DE CONTRASEÑA
+    
+    // Formulario para ingresar el mail
     public function formPedirUsuario(){
         $this->view->formNameUser();
     } 
 
+    // Verifica que el usuario esté registrado
+    // Muestra formulario de Preguntas Secretas
     public function verificarUsuario(){
         if(empty($_POST['mail'])){
             $this->view->formNameUser("No ingresó un mail! ");
@@ -146,8 +151,11 @@ class PublicController{
         $id_usuario = $usuario->id_usuario;
         $this->view->formPreguntas($respuesta1, $respuesta2, $id_usuario);
     }
+
+
+    // Verifica que las respuestas sean iguales a las almacenadas en la DDBB
+    // Muestra formulario para ingresar la nueva contraseña
     public function verificarRespuestas(){
-        
         if(empty($_POST['resp1']) || empty($_POST['resp2'])){
             $this->view->formPreguntas($_POST['respuesta1'], $_POST['respuesta2'], $_POST['id_usuario'], "Debe responder las dos preguntas!");
             die;
@@ -163,6 +171,7 @@ class PublicController{
         }
     }
 
+    // Guarda la nuea contraseña en la DDBB
     public function actualizarContraseña(){
         if(empty($_POST['contraseña']) || empty($_POST['repitaContraseña'])){
             $this->view->formCambiarContraseña($_POST['id_usuario'], "Debe ingresar todos los campos pedidos");

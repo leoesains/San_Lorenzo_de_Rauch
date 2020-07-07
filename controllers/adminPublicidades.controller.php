@@ -4,8 +4,7 @@ require_once 'controllers/adminBase.controller.php';
 
 class PublicidadesController extends AdminBaseController {
 
-    //muestra el formulario para cargar los datos de una nueva División
-    //para posteriormente guardarla en la BBDD
+    
     public function showABMPublicidades() {
         $publicidades = $this->getModelPublicidades()->getAll();
         if(count($publicidades) == 1){
@@ -18,17 +17,7 @@ class PublicidadesController extends AdminBaseController {
     public function formPublicidad(){
         $this->getViewAdmin()->formPublicidadAdd();
     }
-/*
-    public function copyImage(){
-        // Nombre archivo original
-        $nombreOriginal = $_FILES['foto']['name'];
-        // Nombre en el file system:
-        $nombreFisico = $_FILES['foto']['tmp_name'];
-        $nombreFinal = "images/publicidades/". uniqid("", true) . "." . strtolower(pathinfo($nombreOriginal, PATHINFO_EXTENSION));
-        move_uploaded_file($nombreFisico, $nombreFinal); 
-        return $nombreFinal;
-    }
-*/
+
     public function copyImage(){
         
         foreach($_FILES as $fotos){
@@ -41,14 +30,8 @@ class PublicidadesController extends AdminBaseController {
                  
             }
         }
-        
-        
         return $nombreFinal;
     }
-
-
-
-
 
     //guarda una nueva publicidad en la BBDD
   
@@ -57,8 +40,7 @@ class PublicidadesController extends AdminBaseController {
                 $publicidades = $this->getModelPublicidades()->getAll(); 
                 $this->getViewAdmin()->abmPublicidades($publicidades, "No ingresó todos los campos");
         } 
-        else { //******* HACER UN FOREACH */
-
+        else { 
             foreach($_FILES['fotos']['type'] as $tipo){
                 if(!($tipo == "image/jpg" || $tipo == "image/jpeg" || $tipo == "image/png")){
                     $publicidades = $this->getModelPublicidades()->getAll(); 
@@ -84,6 +66,4 @@ class PublicidadesController extends AdminBaseController {
             $this->getViewAdmin()->abmPublicidades($publicidades, "La publicidad se cargó con éxito");
         }
     }
-            
-    
 }

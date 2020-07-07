@@ -49,14 +49,9 @@
                         <a class="nav-link" href="registrarse">Registrarse<span class="sr-only">(current)</span></a>
                     </div>
                 </div>
-                
-
                 <div class="hacete-socio-header">
                     <h5><MARQUEE>¡Hacete Socio!</MARQUEE></h5>
                     <a class="socio-header" href="asociarse">¡Asociate!</a>
                 </div>
-                
-                
-
             </nav>
        
